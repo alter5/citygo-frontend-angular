@@ -1,0 +1,33 @@
+@import "src/theme.scss";
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.container {
+    display  : flex;
+    width    : 100%;
+    max-width: $space-width-max;
+    justify-content: space-between;
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
