@@ -10,10 +10,10 @@ nav {
 }
 
 .container {
-    display  : flex;
-    width    : 100%;
-    max-width: $space-width-max;
+    display        : flex;
     justify-content: space-between;
+    width          : 100%;
+    max-width      : $width-xl;
 }
 
 .navbar-left {
