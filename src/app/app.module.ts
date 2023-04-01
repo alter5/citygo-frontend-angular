@@ -10,19 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from '@angular/material/card';
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    BaseComponent
-  ],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, BaseComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
