@@ -32,7 +32,7 @@
 $dark-theme: mat.define-dark-theme((
  color: (
    primary: mat.define-palette(mat.$pink-palette),
-   accent: mat.define-palette(mat.$blue-grey-palette),
+   accent: mat.define-palette(mat.$green-palette),
  ),
   // Only include `typography` and `density` in the default dark theme.
   typography: mat.define-typography-config(),
