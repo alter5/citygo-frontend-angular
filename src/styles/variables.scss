@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use "@angular/material" as mat;
+
+$light-theme: mat.define-light-theme((
+ color: (
+   primary: mat.define-palette(mat.$indigo-palette),
+   accent: mat.define-palette(mat.$pink-palette),
+   warn: mat.define-palette(mat.$amber-palette),
+ ),
+));
+
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: mat.define-palette(mat.$pink-palette),
+   accent: mat.define-palette(mat.$green-palette),
+   warn: mat.define-palette(mat.$red-palette),
+ ),
+));
+
+$color-config-light-theme: mat.get-color-config($light-theme);
+$color-config-dark-theme: mat.get-color-config($dark-theme);
+
+@mixin get-theme-color($theme) {
+  // Parse the theme and create variables for each color in the pallete
+  $color-config: mat.get-color-config($theme);
+
+  $primary-palette: map.get($color-config, primary);
+  $accent-palette: map.get($color-config, accent);
+  $warn-palette: map.get($color-config, warn);
+
+  // // Create theme specfic styles
+  // .primary-color {
+  //   background-color: mat-color($primary);
+  // }
+  // .primary-color-dark {
+
+  // }
+  // .primary-color-light {
+
+  // }
+
+  // .accent-color {
+  //   background-color: mat-color($accent);
+  // }
+  // .accent-color-dark {
+
+  // }
+  // .accent-color-light {
+
+  // }
+
+  // .warn-color {
+
+  // }
+
+
+}
+
+// Useful: Get dark color from palette
+// background: mat.get-color-from-palette($my-palette, 'darker');
+
+$width-xxl: 1320px;
+
+$space-base: 1rem;
+$space-sm: $space-base * 0.875;
+$space-md: $space-base * 1;
+$space-lg: $space-base * 1.5;
+$space-xl: $space-base * 2;
+$space-xxl: $space-base * 4;
+
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * 0.875;
+$font-size-md: $font-size-base * 1;
+$font-size-lg: $font-size-base * 1.25;
+$font-size-xl: $font-size-base * 1.75;
+$font-size-xxl: $font-size-base * 2;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;

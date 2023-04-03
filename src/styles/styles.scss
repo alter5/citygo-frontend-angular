@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use "@angular/material" as mat;
+@use "./variables.scss" as vars;
+
+@include mat.core();
+
+// TODO: Programmatically change theme: https://stackoverflow.com/a/70047929/13243731
+:root {
+  --theme: "null";
+}
+$theme: var(--theme);
+
+@if $theme == "light" {
+  @include mat.all-component-themes(vars.$light-theme);
+} @else if theme == "dark" {
+  @include mat.all-component-themes(vars.$dark-theme);
+} @else {
+  // Apply light theme by default
+  @include mat.all-component-themes(vars.$dark-theme)
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
