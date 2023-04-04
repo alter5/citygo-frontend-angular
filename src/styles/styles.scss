@@ -4,19 +4,14 @@
 
 @include mat.core();
 
-// TODO: Programmatically change theme: https://stackoverflow.com/a/70047929/13243731
-:root {
-  --theme: "null";
-}
-$theme: var(--theme);
-
-@if $theme == "light" {
-  @include mat.all-component-themes(vars.$light-theme);
-} @else if theme == "dark" {
+.dark-theme {
   @include mat.all-component-themes(vars.$dark-theme);
-} @else {
-  // Apply light theme by default
-  @include mat.all-component-themes(vars.$dark-theme)
+  @include vars.create-theme-classes(vars.$dark-theme)
+}
+
+.light-theme {
+  @include mat.all-component-themes(vars.$light-theme);
+  @include vars.create-theme-classes(vars.$light-theme)
 }
 
 html,
