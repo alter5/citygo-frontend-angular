@@ -26,6 +26,8 @@ $color-config-dark-theme: mat.get-color-config($dark-theme);
   // Parse the theme and create variables for each color in the pallete
   $color-config: mat.get-color-config($theme);
 
+  // TODO: use map.keys instead!
+
   @each $palette-name, $palette in $color-config {
     .#{$palette-name}-color {
       background: mat.get-color-from-palette($palette, "default");
