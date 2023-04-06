@@ -6,12 +6,33 @@
 
 .dark-theme {
   @include mat.all-component-themes(vars.$dark-theme);
-  @include vars.create-theme-classes(vars.$dark-color-config)
+  @include create-theme-classes(vars.$dark-color-config)
 }
 
 .light-theme {
   @include mat.all-component-themes(vars.$light-theme);
-  @include vars.create-theme-classes(vars.$light-color-config)
+  @include create-theme-classes(vars.$light-color-config)
+}
+
+// Create a class for every palette in a theme
+@mixin create-theme-classes($color-config) {
+  @each $palette-name,
+  $palette in $color-config {
+    .#{$palette-name}-color {
+      background: mat.get-color-from-palette($palette, "default");
+      color: mat.get-color-from-palette($palette, 'default-contrast');
+    }
+
+    .#{$palette-name}-color-light {
+      background: mat.get-color-from-palette($palette, 'lighter');
+      color: mat.get-color-from-palette($palette, 'lighter-contrast');
+    }
+
+    .#{$palette-name}-color-dark {
+      background: mat.get-color-from-palette($palette, 'darker');
+      color: mat.get-color-from-palette($palette, 'darker-contrast');
+    }
+  }
 }
 
 html,
