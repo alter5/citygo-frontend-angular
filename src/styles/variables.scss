@@ -22,31 +22,31 @@ $color-config-dark-theme: mat.get-color-config($dark-theme);
 
 @debug "dark theme: #{map.keys($dark-theme)}";
 
-@mixin create-theme-classes($theme) {
-  // Parse the theme and create variables for each color in the pallete
-  $color-config: mat.get-color-config($theme);
+// @mixin create-theme-classes($theme) {
+//   // Parse the theme and create variables for each color in the pallete
+//   $color-config: mat.get-color-config($theme);
 
-  // TODO: use map.keys instead!
+//   // TODO: use map.keys instead!
 
-  @each $key in map.keys($color-config) {
-    .#{$key}-color {
-      background: mat.get-color-from-palette(map.get(map.get($color-config, $key), "default"));
-      color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'default-contrast'));
-    }
+//   @each $key in map.keys($color-config) {
+//     .#{$key}-color {
+//       background: mat.get-color-from-palette(map.get(map.get($color-config, $key), "default"));
+//       color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'default-contrast'));
+//     }
 
-    .#{$key}-color-light {
-      background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter'));
-      color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter-contrast'));
-    }
+//     .#{$key}-color-light {
+//       background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter'));
+//       color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter-contrast'));
+//     }
 
-    .#{$key}-color-dark {
-      background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker'));
-      color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker-contrast'));
-    }
+//     .#{$key}-color-dark {
+//       background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker'));
+//       color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker-contrast'));
+//     }
 
-    // }
-  }
-}
+//     // }
+//   }
+// }
 
 // Useful: Get dark color from palette
 // background: mat.get-color-from-palette($my-palette, 'darker');
