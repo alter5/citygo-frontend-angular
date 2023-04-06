@@ -15,14 +15,10 @@ $dark-color-config: (
 );
 $dark-theme: mat.define-dark-theme(("color": $dark-color-config));
 
-@debug "dark theme: #{map.keys($dark-theme)}";
-
 @mixin create-theme-classes($color-config) {
   // Parse the theme and create variables for each color in the pallete
-  $color-config: mat.get-color-config($theme);
 
-  @each $palette-name,
-  $palette in $color-config {
+  @each $palette-name, $palette in $color-config {
     .#{$palette-name}-color {
       background: mat.get-color-from-palette($palette, "default");
       color: mat.get-color-from-palette($palette, 'default-contrast');
@@ -38,6 +34,7 @@ $dark-theme: mat.define-dark-theme(("color": $dark-color-config));
       color: mat.get-color-from-palette($palette, 'darker-contrast');
     }
   }
+}
 
 // Useful: Get dark color from palette
 // background: mat.get-color-from-palette($my-palette, 'darker');

@@ -6,12 +6,12 @@
 
 .dark-theme {
   @include mat.all-component-themes(vars.$dark-theme);
-  // @include vars.create-theme-classes(vars.$dark-theme)
+  @include vars.create-theme-classes(vars.$dark-color-config)
 }
 
 .light-theme {
   @include mat.all-component-themes(vars.$light-theme);
-  // @include vars.create-theme-classes(vars.$light-theme)
+  @include vars.create-theme-classes(vars.$light-color-config)
 }
 
 html,
