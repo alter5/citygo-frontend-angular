@@ -2,9 +2,9 @@
 @use "@angular/material" as mat;
 
 $light-color-config: (
-  "primary": mat.define-palette(mat.$indigo-palette, 200, 100, 400),
-  "accent": mat.define-palette(mat.$pink-palette, 200, 100, 400),
-  "warn": mat.define-palette(mat.$amber-palette, 200, 100, 400)
+  "primary": mat.define-palette(mat.$indigo-palette),
+  "accent": mat.define-palette(mat.$pink-palette),
+  "warn": mat.define-palette(mat.$amber-palette)
 );
 $light-theme: mat.define-light-theme(("color": $light-color-config));
 
@@ -14,30 +14,6 @@ $dark-color-config: (
   "warn": mat.define-palette(mat.$red-palette)
 );
 $dark-theme: mat.define-dark-theme(("color": $dark-color-config));
-
-@mixin create-theme-classes($color-config) {
-  // Parse the theme and create variables for each color in the pallete
-
-  @each $palette-name, $palette in $color-config {
-    .#{$palette-name}-color {
-      background: mat.get-color-from-palette($palette, "default");
-      color: mat.get-color-from-palette($palette, 'default-contrast');
-    }
-
-    .#{$palette-name}-color-light {
-      background: mat.get-color-from-palette($palette, 'lighter');
-      color: mat.get-color-from-palette($palette, 'lighter-contrast');
-    }
-
-    .#{$palette-name}-color-dark {
-      background: mat.get-color-from-palette($palette, 'darker');
-      color: mat.get-color-from-palette($palette, 'darker-contrast');
-    }
-  }
-}
-
-// Useful: Get dark color from palette
-// background: mat.get-color-from-palette($my-palette, 'darker');
 
 $width-xxl: 1320px;
 
