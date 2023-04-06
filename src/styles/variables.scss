@@ -28,20 +28,24 @@ $color-config-dark-theme: mat.get-color-config($dark-theme);
 
   // TODO: use map.keys instead!
 
-  @each $palette-name, $palette in $color-config {
-    .#{$palette-name}-color {
-      background: mat.get-color-from-palette($palette, "default");
-      color: mat.get-color-from-palette($palette, 'default-contrast');
+  @each $key in map.keys($color-config) {
+    .#{$key}-color {
+      background: mat.get-color-from-palette(map.get(map.get($color-config, $key), "default"));
+      color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'default-contrast'));
     }
-    .#{$palette-name}-color-light {
-      background: mat.get-color-from-palette($palette, 'lighter');
-      color: mat.get-color-from-palette($palette, 'lighter-contrast');
+
+    .#{$key}-color-light {
+      background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter'));
+      color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter-contrast'));
     }
-    .#{$palette-name}-color-dark {
-      background: mat.get-color-from-palette($palette, 'darker');
-      color: mat.get-color-from-palette($palette, 'darker-contrast');
+
+    .#{$key}-color-dark {
+      background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker'));
+      color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker-contrast'));
     }
-  // }
+
+    // }
+  }
 }
 
 // Useful: Get dark color from palette
@@ -68,4 +72,3 @@ $h2-font-size: $font-size-base * 2;
 $h3-font-size: $font-size-base * 1.75;
 $h4-font-size: $font-size-base * 1.5;
 $h5-font-size: $font-size-base * 1.25;
-$h6-font-size: $font-size-base;
