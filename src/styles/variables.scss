@@ -1,52 +1,43 @@
 @use 'sass:map';
 @use "@angular/material" as mat;
 
-$light-theme: mat.define-light-theme((
- "color": (
-   "primary": mat.define-palette(mat.$indigo-palette, 200, 100, 400),
-   "accent": mat.define-palette(mat.$pink-palette, 200, 100, 400),
-   "warn": mat.define-palette(mat.$amber-palette, 200, 100, 400)
- )
-));
+$light-color-config: (
+  "primary": mat.define-palette(mat.$indigo-palette, 200, 100, 400),
+  "accent": mat.define-palette(mat.$pink-palette, 200, 100, 400),
+  "warn": mat.define-palette(mat.$amber-palette, 200, 100, 400)
+);
+$light-theme: mat.define-light-theme(("color": $light-color-config));
 
-$dark-theme: mat.define-dark-theme((
- "color": (
-   "primary": mat.define-palette(mat.$pink-palette),
-   "accent": mat.define-palette(mat.$green-palette),
-   "warn": mat.define-palette(mat.$red-palette)
- )
-));
-
-$color-config-light-theme: mat.get-color-config($light-theme);
-$color-config-dark-theme: mat.get-color-config($dark-theme);
+$dark-color-config: (
+  "primary": mat.define-palette(mat.$pink-palette),
+  "accent": mat.define-palette(mat.$green-palette),
+  "warn": mat.define-palette(mat.$red-palette)
+);
+$dark-theme: mat.define-dark-theme(("color": $dark-color-config));
 
 @debug "dark theme: #{map.keys($dark-theme)}";
 
-// @mixin create-theme-classes($theme) {
-//   // Parse the theme and create variables for each color in the pallete
-//   $color-config: mat.get-color-config($theme);
+@mixin create-theme-classes($color-config) {
+  // Parse the theme and create variables for each color in the pallete
+  $color-config: mat.get-color-config($theme);
 
-//   // TODO: use map.keys instead!
+  @each $palette-name,
+  $palette in $color-config {
+    .#{$palette-name}-color {
+      background: mat.get-color-from-palette($palette, "default");
+      color: mat.get-color-from-palette($palette, 'default-contrast');
+    }
 
-//   @each $key in map.keys($color-config) {
-//     .#{$key}-color {
-//       background: mat.get-color-from-palette(map.get(map.get($color-config, $key), "default"));
-//       color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'default-contrast'));
-//     }
+    .#{$palette-name}-color-light {
+      background: mat.get-color-from-palette($palette, 'lighter');
+      color: mat.get-color-from-palette($palette, 'lighter-contrast');
+    }
 
-//     .#{$key}-color-light {
-//       background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter'));
-//       color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'lighter-contrast'));
-//     }
-
-//     .#{$key}-color-dark {
-//       background: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker'));
-//       color: mat.get-color-from-palette(map.get(map.get($color-config, $key), 'darker-contrast'));
-//     }
-
-//     // }
-//   }
-// }
+    .#{$palette-name}-color-dark {
+      background: mat.get-color-from-palette($palette, 'darker');
+      color: mat.get-color-from-palette($palette, 'darker-contrast');
+    }
+  }
 
 // Useful: Get dark color from palette
 // background: mat.get-color-from-palette($my-palette, 'darker');
