@@ -14,6 +14,7 @@ nav {
 .container {
   display: flex;
   justify-content: space-between;
+  padding-inline: 1rem;
   width: 100%;
   height: 100%;
   max-width: vars.$width-xxl;
@@ -33,5 +34,5 @@ nav {
 
 a {
   text-decoration: none;
-  margin-right: 10px;
+  margin-inline: vars.$space-xxs;
 }

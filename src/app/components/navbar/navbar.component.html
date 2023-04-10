@@ -1,11 +1,12 @@
-<nav>
+<nav class="primary-color">
   <div class="container">
-    <div class="navbar-left">
+    <div class="navbar-left primary-color">
       <a href="#">Home</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
     </div>
-    <div class="navbar-right accent-color">
+    <div class="navbar-right">
+      <mat-slide-toggle class="primary-color" (change)="handleDarkModeToggle($event)">Dark Mode</mat-slide-toggle>
       <a href="#">Login</a>
       <a href="#">Sign Up</a>
     </div>

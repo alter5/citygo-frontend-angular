@@ -9,8 +9,8 @@ $light-color-config: (
 $light-theme: mat.define-light-theme(("color": $light-color-config));
 
 $dark-color-config: (
-  "primary": mat.define-palette(mat.$pink-palette),
-  "accent": mat.define-palette(mat.$green-palette),
+  "primary": mat.define-palette(mat.$blue-palette),
+  "accent": mat.define-palette(mat.$purple-palette),
   "warn": mat.define-palette(mat.$red-palette)
 );
 $dark-theme: mat.define-dark-theme(("color": $dark-color-config));
@@ -18,7 +18,9 @@ $dark-theme: mat.define-dark-theme(("color": $dark-color-config));
 $width-xxl: 1320px;
 
 $space-base: 1rem;
-$space-sm: $space-base * 0.875;
+$space-xxs: $space-base * 0.3;
+$space-xs: $space-base * 0.5;
+$space-sm: $space-base * 0.7;
 $space-md: $space-base * 1;
 $space-lg: $space-base * 1.5;
 $space-xl: $space-base * 2;
