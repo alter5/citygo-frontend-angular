@@ -9,7 +9,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  isDarkModeEnabled = false;
+  isDarkModeEnabled = false
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
       result += "light-theme"
     }
 
-    this.renderer.setAttribute(this.document.body, "class", result);
+    this.renderer.setAttribute(this.document.body, "class", result)
 
     localStorage.setItem('isDarkModeEnabled', JSON.stringify(this.isDarkModeEnabled))
   }

@@ -2,15 +2,15 @@
 @use "@angular/material" as mat;
 
 $light-color-config: (
-  "primary": mat.define-palette(mat.$indigo-palette),
-  "accent": mat.define-palette(mat.$pink-palette),
+  "primary": mat.define-palette(mat.$blue-palette),
+  "accent": mat.define-palette(mat.$indigo-palette),
   "warn": mat.define-palette(mat.$amber-palette)
 );
 $light-theme: mat.define-light-theme(("color": $light-color-config));
 
 $dark-color-config: (
   "primary": mat.define-palette(mat.$blue-palette),
-  "accent": mat.define-palette(mat.$purple-palette),
+  "accent": mat.define-palette(mat.$indigo-palette),
   "warn": mat.define-palette(mat.$red-palette)
 );
 $dark-theme: mat.define-dark-theme(("color": $dark-color-config));
