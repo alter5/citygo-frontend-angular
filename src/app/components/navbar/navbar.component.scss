@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use "@angular/material" as mat;
 
-@use "src/styles/styles.scss" as styles;
 @use "src/styles/variables.scss" as vars;
 
 nav {
@@ -59,7 +58,11 @@ a {
 //    @extend .primary-color;
 // }
 
-// TODO: Create a mixin, and include it in the root stylesheet. Use :host if possible. See coments in https: //dev.to/jwp/angular-10-ng-deep-and-host-pseudo-classes-1kbg
-::ng-deep label {
-    @extend .primary-color;
+// TODO: Create a mixin, and include it in the root stylesheet. Use :host if possible. See coments in https://dev.to/jwp/angular-10-ng-deep-and-host-pseudo-classes-1kbg
+@mixin styles {
+  app-navbar {
+    label  {
+      @extend .primary-color;
+    }
+  }
 }

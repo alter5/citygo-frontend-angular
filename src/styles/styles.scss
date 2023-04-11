@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use "@angular/material" as mat;
 @use "./variables.scss" as vars;
+@use "../app/components/navbar/navbar.component.scss" as navbar;
 
 @include mat.core();
 
@@ -30,7 +31,7 @@
   }
 }
 
-@mixin create-theme-variables($palette-name) {}
+@include navbar.styles;
 
 .dark-theme {
   @include mat.all-component-themes(vars.$dark-theme);
