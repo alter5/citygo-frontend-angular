@@ -13,10 +13,6 @@
     .#{$palette-name}-color {
       background: mat.get-color-from-palette($palette, "default");
       color: mat.get-color-from-palette($palette, 'default-contrast');
-
-      // label {
-      //   color: mat.get-color-from-palette($palette, 'default-contrast')
-      // }
     }
 
     .#{$palette-name}-color-light {
