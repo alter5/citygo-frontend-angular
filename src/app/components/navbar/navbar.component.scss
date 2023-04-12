@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use "@angular/material" as mat;
-
-@use "src/styles/variables.scss" as vars;
+@use "variables" as vars;
+@use "helper" as helper;
 
 nav {
   width: 100%;
@@ -34,7 +34,6 @@ nav {
 }
 
 a {
-  color: getThemeColor("primary-color");
+  color: helper.getThemeColor("primary-color");
   text-decoration: none;
-  // margin-inline: vars.$space-xxs;
 }
