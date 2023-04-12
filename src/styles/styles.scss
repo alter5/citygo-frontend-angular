@@ -17,12 +17,12 @@
     }
 }
 
-.dark-theme {
-  @include mat.all-component-themes(vars.$dark-theme);
+@function getThemeColor($color-name) {
+  @return var(--#{$color-name});
 }
 
-p#dog {
-  color: var(--accent-color);
+.dark-theme {
+  @include mat.all-component-themes(vars.$dark-theme);
 }
 
 .light-theme {
@@ -31,6 +31,15 @@ p#dog {
 
 @include create-theme-variables("dark-theme", vars.$dark-color-config);
 @include create-theme-variables("light-theme", vars.$light-color-config);
+
+p#dog {
+  // color: var(--accent-color);
+  color: getThemeColor("accent-color");
+}
+
+a {
+    color: getThemeColor("accent-color");
+}
 
 :root {
   color-scheme: dark;
