@@ -13,12 +13,12 @@
   @include mat.all-component-themes(vars.$light-theme);
 }
 
+@include helper.createThemeVariables("dark-theme", vars.$dark-color-config);
+@include helper.createThemeVariables("light-theme", vars.$light-color-config);
+
 #testTheme {
   color: helper.getThemeColor("primary-color-contrast");
 }
-
-@include helper.createThemeVariables("dark-theme", vars.$dark-color-config);
-@include helper.createThemeVariables("light-theme", vars.$light-color-config);
 
 :root {
   color-scheme: dark;
