@@ -5,38 +5,35 @@
 
 @include mat.core();
 
-// Create a class for every palette in a theme
-@mixin create-theme-classes($color-config) {
-
-  @each $palette-name,
-  $palette in $color-config {
-    .#{$palette-name}-color {
-      background: mat.get-color-from-palette($palette, "default");
-      color: mat.get-color-from-palette($palette, 'default-contrast');
+@mixin create-theme-variables($theme-name, $color-config) {
+  // TODO: See https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwij-fyuo6L-AhXyF1kFHTwvBr4QrAIoAHoECBEQAQ&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F18112238%2Fset-a-variable-in-sass-depending-on-the-selector&usg=AOvVaw1P0EzcWAKrlA87j24ym6wQ
+  // TODO: Google: css use different variable value for different class
+    @each $palette-name,
+    $palette in $color-config {
+      .#{$theme-name} {
+        --#{$palette-name}-color: #{mat.get-color-from-palette($palette, "default")};
+        --#{$palette-name}-color-contrast: #{mat.get-color-from-palette($palette, "default-contast")};
+      }
     }
-
-    .#{$palette-name}-color-light {
-      background: mat.get-color-from-palette($palette, 'lighter');
-      color: mat.get-color-from-palette($palette, 'lighter-contrast');
-    }
-
-    .#{$palette-name}-color-dark {
-      background: mat.get-color-from-palette($palette, 'darker');
-      color: mat.get-color-from-palette($palette, 'darker-contrast');
-    }
-  }
 }
-
-@include navbar.styles;
 
 .dark-theme {
   @include mat.all-component-themes(vars.$dark-theme);
-  @include create-theme-classes(vars.$dark-color-config)
+}
+
+p#dog {
+  color: var(--accent-color);
 }
 
 .light-theme {
   @include mat.all-component-themes(vars.$light-theme);
-  @include create-theme-classes(vars.$light-color-config)
+}
+
+@include create-theme-variables("dark-theme", vars.$dark-color-config);
+@include create-theme-variables("light-theme", vars.$light-color-config);
+
+:root {
+  color-scheme: dark;
 }
 
 html,
