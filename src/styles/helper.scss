@@ -1,7 +1,8 @@
 @use "sass:map";
 @use "@angular/material" as mat;
 
-@mixin createThemeVariables($color-config) {
+// TODO: Use hyphens instead of camelcase
+@mixin create-theme-variables($color-config) {
   @each $palette-name, $palette in $color-config {
     --#{$palette-name}: #{mat.get-color-from-palette($palette, "default")};
     --#{$palette-name}-contrast: #{mat.get-color-from-palette(
@@ -11,6 +12,6 @@
   }
 }
 
-@function getThemeColor($color-name) {
+@function get-theme-color($color-name) {
   @return var(--#{$color-name});
 }
