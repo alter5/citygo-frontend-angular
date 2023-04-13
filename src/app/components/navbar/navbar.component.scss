@@ -19,18 +19,20 @@ nav {
   height: 100%;
 }
 
-.navbar-left {
+%navbar-section {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: vars.$space-sm;
 }
 
-.navbar-right {
-  display: flex;
+#navbar-left {
+  @extend %navbar-section;
+  justify-content: flex-start;
+}
+
+#navbar-right {
+  @extend %navbar-section;
   justify-content: flex-end;
-  align-items: center;
-  gap: vars.$space-sm;
 }
 
 a {
