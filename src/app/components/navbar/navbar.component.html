@@ -6,8 +6,11 @@
       <a href="#">Contact</a>
     </div>
     <div class="navbar-right">
-      <mat-slide-toggle [checked]="isDarkModeEnabled" (change)="handleDarkModeToggle($event)">Dark
-        Mode</mat-slide-toggle>
+      <mat-slide-toggle
+        [checked]="isDarkModeEnabled"
+        (change)="handleDarkModeToggle($event)"
+        >Dark Mode</mat-slide-toggle
+      >
       <a href="#">Login</a>
       <a href="#">Sign Up</a>
       <p id="testTheme">TEST</p>

@@ -1,12 +1,12 @@
-import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, OnInit, Inject, Renderer2 } from "@angular/core"
+import { DOCUMENT } from "@angular/common"
 
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatSlideToggleChange } from "@angular/material/slide-toggle"
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
   isDarkModeEnabled = false
@@ -17,7 +17,9 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isDarkModeEnabled = JSON.parse(localStorage.getItem('isDarkModeEnabled') || "false")
+    this.isDarkModeEnabled = JSON.parse(
+      localStorage.getItem("isDarkModeEnabled") || "false"
+    )
     this.changeTheme()
   }
 
@@ -37,6 +39,9 @@ export class NavbarComponent implements OnInit {
 
     this.renderer.setAttribute(this.document.body, "class", result)
 
-    localStorage.setItem('isDarkModeEnabled', JSON.stringify(this.isDarkModeEnabled))
+    localStorage.setItem(
+      "isDarkModeEnabled",
+      JSON.stringify(this.isDarkModeEnabled)
+    )
   }
 }

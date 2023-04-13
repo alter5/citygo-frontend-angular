@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 @use "@angular/material" as mat;
 
 $light-color-config: (
@@ -6,14 +6,22 @@ $light-color-config: (
   "accent": mat.define-palette(mat.$blue-palette),
   "warn": mat.define-palette(mat.$amber-palette)
 );
-$light-theme: mat.define-light-theme(("color": $light-color-config));
+$light-theme: mat.define-light-theme(
+  (
+    "color": $light-color-config
+  )
+);
 
 $dark-color-config: (
   "primary": mat.define-palette(mat.$red-palette),
   "accent": mat.define-palette(mat.$yellow-palette),
   "warn": mat.define-palette(mat.$red-palette)
 );
-$dark-theme: mat.define-dark-theme(("color": $dark-color-config));
+$dark-theme: mat.define-dark-theme(
+  (
+    "color": $dark-color-config
+  )
+);
 
 $width-xxl: 1320px;
 
