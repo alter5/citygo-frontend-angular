@@ -7,7 +7,7 @@
       --#{$palette-name}: #{mat.get-color-from-palette($palette, "default")};
       --#{$palette-name}-contrast: #{mat.get-color-from-palette(
           $palette,
-          "default-contast"
+          "default-contrast"
         )};
     }
   }
