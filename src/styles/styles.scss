@@ -7,14 +7,13 @@
 
 .dark-theme {
   @include mat.all-component-themes(vars.$dark-theme);
+  @include helper.createThemeVariables(vars.$dark-color-config);
 }
 
 .light-theme {
   @include mat.all-component-themes(vars.$light-theme);
+  @include helper.createThemeVariables(vars.$light-color-config);
 }
-
-@include helper.createThemeVariables("dark-theme", vars.$dark-color-config);
-@include helper.createThemeVariables("light-theme", vars.$light-color-config);
 
 #testTheme {
   color: helper.getThemeColor("primary");
