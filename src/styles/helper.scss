@@ -9,6 +9,18 @@
         $palette,
         "default-contrast"
       )};
+
+    --#{$palette-name}-dark: #{mat.get-color-from-palette($palette, "lighter")};
+    --#{$palette-name}-dark-contrast: #{mat.get-color-from-palette(
+        $palette,
+        "lighter-contrast"
+      )};
+
+    --#{$palette-name}-light: #{mat.get-color-from-palette($palette, "darker")};
+    --#{$palette-name}-light-contrast: #{mat.get-color-from-palette(
+        $palette,
+        "darker-contrast"
+      )};
   }
 }
 
