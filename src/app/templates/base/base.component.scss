@@ -1,0 +1,10 @@
+@use "variables" as vars;
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  max-width: vars.$width-xxl;
+  flex-direction: column;
+}

@@ -11,8 +11,10 @@
 
 #like-button {
   background-color: helper.get-theme-color("primary");
+  color: helper.get-theme-color("accent-contrast");
 }
 
 #share-button {
-  background-color: helper.get-theme-color("accent");
+  background-color: helper.get-theme-color("accent-light");
+  color: helper.get-theme-color("accent-contrast");
 }
