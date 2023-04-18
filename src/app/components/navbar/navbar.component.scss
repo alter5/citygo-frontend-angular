@@ -13,29 +13,31 @@ nav {
 .container {
   display: flex;
   justify-content: space-between;
-  padding-inline: 1rem;
+  align-items: center;
   width: 100%;
   max-width: vars.$width-xxl;
   height: 100%;
 }
 
-%navbar-section {
+.navbar-section {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: vars.$space-sm;
 }
 
-#navbar-left {
-  @extend %navbar-section;
-  justify-content: flex-start;
-}
-
-#navbar-right {
-  @extend %navbar-section;
-  justify-content: flex-end;
+#navbar-middle {
+  @extend .navbar-section;
+  flex-grow: 1;
+  align-content: center;
+  padding-inline: vars.$space-xxl;
 }
 
 a {
   color: helper.get-theme-color("primary-color");
   text-decoration: none;
+}
+
+input {
+  width: 100%;
 }
