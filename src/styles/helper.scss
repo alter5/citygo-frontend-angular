@@ -21,6 +21,14 @@
         "darker-contrast"
       )};
   }
+
+  $background-wrapper: map-get($theme, "background");
+  $background: map-get($background-wrapper, "background");
+  --background: #{$background};
+
+  $foreground-wrapper: map-get($theme, "background");
+  $foreground: map-get($foreground-wrapper, "card");
+  --foreground: #{$foreground};
 }
 
 @function get-theme-color($color-name) {
