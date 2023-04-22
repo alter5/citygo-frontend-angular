@@ -9,8 +9,8 @@
       <input type="text" placeholder="Search..">
     </div>
     <div class="navbar-section">
-      <mat-slide-toggle [checked]="isDarkModeEnabled" (change)="handleDarkModeToggle($event)">Dark
-        Mode</mat-slide-toggle>
+      <mat-slide-toggle id="darkModeToggle" [checked]="isDarkModeEnabled" (change)="handleDarkModeToggle($event)"></mat-slide-toggle>
+      <label for="darkModeToggle">Dark Mode</label>
       <a href="#">Login</a>
       <a href="#">Sign Up</a>
       <p id="testTheme">TEST</p>

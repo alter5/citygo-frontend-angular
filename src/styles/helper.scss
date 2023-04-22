@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "@angular/material" as mat;
 
-@mixin create-theme-variables($color-config) {
+@mixin create-theme-variables($theme, $color-config) {
   @each $palette-name, $palette in $color-config {
     --#{$palette-name}: #{mat.get-color-from-palette($palette, "default")};
     --#{$palette-name}-contrast: #{mat.get-color-from-palette(
