@@ -14,6 +14,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-inline: vars.$space-md;
   width: 100%;
   max-width: vars.$width-xxl;
   height: 100%;
@@ -39,5 +40,8 @@ a {
 }
 
 input {
+  // TODO: Use the angular material theme color for foreground/background elements
+  // TODO: Make sure you retrieve the colors for both dark and light themes
+  // background-color: ;
   width: 100%;
 }
