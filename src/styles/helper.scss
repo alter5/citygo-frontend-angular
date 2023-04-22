@@ -22,13 +22,39 @@
       )};
   }
 
-  $background-wrapper: map-get($theme, "background");
-  $background: map-get($background-wrapper, "background");
-  --background: #{$background};
+  $isDark: map-get($theme, "is-dark");
 
-  $foreground-wrapper: map-get($theme, "background");
-  $foreground: map-get($foreground-wrapper, "card");
-  --foreground: #{$foreground};
+  @if $isDark {
+    --background: #303030;
+    --background-contrast: white;
+
+    --foreground: #424242;
+    --foreground-contrast: white;
+  } @else {
+    --background: #f1f0f0;
+    --background-contrast: rgba(0, 0, 0, 0.87);
+
+    --foreground: white;
+    --foreground-contrast: rgba(0, 0, 0, 0.87);
+  }
+
+  // $background-wrapper: map-get($theme, "background");
+  // $background: map-get($background-wrapper, "background");
+  // --background: #{$background};
+  // @if $isDark {
+  //   --background-contrast: white;
+  // } @else {
+  //   --background-contrast: rgba(0, 0, 0, 0.87);
+  // }
+
+  // $foreground-wrapper: map-get($theme, "background");
+  // $foreground: map-get($foreground-wrapper, "card");
+  // --foreground: #{$foreground};
+  // @if $isDark {
+  //   --foreground-contrast: white;
+  // } @else {
+  //   --foreground-contrast: rgba(0, 0, 0, 0.87);
+  // }
 }
 
 @function get-theme-color($color-name) {

@@ -8,7 +8,7 @@ nav {
   justify-content: center;
   width: 100%;
   height: vars.$space-xxxl;
-  background-color: helper.get-theme-color("primary");
+  background-color: helper.get-theme-color("foreground");
   position: fixed;
 }
 
@@ -37,7 +37,7 @@ nav {
 }
 
 a, label {
-  color: helper.get-theme-color("primary-contrast");
+  color: helper.get-theme-color("foreground-contrast");
   // font-size: vars.$font-size-lg;
   text-decoration: none;
   font-weight: 500;
@@ -46,7 +46,7 @@ a, label {
 label {
   padding-right: vars.$space-lg;
   margin-right: vars.$space-md;
-  border-right: 1px solid helper.get-theme-color("primary-contrast");
+  border-right: 1px solid helper.get-theme-color("foreground-contrast");
 }
 
 input {

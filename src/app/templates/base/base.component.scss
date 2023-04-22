@@ -1,4 +1,9 @@
 @use "variables" as vars;
+@use "helper" as helper;
+
+.wrapper {
+  background-color: helper.get-theme-color("background");
+}
 
 .container {
   display: flex;
