@@ -9,6 +9,7 @@ nav {
   width: 100%;
   height: vars.$space-xxxl;
   background-color: helper.get-theme-color("primary");
+  position: fixed;
 }
 
 .container {
