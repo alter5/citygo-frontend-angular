@@ -2,8 +2,8 @@
 @use "@angular/material" as mat;
 
 $light-color-config: (
-  "primary": mat.define-palette(mat.$red-palette),
-  "accent": mat.define-palette(mat.$yellow-palette),
+  "primary": mat.define-palette(mat.$blue-palette),
+  "accent": mat.define-palette(mat.$purple-palette),
   "warn": mat.define-palette(mat.$amber-palette)
 );
 $light-theme: mat.define-light-theme(
@@ -13,8 +13,8 @@ $light-theme: mat.define-light-theme(
 );
 
 $dark-color-config: (
-  "primary": mat.define-palette(mat.$red-palette),
-  "accent": mat.define-palette(mat.$yellow-palette),
+  "primary": mat.define-palette(mat.$blue-palette),
+  "accent": mat.define-palette(mat.$purple-palette),
   "warn": mat.define-palette(mat.$amber-palette)
 );
 $dark-theme: mat.define-dark-theme(
@@ -33,6 +33,8 @@ $space-md: $space-base * 1;
 $space-lg: $space-base * 1.5;
 $space-xl: $space-base * 2;
 $space-xxl: $space-base * 4;
+$space-xxxl: $space-base * 5;
+
 
 $font-size-base: 1rem;
 $font-size-sm: $font-size-base * 0.875;
