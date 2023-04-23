@@ -2,7 +2,9 @@
 @use "helper" as helper;
 
 .wrapper {
-  background-color: helper.get-theme-color("background");
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .container {
@@ -12,5 +14,6 @@
   align-items: center;
   width: 100%;
   max-width: vars.$width-xxl;
+  min-height: calc(100vh - vars.$space-xxxl); // The navbar height is subtracted from the container height
   padding-top: vars.$space-xxxl;
 }

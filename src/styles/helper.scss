@@ -30,13 +30,18 @@
 
     --foreground: #424242;
     --foreground-contrast: white;
+
+    --border: #d9e2e8;
   } @else {
     --background: #f1f0f0;
     --background-contrast: rgba(0, 0, 0, 0.87);
 
     --foreground: white;
     --foreground-contrast: rgba(0, 0, 0, 0.87);
+
+    --border: #d9e2e8;
   }
+
 
   // $background-wrapper: map-get($theme, "background");
   // $background: map-get($background-wrapper, "background");

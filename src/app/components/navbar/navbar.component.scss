@@ -10,6 +10,9 @@ nav {
   height: vars.$space-xxxl;
   background-color: helper.get-theme-color("foreground");
   position: fixed;
+  z-index: 50;
+  // border-bottom: 1px solid #d9e2e8;
+  box-shadow: 0 3px 6px rgba(25,32,36,0.16),0 -1px 4px rgba(25,32,36,0.04);
 }
 
 .container {
