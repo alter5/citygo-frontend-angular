@@ -35,8 +35,13 @@ nav {
   gap: vars.$space-sm;
 }
 
+ul {
+  &.navbar-section {
+    list-style: none;
+  }
+}
+
 #navbar-middle {
-  @extend .navbar-section;
   flex-grow: 1;
   align-content: center;
   padding-inline: vars.$space-xxl;
@@ -51,13 +56,6 @@ label {
 }
 
 // TODO: Fix ul formatting
-ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: vars.$space-sm;
-  list-style: none;
-}
 
 label {
   margin-right: vars.$space-md;
