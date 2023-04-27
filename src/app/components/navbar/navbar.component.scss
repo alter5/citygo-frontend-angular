@@ -3,6 +3,8 @@
 @use "variables" as vars;
 @use "helper" as helper;
 
+// TODO: Look at stash's navbar. Convert buttons to a ul with li's.
+// TODO: Create two sections for the navbar's right half.
 nav {
   display: flex;
   justify-content: center;
@@ -44,6 +46,11 @@ a, label {
   // font-size: vars.$font-size-lg;
   text-decoration: none;
   font-weight: 500;
+}
+
+// TODO: Fix ul formatting
+ul {
+  list-style: none;
 }
 
 label {
