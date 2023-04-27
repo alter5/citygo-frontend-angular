@@ -1,23 +1,25 @@
 <nav>
   <div class="container">
-    <div class="navbar-section">
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
     <div id="navbar-middle" class="navbar-section">
-      <input type="text" placeholder="Search..">
+      <input type="text" placeholder="Search.." />
     </div>
     <div class="navbar-section">
-      <mat-slide-toggle id="darkModeToggle" [checked]="isDarkModeEnabled" (change)="handleDarkModeToggle($event)"></mat-slide-toggle>
+      <mat-slide-toggle
+        id="darkModeToggle"
+        [checked]="isDarkModeEnabled"
+        (change)="handleDarkModeToggle($event)"
+      ></mat-slide-toggle>
       <label for="darkModeToggle">Dark Mode</label>
       <a href="#">Login</a>
       <a href="#">Sign Up</a>

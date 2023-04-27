@@ -12,8 +12,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: vars.$space-xxxl;
   width: 100%;
   max-width: vars.$width-xxl;
-  min-height: calc(100vh - vars.$space-xxxl); // The navbar height is subtracted from the container height
-  padding-top: vars.$space-xxxl;
+  min-height: calc(
+    100vh - vars.$space-xxxl
+  ); // The navbar height is subtracted from the container height
 }

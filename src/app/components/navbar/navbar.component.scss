@@ -7,14 +7,15 @@
 // TODO: Create two sections for the navbar's right half.
 nav {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  height: vars.$space-xxxl;
-  background-color: helper.get-theme-color("foreground");
   position: fixed;
+  justify-content: center;
   z-index: 50;
   // border-bottom: 1px solid #d9e2e8;
-  box-shadow: 0 3px 6px rgba(25,32,36,0.16),0 -1px 4px rgba(25,32,36,0.04);
+  box-shadow: 0 3px 6px rgba(25, 32, 36, 0.16),
+    0 -1px 4px rgba(25, 32, 36, 0.04);
+  background-color: helper.get-theme-color("foreground");
+  width: 100%;
+  height: vars.$space-xxxl;
 }
 
 .container {
@@ -41,32 +42,37 @@ nav {
   padding-inline: vars.$space-xxl;
 }
 
-a, label {
+a,
+label {
   color: helper.get-theme-color("foreground-contrast");
+  font-weight: 500;
   // font-size: vars.$font-size-lg;
   text-decoration: none;
-  font-weight: 500;
 }
 
 // TODO: Fix ul formatting
 ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: vars.$space-sm;
   list-style: none;
 }
 
 label {
-  padding-right: vars.$space-lg;
   margin-right: vars.$space-md;
   border-right: 1px solid helper.get-theme-color("foreground-contrast");
+  padding-right: vars.$space-lg;
 }
 
 input {
+  border: none;
+  border-radius: 4px;
+  background-color: helper.get-theme-color("background");
+  padding: vars.$space-sm;
   // TODO: Use the angular material theme color for foreground/background elements
   // TODO: Make sure you retrieve the colors for both dark and light themes
   // background-color: ;
   width: 100%;
-  padding: vars.$space-sm;
-  border: none;
-  border-radius: 4px;
-  background-color: helper.get-theme-color("background");
-  color: helper.get-theme-color("light-contrast")
+  color: helper.get-theme-color("light-contrast");
 }

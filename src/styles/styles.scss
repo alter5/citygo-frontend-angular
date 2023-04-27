@@ -7,19 +7,27 @@
 
 .dark-theme {
   @include mat.all-component-themes(vars.$dark-theme);
-  @include helper.create-theme-variables(vars.$dark-theme, vars.$dark-color-config);
+  @include helper.create-theme-variables(
+    vars.$dark-theme,
+    vars.$dark-color-config
+  );
 }
 
 .light-theme {
   @include mat.all-component-themes(vars.$light-theme);
-  @include helper.create-theme-variables(vars.$light-theme, vars.$light-color-config);
+  @include helper.create-theme-variables(
+    vars.$light-theme,
+    vars.$light-color-config
+  );
 }
 
 #testTheme {
   color: helper.get-theme-color("accent");
 }
 
-a, label, input {
+a,
+label,
+input {
   font-size: vars.$font-size-md;
 }
 

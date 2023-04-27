@@ -1,32 +1,15 @@
 @use "sass:map";
 @use "@angular/material" as mat;
 
-// TODO: Separate the create-theme-variables logic into different functions
-/// Creates a global variable for the three main hues in a color config
-/// An Angular Material color config is composed of three palettes: primary, accent, and warning
-/// Result: A total of 9 global variables for each palette
+// TODO: Look into creating a custom palette
+
+/// Creates global variables using Angular Material theme values
 @mixin create-theme-variables($theme, $color-config) {
-  @each $palette-name, $palette in $color-config {
-    --#{$palette-name}: #{mat.get-color-from-palette($palette, "default")};
-    --#{$palette-name}-contrast: #{mat.get-color-from-palette(
-        $palette,
-        "default-contrast"
-      )};
-
-    --#{$palette-name}-dark: #{mat.get-color-from-palette($palette, "lighter")};
-    --#{$palette-name}-dark-contrast: #{mat.get-color-from-palette(
-        $palette,
-        "lighter-contrast"
-      )};
-
-    --#{$palette-name}-light: #{mat.get-color-from-palette($palette, "darker")};
-    --#{$palette-name}-light-contrast: #{mat.get-color-from-palette(
-        $palette,
-        "darker-contrast"
-      )};
-  }
-
   $isDark: map-get($theme, "is-dark");
+
+  @each $palette-name, $palette in $color-config {
+    @include create-theme-variables-using-palette($palette, $palette-name);
+  }
 
   @if $isDark {
     --background: #303030;
@@ -45,25 +28,27 @@
 
     --border: #d9e2e8;
   }
+}
 
+/// Creates global variables for each main hue in a Angular Material palette
+@mixin create-theme-variables-using-palette($palette, $palette-name) {
+  --#{$palette-name}: #{mat.get-color-from-palette($palette, "default")};
+  --#{$palette-name}-contrast: #{mat.get-color-from-palette(
+      $palette,
+      "default-contrast"
+    )};
 
-  // $background-wrapper: map-get($theme, "background");
-  // $background: map-get($background-wrapper, "background");
-  // --background: #{$background};
-  // @if $isDark {
-  //   --background-contrast: white;
-  // } @else {
-  //   --background-contrast: rgba(0, 0, 0, 0.87);
-  // }
+  --#{$palette-name}-dark: #{mat.get-color-from-palette($palette, "lighter")};
+  --#{$palette-name}-dark-contrast: #{mat.get-color-from-palette(
+      $palette,
+      "lighter-contrast"
+    )};
 
-  // $foreground-wrapper: map-get($theme, "background");
-  // $foreground: map-get($foreground-wrapper, "card");
-  // --foreground: #{$foreground};
-  // @if $isDark {
-  //   --foreground-contrast: white;
-  // } @else {
-  //   --foreground-contrast: rgba(0, 0, 0, 0.87);
-  // }
+  --#{$palette-name}-light: #{mat.get-color-from-palette($palette, "darker")};
+  --#{$palette-name}-light-contrast: #{mat.get-color-from-palette(
+      $palette,
+      "darker-contrast"
+    )};
 }
 
 @function get-theme-color($color-name) {
