@@ -28,7 +28,7 @@ nav {
   height: 100%;
 }
 
-.navbar-section {
+.wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@ nav {
 }
 
 ul {
-  &.navbar-section {
+  &wrapper {
     list-style: none;
   }
 }
@@ -57,11 +57,11 @@ label {
 
 // TODO: Fix ul formatting
 
-label {
-  margin-right: vars.$space-md;
-  border-right: 1px solid helper.get-theme-color("foreground-contrast");
-  padding-right: vars.$space-lg;
-}
+// label {
+//   margin-right: vars.$space-md;
+//   border-right: 1px solid helper.get-theme-color("foreground-contrast");
+//   padding-right: vars.$space-lg;
+// }
 
 input {
   border: none;

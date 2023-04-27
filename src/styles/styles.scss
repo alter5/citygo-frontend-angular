@@ -3,6 +3,10 @@
 @use "variables" as vars;
 @use "helper" as helper;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @include mat.core();
 
 .dark-theme {
