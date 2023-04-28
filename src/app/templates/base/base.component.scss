@@ -7,15 +7,16 @@
   width: 100%;
 }
 
+$container-padding-top: vars.$space-xxxl + vars.$space-xl;
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
-  padding-top: vars.$space-xxxl;
+  padding-top: $container-padding-top;
   width: 100%;
   max-width: vars.$width-xxl;
   min-height: calc(
-    100vh - vars.$space-xxxl
+    100vh - $container-padding-top
   ); // The navbar height is subtracted from the container height
 }
