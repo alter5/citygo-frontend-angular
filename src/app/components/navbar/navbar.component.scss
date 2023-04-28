@@ -3,48 +3,16 @@
 @use "variables" as vars;
 @use "helper" as helper;
 
-// TODO: Look at stash's navbar. Convert buttons to a ul with li's.
-// TODO: Create two sections for the navbar's right half.
 nav {
   display: flex;
   position: fixed;
   justify-content: center;
   z-index: 50;
-  // border-bottom: 1px solid #d9e2e8;
   box-shadow: 0 3px 6px rgba(25, 32, 36, 0.16),
     0 -1px 4px rgba(25, 32, 36, 0.04);
   background-color: helper.get-theme-color("foreground");
   width: 100%;
   height: vars.$space-xxxl;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: vars.$space-md;
-  width: 100%;
-  max-width: vars.$width-xxl;
-  height: 100%;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: vars.$space-sm;
-}
-
-ul {
-  &wrapper {
-    list-style: none;
-  }
-}
-
-#navbar-middle {
-  flex-grow: 1;
-  align-content: center;
-  padding-inline: vars.$space-xxl;
 }
 
 a,
@@ -55,22 +23,43 @@ label {
   text-decoration: none;
 }
 
-// TODO: Fix ul formatting
-
-// label {
-//   margin-right: vars.$space-md;
-//   border-right: 1px solid helper.get-theme-color("foreground-contrast");
-//   padding-right: vars.$space-lg;
-// }
-
 input {
   border: none;
   border-radius: 4px;
   background-color: helper.get-theme-color("background");
   padding: vars.$space-sm;
-  // TODO: Use the angular material theme color for foreground/background elements
-  // TODO: Make sure you retrieve the colors for both dark and light themes
-  // background-color: ;
   width: 100%;
   color: helper.get-theme-color("light-contrast");
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: vars.$space-md;
+  width: 100%;
+  max-width: vars.$width-xxl;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-sm;
+}
+
+ul.container {
+  list-style: none;
+}
+
+.navbar-middle {
+  flex-grow: 1;
+  align-content: center;
+  padding-inline: vars.$space-xxl;
+}
+
+.navbar-login-section {
+  border-left-width: 2px;
+  border-color: 2px solid helper.get-theme-color("foreground-contrast");
+  padding-left: vars.$space-sm;
 }
