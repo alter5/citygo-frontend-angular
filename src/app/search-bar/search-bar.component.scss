@@ -6,10 +6,16 @@ form {
 }
 
 input {
-  border: none;
+  outline: none;
   border-radius: 4px;
   background-color: helper.get-theme-color("background");
   padding: vars.$space-sm;
   width: inherit;
   color: helper.get-theme-color("background-contrast");
 }
+
+input:focus {
+  box-shadow: 0 0 5px lime;
+}
+
+

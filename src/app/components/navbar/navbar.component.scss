@@ -54,8 +54,8 @@ app-search-bar {
 }
 
 .navbar-login-section {
-  border-left-width: 2px;
-  border-color: 2px solid helper.get-theme-color("foreground-contrast");
-  padding-left: vars.$space-xl;
   margin-left: vars.$space-md;
+  border-left-width: 2px;
+  border-color: solid helper.get-theme-color("foreground-contrast");
+  padding-left: vars.$space-xl;
 }
