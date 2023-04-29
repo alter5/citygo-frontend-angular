@@ -1,0 +1,7 @@
+{
+  "routes": [
+    {"id": 1, "name": "Las Vegas", "duration": "Short", "cost": "Cheap"},
+    {"id": 2, "name": "New York City", "duration": "Medium", "cost": "Cheap"},
+    {"id": 3, "name": "Chicago", "duration": "Long", "cost": "Expensive"}
+  ]
+}
