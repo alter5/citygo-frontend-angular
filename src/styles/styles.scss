@@ -48,3 +48,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+body#index-body {
+  background-color: helper.get-theme-color("background");
+}
