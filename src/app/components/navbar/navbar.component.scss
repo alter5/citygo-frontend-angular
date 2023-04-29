@@ -29,7 +29,7 @@ input {
   background-color: helper.get-theme-color("background");
   padding: vars.$space-sm;
   width: 100%;
-  color: helper.get-theme-color("light-contrast");
+  color: helper.get-theme-color("background-contrast");
 }
 
 .wrapper {

@@ -16,12 +16,12 @@
     </div>
     <div class="container navbar-right">
       <div class="container">
+        <label for="darkModeToggle">Dark Mode</label>
         <mat-slide-toggle
           id="darkModeToggle"
           [checked]="isDarkModeEnabled"
           (change)="handleDarkModeToggle($event)"
         ></mat-slide-toggle>
-        <label for="darkModeToggle">Dark Mode</label>
       </div>
       <div class="container navbar-login-section">
         <a href="#">Login</a>
