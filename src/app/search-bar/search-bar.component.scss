@@ -15,7 +15,5 @@ input {
 }
 
 input:focus {
-  box-shadow: 0 0 5px lime;
+  box-shadow: 0 0 5px helper.get-theme-color("primary");
 }
-
-
