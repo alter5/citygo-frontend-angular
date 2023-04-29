@@ -11,9 +11,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { MatCardModule } from "@angular/material/card"
 import { MatButtonModule } from "@angular/material/button"
 import { MatSlideToggleModule } from "@angular/material/slide-toggle"
+import { MatAutocompleteModule } from "@angular/material/autocomplete"
 import { TestThemeComponent } from "./components/test-theme/test-theme.component"
 import { ModalComponent } from "./components/modal/modal.component"
 import { SidebarComponent } from "./components/sidebar/sidebar.component"
+import { SearchBarComponent } from "./search-bar/search-bar.component"
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component"
     BaseComponent,
     TestThemeComponent,
     ModalComponent,
-    SidebarComponent
+    SidebarComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component"
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
