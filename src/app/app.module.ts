@@ -16,6 +16,7 @@ import { TestThemeComponent } from "./components/test-theme/test-theme.component
 import { ModalComponent } from "./components/modal/modal.component"
 import { SidebarComponent } from "./components/sidebar/sidebar.component"
 import { SearchBarComponent } from "./search-bar/search-bar.component"
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { SearchBarComponent } from "./search-bar/search-bar.component"
     MatCardModule,
     MatButtonModule,
     MatSlideToggleModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
