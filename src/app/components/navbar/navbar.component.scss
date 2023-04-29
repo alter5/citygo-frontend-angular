@@ -23,15 +23,6 @@ label {
   text-decoration: none;
 }
 
-input {
-  border: none;
-  border-radius: 4px;
-  background-color: helper.get-theme-color("background");
-  padding: vars.$space-sm;
-  width: 100%;
-  color: helper.get-theme-color("background-contrast");
-}
-
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -56,6 +47,10 @@ ul.container {
   flex-grow: 1;
   align-content: center;
   padding-inline: vars.$space-xxl;
+}
+
+app-search-bar {
+  width: 100%;
 }
 
 .navbar-login-section {
