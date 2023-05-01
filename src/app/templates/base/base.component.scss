@@ -4,8 +4,8 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  width: 100%;
   background-color: helper.get-theme-color("background");
+  width: 100%;
 }
 
 $container-padding-top: vars.$space-xxxl + vars.$space-xl;
