@@ -3,19 +3,18 @@ import { BrowserModule } from "@angular/platform-browser"
 
 import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
-import { HomeComponent } from "./components/home/home.component"
-import { NavbarComponent } from "./components/navbar/navbar.component"
-import { BaseComponent } from "./templates/base/base.component"
+import { HomeComponent } from "./features/home/components/home.component"
+import { NavbarComponent } from "./features/base/components/navbar/navbar.component"
+import { BaseComponent } from "./features/base/base.component"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 import { MatCardModule } from "@angular/material/card"
 import { MatButtonModule } from "@angular/material/button"
 import { MatSlideToggleModule } from "@angular/material/slide-toggle"
 import { MatAutocompleteModule } from "@angular/material/autocomplete"
-import { TestThemeComponent } from "./components/test-theme/test-theme.component"
-import { ModalComponent } from "./components/modal/modal.component"
-import { SidebarComponent } from "./components/sidebar/sidebar.component"
-import { SearchBarComponent } from "./search-bar/search-bar.component"
+import { TestThemeComponent } from "./features/base/components/test-theme/test-theme.component"
+import { SidebarComponent } from "./features/base/components/sidebar/sidebar.component"
+import { SearchBarComponent } from "./features/base/components/searchbar/searchbar.component"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 
 @NgModule({
@@ -25,7 +24,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms"
     NavbarComponent,
     BaseComponent,
     TestThemeComponent,
-    ModalComponent,
     SidebarComponent,
     SearchBarComponent
   ],

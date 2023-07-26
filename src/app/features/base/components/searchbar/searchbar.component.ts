@@ -4,9 +4,9 @@ import { Observable } from "rxjs"
 import { startWith, map } from "rxjs/operators"
 
 @Component({
-  selector: "app-search-bar",
-  templateUrl: "./search-bar.component.html",
-  styleUrls: ["./search-bar.component.scss"]
+  selector: "app-searchbar",
+  templateUrl: "./searchbar.component.html",
+  styleUrls: ["./searchbar.component.scss"]
 })
 export class SearchBarComponent implements OnInit {
   control = new FormControl("")
