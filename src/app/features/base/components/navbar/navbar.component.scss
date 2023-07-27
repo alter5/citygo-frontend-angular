@@ -43,13 +43,21 @@ ul.container {
   list-style: none;
 }
 
+.navbar-left {
+  flex: 1;
+}
+
 .navbar-middle {
-  flex-grow: 1;
+  flex: 2;
   align-content: center;
   padding-inline: vars.$space-xxl;
 }
 
-app-search-bar {
+.navbar-right {
+ flex: 1;
+}
+
+app-searchbar {
   width: 100%;
 }
 
