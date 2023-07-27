@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router"
-import { HomeComponent } from "../home/components/home.component"
+import { HomeComponent } from "./features/home/components/home.component"
 const routeConfig: Routes = [
   {
     path: "",
