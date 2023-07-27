@@ -1,12 +1,17 @@
 import { Component, OnInit } from "@angular/core"
-import { FormControl } from "@angular/forms"
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { Observable } from "rxjs"
 import { startWith, map } from "rxjs/operators"
+import { MatOptionModule } from "@angular/material/core";
+import { NgFor, AsyncPipe } from "@angular/common";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
 @Component({
-  selector: "app-searchbar",
-  templateUrl: "./searchbar.component.html",
-  styleUrls: ["./searchbar.component.scss"]
+    selector: "app-searchbar",
+    templateUrl: "./searchbar.component.html",
+    styleUrls: ["./searchbar.component.scss"],
+    standalone: true,
+    imports: [FormsModule, MatAutocompleteModule, ReactiveFormsModule, NgFor, MatOptionModule, AsyncPipe]
 })
 export class SearchBarComponent implements OnInit {
   control = new FormControl("")

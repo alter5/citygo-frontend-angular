@@ -8,8 +8,8 @@ describe("BaseComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BaseComponent]
-    }).compileComponents()
+    imports: [BaseComponent]
+}).compileComponents()
 
     fixture = TestBed.createComponent(BaseComponent)
     component = fixture.componentInstance
