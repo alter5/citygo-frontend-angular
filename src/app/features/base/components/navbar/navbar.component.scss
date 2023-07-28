@@ -36,6 +36,7 @@ label {
 .container {
   display: flex;
   align-items: center;
+  white-space: nowrap;
   gap: vars.$space-sm;
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Renderer2 } from "@angular/core"
 import { DOCUMENT } from "@angular/common"
+import { RouterModule } from '@angular/router';
 
 import { MatSlideToggleChange, MatSlideToggleModule } from "@angular/material/slide-toggle"
 import { SearchBarComponent } from "../searchbar/searchbar.component";
@@ -9,7 +10,7 @@ import { SearchBarComponent } from "../searchbar/searchbar.component";
     templateUrl: "./navbar.component.html",
     styleUrls: ["./navbar.component.scss"],
     standalone: true,
-    imports: [SearchBarComponent, MatSlideToggleModule]
+    imports: [RouterModule, SearchBarComponent, MatSlideToggleModule]
 })
 export class NavbarComponent implements OnInit {
   isDarkModeEnabled = false
