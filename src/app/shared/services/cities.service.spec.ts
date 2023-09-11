@@ -5,6 +5,7 @@ import {
 } from "@angular/common/http/testing"
 
 import { CitiesService } from "./cities.service"
+import { HttpParams } from "@angular/common/http"
 
 describe("Service Cities", () => {
   let service: CitiesService
@@ -28,17 +29,50 @@ describe("Service Cities", () => {
     expect(service).toBeTruthy()
   })
 
-  it('should return data when "result" property is present in the response', () => {
-    const expectedResponse = { result: ["New York"] }
+  it('should return an array of cities that match the query string', (done) => {
+    const queryString = "New"
+    const expectedResponse = { result: ["New York", "New Ark"] }
 
-    service.getCitiesContainingString("New Yor").subscribe((data) => {
+    service.getCitiesContainingString(queryString).subscribe((data) => {
       expect(data).toEqual(expectedResponse.result)
+      done()
     })
 
-    const req = httpTestingController.expectOne(service.baseUrl + "search")
+    let requestUrl = service.baseUrl + "search"
+    const params = new HttpParams().set("queryString", queryString)
+    requestUrl += "?" + params.toString()
+
+    const req = httpTestingController.expectOne(requestUrl)
     expect(req.request.method).toBe("GET")
 
     req.flush(expectedResponse)
+  })
+
+  it('should return an empty array if the request was unsuccessful', () => {
+    // TODO: Edit the cities endpoint to return entire city objects, not just names
+    // TODO: Create ts type "city"
+    // TODO: Lookup integration tests using Cypress in fullstackopen: https://fullstackopen.com/en/part5/end_to_end_testing
+    /* TODO: Implement Cypress E2E tests.
+    Fix the backend dropdb script so that the dbClient still works after dropping.
+    Add an endpoint to drop the db. The tests need to be able to call this endpoint.
+    Add conditional checking if app is in testing mode before adding endpoint
+    */
+    const queryString = "New"
+
+    service.getCitiesContainingString(queryString).subscribe((data) => {
+      expect(data).toEqual(expectedResponse.result)
+      done()
+    })
+
+    let requestUrl = service.baseUrl + "search"
+    const params = new HttpParams().set("queryString", queryString)
+    requestUrl += "?" + params.toString()
+
+    const req = httpTestingController.expectOne(requestUrl)
+    expect(req.request.method).toBe("GET")
+
+    req.flush(expectedResponse)
+
   })
 
   // it('should return an empty array when "result" property is not present in the response', () => {
