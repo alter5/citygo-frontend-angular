@@ -51,8 +51,8 @@ describe("Service Cities", () => {
   it('should return an empty array if the request was unsuccessful', () => {
     // TODO: Edit the cities endpoint to return entire city objects, not just names
     // TODO: Create ts type "city"
-    // TODO: Lookup integration tests using Cypress in fullstackopen: https://fullstackopen.com/en/part5/end_to_end_testing
     /* TODO: Implement Cypress E2E tests.
+    Lookup integration tests using Cypress in fullstackopen: https://fullstackopen.com/en/part5/end_to_end_testing
     Fix the backend dropdb script so that the dbClient still works after dropping.
     Add an endpoint to drop the db. The tests need to be able to call this endpoint.
     Add conditional checking if app is in testing mode before adding endpoint
