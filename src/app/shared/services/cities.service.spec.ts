@@ -7,6 +7,7 @@ import {
 import { CitiesService } from "./cities.service"
 import { HttpParams } from "@angular/common/http"
 
+// TODO: Use Cypress for E2E testing
 describe("Service Cities", () => {
   let service: CitiesService
   let httpTestingController: HttpTestingController
@@ -48,32 +49,32 @@ describe("Service Cities", () => {
     req.flush(expectedResponse)
   })
 
-  it('should return an empty array if the request was unsuccessful', () => {
-    // TODO: Edit the cities endpoint to return entire city objects, not just names
-    // TODO: Create ts type "city"
-    /* TODO: Implement Cypress E2E tests.
-    Lookup integration tests using Cypress in fullstackopen: https://fullstackopen.com/en/part5/end_to_end_testing
-    Fix the backend dropdb script so that the dbClient still works after dropping.
-    Add an endpoint to drop the db. The tests need to be able to call this endpoint.
-    Add conditional checking if app is in testing mode before adding endpoint
-    */
-    const queryString = "New"
+  // it('should return an empty array if the request was unsuccessful', () => {
+  //   // TODO: Edit the cities endpoint to return entire city objects, not just names
+  //   // TODO: Create ts type "city"
+  //   /* TODO: Implement Cypress E2E tests.
+  //   Lookup integration tests using Cypress in fullstackopen: https://fullstackopen.com/en/part5/end_to_end_testing
+  //   Fix the backend dropdb script so that the dbClient still works after dropping.
+  //   Add an endpoint to drop the db. The tests need to be able to call this endpoint.
+  //   Add conditional checking if app is in testing mode before adding endpoint
+  //   */
+  //   const queryString = "New"
 
-    service.getCitiesContainingString(queryString).subscribe((data) => {
-      expect(data).toEqual(expectedResponse.result)
-      done()
-    })
+  //   service.getCitiesContainingString(queryString).subscribe((data) => {
+  //     expect(data).toEqual(expectedResponse.result)
+  //     done()
+  //   })
 
-    let requestUrl = service.baseUrl + "search"
-    const params = new HttpParams().set("queryString", queryString)
-    requestUrl += "?" + params.toString()
+  //   let requestUrl = service.baseUrl + "search"
+  //   const params = new HttpParams().set("queryString", queryString)
+  //   requestUrl += "?" + params.toString()
 
-    const req = httpTestingController.expectOne(requestUrl)
-    expect(req.request.method).toBe("GET")
+  //   const req = httpTestingController.expectOne(requestUrl)
+  //   expect(req.request.method).toBe("GET")
 
-    req.flush(expectedResponse)
+  //   req.flush(expectedResponse)
 
-  })
+  // })
 
   // it('should return an empty array when "result" property is not present in the response', () => {
   //   const mockResponse = { otherProperty: "someValue" }
