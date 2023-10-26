@@ -7,6 +7,7 @@ import {
 import { CitiesService } from "./cities.service"
 import { HttpParams } from "@angular/common/http"
 
+// TODO: Continue reading Testing section in www.angular.io
 // TODO: Use Cypress for E2E testing
 describe("Service Cities", () => {
   let service: CitiesService
