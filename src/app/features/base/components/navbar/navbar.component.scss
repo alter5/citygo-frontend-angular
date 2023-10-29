@@ -3,8 +3,6 @@
 @use "variables" as vars;
 @use "helper" as helper;
 
-// TODO: Fix the searchbar's dropdown menu appearing on the top left of the browser
-
 nav {
   display: flex;
   position: fixed;
