@@ -5,6 +5,7 @@ import { startWith, map } from "rxjs/operators"
 import { MatOptionModule } from "@angular/material/core";
 import { NgFor, AsyncPipe } from "@angular/common";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { CitiesService } from "src/app/shared/services/cities.service";
 
 @Component({
     selector: "app-searchbar",
@@ -15,29 +16,31 @@ import { MatAutocompleteModule } from "@angular/material/autocomplete";
 })
 export class SearchBarComponent implements OnInit {
   control = new FormControl("")
-  streets: string[] = [
-    "Champs-Élysées",
-    "Lombard Street",
-    "Abbey Road",
-    "Fifth Avenue"
-  ]
-  filteredStreets: Observable<string[]> | undefined
+  // streets: string[] = [
+  //   "Champs-Élysées",
+  //   "Lombard Street",
+  //   "Abbey Road",
+  //   "Fifth Avenue"
+  // ]
+  searchResults: Observable<string[]> | undefined
 
   ngOnInit() {
-    this.filteredStreets = this.control.valueChanges.pipe(
+    this.searchResults = this.control.valueChanges.pipe(
       startWith(""),
-      map((value) => this._filter(value || ""))
+      map((searchTerm) => this.updateAutocompleteResults(searchTerm || ""))
     )
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = this._normalizeValue(value)
-    return this.streets.filter((street) =>
-      this._normalizeValue(street).includes(filterValue)
-    )
+  private updateAutocompleteResults(searchTerm: string): string[] {
+    if (searchTerm === "") {
+      // Return a list of the most populous cities
+    } else {
+      const searchTerm = this.normalizeString(searchTerm)
+      return
+    }
   }
 
-  private _normalizeValue(value: string): string {
+  private normalizeString(value: string): string {
     return value.toLowerCase().replace(/\s/g, "")
   }
 }
