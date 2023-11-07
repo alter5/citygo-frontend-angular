@@ -22,13 +22,13 @@ export class SearchBarComponent implements OnInit {
   //   "Abbey Road",
   //   "Fifth Avenue"
   // ]
-  searchResults: Observable<string[]> | undefined
+  dropdownOptions: Observable<string[]> | undefined
 
   ngOnInit() {
-    this.searchResults = this.control.valueChanges.pipe(
+    this.dropdownOptions = this.control.valueChanges.pipe(
       startWith(""),
       map((searchTerm) => this.updateAutocompleteResults(searchTerm || ""))
-    )
+    ) 
   }
 
   private updateAutocompleteResults(searchTerm: string): string[] {
