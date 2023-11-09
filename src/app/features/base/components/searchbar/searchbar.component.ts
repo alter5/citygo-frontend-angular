@@ -7,6 +7,19 @@ import { NgFor, AsyncPipe } from "@angular/common";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { CitiesService } from "src/app/shared/services/cities.service";
 
+/* TODO: Implement these features for the search bar
+Starting input string as input
+Callback method on text change. This component should be able to return the current input.
+    Should emitter be used?
+Callback method on dropdown click
+    Return id of city
+Input: text in search bar
+Then, create CitiesSearchBar
+  SearchBar should be given "" as starting input
+  Should give string[] of cities on text change
+  On dropdown click
+*/
+
 @Component({
     selector: "app-searchbar",
     templateUrl: "./searchbar.component.html",
@@ -24,11 +37,15 @@ export class SearchBarComponent implements OnInit {
   // ]
   dropdownOptions: Observable<string[]> | undefined
 
+  constructor(private citiesService: CitiesService){
+
+  }
+
   ngOnInit() {
     this.dropdownOptions = this.control.valueChanges.pipe(
       startWith(""),
       map((searchTerm) => this.updateAutocompleteResults(searchTerm || ""))
-    ) 
+    )
   }
 
   private updateAutocompleteResults(searchTerm: string): string[] {
