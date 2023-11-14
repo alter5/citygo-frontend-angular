@@ -2,12 +2,12 @@
   <input
     type="text"
     placeholder="Search for a street"
-    [formControl]="control"
-    [matAutocomplete]="autotwo"
+    [formControl]="currentText"
+    [matAutocomplete]="autoc"
   />
-  <mat-autocomplete class="!mt-1" #autotwo="matAutocomplete">
-    <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
-      {{ street }}
+  <mat-autocomplete class="!mt-1" #autoc="matAutocomplete">
+    <mat-option *ngFor="let option of dropdownOptions | async" [value]="option">
+      {{ option }}
     </mat-option>
   </mat-autocomplete>
 </form>

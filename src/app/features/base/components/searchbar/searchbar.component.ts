@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { Observable } from "rxjs"
 import { startWith, map } from "rxjs/operators"
@@ -18,6 +18,17 @@ Then, create CitiesSearchBar
   SearchBar should be given "" as starting input
   Should give string[] of cities on text change
   On dropdown click
+
+New
+Searchbar:
+  State:
+    (Output) CurrentText
+      - Let the searchbar handle the current text
+        -- The parent component should use this to generate a new list of cities
+    (Input) StartingInput
+      - Use in onInit
+    (Input) DropdownOptions
+      - ID of city needs to be binded
 */
 
 @Component({
@@ -28,21 +39,19 @@ Then, create CitiesSearchBar
     imports: [FormsModule, MatAutocompleteModule, ReactiveFormsModule, NgFor, MatOptionModule, AsyncPipe]
 })
 export class SearchBarComponent implements OnInit {
-  control = new FormControl("")
-  // streets: string[] = [
-  //   "Champs-Élysées",
-  //   "Lombard Street",
-  //   "Abbey Road",
-  //   "Fifth Avenue"
-  // ]
+  @Input() startingText = '';
+  currentText = new FormControl("")
   dropdownOptions: Observable<string[]> | undefined
+  @Output() textChanged: EventEmitter<string> = new EventEmitter<string>()
+  @Output() citySelected: EventEmitter<object> = new EventEmitter<object>()
 
-  constructor(private citiesService: CitiesService){
+  selectedCity: number | undefined;
 
-  }
+  constructor(private citiesService: CitiesService){}
 
   ngOnInit() {
-    this.dropdownOptions = this.control.valueChanges.pipe(
+    this.currentText.setValue(this.startingText)
+    this.dropdownOptions = this.currentText.valueChanges.pipe(
       startWith(""),
       map((searchTerm) => this.updateAutocompleteResults(searchTerm || ""))
     )
