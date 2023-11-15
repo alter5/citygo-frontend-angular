@@ -1,5 +1,5 @@
 import { Component } from "@angular/core"
-import { TestThemeComponent } from "../../base/components/test-theme/test-theme.component";
+import { TestThemeComponent } from "../";
 
 @Component({
     selector: "app-home",

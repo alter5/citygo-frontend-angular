@@ -32,7 +32,7 @@ Searchbar:
 */
 
 @Component({
-  selector: "app-search-bar",
+  selector: "app-searchbar",
   templateUrl: "./search-bar.component.html",
   styleUrls: ["./search-bar.component.scss"],
   standalone: true,
