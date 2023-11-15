@@ -1,6 +1,6 @@
 import { Component } from "@angular/core"
-import { BaseComponent } from "./features/base/base.component"
-import { HomeComponent } from "./features/home/components/home.component"
+import { TemplateBaseComponent } from "./core/components/base-template/template-base.component"
+import { PageHomeComponent } from "./features/home/pages/home/page-home.component"
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     RouterModule,
-    BaseComponent,
-    HomeComponent
+    TemplateBaseComponent,
+    PageHomeComponent
   ],
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]

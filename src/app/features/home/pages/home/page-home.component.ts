@@ -3,9 +3,9 @@ import { TestThemeComponent } from "../../components/test-theme/test-theme.compo
 
 @Component({
     selector: "app-home",
-    templateUrl: "./home.component.html",
-    styleUrls: ["./home.component.scss"],
+    templateUrl: "./page-home.component.html",
+    styleUrls: ["./page-home.component.scss"],
     standalone: true,
     imports: [TestThemeComponent]
 })
-export class HomeComponent {}
+export class PageHomeComponent {}
