@@ -3,7 +3,7 @@ import { DOCUMENT } from "@angular/common"
 import { RouterModule } from '@angular/router';
 
 import { MatSlideToggleChange, MatSlideToggleModule } from "@angular/material/slide-toggle"
-import { SearchBarComponent } from "../searchbar/searchbar.component";
+import { SearchBarComponent } from "../../../../shared/components/searchbar/searchbar.component";
 
 @Component({
     selector: "app-navbar",
