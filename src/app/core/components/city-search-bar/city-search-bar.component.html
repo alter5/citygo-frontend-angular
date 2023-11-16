@@ -1,1 +1,4 @@
-<p>city-search-bar works!</p>
+<app-search-bar
+[startingText]="'New'"
+(textChanged)="onTextChanged($event)"
+></app-search-bar>

@@ -48,11 +48,11 @@ Searchbar:
 export class SearchBarComponent implements OnInit {
   // @Input({required: true}) startingText = ""
   @Input() startingText = ""
+  @Input() dropdownOptions: string[] | undefined
   @Output() textChanged: EventEmitter<string> = new EventEmitter<string>()
   @Output() citySelected: EventEmitter<object> = new EventEmitter<object>()
 
   currentText = new FormControl("")
-  dropdownOptions: Observable<string[]> | undefined
   selectedCity: number | undefined
 
   ngOnInit() {
@@ -61,13 +61,10 @@ export class SearchBarComponent implements OnInit {
       if (text === null) {
         this.textChanged.emit("")
       } else {
-        this.textChanged.emit(text)
+        this.textChanged.emit(this.normalizeString(text))
       }
     })
-
   }
-
-
 
   private normalizeString(value: string): string {
     return value.toLowerCase().replace(/\s/g, "")

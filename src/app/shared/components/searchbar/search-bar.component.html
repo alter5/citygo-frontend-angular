@@ -6,7 +6,7 @@
     [matAutocomplete]="autoc"
   />
   <mat-autocomplete class="!mt-1" #autoc="matAutocomplete">
-    <mat-option *ngFor="let option of dropdownOptions | async" [value]="option">
+    <mat-option *ngFor="let option of dropdownOptions" [value]="option">
       {{ option }}
     </mat-option>
   </mat-autocomplete>
