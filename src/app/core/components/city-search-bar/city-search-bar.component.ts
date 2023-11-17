@@ -10,7 +10,7 @@ import { SearchBarComponent } from 'src/app/shared/components/searchbar/search-b
   styleUrls: ['./city-search-bar.component.scss']
 })
 export class CitySearchBarComponent {
-  onTextChanged(searchText: any) {
+  onTextChanged(searchText: string) {
     if (searchText === "") {
       // return list of most populous cities
     }
