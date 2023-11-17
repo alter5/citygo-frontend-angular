@@ -11,6 +11,7 @@ import { SearchBarComponent } from 'src/app/shared/components/searchbar/search-b
 })
 export class CitySearchBarComponent {
   onTextChanged(searchText: string) {
+    // TODO: Use observable like this: https://nehalist.io/working-with-models-in-angular/
     if (searchText === "") {
       // return list of most populous cities
     }
