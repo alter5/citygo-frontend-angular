@@ -1,43 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SearchBarComponent } from 'src/app/shared/components/searchbar/search-bar.component';
-import { CitiesService } from 'src/app/shared/services/cities.service';
-import { Observable } from 'rxjs';
-import { City } from 'src/app/shared/models/city.model';
+import { Component, OnInit } from "@angular/core"
+import { CommonModule } from "@angular/common"
+import { SearchBarComponent } from "src/app/shared/components/searchbar/search-bar.component"
+import { CitiesService } from "src/app/shared/services/cities.service"
+import { Observable, map } from "rxjs"
+import { City } from "src/app/shared/models/city.model"
+import { DropdownOption } from "src/app/shared/components/searchbar/dropdown-option.model"
 
 @Component({
-  selector: 'app-city-search-bar',
+  selector: "app-city-search-bar",
   standalone: true,
   imports: [CommonModule, SearchBarComponent],
-  templateUrl: './city-search-bar.component.html',
-  styleUrls: ['./city-search-bar.component.scss']
+  templateUrl: "./city-search-bar.component.html",
+  styleUrls: ["./city-search-bar.component.scss"]
 })
-export class CitySearchBarComponent implements OnInit{
+export class CitySearchBarComponent implements OnInit {
+  dropdownOptions$: Observable<City[]> | undefined
 
-  dropdownOptions$: Observable<City>
-
-  constructor(private citiesService: CitiesService){}
+  constructor(private citiesService: CitiesService) {}
 
   ngOnInit(): void {
     // TODO: Check if the searchbar component emits empty string upon initialization
-    // this.updateDropdownOptions("")
-    ;
+    this.updateDropdownOptions("")
   }
 
-  onTextChanged(searchText: string) {
+  private onTextChanged(searchText: string) {
     this.updateDropdownOptions(searchText)
   }
 
-  updateDropdownOptions(searchText: string) {
-// TODO: Use observable like this: https://nehalist.io/working-with-models-in-angular/
-    // TODO: would there be a memory leak if I create a new observable in emit handler each time,
-    //    instead of directly adding observable to template with async pipe?
+  private updateDropdownOptions(searchText: string) {
     if (searchText === "") {
-      // return list of most populous cities
+      // TODO: Return list of most populous cities instead
+      searchText = "New Yo"
+    }
 
-    }
-    else {
-      // call cities service with text, and pass through input field the returned cities
-    }
+    // return list of most populous cities
+    const cities$ = this.citiesService.getCitiesContainingString(searchText)
+    cities$.pipe(
+      map((cities: City[]) => {
+        return this.mapCitiesToDropdownOptions(cities)
+      })
+    )
+
+    this.dropdownOptions$ = cities$
+  }
+
+  private mapCitiesToDropdownOptions(cities: City[]): DropdownOption[] {
+    return cities.map((city) => ({
+      id: city.id,
+      textToDisplay: city.city_name
+    }))
   }
 }
