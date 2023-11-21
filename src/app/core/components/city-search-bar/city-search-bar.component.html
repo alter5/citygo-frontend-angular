@@ -1,5 +1,5 @@
 <app-search-bar
 [startingText]="'New'"
-[dropdownOptions]=""
+[dropdownOptions]="dropdownOptions$ | async"
 (textChanged)="onTextChanged($event)"
 ></app-search-bar>

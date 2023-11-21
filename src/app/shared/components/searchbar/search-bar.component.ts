@@ -5,6 +5,8 @@ import { startWith, map } from "rxjs/operators"
 import { MatOptionModule } from "@angular/material/core"
 import { NgFor, AsyncPipe } from "@angular/common"
 import { MatAutocompleteModule } from "@angular/material/autocomplete"
+import { DropdownOption } from "./dropdown-option.model"
+import { ng}
 
 // TOOD: Look at the new Angular documentation
 /* TODO: Implement these features for the search bar
@@ -48,7 +50,7 @@ Searchbar:
 export class SearchBarComponent implements OnInit {
   // @Input({required: true}) startingText = ""
   @Input() startingText = ""
-  @Input() dropdownOptions: string[] | undefined
+  @Input() dropdownOptions: DropdownOption[] | null = []
   @Output() textChanged: EventEmitter<string> = new EventEmitter<string>()
   @Output() citySelected: EventEmitter<object> = new EventEmitter<object>()
 

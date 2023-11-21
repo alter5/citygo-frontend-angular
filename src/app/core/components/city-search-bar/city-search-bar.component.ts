@@ -14,7 +14,7 @@ import { DropdownOption } from "src/app/shared/components/searchbar/dropdown-opt
   styleUrls: ["./city-search-bar.component.scss"]
 })
 export class CitySearchBarComponent implements OnInit {
-  dropdownOptions$: Observable<City[]> | undefined
+  dropdownOptions$: Observable<DropdownOption[]> = new Observable<DropdownOption[]>()
 
   constructor(private citiesService: CitiesService) {}
 
@@ -35,13 +35,12 @@ export class CitySearchBarComponent implements OnInit {
 
     // return list of most populous cities
     const cities$ = this.citiesService.getCitiesContainingString(searchText)
-    cities$.pipe(
+
+    this.dropdownOptions$ = cities$.pipe(
       map((cities: City[]) => {
         return this.mapCitiesToDropdownOptions(cities)
       })
     )
-
-    this.dropdownOptions$ = cities$
   }
 
   private mapCitiesToDropdownOptions(cities: City[]): DropdownOption[] {

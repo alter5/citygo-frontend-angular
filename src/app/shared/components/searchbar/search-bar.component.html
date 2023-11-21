@@ -6,8 +6,10 @@
     [matAutocomplete]="autoc"
   />
   <mat-autocomplete class="!mt-1" #autoc="matAutocomplete">
-    <mat-option *ngFor="let option of dropdownOptions" [value]="option">
-      {{ option }}
-    </mat-option>
+    <ng-container *ngIf="dropdownOptions.length > 0">
+      <mat-option *ngFor="let option of dropdownOptions" [value]="option">
+        {{ option }}
+      </mat-option>
+    </ng-container>
   </mat-autocomplete>
 </form>
