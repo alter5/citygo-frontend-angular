@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from "@angular/core"
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { Observable } from "rxjs"
 import { startWith, map } from "rxjs/operators"
@@ -6,7 +6,7 @@ import { MatOptionModule } from "@angular/material/core"
 import { NgFor, AsyncPipe } from "@angular/common"
 import { MatAutocompleteModule } from "@angular/material/autocomplete"
 import { DropdownOption } from "./dropdown-option.model"
-import { ng}
+// import { ng}
 
 // TOOD: Look at the new Angular documentation
 /* TODO: Implement these features for the search bar
@@ -47,25 +47,29 @@ Searchbar:
     AsyncPipe
   ]
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent implements OnInit, OnChanges {
   // @Input({required: true}) startingText = ""
-  @Input() startingText = ""
+  @Input() currentText = ""
   @Input() dropdownOptions: DropdownOption[] | null = []
   @Output() textChanged: EventEmitter<string> = new EventEmitter<string>()
   @Output() citySelected: EventEmitter<object> = new EventEmitter<object>()
 
-  currentText = new FormControl("")
+  formControl = new FormControl("")
   selectedCity: number | undefined
 
   ngOnInit() {
-    this.currentText.setValue(this.startingText)
-    this.currentText.valueChanges.subscribe((text) => {
+    this.formControl.valueChanges.subscribe((text) => {
       if (text === null) {
         this.textChanged.emit("")
       } else {
         this.textChanged.emit(this.normalizeString(text))
       }
     })
+  }
+
+  ngOnChanges(): void {
+    // Update the text in the input field without triggering the valueChanges callback function
+    this.formControl.patchValue(this.currentText)
   }
 
   private normalizeString(value: string): string {

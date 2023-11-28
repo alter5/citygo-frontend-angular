@@ -23,7 +23,7 @@ export class CitySearchBarComponent implements OnInit {
     this.updateDropdownOptions("")
   }
 
-  private onTextChanged(searchText: string) {
+  onTextChanged(searchText: string) {
     this.updateDropdownOptions(searchText)
   }
 
