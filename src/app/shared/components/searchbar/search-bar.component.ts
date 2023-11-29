@@ -6,32 +6,8 @@ import { MatOptionModule } from "@angular/material/core"
 import { NgFor, NgIf, AsyncPipe } from "@angular/common"
 import { MatAutocompleteModule } from "@angular/material/autocomplete"
 import { DropdownOption } from "./dropdown-option.model"
-// import { ng}
 
-// TOOD: Look at the new Angular documentation
-/* TODO: Implement these features for the search bar
-Starting input string as input
-Callback method on text change. This component should be able to return the current input.
-    Should emitter be used?
-Callback method on dropdown click
-    Return id of city
-Input: text in search bar
-Then, create CitiesSearchBar
-  SearchBar should be given "" as starting input
-  Should give string[] of cities on text change
-  On dropdown click
-
-New
-Searchbar:
-  State:
-    (Output) CurrentText
-      - Let the searchbar handle the current text
-        -- The parent component should use this to generate a new list of cities
-    (Input) StartingInput
-      - Use in onInit
-    (Input) DropdownOptions
-      - ID of city needs to be binded
-*/
+// TODO: Add a callback when clicking dropdown option. It should open description page of the city.
 
 @Component({
   selector: "app-search-bar",
@@ -49,9 +25,8 @@ Searchbar:
   ]
 })
 export class SearchBarComponent implements OnInit {
-  // @Input({required: true}) startingText = ""
   @Input() formControl!: FormControl;
-  @Input() dropdownOptions: DropdownOption[] | null = []
+  @Input() dropdownOptions: DropdownOption[] | null = null
   @Output() dropdownOptionSelected: EventEmitter<object> = new EventEmitter<object>()
 
   ngOnInit() {

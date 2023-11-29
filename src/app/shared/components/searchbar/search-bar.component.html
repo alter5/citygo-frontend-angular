@@ -6,9 +6,13 @@
     [matAutocomplete]="dropdownAutocomplete"
   />
   <mat-autocomplete class="!mt-1" #dropdownAutocomplete="matAutocomplete">
-    <!-- TODO: Fix the ngIf statement -->
-    <ng-container *ngIf="dropdownOptions && dropdownOptions.length > 0">
-      <mat-option *ngFor="let option of dropdownOptions" [value]="option.textToDisplay">
+    <ng-container
+      *ngIf="dropdownOptions !== null && dropdownOptions.length > 0"
+    >
+      <mat-option
+        *ngFor="let option of dropdownOptions"
+        [value]="option.textToDisplay"
+      >
         {{ option.textToDisplay }}
       </mat-option>
     </ng-container>
