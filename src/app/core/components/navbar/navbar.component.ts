@@ -3,14 +3,14 @@ import { DOCUMENT } from "@angular/common"
 import { RouterModule } from '@angular/router';
 
 import { MatSlideToggleChange, MatSlideToggleModule } from "@angular/material/slide-toggle"
-import { SearchBarComponent } from "../"; // TODO: Fix import to new city-search-bar
+import { CitySearchBarComponent } from "../city-search-bar/city-search-bar.component";
 
 @Component({
     selector: "app-navbar",
     templateUrl: "./navbar.component.html",
     styleUrls: ["./navbar.component.scss"],
     standalone: true,
-    imports: [RouterModule, SearchBarComponent, MatSlideToggleModule]
+    imports: [RouterModule, CitySearchBarComponent, MatSlideToggleModule]
 })
 export class NavbarComponent implements OnInit {
   isDarkModeEnabled = false

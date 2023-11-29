@@ -3,12 +3,13 @@
     type="text"
     placeholder="Search for a street"
     [formControl]="formControl"
-    [matAutocomplete]="autoc"
+    [matAutocomplete]="dropdownAutocomplete"
   />
-  <mat-autocomplete class="!mt-1" #autoc="matAutocomplete">
-    <ng-container *ngIf="dropdownOptions.length > 0">
-      <mat-option *ngFor="let option of dropdownOptions" [value]="option">
-        {{ option }}
+  <mat-autocomplete class="!mt-1" #dropdownAutocomplete="matAutocomplete">
+    <!-- TODO: Fix the ngIf statement -->
+    <ng-container *ngIf="dropdownOptions && dropdownOptions.length > 0">
+      <mat-option *ngFor="let option of dropdownOptions" [value]="option.textToDisplay">
+        {{ option.textToDisplay }}
       </mat-option>
     </ng-container>
   </mat-autocomplete>

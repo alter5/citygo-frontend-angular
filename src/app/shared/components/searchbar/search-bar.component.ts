@@ -3,7 +3,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { Observable } from "rxjs"
 import { startWith, map } from "rxjs/operators"
 import { MatOptionModule } from "@angular/material/core"
-import { NgFor, AsyncPipe } from "@angular/common"
+import { NgFor, NgIf, AsyncPipe } from "@angular/common"
 import { MatAutocompleteModule } from "@angular/material/autocomplete"
 import { DropdownOption } from "./dropdown-option.model"
 // import { ng}
@@ -43,36 +43,19 @@ Searchbar:
     MatAutocompleteModule,
     ReactiveFormsModule,
     NgFor,
+    NgIf,
     MatOptionModule,
     AsyncPipe
   ]
 })
-export class SearchBarComponent implements OnInit, OnChanges {
+export class SearchBarComponent implements OnInit {
   // @Input({required: true}) startingText = ""
-  @Input() currentText = ""
+  @Input() formControl!: FormControl;
   @Input() dropdownOptions: DropdownOption[] | null = []
-  @Output() textChanged: EventEmitter<string> = new EventEmitter<string>()
-  @Output() citySelected: EventEmitter<object> = new EventEmitter<object>()
-
-  formControl = new FormControl("")
-  selectedCity: number | undefined
+  @Output() dropdownOptionSelected: EventEmitter<object> = new EventEmitter<object>()
 
   ngOnInit() {
-    this.formControl.valueChanges.subscribe((text) => {
-      if (text === null) {
-        this.textChanged.emit("")
-      } else {
-        this.textChanged.emit(this.normalizeString(text))
-      }
-    })
+    ;
   }
 
-  ngOnChanges(): void {
-    // Update the text in the input field without triggering the valueChanges callback function
-    this.formControl.patchValue(this.currentText)
-  }
-
-  private normalizeString(value: string): string {
-    return value.toLowerCase().replace(/\s/g, "")
-  }
 }

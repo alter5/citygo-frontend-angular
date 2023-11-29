@@ -1,5 +1,4 @@
 <app-search-bar
-[currentText]="'New'"
+[formControl]="formControl"
 [dropdownOptions]="dropdownOptions$ | async"
-(textChanged)="onTextChanged($event)"
 ></app-search-bar>
