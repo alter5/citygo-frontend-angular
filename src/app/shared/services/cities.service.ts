@@ -25,4 +25,17 @@ export class CitiesService {
       })
     )
   }
+
+  getMostPopulousCities(): Observable<City[]> {
+    return this.http.get<any>(this.baseUrl + "mostPopulousCities").pipe(
+      map((response) => {
+        const cities = response.data as City[]
+        return cities
+      }),
+      catchError((error) => {
+        console.error(error)
+        return of([])
+      })
+    )
+  }
 }

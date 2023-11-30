@@ -33,13 +33,12 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   private updateDropdownOptions(searchText: string) {
+    let cities$ = null
     if (searchText === "") {
-      // TODO: Return list of most populous cities instead
-      searchText = "New Yo"
+      cities$ = this.citiesService.getMostPopulousCities()
+    } else {
+      cities$ = this.citiesService.getCitiesContainingString(searchText)
     }
-
-    // return list of most populous cities
-    const cities$ = this.citiesService.getCitiesContainingString(searchText)
 
     this.dropdownOptions$ = cities$.pipe(
       map((cities: City[]) => {
