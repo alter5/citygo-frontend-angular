@@ -32,11 +32,11 @@ describe("Service Cities", () => {
   })
 
   it('should return an array of cities that match the query string', (done) => {
-    const queryString = "New"
-    const expectedResponse = { result: ["New York", "New Ark"] }
+    const queryString = "Athe"
+    const expectedResponse = { success: true, data: ["Athens", "Atherton"] }
 
     service.getCitiesContainingString(queryString).subscribe((data) => {
-      expect(data).toEqual(expectedResponse.result)
+      expect(data).toEqual(expectedResponse.data)
       done()
     })
 

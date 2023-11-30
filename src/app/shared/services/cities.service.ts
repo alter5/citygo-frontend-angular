@@ -16,7 +16,7 @@ export class CitiesService {
 
     return this.http.get<any>(this.baseUrl + "search", { params }).pipe(
       map((response) => {
-        const cities = response.result as City[]
+        const cities = response.data as City[]
         return cities
       }),
       catchError(() => {
