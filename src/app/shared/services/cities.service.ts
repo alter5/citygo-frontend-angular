@@ -19,7 +19,8 @@ export class CitiesService {
         const cities = response.data as City[]
         return cities
       }),
-      catchError(() => {
+      catchError((error) => {
+        console.error(error)
         return of([])
       })
     )
