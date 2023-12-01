@@ -35,7 +35,6 @@ export class CitySearchBarComponent implements OnInit {
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((searchText: string) => {
-        console.log(searchText)
         return this.getDropdownOptions(searchText)
       })
     )
