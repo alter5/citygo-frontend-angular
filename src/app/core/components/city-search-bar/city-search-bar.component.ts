@@ -1,8 +1,15 @@
-import { Component, OnInit } from "@angular/core"
+import { AfterContentInit, Component, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { SearchBarComponent } from "src/app/shared/components/searchbar/search-bar.component"
 import { CitiesService } from "src/app/shared/services/cities.service"
-import { Observable, map } from "rxjs"
+import {
+  Observable,
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  startWith,
+  switchMap
+} from "rxjs"
 import { City } from "src/app/shared/models/city.model"
 import { DropdownOption } from "src/app/shared/components/searchbar/dropdown-option.model"
 import { FormControl } from "@angular/forms"
@@ -23,16 +30,18 @@ export class CitySearchBarComponent implements OnInit {
   constructor(private citiesService: CitiesService) {}
 
   ngOnInit(): void {
-    // TODO: Check if the searchbar component emits empty string upon initialization
-    this.updateDropdownOptions("")
-
-    this.formControl.valueChanges.subscribe((text) => {
-      text = this.normalizeString(text)
-      this.updateDropdownOptions(text)
-    })
+    this.dropdownOptions$ = this.formControl.valueChanges.pipe(
+      startWith(""),
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((searchText: string) => {
+        console.log(searchText)
+        return this.getDropdownOptions(searchText)
+      })
+    )
   }
 
-  private updateDropdownOptions(searchText: string) {
+  private getDropdownOptions(searchText: string): Observable<DropdownOption[]> {
     let cities$ = null
     if (searchText === "") {
       cities$ = this.citiesService.getMostPopulousCities()
@@ -40,7 +49,7 @@ export class CitySearchBarComponent implements OnInit {
       cities$ = this.citiesService.getCitiesContainingString(searchText)
     }
 
-    this.dropdownOptions$ = cities$.pipe(
+    return cities$.pipe(
       map((cities: City[]) => {
         return this.mapCitiesToDropdownOptions(cities)
       })
