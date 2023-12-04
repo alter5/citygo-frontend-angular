@@ -6,8 +6,8 @@
         class="h-10 w-10 items-center justify-between text-4xl text-white"
         (click)="toggleMenu()"
       >
-        <div *ngIf="!isMenuOpen" id="openMenuSymbol">☰</div>
-        <div *ngIf="isMenuOpen" id="closeMenuSymbol">X</div>
+        <div *ngIf="!isMenuOpen" class="menu-toggle">☰</div>
+        <div *ngIf="isMenuOpen" class="menu-toggle">X</div>
       </button>
       <app-city-search-bar class="w-full"/>
     </div>
@@ -17,17 +17,18 @@
 <!-- Desktop navbar -->
 <ng-template #desktopNavbar>
   <nav class="desktop">
-    <div class="wrapper">
+    <div class="wrapper max-w-[1160px]">
       <ul class="container navbar-left">
-        <li>
-          <a [routerLink]="['/']">Home</a>
+        <li class="flex h-16 w-32 items-center">
+          <img [routerLink]="['/']" width="1500" height="310" ngSrc="assets\images\logo\png\logo-no-background.png">
+          <!-- <a >Home</a> -->
         </li>
-        <li>
+        <!-- <li>
           <a href="#">About</a>
         </li>
         <li>
           <a href="#">Contact</a>
-        </li>
+        </li> -->
       </ul>
       <div class="container navbar-middle">
         <app-city-search-bar class="desktop" />
