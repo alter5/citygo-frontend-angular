@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject, Renderer2 } from "@angular/core"
-import { NgIf, AsyncPipe } from "@angular/common"
-import { DOCUMENT } from "@angular/common"
+import { NgIf, AsyncPipe, DOCUMENT, NgOptimizedImage } from "@angular/common"
 import { RouterModule } from "@angular/router"
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout"
 
@@ -16,12 +15,12 @@ import { Observable, map } from "rxjs"
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"],
   standalone: true,
-  imports: [RouterModule, CitySearchBarComponent, MatSlideToggleModule, NgIf, AsyncPipe]
+  imports: [RouterModule, CitySearchBarComponent, MatSlideToggleModule, NgIf, AsyncPipe, NgOptimizedImage]
 })
 export class NavbarComponent implements OnInit {
   isDarkModeEnabled = false
   isScreenSmall$: Observable<boolean> | null = null
-  isMenuVisible = false
+  isMenuOpen = false
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -44,7 +43,13 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleMenu(): void {
-    this.isMenuVisible = !this.isMenuVisible
+    this.isMenuOpen = !this.isMenuOpen
+
+    if (this.isMenuOpen === true) {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    } else {
+      this.renderer.setStyle(document.body, 'overflow', 'visible');
+    }
   }
 
   handleDarkModeToggle({ checked }: MatSlideToggleChange): void {

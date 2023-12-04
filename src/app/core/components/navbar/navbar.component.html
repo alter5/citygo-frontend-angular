@@ -3,31 +3,16 @@
   <nav class="light-gray h-24 w-full p-4">
     <div class="flex h-full w-full items-center justify-between gap-4">
       <button
-        class="text-white focus:text-white focus:outline-none"
+        class="h-10 w-10 items-center justify-between text-4xl text-white"
         (click)="toggleMenu()"
       >
-        <svg
-          class="h-6 w-6 fill-current"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            *ngIf="!isMenuVisible"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M3 7h14v2H3V7zm0 5h14v2H3v-2zm0 5h14v2H3v-2z"
-          ></path>
-          <path
-            *ngIf="isMenuVisible"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M5.293 6.293l1.414-1.414L10 8.586l3.293-3.293 1.414 1.414L11.414 10l3.293 3.293-1.414 1.414L10 11.414l-3.293 3.293-1.414-1.414L8.586 10 5.293 6.707 3.879 5.293z"
-          ></path>
-        </svg>
+        <div *ngIf="!isMenuOpen" id="openMenuSymbol">☰</div>
+        <div *ngIf="isMenuOpen" id="closeMenuSymbol">X</div>
       </button>
-      <app-city-search-bar class="w-full" />
+      <app-city-search-bar class="w-full"/>
     </div>
   </nav>
+  <div *ngIf="isMenuOpen" id="dropdown" class="bg-blue-300">Hi</div>
 </ng-container>
 <!-- Desktop navbar -->
 <ng-template #desktopNavbar>

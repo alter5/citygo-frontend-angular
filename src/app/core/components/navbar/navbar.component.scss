@@ -74,3 +74,8 @@ app-city-search-bar.desktop {
   border-color: solid helper.get-theme-color("foreground-contrast");
   padding-left: vars.$space-xl;
 }
+
+#dropdown {
+  height: calc(100vh - 6rem);
+}
+
