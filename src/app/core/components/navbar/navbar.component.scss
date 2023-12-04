@@ -3,7 +3,7 @@
 @use "variables" as vars;
 @use "helper" as helper;
 
-nav {
+nav.desktop {
   display: flex;
   position: fixed;
   justify-content: center;
@@ -13,6 +13,12 @@ nav {
   background-color: helper.get-theme-color("foreground");
   width: 100%;
   height: vars.$space-xxxl;
+}
+
+.light-gray {
+  box-shadow: 0 3px 6px rgba(25, 32, 36, 0.16),
+    0 -1px 4px rgba(25, 32, 36, 0.04);
+  background-color: helper.get-theme-color("foreground");
 }
 
 a,
@@ -58,7 +64,7 @@ ul.container {
  flex: 1;
 }
 
-app-city-search-bar {
+app-city-search-bar.desktop {
   width: 100%;
 }
 
