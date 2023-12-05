@@ -1,1 +1,15 @@
-<p>hi</p>
+<div class="flex w-full h-auto flex-col p-4">
+  <!-- Title -->
+  <div>
+    <h1>Hello</h1>
+  </div>
+  <!-- Images -->
+  <div class="flex w-full h-56 justify-center content-center">
+    <ng-container *ngIf="images !== null && images.length > 0">
+      <ng-container *ngFor="let image of images">
+        <img [src]="image" class="max-w-[{{(100 / (images.length)) | number: '1.0-0'}}%] max-h-xs object-cover">
+      </ng-container>
+    </ng-container>
+  </div>
+  <!-- Price, rating -->
+</div>
