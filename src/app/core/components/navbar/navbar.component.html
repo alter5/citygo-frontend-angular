@@ -9,7 +9,7 @@
         <div *ngIf="!isMenuOpen" class="menu-toggle">☰</div>
         <div *ngIf="isMenuOpen" class="menu-toggle">X</div>
       </button>
-      <app-city-search-bar class="w-full"/>
+      <app-city-search-bar class="w-full" />
     </div>
   </nav>
   <div *ngIf="isMenuOpen" id="dropdown" class="bg-blue-300">Hi</div>
@@ -19,16 +19,19 @@
   <nav class="desktop">
     <div class="wrapper max-w-[1160px]">
       <ul class="container navbar-left">
-        <li class="flex h-16 w-32 items-center">
-          <img [routerLink]="['/']" width="1500" height="310" ngSrc="assets\images\logo\png\logo-no-background.png">
-          <!-- <a >Home</a> -->
-        </li>
-        <!-- <li>
-          <a href="#">About</a>
+        <li class="mr-4 flex h-16 w-40 items-center">
+          <a [routerLink]="['/']">
+              <!-- Logo was generated using www.logo.com -->
+              <img
+                width="1500"
+                height="310"
+                ngSrc="assets\images\logo\png\logo-no-background.png"
+              />
+          </a>
         </li>
         <li>
-          <a href="#">Contact</a>
-        </li> -->
+          <a href="#">Create a trip</a>
+        </li>
       </ul>
       <div class="container navbar-middle">
         <app-city-search-bar class="desktop" />

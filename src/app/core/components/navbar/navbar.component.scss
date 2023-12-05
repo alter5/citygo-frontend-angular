@@ -41,8 +41,8 @@ label {
 .container {
   display: flex;
   align-items: center;
-  white-space: nowrap;
   gap: vars.$space-sm;
+  white-space: nowrap;
 }
 
 ul.container {
@@ -60,7 +60,7 @@ ul.container {
 }
 
 .navbar-right {
- flex: 1;
+  flex: 1;
 }
 
 app-city-search-bar.desktop {
@@ -78,3 +78,10 @@ app-city-search-bar.desktop {
   height: calc(100vh - 6rem);
 }
 
+.logo {
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 800;
+  background-image: linear-gradient(to right, #00ffea, #7a00ff);
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent;
+}
