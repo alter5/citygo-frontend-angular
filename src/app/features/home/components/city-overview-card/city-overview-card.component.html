@@ -1,13 +1,13 @@
-<div class="flex w-full h-auto flex-col p-4">
+<div class="flex h-auto w-full flex-col rounded-md p-4">
   <!-- Title -->
   <div>
     <h1>Hello</h1>
   </div>
   <!-- Images -->
-  <div class="flex w-full h-56 justify-center content-center">
+  <div class="flex h-56 w-full content-center justify-center">
     <ng-container *ngIf="images !== null && images.length > 0">
       <ng-container *ngFor="let image of images">
-        <img [src]="image" class="max-w-[{{(100 / (images.length)) | number: '1.0-0'}}%] max-h-xs object-cover">
+        <img [src]="image" class="h-full w-full object-cover" />
       </ng-container>
     </ng-container>
   </div>
