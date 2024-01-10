@@ -4,7 +4,7 @@ import { Observable } from "rxjs"
 import { startWith, map } from "rxjs/operators"
 import { MatOptionModule } from "@angular/material/core"
 import { NgFor, NgIf, AsyncPipe } from "@angular/common"
-import { MatAutocompleteModule } from "@angular/material/autocomplete"
+import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from "@angular/material/autocomplete"
 import { DropdownOption } from "./dropdown-option.model"
 
 // TODO: Add a callback when clicking dropdown option. It should open description page of the city.
@@ -27,10 +27,19 @@ import { DropdownOption } from "./dropdown-option.model"
 export class SearchBarComponent implements OnInit {
   @Input() formControl!: FormControl;
   @Input() dropdownOptions: DropdownOption[] | null = null
-  @Output() dropdownOptionSelected: EventEmitter<object> = new EventEmitter<object>()
+  @Output() selectedDropdownOption: EventEmitter<DropdownOption> = new EventEmitter<DropdownOption>()
 
   ngOnInit() {
     ;
+  }
+
+  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+    const selectedOptionText: DropdownOption = event.option.value
+    this.selectedDropdownOption.emit(selectedOptionText)
+  }
+
+  convertOptionToStringForDisplayWith(option: DropdownOption) {
+    return option.textToDisplay
   }
 
 }

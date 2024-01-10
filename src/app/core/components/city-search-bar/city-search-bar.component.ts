@@ -13,6 +13,7 @@ import {
 import { City } from "src/app/shared/models/city.model"
 import { DropdownOption } from "src/app/shared/components/searchbar/dropdown-option.model"
 import { FormControl } from "@angular/forms"
+import { Router } from "@angular/router"
 
 @Component({
   selector: "app-city-search-bar",
@@ -27,7 +28,7 @@ export class CitySearchBarComponent implements OnInit {
     DropdownOption[]
   >()
 
-  constructor(private citiesService: CitiesService) {}
+  constructor(private router: Router, private citiesService: CitiesService) {}
 
   ngOnInit(): void {
     this.dropdownOptions$ = this.formControl.valueChanges.pipe(
@@ -68,5 +69,9 @@ export class CitySearchBarComponent implements OnInit {
       return ""
     }
     return value.toLowerCase().replace(/[^\w\s]/g, "")
+  }
+
+  onSelectedCity(selectedDropdownOption: DropdownOption) {
+    this.router.navigate(["/city", selectedDropdownOption.id])
   }
 }

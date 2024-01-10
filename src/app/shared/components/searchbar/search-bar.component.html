@@ -5,13 +5,13 @@
     [formControl]="formControl"
     [matAutocomplete]="dropdownAutocomplete"
   />
-  <mat-autocomplete class="!mt-1" #dropdownAutocomplete="matAutocomplete">
+  <mat-autocomplete class="!mt-1" #dropdownAutocomplete="matAutocomplete" (optionSelected)="onOptionSelected($event)" [displayWith]="convertOptionToStringForDisplayWith">
     <ng-container
       *ngIf="dropdownOptions !== null && dropdownOptions.length > 0"
     >
       <mat-option
         *ngFor="let option of dropdownOptions"
-        [value]="option.textToDisplay"
+        [value]="option"
       >
         {{ option.textToDisplay }}
       </mat-option>
