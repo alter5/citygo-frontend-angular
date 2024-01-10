@@ -72,6 +72,7 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   onSelectedCity(selectedDropdownOption: DropdownOption) {
-    this.router.navigate(["/city", selectedDropdownOption.id])
+    console.log(selectedDropdownOption.id)
+    this.router.navigate(["/search", selectedDropdownOption.id])
   }
 }

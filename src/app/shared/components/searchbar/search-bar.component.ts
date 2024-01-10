@@ -7,8 +7,6 @@ import { NgFor, NgIf, AsyncPipe } from "@angular/common"
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from "@angular/material/autocomplete"
 import { DropdownOption } from "./dropdown-option.model"
 
-// TODO: Add a callback when clicking dropdown option. It should open description page of the city.
-
 @Component({
   selector: "app-search-bar",
   templateUrl: "./search-bar.component.html",

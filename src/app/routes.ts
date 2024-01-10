@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router"
 import { PageHomeComponent } from "./features/home/pages/home/page-home.component"
-import { PageCityComponent } from "./features/city/page-city/page-city.component"
+import { PageSearchComponent } from "./features/search/page-search/page-search.component"
 
 const routeConfig: Routes = [
   {
@@ -9,7 +9,7 @@ const routeConfig: Routes = [
     title: "Home page"
   },
   {
-    path: "city/:id", component: PageCityComponent
+    path: "search/:cityId", component: PageSearchComponent
   },
   // {
   //   path: 'details/:id',
