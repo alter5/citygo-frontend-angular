@@ -10,7 +10,7 @@ const routeConfig: Routes = [
   },
   {
     path: "city/:id", component: PageCityComponent
-  }
+  },
   // {
   //   path: 'details/:id',
   //   component: DetailsComponent,
