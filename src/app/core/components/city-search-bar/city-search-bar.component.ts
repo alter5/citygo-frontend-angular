@@ -24,9 +24,7 @@ import { Router } from "@angular/router"
 })
 export class CitySearchBarComponent implements OnInit {
   formControl: FormControl = new FormControl("")
-  dropdownOptions$: Observable<DropdownOption[]> = new Observable<
-    DropdownOption[]
-  >()
+  dropdownOptions$: Observable<DropdownOption[]> | undefined
 
   constructor(private router: Router, private citiesService: CitiesService) {}
 
