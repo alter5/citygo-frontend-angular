@@ -1,1 +1,5 @@
 <p>Page-city, city id: {{this.cityId}}</p>
+<div *ngIf="this.city !== null">
+  {{this.city.city_name}} {{this.city.state}} {{this.city.population}}
+</div>
+
