@@ -1,7 +1,7 @@
 <ng-container *ngIf="city$ | async as city; else loading">
   <h1>{{city.city_name}}</h1>
   <p>{{city.state}}</p>
-  {{city.city_name}} {{city.state}} {{city.population}}
+  <app-image-gallery [imageUrls]="this.images" />
 </ng-container>
 <ng-template #loading>
   <p>Loading city information...</p>

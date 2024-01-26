@@ -1,0 +1,27 @@
+/* image-gallery.component.css */
+.image-gallery-container {
+  display: flex;
+  height: 24rem;
+  width: 100%;
+}
+
+.left-half {
+  flex-grow: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.right-half {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
