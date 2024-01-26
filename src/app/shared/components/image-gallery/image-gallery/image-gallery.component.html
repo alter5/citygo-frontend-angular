@@ -1,5 +1,5 @@
 <ng-container *ngIf="imageUrls !== undefined" ; else loading>
-  <div class="image-gallery-container">
+  <div class="image-gallery-container xl:rounded-lg">
     <div class="left-half" *ngIf="imageUrls.length > 0">
       <!-- First image -->
       <img [src]="imageUrls[0]" alt="Image 1" />
