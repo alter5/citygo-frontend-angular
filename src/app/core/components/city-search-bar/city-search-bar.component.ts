@@ -51,11 +51,6 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   private getDropdownOptions(searchText: string): Observable<DropdownOption[]> {
-    console.log(
-      "🚀 ~ CitySearchBarComponent ~ getDropdownOptions ~ getDropdownOptions:",
-      searchText
-    )
-
     let cities$ = null
     if (searchText !== "") {
       cities$ = this.citiesService.getCitiesContainingString(searchText)
@@ -78,7 +73,6 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   private normalizeString(value: string): string {
-    console.log(value)
     if (value === null) {
       return ""
     }
@@ -86,10 +80,6 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   onSelectedCity(selectedDropdownOption: DropdownOption) {
-    console.log(
-      "🚀 ~ CitySearchBarComponent ~ onSelectedCity ~ onSelectedCity:"
-    )
-    console.log(selectedDropdownOption.id)
     this.router.navigate(["/search", selectedDropdownOption.id])
   }
 }
