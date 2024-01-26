@@ -1,6 +1,8 @@
-<div *ngIf="city$ | async as city; else loading">
+<ng-container *ngIf="city$ | async as city; else loading">
+  <h1>{{city.city_name}}</h1>
+  <p>{{city.state}}</p>
   {{city.city_name}} {{city.state}} {{city.population}}
-</div>
+</ng-container>
 <ng-template #loading>
   <p>Loading city information...</p>
 </ng-template>
