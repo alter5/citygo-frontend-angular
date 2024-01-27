@@ -1,0 +1,17 @@
+<ng-container *ngIf="imageUrls !== undefined" ; else loading>
+  <div class="image-gallery-container xl:rounded-lg">
+    <div class="left-half" *ngIf="imageUrls.length > 0">
+      <!-- First image -->
+      <img [src]="imageUrls[0]" alt="Image 1" />
+    </div>
+    <div class="right-half">
+      <!-- Remaining images -->
+      <ng-container *ngFor="let imageUrl of imageUrls.slice(1); let i = index">
+        <img [src]="imageUrl" alt="Image {{ i + 2 }}" />
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

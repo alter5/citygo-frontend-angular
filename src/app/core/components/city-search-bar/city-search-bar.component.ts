@@ -7,8 +7,10 @@ import {
   debounceTime,
   distinctUntilChanged,
   map,
+  shareReplay,
   startWith,
-  switchMap
+  switchMap,
+  tap
 } from "rxjs"
 import { City } from "src/app/shared/models/city.model"
 import { DropdownOption } from "src/app/shared/components/searchbar/dropdown-option.model"
@@ -24,9 +26,7 @@ import { Router } from "@angular/router"
 })
 export class CitySearchBarComponent implements OnInit {
   formControl: FormControl = new FormControl("")
-  dropdownOptions$: Observable<DropdownOption[]> = new Observable<
-    DropdownOption[]
-  >()
+  dropdownOptions$: Observable<DropdownOption[]> | undefined
 
   constructor(private router: Router, private citiesService: CitiesService) {}
 
@@ -35,6 +35,15 @@ export class CitySearchBarComponent implements OnInit {
       startWith(""),
       debounceTime(300),
       distinctUntilChanged(),
+      map((val: string | DropdownOption) => {
+        if (typeof val === "string") {
+          return val
+        } else {
+          // A dropdown option was selected in the autocomplete
+          val = val as DropdownOption
+          return val.textToDisplay
+        }
+      }),
       switchMap((searchText: string) => {
         return this.getDropdownOptions(searchText)
       })
@@ -43,10 +52,10 @@ export class CitySearchBarComponent implements OnInit {
 
   private getDropdownOptions(searchText: string): Observable<DropdownOption[]> {
     let cities$ = null
-    if (searchText === "") {
-      cities$ = this.citiesService.getMostPopulousCities()
-    } else {
+    if (searchText !== "") {
       cities$ = this.citiesService.getCitiesContainingString(searchText)
+    } else {
+      cities$ = this.citiesService.getMostPopulousCities()
     }
 
     return cities$.pipe(
@@ -64,7 +73,6 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   private normalizeString(value: string): string {
-    console.log(value)
     if (value === null) {
       return ""
     }
@@ -72,8 +80,6 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   onSelectedCity(selectedDropdownOption: DropdownOption) {
-    console.log("🚀 ~ CitySearchBarComponent ~ onSelectedCity ~ onSelectedCity:")
-    console.log(selectedDropdownOption.id)
     this.router.navigate(["/search", selectedDropdownOption.id])
   }
 }
