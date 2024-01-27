@@ -1,5 +1,5 @@
-<div class="max-w-5xl">
-  <ng-container *ngIf="city$ | async as city; else loading">
+<div class="flex w-full max-w-5xl">
+  <div class="w-full" *ngIf="city$ | async as city; else loading">
     <h1>{{ city.city_name }}</h1>
     <p>{{ city.state }}</p>
     <app-image-gallery [imageUrls]="this.images" class="h-auto w-full" />
@@ -8,8 +8,17 @@
       <li>Stop 1</li>
       <li>Stop 2</li>
     </ul>
-  </ng-container>
+    <div class="relative h-64 w-full">
+      <img
+        class="object-cover"
+        ngSrc="assets\images\placeholders\google-maps-placeholder.png"
+        fill
+      />
+    </div>
+  </div>
   <ng-template #loading>
-    <p>Loading city information...</p>
+    <div>
+      <p>Loading city information...</p>
+    </div>
   </ng-template>
 </div>

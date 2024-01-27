@@ -6,9 +6,17 @@
     </div>
     <div class="right-half">
       <!-- Remaining images -->
-      <ng-container *ngFor="let imageUrl of imageUrls.slice(1); let i = index">
-        <img [src]="imageUrl" alt="Image {{ i + 2 }}" />
-      </ng-container>
+      <div
+        class="relative h-full w-full"
+        *ngFor="let imageUrl of imageUrls.slice(1); let i = index"
+      >
+        <img
+          class="object-cover"
+          [ngSrc]="imageUrl"
+          alt="Image {{ i + 2 }}"
+          fill
+        />
+      </div>
     </div>
   </div>
 </ng-container>

@@ -11,11 +11,12 @@ import { Observable, Subscription, firstValueFrom, switchMap } from "rxjs"
 import { City } from "src/app/shared/models/city.model"
 import { CitiesService } from "src/app/shared/services/cities.service"
 import { ImageGalleryComponent } from "src/app/shared/components/image-gallery/image-gallery/image-gallery.component"
+import { NgOptimizedImage } from "@angular/common"
 
 @Component({
   selector: "app-page-search",
   standalone: true,
-  imports: [CommonModule, ImageGalleryComponent],
+  imports: [CommonModule, ImageGalleryComponent, NgOptimizedImage],
   templateUrl: "./page-search.component.html",
   styleUrls: ["./page-search.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
