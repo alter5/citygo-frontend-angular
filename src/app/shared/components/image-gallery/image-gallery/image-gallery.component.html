@@ -1,25 +1,27 @@
-<ng-container *ngIf="imageUrls !== undefined" ; else loading>
-  <div class="image-gallery-container xl:rounded-lg">
-    <div class="left-half" *ngIf="imageUrls.length > 0">
-      <!-- First image -->
-      <img [src]="imageUrls[0]" alt="Image 1" />
-    </div>
-    <div class="right-half">
-      <!-- Remaining images -->
-      <div
-        class="relative h-full w-full"
-        *ngFor="let imageUrl of imageUrls.slice(1); let i = index"
-      >
-        <img
-          class="object-cover"
-          [ngSrc]="imageUrl"
-          alt="Image {{ i + 2 }}"
-          fill
-        />
+<div class="flex w-full">
+  <ng-container *ngIf="imageUrls !== undefined" ; else loading>
+    <div class="image-gallery-container">
+      <div class="left-half" *ngIf="imageUrls.length > 0">
+        <!-- First image -->
+        <img [src]="imageUrls[0]" alt="Image 1" />
+      </div>
+      <div class="right-half">
+        <!-- Remaining images -->
+        <div
+          class="relative h-full w-full"
+          *ngFor="let imageUrl of imageUrls.slice(1); let i = index"
+        >
+          <img
+            class="object-cover"
+            [ngSrc]="imageUrl"
+            alt="Image {{ i + 2 }}"
+            fill
+          />
+        </div>
       </div>
     </div>
-  </div>
-</ng-container>
-<ng-template #loading>
-  <p>Loading...</p>
-</ng-template>
+  </ng-container>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+</div>

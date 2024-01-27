@@ -2,16 +2,16 @@
   <div class="w-full" *ngIf="city$ | async as city; else loading">
     <h1>{{ city.city_name }}</h1>
     <p>{{ city.state }}</p>
-    <app-image-gallery [imageUrls]="this.images" class="h-auto w-full" />
+    <app-image-gallery [imageUrls]="this.images" class="w-full flex xl:rounded-lg overflow-hidden" />
     <p>Destinations</p>
     <ul>
       <li>Stop 1</li>
       <li>Stop 2</li>
     </ul>
-    <div class="relative h-64 w-full">
+    <div class="relative h-80 flex w-full xl:rounded-lg overflow-hidden">
       <img
         class="object-cover"
-        ngSrc="assets\images\placeholders\google-maps-placeholder.png"
+        ngSrc="assets\images\placeholders\google-maps-w-buttons-placeholder.png"
         fill
       />
     </div>
