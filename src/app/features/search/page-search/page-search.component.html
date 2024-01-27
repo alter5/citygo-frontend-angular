@@ -1,9 +1,10 @@
-<ng-container *ngIf="city$ | async as city; else loading">
-  <h1>{{city.city_name}}</h1>
-  <p>{{city.state}}</p>
-  <app-image-gallery [imageUrls]="this.images" />
-</ng-container>
-<ng-template #loading>
-  <p>Loading city information...</p>
-</ng-template>
-
+<div class="max-w-5xl">
+  <ng-container *ngIf="city$ | async as city; else loading">
+    <h1>{{ city.city_name }}</h1>
+    <p>{{ city.state }}</p>
+    <app-image-gallery [imageUrls]="this.images" class="h-auto w-full" />
+  </ng-container>
+  <ng-template #loading>
+    <p>Loading city information...</p>
+  </ng-template>
+</div>
