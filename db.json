@@ -30,9 +30,9 @@
     {
       "city": {
         "id": 2,
-        "city_name": "New York",
-        "state": "New York",
-        "state_abbreviation": "NY"
+        "city_name": "Las Vegas",
+        "state": "Nevada",
+        "state_abbreviation": "NV"
       },
       "stats": {
         "price_range": 2,
@@ -41,22 +41,18 @@
       },
       "stops": [
         {
-          "name": "Times Square",
+          "name": "The Strip",
           "image": "assets/images/city-card-images/ny-times-square.jpg"
         },
         {
-          "name": "Empire State Building",
+          "name": "Fremont Street Experience",
           "image": "assets/images/city-card-images/ny-skyscraper.jpg"
         },
         {
-          "name": "Central Park",
+          "name": "Sphere",
           "images": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
-    },
+    }
   ]
 }
-//
-"The Strip",
-"Fremont Street Experience",
-"Sphere"
