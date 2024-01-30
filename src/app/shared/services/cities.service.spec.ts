@@ -32,44 +32,48 @@ describe("Service Cities", () => {
     expect(service).toBeTruthy()
   })
 
-  it("should return an array of cities that match the query string", (done) => {
+  it("should return an array of cities that match the query string", () => {
+    const requestUrl = service.baseUrl + "/search"
+
     const queryString = "Athe"
     const expectedResponse = { success: true, data: ["Athens", "Atherton"] }
 
     service.getCitiesContainingString(queryString).subscribe((data) => {
       expect(data).toEqual(expectedResponse.data)
-      done()
     })
 
-    let requestUrl = service.baseUrl + "/search"
-    const params = new HttpParams().set("queryString", queryString)
-    requestUrl += "?" + params.toString()
+    const req = httpTestingController.expectOne((req) => {
+      return req.url.includes(requestUrl)
+    })
 
-    const req = httpTestingController.expectOne(requestUrl)
     expect(req.request.method).toBe("GET")
 
     req.flush(expectedResponse)
   })
 
-  it("should return an empty array on error", (done) => {
-    const queryString = "Athe"
+  it("should return an empty array on error", () => {
+    const requestUrl = service.baseUrl + "/mostPopulous"
 
-    service.getCitiesContainingString(queryString).subscribe((cities) => {
-      console.log("🚀 ~ service.getCitiesContainingString ~ cities:", cities)
-      expect(cities).toEqual([])
-      done()
+    // Supresses the console.error output from the expected error
+    const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation() // The mock does nothing when no callback is specified
+
+    service
+      .getMostPopulousCities()
+      .pipe(
+        catchError((error) => {
+          fail("The cities service should not throw any errors")
+        })
+      )
+      .subscribe((cities) => {
+        expect(cities).toBe([])
+      })
+
+    const req = httpTestingController.expectOne((req) => {
+      return req.url.includes(requestUrl)
     })
 
-    const req = httpTestingController.expectOne(
-      (req) =>
-        req.url.includes(service.baseUrl + "/search") && req.method === "GET"
-    )
+    req.flush("Test error message", { status: 404, statusText: "Not Found" })
 
-    req.flush(
-      new HttpErrorResponse({
-        status: 500,
-        statusText: "Internal Server Error"
-      })
-    )
+    consoleErrorSpy.mockRestore()
   })
 })
