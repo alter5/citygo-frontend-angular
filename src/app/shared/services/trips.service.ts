@@ -8,6 +8,7 @@ import { Trip } from "../models/trip.model"
 })
 export class TripsService {
   baseUrl = "http://localhost:3002/api/cities"
+
   constructor(private http: HttpClient) {}
 
   getAllTrips(): Observable<Trip[]> {

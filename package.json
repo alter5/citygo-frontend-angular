@@ -4,11 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "concurrently --kill-others \"npm start\" \"npm run jsonserver\"",
+    "test": "concurrently --kill-others \"npm run jsonserver\" \"npx jest\"",
+    "jsonserver": "json-server -p 3002 db.json",
+    "format": "prettier --write \"src/\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "jest",
-    "lint": "ng lint CityGo",
-    "format": "prettier --write \"src/\""
+    "lint": "ng lint CityGo"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +27,7 @@
     "@angular/router": "^15.2.0",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.5",
+    "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "dotenv": "^16.1.4",
     "jest": "^29.6.2",
