@@ -1,16 +1,22 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing"
 
-import { TripsService } from './trips.service';
+import { TripsService } from "./trips.service"
+import { HttpClientTestingModule } from "@angular/common/http/testing"
 
-describe('TripsService', () => {
-  let service: TripsService;
+describe("Service Trips", () => {
+  let service: TripsService
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(TripsService);
-  });
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [TripsService]
+    })
+    service = TestBed.inject(TripsService)
+  })
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  it("should be created", () => {
+    expect(service).toBeTruthy()
+  })
+
+
+})
