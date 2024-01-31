@@ -23,7 +23,7 @@
         },
         {
           "name": "Central Park",
-          "images": "assets/images/city-card-images/ny-centralpark.jpg"
+          "image": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
     },
@@ -50,7 +50,7 @@
         },
         {
           "name": "Sphere",
-          "images": "assets/images/city-card-images/ny-centralpark.jpg"
+          "image": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
     }
