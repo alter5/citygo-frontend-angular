@@ -4,19 +4,25 @@ import { TripsService } from "./trips.service"
 import { HttpClientTestingModule } from "@angular/common/http/testing"
 
 describe("Service Trips", () => {
-  let service: TripsService
+  let tripsService: TripsService
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [TripsService]
     })
-    service = TestBed.inject(TripsService)
+    tripsService = TestBed.inject(TripsService)
   })
 
   it("should be created", () => {
-    expect(service).toBeTruthy()
+    expect(tripsService).toBeTruthy()
   })
 
+  it("should get trips", () => {
+    const expectedResponse = "New York"
+    tripsService.getAllTrips().subscribe((trips) => {
+      expect(trips[0].city.city_name).toEqual("New York")
+    })
+  })
 
 })

@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common"
 import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core"
 import { NgFor, NgOptimizedImage, NgIf } from "@angular/common"
-import { City } from "src/app/shared/models/city.model"
+import { Trip } from "src/app/shared/models/trip.model"
 // import img
 
 @Component({
@@ -12,14 +12,9 @@ import { City } from "src/app/shared/models/city.model"
   imports: [CommonModule, NgFor],
 })
 export class TripOverviewCardComponent implements OnInit {
-  @Input() trip: City | undefined
-  @Input() images: string[] | undefined
+  @Input() trip: Trip | undefined
 
   ngOnInit(): void {
-    this.images = [
-      "assets/images/city-card-images/ny-skyscraper.jpg",
-      "assets/images/city-card-images/ny-times-square.jpg",
-      "assets/images/city-card-images/ny-centralpark.jpg"
-    ]
+    ;
   }
 }

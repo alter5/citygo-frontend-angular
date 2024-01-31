@@ -5,9 +5,9 @@
   </div>
   <!-- Images -->
   <div class="flex h-56 w-full content-center justify-center">
-    <ng-container *ngIf="images !== null && images.length > 0">
-      <ng-container *ngFor="let image of images">
-        <img [src]="image" class="h-full w-full object-cover" />
+    <ng-container *ngIf="trip !== undefined">
+      <ng-container *ngFor="let stop of trip.stops">
+        <img [src]="stop.image" class="h-full w-full object-cover" />
       </ng-container>
     </ng-container>
   </div>
