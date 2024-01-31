@@ -1,4 +1,8 @@
-<ng-template *ngFor="let city of ">
-
-</ng-template>
-<app-test-theme />
+<div class="flex w-full justify-center">
+  <div class="w-full max-w-5xl">
+    <ng-container *ngFor="let trip of trips$ | async">
+      <app-trip-overview-card [trip]="trip"></app-trip-overview-card>
+    </ng-container>
+    <app-test-theme />
+  </div>
+</div>

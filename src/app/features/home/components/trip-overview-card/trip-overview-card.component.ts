@@ -9,7 +9,7 @@ import { Trip } from "src/app/shared/models/trip.model"
   templateUrl: "./trip-overview-card.component.html",
   styleUrls: ["./trip-overview-card.component.css"],
   standalone: true,
-  imports: [CommonModule, NgFor],
+  imports: [CommonModule, NgFor, NgOptimizedImage],
 })
 export class TripOverviewCardComponent implements OnInit {
   @Input() trip: Trip | undefined

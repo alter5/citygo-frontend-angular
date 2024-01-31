@@ -1,4 +1,4 @@
-<div class="flex h-auto w-full flex-col rounded-md p-4">
+<div class="flex w-full flex-col rounded-md">
   <!-- Title -->
   <div>
     <h1>Hello</h1>
@@ -6,9 +6,12 @@
   <!-- Images -->
   <div class="flex h-56 w-full content-center justify-center">
     <ng-container *ngIf="trip !== undefined">
-      <ng-container *ngFor="let stop of trip.stops">
-        <img [src]="stop.image" class="h-full w-full object-cover" />
-      </ng-container>
+      <div class="relative w-full h-full" *ngFor="let stop of trip.stops">
+        <img class="object-cover"
+        [ngSrc]="stop.image"
+        [alt]="stop.name"
+        fill />
+      </div>
     </ng-container>
   </div>
   <!-- Price, rating -->
