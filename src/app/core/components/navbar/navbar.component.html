@@ -3,7 +3,7 @@
   <nav class="light-gray h-24 w-full p-4">
     <div class="flex h-full w-full items-center justify-between gap-4">
       <button
-        class="h-10 w-10 items-center justify-between text-4xl text-white"
+        class="h-10 w-10 items-center justify-between text-4xl"
         (click)="toggleMenu()"
       >
         <div *ngIf="!isMenuOpen" class="menu-toggle">☰</div>
@@ -12,21 +12,25 @@
       <app-city-search-bar class="w-full" />
     </div>
   </nav>
-  <div *ngIf="isMenuOpen" id="dropdown" class="bg-blue-300">Hi</div>
+  <!-- TODO: Implement full mobile menu -->
+  <div *ngIf="isMenuOpen" id="dropdown" class="bg-black">
+    This feature is not yet available
+  </div>
 </ng-container>
 <!-- Desktop navbar -->
 <ng-template #desktopNavbar>
   <nav class="desktop">
     <div class="wrapper max-w-[1160px]">
       <ul class="container navbar-left">
-        <li class="mr-4 flex h-16 w-40 items-center">
+        <li class="relative mr-4 flex h-16 w-40 items-center">
           <a [routerLink]="['/']">
-              <!-- Logo was generated using www.logo.com -->
-              <img
-                width="1500"
-                height="310"
-                ngSrc="assets\images\logo\png\logo-no-background.png"
-              />
+            <!-- Logo was generated using www.logo.com -->
+            <img
+              class="object-contain"
+              ngSrc="assets\images\logo\png\logo-no-background.png"
+              alt="Logo"
+              fill
+            />
           </a>
         </li>
         <li>
