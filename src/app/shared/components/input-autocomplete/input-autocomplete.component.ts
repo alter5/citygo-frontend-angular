@@ -8,9 +8,9 @@ import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from "@angular/ma
 import { DropdownOption } from "./dropdown-option.model"
 
 @Component({
-  selector: "app-search-bar",
-  templateUrl: "./search-bar.component.html",
-  styleUrls: ["./search-bar.component.scss"],
+  selector: "app-input-autocomplete",
+  templateUrl: "./input-autocomplete.component.html",
+  styleUrls: ["./input-autocomplete.component.scss"],
   standalone: true,
   imports: [
     FormsModule,
@@ -22,10 +22,13 @@ import { DropdownOption } from "./dropdown-option.model"
     AsyncPipe
   ]
 })
-export class SearchBarComponent implements OnInit {
+export class InputAutocompleteComponent implements OnInit {
+  @Input() hint = ""
   @Input() formControl!: FormControl;
-  @Input() dropdownOptions: DropdownOption[] | null = null
+  @Input() dropdownOptions: DropdownOption[] | null | undefined
+
   @Output() selectedDropdownOption: EventEmitter<DropdownOption> = new EventEmitter<DropdownOption>()
+  @Output() clickInputField: EventEmitter<void> = new EventEmitter<void>()
 
   ngOnInit() {
     ;
@@ -38,6 +41,10 @@ export class SearchBarComponent implements OnInit {
 
   convertOptionToStringForDisplayWith(option: DropdownOption) {
     return option.textToDisplay
+  }
+
+  onClickInputField() {
+    this.clickInputField.emit()
   }
 
 }

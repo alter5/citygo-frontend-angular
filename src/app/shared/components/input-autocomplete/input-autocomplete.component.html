@@ -1,0 +1,27 @@
+<form>
+  <input
+    type="text"
+    [placeholder]="hint"
+    [formControl]="formControl"
+    [matAutocomplete]="dropdownAutocomplete"
+    (click)="onClickInputField"
+  />
+  <mat-autocomplete
+    class="!mt-1"
+    #dropdownAutocomplete="matAutocomplete"
+    (optionSelected)="onOptionSelected($event)"
+    [displayWith]="convertOptionToStringForDisplayWith"
+  >
+    <ng-container
+      *ngIf="
+        dropdownOptions != undefined &&
+        dropdownOptions !== null &&
+        dropdownOptions.length > 0
+      "
+    >
+      <mat-option *ngFor="let option of dropdownOptions" [value]="option">
+        {{ option.textToDisplay }}
+      </mat-option>
+    </ng-container>
+  </mat-autocomplete>
+</form>

@@ -1,8 +1,13 @@
 <div class="flex w-full justify-center">
   <div class="w-full max-w-5xl">
+    <div class="w-full px-4 py-3 rounded-lg create-trip-card">
+      <app-input-autocomplete hint="Create Trip"></app-input-autocomplete>
+    </div>
     <ng-container *ngFor="let trip of trips$ | async">
       <app-trip-overview-card [trip]="trip"></app-trip-overview-card>
     </ng-container>
+    <br><br>
+    <p>Test theme</p>
     <app-test-theme />
   </div>
 </div>

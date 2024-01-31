@@ -1,6 +1,6 @@
 import { AfterContentInit, Component, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
-import { SearchBarComponent } from "src/app/shared/components/searchbar/search-bar.component"
+import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
 import { CitiesService } from "src/app/shared/services/cities.service"
 import {
   Observable,
@@ -13,14 +13,14 @@ import {
   tap
 } from "rxjs"
 import { City } from "src/app/shared/models/city.model"
-import { DropdownOption } from "src/app/shared/components/searchbar/dropdown-option.model"
+import { DropdownOption } from "src/app/shared/components/input-autocomplete/dropdown-option.model"
 import { FormControl } from "@angular/forms"
 import { Router } from "@angular/router"
 
 @Component({
   selector: "app-city-search-bar",
   standalone: true,
-  imports: [CommonModule, SearchBarComponent],
+  imports: [CommonModule, InputAutocompleteComponent],
   templateUrl: "./city-search-bar.component.html",
   styleUrls: ["./city-search-bar.component.scss"]
 })

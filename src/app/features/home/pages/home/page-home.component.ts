@@ -5,13 +5,14 @@ import { TripOverviewCardComponent } from "../../components/trip-overview-card/t
 import { TripsService } from "src/app/shared/services/trips.service"
 import { Observable } from "rxjs"
 import { Trip } from "src/app/shared/models/trip.model"
+import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
 
 @Component({
   selector: "app-home",
   templateUrl: "./page-home.component.html",
   styleUrls: ["./page-home.component.scss"],
   standalone: true,
-  imports: [TestThemeComponent, TripOverviewCardComponent, NgFor, AsyncPipe]
+  imports: [TestThemeComponent, TripOverviewCardComponent, NgFor, AsyncPipe, InputAutocompleteComponent]
 })
 export class PageHomeComponent implements OnInit {
   trips$: Observable<Trip[]> | undefined

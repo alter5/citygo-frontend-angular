@@ -1,5 +1,6 @@
-<app-search-bar
+<app-input-autocomplete
+hint="Search for a city"
 [formControl]="formControl"
 [dropdownOptions]="dropdownOptions$ | async"
 (selectedDropdownOption)="onSelectedCity($event)"
-></app-search-bar>
+></app-input-autocomplete>
