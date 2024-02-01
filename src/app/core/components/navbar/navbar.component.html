@@ -1,20 +1,24 @@
 <!-- Mobile navbar for smaller devices -->
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
-  <nav class="light-gray h-24 w-full p-4">
+  <nav class="light-gray fixed z-50 h-24 w-full p-4">
     <div class="flex h-full w-full items-center justify-between gap-4">
       <button
-        class="h-10 w-10 items-center justify-between text-4xl"
+        class="flex h-full w-16 justify-center"
+        mat-icon-button
+        color="accent"
+        aria-label="Example icon button with a menu icon"
         (click)="toggleMenu()"
       >
-        <div *ngIf="!isMenuOpen" class="menu-toggle">☰</div>
-        <div *ngIf="isMenuOpen" class="menu-toggle">X</div>
+        <mat-icon>menu</mat-icon>
       </button>
       <app-city-search-bar class="w-full" />
     </div>
   </nav>
   <!-- TODO: Implement full mobile menu -->
-  <div *ngIf="isMenuOpen" id="dropdown" class="bg-black">
-    This feature is not yet available
+  <div *ngIf="isMenuOpen" id="dropdown" class="h-screen overflow-hidden bg-black">
+    <div class="mt-24">
+      <p>This feature is not yet available</p>
+    </div>
   </div>
 </ng-container>
 <!-- Desktop navbar -->
@@ -33,9 +37,6 @@
             />
           </a>
         </li>
-        <li>
-          <a href="#">Create a trip</a>
-        </li>
       </ul>
       <div class="container navbar-middle">
         <app-city-search-bar class="desktop" />
@@ -50,6 +51,8 @@
           ></mat-slide-toggle>
         </div>
         <div class="container navbar-login-section">
+          <!-- TODO: Conditionally render links depending on if user is logged in already -->
+          <a href="#">Create Trip</a>
           <a href="#">Login</a>
           <a href="#">Sign Up</a>
         </div>

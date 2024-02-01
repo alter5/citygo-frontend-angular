@@ -2,6 +2,8 @@ import { Component, OnInit, Inject, Renderer2 } from "@angular/core"
 import { NgIf, AsyncPipe, DOCUMENT, NgOptimizedImage } from "@angular/common"
 import { RouterModule } from "@angular/router"
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout"
+import { MatButtonModule } from "@angular/material/button"
+import { MatIconModule } from "@angular/material/icon"
 
 import {
   MatSlideToggleChange,
@@ -15,7 +17,16 @@ import { Observable, map } from "rxjs"
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"],
   standalone: true,
-  imports: [RouterModule, CitySearchBarComponent, MatSlideToggleModule, NgIf, AsyncPipe, NgOptimizedImage]
+  imports: [
+    RouterModule,
+    CitySearchBarComponent,
+    MatSlideToggleModule,
+    NgIf,
+    AsyncPipe,
+    NgOptimizedImage,
+    MatButtonModule,
+    MatIconModule
+  ]
 })
 export class NavbarComponent implements OnInit {
   isDarkModeEnabled = false
@@ -36,19 +47,21 @@ export class NavbarComponent implements OnInit {
 
     this.isScreenSmall$ = this.breakpointObserver
       .observe([Breakpoints.XSmall, Breakpoints.Small])
-      .pipe(map((result) => {
-        console.log("Result: ", result)
-        return result.matches
-      }))
+      .pipe(
+        map((result) => {
+          console.log("Result: ", result)
+          return result.matches
+        })
+      )
   }
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen
 
     if (this.isMenuOpen === true) {
-      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+      this.renderer.setStyle(document.body, "overflow", "hidden")
     } else {
-      this.renderer.setStyle(document.body, 'overflow', 'visible');
+      this.renderer.setStyle(document.body, "overflow", "visible")
     }
   }
 
