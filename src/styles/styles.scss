@@ -9,12 +9,16 @@
 
 @include mat.core();
 
+$result-blue-palette: mat.define-palette(themes.$blue-palette);
+$result-purple-palette: mat.define-palette(themes.$purple-palette);
+$result-red-palette: mat.define-palette(themes.$red-palette);
+
 $ang-mat-light-theme: mat.define-light-theme(
   (
     color: (
-      primary: themes.$blue-palette,
-      accent: themes.$purple-palette,
-      warn: themes.$red-palette
+      primary: $result-blue-palette,
+      accent: $result-purple-palette,
+      warn: $result-red-palette
     ),
     typography: mat.define-typography-config(),
     density: 0
@@ -24,9 +28,9 @@ $ang-mat-light-theme: mat.define-light-theme(
 $ang-mat-dark-theme: mat.define-dark-theme(
   (
     color: (
-      primary: themes.$blue-palette,
-      accent: themes.$purple-palette,
-      warn: themes.$red-palette
+      primary: $result-blue-palette,
+      accent: $result-purple-palette,
+      warn: $result-red-palette
     )
   )
 );

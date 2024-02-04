@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        'max-container-width': '64rem'
+      }
+    },
   },
   plugins: [],
   blocklist: ['container']
