@@ -1,3 +1,5 @@
+const { createThemes } = require('tw-colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,7 +12,13 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    createThemes({
+      light: {
+        
+      }
+    })
+  ],
   blocklist: ['container']
 }
 

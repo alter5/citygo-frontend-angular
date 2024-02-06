@@ -1,6 +1,5 @@
 @use "sass:map";
 @use "@angular/material" as mat;
-@use "variables" as vars;
 @use "helper" as helper;
 
 nav.desktop {
@@ -12,7 +11,7 @@ nav.desktop {
     0 -1px 4px rgba(25, 32, 36, 0.04);
   background-color: helper.get-theme-color("foreground");
   width: 100%;
-  height: vars.$space-xxxl;
+  height: 5rem;
 }
 
 .light-gray {
@@ -25,7 +24,6 @@ a,
 label {
   color: helper.get-theme-color("foreground-contrast");
   font-weight: 500;
-  // font-size: vars.$font-size-lg;
   text-decoration: none;
 }
 
@@ -33,7 +31,7 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: vars.$space-md;
+  padding-inline: 1rem;
   width: 100%;
   height: 100%;
 }
@@ -41,7 +39,7 @@ label {
 .container {
   display: flex;
   align-items: center;
-  gap: vars.$space-sm;
+  gap: 0.7rem;
   white-space: nowrap;
 }
 
@@ -56,7 +54,7 @@ ul.container {
 .navbar-middle {
   flex: 2;
   align-content: center;
-  padding-inline: vars.$space-xxl;
+  padding-inline: 4rem;
 }
 
 .navbar-right {
@@ -68,10 +66,10 @@ app-city-search-bar.desktop {
 }
 
 .navbar-login-section {
-  margin-left: vars.$space-md;
+  margin-left: 1rem;
   border-left-width: 2px;
   border-color: solid helper.get-theme-color("foreground-contrast");
-  padding-left: vars.$space-xl;
+  padding-left: 2rem;
 }
 
 #dropdown {

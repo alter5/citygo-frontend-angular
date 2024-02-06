@@ -1,4 +1,3 @@
-@use "variables" as vars;
 @use "helper" as helper;
 
 .wrapper {
@@ -8,14 +7,14 @@
   width: 100%;
 }
 
-$container-padding-top: vars.$space-xxxl + vars.$space-xl;
+$container-padding-top: 5rem + 2rem;
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: $container-padding-top;
   width: 100%;
-  max-width: vars.$width-xxl;
+  max-width: 4rem;
   min-height: calc(
     100vh - $container-padding-top
   ); // The navbar height is subtracted from the container height
