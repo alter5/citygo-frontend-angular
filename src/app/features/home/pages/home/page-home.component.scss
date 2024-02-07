@@ -1,10 +1,9 @@
 @use "helper" as helper;
-@use "variables" as vars;
 
 :host {
   @apply w-full flex justify-center;
 }
 
 .create-trip-card {
-  background-color: helper.get-theme-color("foreground");
+  background-color: hsl(var(--twc-bg-secondary));
 }

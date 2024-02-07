@@ -74,9 +74,11 @@ export class NavbarComponent implements OnInit {
     let result = "mat-app-background mat-typograph "
 
     if (this.isDarkModeEnabled === true) {
-      result += "dark-theme"
+      // Note: in styles.scss, the base light theme is used for core style properties.
+      // The dark theme only tweaks certain colors.
+      result += "dark"
     } else {
-      result += "light-theme"
+      result += "light"
     }
 
     this.renderer.setAttribute(this.document.body, "class", result)

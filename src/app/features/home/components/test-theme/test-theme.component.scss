@@ -10,11 +10,11 @@
 }
 
 #like-button {
-  background-color: helper.get-theme-color("primary");
-  color: helper.get-theme-color("accent-contrast");
+  background-color: hsl(var(--twc-bg-action-primary));
+  color: hsl(var(--twc-text-primary));
 }
 
 #share-button {
-  background-color: helper.get-theme-color("accent-light");
-  color: helper.get-theme-color("accent-contrast");
+  background-color: hsl(var(--twc-bg-action-secondary));
+  color: hsl(var(--twc-text-primary));
 }

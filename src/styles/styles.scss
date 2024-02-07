@@ -39,8 +39,8 @@ $ang-mat-dark-theme: mat.define-dark-theme(
 @include mat.core-theme($ang-mat-light-theme);
 @include mat.button-theme($ang-mat-light-theme);
 
-// Apply the light theme only when the user prefers light themes.
-@media (prefers-color-scheme: dark) {
+// Apply the dark theme only when the user prefers dark themes.
+.dark {
   // Use the `-color` mixins to only apply color styles without reapplying the same
   // typography and density styles.
   @include mat.core-color($ang-mat-dark-theme);
@@ -52,53 +52,3 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-// TODO: Implement the following variables, as stash.com does
-/*
---bg-primary: var(--neutral-dark1);
---bg-secondary: var(--neutral-dark2);
---bg-alternate: var(--blue-primary);
---bg-action-primary: var(--blue-primary);
---bg-action-secondary: var(--neutral-dark3);
---bg-action-tertiary: var(--neutral-dark1);
---bg-action-disabled-primary: var(--neutral-dark6);
---bg-positive: var(--green-light);
---bg-negative: var(--red-light);
---bg-warning: var(--gold-light);
---bg-target-primary: var(--neutral-dark7);
---bg-target-secondary: var(--neutral-dark5);
---bg-target-tertiary: var(--neutral-dark3);
---bg-hover-primary: var(--blue-highlight);
---bg-hover-secondary: var(--neutral-dark4);
---bg-hover-tertiary: var(--neutral-dark2);
---bg-accent: var(--blue-primary);
---text-primary: var(--neutral-dark9);
---text-secondary: var(--neutral-dark8);
---text-tertiary: var(--neutral-dark7);
---text-placeholder: var(--neutral-dark6);
---text-disabled: var(--neutral-dark5);
---text-inverted: var(--neutral-dark9);
---text-action-primary: var(--neutral-dark9);
---text-action-secondary: var(--neutral-dark9);
---text-action-tertiary: var(--neutral-dark9);
---text-action-disabled-primary: var(--neutral-dark5);
---text-action-disabled-secondary: var(--neutral-dark1);
---text-positive: var(--green-primary);
---text-negative: var(--red-primary);
---text-warning: var(--gold-primary);
---text-positive-dark: var(--green-dark);
---text-negative-dark: var(--red-dark);
---text-warning-dark: var(--gold-dark);
---border-primary: var(--neutral-dark4);
---border-active: var(--blue-primary);
---border-focused: var(--blue-light);
---shadow-primary: var(undefined);
---shadow-button: var(undefined);
---divider: var(--neutral-dark4);
---icon-default: var(--neutral-dark9);
---icon-active: var(--blue-primary);
---icon-tertiary: var(--neutral-dark7);
---icon-placeholder: var(--neutral-dark6);
---icon-disabled: var(--neutral-dark5);
---icon-inverted: var(--neutral-dark9);
-color-scheme: dark;
-*/
