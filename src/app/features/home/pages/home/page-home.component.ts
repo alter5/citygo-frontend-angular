@@ -27,6 +27,7 @@ import { MatIconModule } from "@angular/material/icon"
 export class PageHomeComponent implements OnInit {
   trips$: Observable<Trip[]> | undefined
 
+
   constructor(private tripsService: TripsService) {}
 
   ngOnInit(): void {
