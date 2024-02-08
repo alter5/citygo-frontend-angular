@@ -52,3 +52,18 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+// TODO: fix me using the "save" commit
+a,
+label,
+input {
+  font-size: 1rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body#index-body {
+  background-color: hsl(var(--twc-bg-primary));
+}

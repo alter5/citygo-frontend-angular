@@ -14,7 +14,7 @@ $container-padding-top: 5rem + 2rem;
   align-items: center;
   padding-top: $container-padding-top;
   width: 100%;
-  max-width: 4rem;
+  @apply max-w-6xl;
   min-height: calc(
     100vh - $container-padding-top
   ); // The navbar height is subtracted from the container height
