@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "@angular/material" as mat;
 
-@use "./themes.scss" as themes;
+@use "./_themes.scss" as themes;
 
 @tailwind base;
 @tailwind components;
@@ -35,17 +35,25 @@ $ang-mat-dark-theme: mat.define-dark-theme(
   )
 );
 
-// Apply the light theme by default
-@include mat.core-theme($ang-mat-light-theme);
-@include mat.button-theme($ang-mat-light-theme);
-
-// Apply the dark theme only when the user prefers dark themes.
-.dark {
-  // Use the `-color` mixins to only apply color styles without reapplying the same
-  // typography and density styles.
-  @include mat.core-color($ang-mat-dark-theme);
-  @include mat.button-color($ang-mat-dark-theme);
+body.light {
+  @include mat.all-component-themes($ang-mat-light-theme);
 }
+
+body.dark {
+  @include mat.all-component-themes($ang-mat-dark-theme);
+}
+
+// // Apply the light theme by default
+// @include mat.core-theme($ang-mat-light-theme);
+// @include mat.button-theme($ang-mat-light-theme);
+
+// // Apply the dark theme only when the user prefers dark themes.
+// .dark {
+//   // Use the `-color` mixins to only apply color styles without reapplying the same
+//   // typography and density styles.
+//   @include mat.core-color($ang-mat-dark-theme);
+//   @include mat.button-color($ang-mat-dark-theme);
+// }
 
 body {
   margin: 0;
