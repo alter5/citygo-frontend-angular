@@ -77,6 +77,7 @@ const colors = {
   light: {
     "bg-primary": "#f1f0f0",
     "bg-secondary": "white",
+    "bg-hovered": "#d6d6d6",
     "bg-action-primary": bluePalette[500],
     "bg-action-secondary": purplePalette[500],
     "bg-action-tertiary": bluePalette[300],
@@ -88,6 +89,7 @@ const colors = {
   dark: {
     "bg-primary": "#303030",
     "bg-secondary": "#424242",
+    "bg-hovered": "#4d4d4d",
     "bg-action-primary": bluePalette[500],
     "bg-action-secondary": purplePalette[500],
     "bg-action-tertiary": bluePalette[300],
