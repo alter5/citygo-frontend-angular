@@ -31,7 +31,9 @@ $ang-mat-dark-theme: mat.define-dark-theme(
       primary: $result-blue-palette,
       accent: $result-purple-palette,
       warn: $result-red-palette
-    )
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
   )
 );
 
