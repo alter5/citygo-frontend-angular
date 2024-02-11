@@ -1,50 +1,12 @@
-<div class="flex w-full justify-center mt-2">
+<div class="mt-2 flex w-full justify-center">
   <div class="flex w-full max-w-5xl flex-col items-center justify-center">
-    <div
-      class="flex h-16 w-full max-w-2xl cursor-pointer gap-1 rounded-lg bg-bg-secondary transition duration-75 hover:bg-bg-hovered"
-    >
-      <div
-        class="flex h-full w-fit items-center justify-center whitespace-nowrap px-3 py-3"
-      >
-        <button
-          class="scale-100 transform"
-          mat-mini-fab
-          color="primary"
-          aria-label="Create new trip button"
-        >
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
-      <div class="flex h-full w-full flex-col justify-center">
-        <h2 class="text-lg text-text-primary">Create trip</h2>
-        <p class="text-sm text-text-secondary">
-          Share your trip idea for a city
-        </p>
-      </div>
-    </div>
+    <app-button-new-trip></app-button-new-trip>
     <ng-container *ngFor="let trip of trips$ | async">
       <div class="mt-2 flex h-full w-full items-center justify-center">
         <app-trip-overview-card [trip]="trip"></app-trip-overview-card>
       </div>
     </ng-container>
-    <br /><br />
+    <div class="mt-3"></div>
     <app-test-theme />
-    <div class="w-30 h-30">
-      <button
-        mat-mini-fab
-        class="block"
-        style="
-          width: 128px;
-          height: 128px;
-          font-size: 128px;
-          line-height: 128px;
-        "
-        color="primary"
-        aria-label="Create new trip button"
-      >
-        <mat-icon>add</mat-icon>
-      </button>
-      <p class="tester text-slate-800">Test theme</p>
-    </div>
   </div>
 </div>

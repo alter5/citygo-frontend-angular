@@ -6,9 +6,8 @@ import { TripsService } from "src/app/shared/services/trips.service"
 import { Observable } from "rxjs"
 import { Trip } from "src/app/shared/models/trip.model"
 import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
-import { MatButtonModule } from "@angular/material/button"
-import { MatIconModule } from "@angular/material/icon"
 import { NgClass } from "@angular/common"
+import { ButtonNewTripComponent } from "../../components/button-new-trip/button-new-trip.component"
 
 @Component({
   selector: "app-home",
@@ -21,14 +20,12 @@ import { NgClass } from "@angular/common"
     NgFor,
     AsyncPipe,
     InputAutocompleteComponent,
-    MatButtonModule,
-    MatIconModule,
-    NgClass
+    NgClass,
+    ButtonNewTripComponent
   ]
 })
 export class PageHomeComponent implements OnInit {
   trips$: Observable<Trip[]> | undefined
-
 
   constructor(private tripsService: TripsService) {}
 
