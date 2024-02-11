@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: hsl(var(--twc-bg-primary));
   width: 100%;
 }
@@ -16,4 +17,8 @@ $container-padding-top: 5rem + 2rem;
   min-height: calc(
     100vh - $container-padding-top
   ); // The navbar height is subtracted from the container height
+}
+
+:host {
+  width: 100vh;
 }

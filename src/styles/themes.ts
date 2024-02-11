@@ -81,8 +81,8 @@ const colors = {
     "bg-action-primary": bluePalette[500],
     "bg-action-secondary": purplePalette[500],
     "bg-action-tertiary": bluePalette[300],
-    "text-primary": "rgba(0, 0, 0, 0.87)",
-    "text-secondary": "rgba(0, 0, 0, 0.87)",
+    "text-primary": "#050505",
+    "text-secondary": "#65676B",
     "text-inverted": "white",
     border: "#d9e2e8"
   },
@@ -94,7 +94,7 @@ const colors = {
     "bg-action-secondary": purplePalette[500],
     "bg-action-tertiary": bluePalette[300],
     "text-primary": "white",
-    "text-secondary": "white",
+    "text-secondary": "#B0B3B8",
     "text-inverted": "rgba(0, 0, 0, 0.87)",
     border: "#d9e2e8"
   }
