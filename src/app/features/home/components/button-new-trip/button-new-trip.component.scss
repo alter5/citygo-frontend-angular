@@ -1,6 +1,12 @@
 :host {
   display: flex;
+  position: fixed;
+  right: 2rem;
+  bottom: 4rem;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  // margin-right: 1rem;
+  // margin-bottom: 1rem;
+  width: 24rem;
+  z-index: 50;
 }
