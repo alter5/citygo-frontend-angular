@@ -53,6 +53,60 @@
           "image": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
+    },
+    {
+      "city": {
+        "id": 1,
+        "city_name": "New York",
+        "state": "New York",
+        "state_abbreviation": "NY"
+      },
+      "stats": {
+        "price_range": 2,
+        "rating": 5,
+        "stops_count": 3
+      },
+      "stops": [
+        {
+          "name": "Times Square",
+          "image": "assets/images/city-card-images/ny-times-square.jpg"
+        },
+        {
+          "name": "Empire State Building",
+          "image": "assets/images/city-card-images/ny-skyscraper.jpg"
+        },
+        {
+          "name": "Central Park",
+          "image": "assets/images/city-card-images/ny-centralpark.jpg"
+        }
+      ]
+    },
+    {
+      "city": {
+        "id": 1,
+        "city_name": "New York",
+        "state": "New York",
+        "state_abbreviation": "NY"
+      },
+      "stats": {
+        "price_range": 2,
+        "rating": 5,
+        "stops_count": 3
+      },
+      "stops": [
+        {
+          "name": "Times Square",
+          "image": "assets/images/city-card-images/ny-times-square.jpg"
+        },
+        {
+          "name": "Empire State Building",
+          "image": "assets/images/city-card-images/ny-skyscraper.jpg"
+        },
+        {
+          "name": "Central Park",
+          "image": "assets/images/city-card-images/ny-centralpark.jpg"
+        }
+      ]
     }
   ]
 }
