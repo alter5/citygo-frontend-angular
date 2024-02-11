@@ -1,10 +1,10 @@
-<div class="flex w-full flex-col rounded-md">
+<div class="flex flex-col w-full rounded-md">
   <!-- Title -->
   <div>
     <h1>Hello</h1>
   </div>
   <!-- Images -->
-  <div class="flex h-56 w-full content-center justify-center">
+  <div class="flex w-full h-56 justify-center items-center">
     <ng-container *ngIf="trip !== undefined">
       <div class="relative w-full h-full" *ngFor="let stop of trip.stops">
         <img class="object-cover"
