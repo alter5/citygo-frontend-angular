@@ -1,16 +1,15 @@
-<div class="flex flex-col w-full rounded-md">
+<div
+  class="flex w-full cursor-pointer flex-col overflow-hidden rounded-md bg-bg-secondary py-4 transition duration-75 hover:bg-bg-hovered"
+>
   <!-- Title -->
   <div>
     <h1>Hello</h1>
   </div>
   <!-- Images -->
-  <div class="flex w-full h-56 justify-center items-center">
+  <div class="flex h-56 w-full items-center justify-center">
     <ng-container *ngIf="trip !== undefined">
-      <div class="relative w-full h-full" *ngFor="let stop of trip.stops">
-        <img class="object-cover"
-        [ngSrc]="stop.image"
-        [alt]="stop.name"
-        fill />
+      <div class="relative h-full w-full" *ngFor="let stop of trip.stops">
+        <img class="object-cover" [ngSrc]="stop.image" [alt]="stop.name" fill />
       </div>
     </ng-container>
   </div>
