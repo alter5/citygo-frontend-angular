@@ -6,16 +6,16 @@
   width: 100%;
 }
 
-$container-padding-top: 5rem + 2rem;
+$navbar-height: 5rem;
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: $container-padding-top;
+  padding-top: $navbar-height;
   width: 100%;
   @apply max-w-6xl;
   min-height: calc(
-    100vh - $container-padding-top
+    100vh - $navbar-height
   ); // The navbar height is subtracted from the container height
 }
 
