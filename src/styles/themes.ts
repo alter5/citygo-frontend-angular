@@ -79,11 +79,13 @@ const colors = {
     "bg-secondary": "white",
     "bg-hovered": "#d6d6d6",
     "bg-action-primary": bluePalette[500],
+    "bg-action-primary-hovered": bluePalette[400],
     "bg-action-secondary": purplePalette[500],
     "bg-action-tertiary": bluePalette[300],
     "text-primary": "#050505",
     "text-secondary": "#65676B",
     "text-inverted": "white",
+    "text-action-primary": "white",
     border: "#d9e2e8"
   },
   dark: {
@@ -91,11 +93,13 @@ const colors = {
     "bg-secondary": "#424242",
     "bg-hovered": "#4d4d4d",
     "bg-action-primary": bluePalette[500],
+    "bg-action-primary-hovered": bluePalette[400],
     "bg-action-secondary": purplePalette[500],
     "bg-action-tertiary": bluePalette[300],
     "text-primary": "white",
     "text-secondary": "#B0B3B8",
     "text-inverted": "rgba(0, 0, 0, 0.87)",
+    "text-action-primary": "white",
     border: "#d9e2e8"
   }
 }
