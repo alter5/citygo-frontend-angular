@@ -12,6 +12,7 @@
         "rating": 5,
         "stops_count": 3
       },
+      "description": "Lorem Ipsum",
       "stops": [
         {
           "name": "Times Square",
@@ -39,6 +40,7 @@
         "rating": 5,
         "stops_count": 3
       },
+      "description": "Lorem Ipsum",
       "stops": [
         {
           "name": "The Strip",
@@ -66,6 +68,7 @@
         "rating": 5,
         "stops_count": 3
       },
+      "description": "Lorem Ipsum",
       "stops": [
         {
           "name": "Times Square",
@@ -93,6 +96,7 @@
         "rating": 5,
         "stops_count": 3
       },
+      "description": "Lorem Ipsum",
       "stops": [
         {
           "name": "Times Square",

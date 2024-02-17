@@ -6,6 +6,7 @@ export interface Trip {
     price_range: number
     rating: number
   }
+  description: string,
   stops: {
     name: string
     image: string

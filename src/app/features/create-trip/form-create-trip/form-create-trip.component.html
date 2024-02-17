@@ -1,1 +1,32 @@
 <p class="mt-4">form-create-trip works!</p>
+<form [formGroup]="this.tripFormGroup" (ngSubmit)="onSubmit()">
+  <label>
+    Title
+    <input type="text" formControlName="title" />
+  </label>
+  <label>
+    City_id
+    <input type="number" formControlName="city_id" />
+  </label>
+  <div formArrayName="destinations">
+    <div *ngFor="let destination of this.destinations.controls; let i = index">
+      <label>
+        Destination {{ i + 1 }}:
+        <input type="text" [formControlName]="i" />
+      </label>
+    </div>
+  </div>
+  <label>
+    Description
+    <input type="text" formControlName="description" />
+  </label>
+  <label>
+    Price Range
+    <input type="number" formControlName="price_range" />
+  </label>
+  <label>
+    Duration
+    <input type="number" formControlName="duration" />
+  </label>
+</form>
+<p>Form value: {{ this.tripFormGroup.value | json }}</p>

@@ -1,7 +1,11 @@
 import { CommonModule } from "@angular/common"
 import { ChangeDetectionStrategy, Component, type OnInit } from "@angular/core"
 import { FormCreateTripComponent } from "../form-create-trip/form-create-trip.component"
-import { FormGroup, FormBuilder, Validators } from "@angular/forms"
+import { FormGroup, FormBuilder, FormArray, Validators } from "@angular/forms"
+import { Trip } from "src/app/shared/models/trip.model"
+
+import { CitiesService } from "src/app/shared/services/cities.service"
+import { TripCreationPayload } from "../models/tripCreationPaylod.model"
 
 @Component({
   selector: "app-page-create-trip",
@@ -14,14 +18,46 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 export class PageCreateTripComponent implements OnInit {
   tripFormGroup: FormGroup = new FormGroup({})
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private citiesService: CitiesService
+  ) {}
 
   ngOnInit(): void {
     this.tripFormGroup = this.formBuilder.group({
-      name: ["", Validators.required],
-      state: ["", Validators.required],
-      population: ["", Validators.required],
-      sights: this.formBuilder.array([])
+      title: ["", Validators.required],
+      city_id: ["", Validators.required],
+      destinations: this.formBuilder.array([]),
+      description: ["", Validators.required],
+      price_range: ["", Validators.required],
+      duration: ["", Validators.required]
     })
+  }
+
+  get destinations() {
+    return this.tripFormGroup.get("destinations") as FormArray
+  }
+
+  addDestination() {
+    this.destinations.push(this.formBuilder.control(""))
+  }
+
+  submit(): void {
+    if (this.tripFormGroup.invalid) {
+      return
+    }
+
+    const formData = this.tripFormGroup.value
+
+    const payload: TripCreationPayload = {
+      title: formData.title,
+      city_id: formData.city_id,
+      destinations: formData.destinations,
+      description: formData.description,
+      price_range: formData.price_range,
+      duration: formData.duration
+    }
+
+    console.log(payload)
   }
 }

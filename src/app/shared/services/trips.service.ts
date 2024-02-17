@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http"
 import { Observable, catchError, map, of } from "rxjs"
 import { Trip } from "../models/trip.model"
+import { TripCreationPayload } from "src/app/features/create-trip/models/tripCreationPaylod.model"
 
 @Injectable({
   providedIn: "root"
@@ -21,5 +22,9 @@ export class TripsService {
         return of([])
       })
     )
+  }
+
+  createTrip(payload: TripCreationPayload): void {
+    ;
   }
 }
