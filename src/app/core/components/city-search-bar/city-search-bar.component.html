@@ -1,6 +1,6 @@
 <app-input-autocomplete
 hint="Search for a city"
-[formControl]="formControl"
+[inputFormControl]="fc"
 [dropdownOptions]="dropdownOptions$ | async"
 (selectedDropdownOption)="onSelectedCity($event)"
 ></app-input-autocomplete>

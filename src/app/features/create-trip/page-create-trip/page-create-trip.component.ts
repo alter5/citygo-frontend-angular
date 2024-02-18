@@ -1,11 +1,18 @@
 import { CommonModule } from "@angular/common"
 import { ChangeDetectionStrategy, Component, type OnInit } from "@angular/core"
 import { FormCreateTripComponent } from "../form-create-trip/form-create-trip.component"
-import { FormGroup, FormBuilder, FormArray, Validators } from "@angular/forms"
+import {
+  FormGroup,
+  FormBuilder,
+  FormArray,
+  Validators,
+  AbstractControl
+} from "@angular/forms"
 import { Trip } from "src/app/shared/models/trip.model"
 
 import { CitiesService } from "src/app/shared/services/cities.service"
 import { TripCreationPayload } from "../models/tripCreationPaylod.model"
+
 
 @Component({
   selector: "app-page-create-trip",
@@ -32,6 +39,10 @@ export class PageCreateTripComponent implements OnInit {
       price_range: ["", Validators.required],
       duration: ["", Validators.required]
     })
+
+    // Add initial destination to form group
+    this.addDestination()
+    this.addDestination()
   }
 
   get destinations() {
@@ -42,7 +53,7 @@ export class PageCreateTripComponent implements OnInit {
     this.destinations.push(this.formBuilder.control(""))
   }
 
-  submit(): void {
+  onSubmit(): void {
     if (this.tripFormGroup.invalid) {
       return
     }
@@ -58,6 +69,6 @@ export class PageCreateTripComponent implements OnInit {
       duration: formData.duration
     }
 
-    console.log(payload)
+    console.log("🚀 ~ PageCreateTripComponent ~ onSubmit ~ payload:", payload)
   }
 }

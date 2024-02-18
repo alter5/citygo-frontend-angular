@@ -24,8 +24,9 @@ import { DropdownOption } from "./dropdown-option.model"
 })
 export class InputAutocompleteComponent implements OnInit {
   @Input() hint = ""
-  @Input() formControl!: FormControl;
+  @Input() inputFormControl!: FormControl;
   @Input() dropdownOptions: DropdownOption[] | null | undefined
+  @Input() id = ""
 
   @Output() selectedDropdownOption: EventEmitter<DropdownOption> = new EventEmitter<DropdownOption>()
   @Output() clickInputField: EventEmitter<void> = new EventEmitter<void>()

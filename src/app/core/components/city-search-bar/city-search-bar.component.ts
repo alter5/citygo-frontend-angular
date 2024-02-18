@@ -25,13 +25,13 @@ import { Router } from "@angular/router"
   styleUrls: ["./city-search-bar.component.scss"]
 })
 export class CitySearchBarComponent implements OnInit {
-  formControl: FormControl = new FormControl("")
+  fc: FormControl = new FormControl("")
   dropdownOptions$: Observable<DropdownOption[]> | undefined
 
   constructor(private router: Router, private citiesService: CitiesService) {}
 
   ngOnInit(): void {
-    this.dropdownOptions$ = this.formControl.valueChanges.pipe(
+    this.dropdownOptions$ = this.fc.valueChanges.pipe(
       startWith(""),
       debounceTime(300),
       distinctUntilChanged(),

@@ -1,21 +1,32 @@
-<p class="mt-4">form-create-trip works!</p>
-<form [formGroup]="this.tripFormGroup" (ngSubmit)="onSubmit()">
-  <label>
-    Title
-    <input type="text" formControlName="title" />
-  </label>
-  <label>
-    City_id
-    <input type="number" formControlName="city_id" />
-  </label>
-  <div formArrayName="destinations">
-    <div *ngFor="let destination of this.destinations.controls; let i = index">
-      <label>
-        Destination {{ i + 1 }}:
-        <input type="text" [formControlName]="i" />
-      </label>
-    </div>
+<form
+  class="flex h-fit w-full flex-col"
+  [formGroup]="this.tripFormGroup"
+  (ngSubmit)="onSubmit()"
+>
+  <div>
+    <label for="title">Title</label>
+    <app-input-autocomplete
+      [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
+      id="title"
+    ></app-input-autocomplete>
   </div>
+  <div>
+    <label for="city_id">City</label>
+    <app-input-autocomplete
+      [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl"
+      id="city_id"
+    ></app-input-autocomplete>
+  </div>
+  <fieldset formArrayName="destinations">
+    <legend>Enter the destinations</legend>
+    <div *ngFor="let destination of this.destinations.controls; let i = index">
+      <label [for]="'destination-' + i">{{i + 1}}.</label>
+      <app-input-autocomplete
+        [inputFormControl]="destination | formControl"
+        [id]="'destination-' + i"
+      ></app-input-autocomplete>
+    </div>
+  </fieldset>
   <label>
     Description
     <input type="text" formControlName="description" />

@@ -1,11 +1,18 @@
-<div class="flex h-fit w-full max-w-5xl flex-col items-start justify-start">
-  <h1 class="mt-12 text-lg">Create a new trip</h1>
-  <p class="text-base text-text-secondary">
+<div
+  class="mt-8 flex h-fit w-full max-w-5xl flex-col items-start justify-start rounded-xl bg-bg-secondary p-16"
+>
+  <h1 class="text-xl">Create a new trip</h1>
+  <p class="text-lg text-text-secondary">
     Enter the following details below to create a trip
   </p>
-  <app-form-create-trip [tripFormGroup]="this.tripFormGroup"></app-form-create-trip>
+  <div class="mt-4">
+    <app-form-create-trip
+      [tripFormGroup]="this.tripFormGroup"
+    ></app-form-create-trip>
+  </div>
   <button
     class="mt-4 w-full max-w-2xl self-center rounded-lg bg-bg-action-primary px-4 py-2 text-text-action-primary hover:bg-bg-action-primary-hovered"
+    (click)="onSubmit()"
   >
     Create trip
   </button>
