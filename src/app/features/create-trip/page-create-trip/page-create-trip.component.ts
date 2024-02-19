@@ -34,15 +34,13 @@ export class PageCreateTripComponent implements OnInit {
     this.tripFormGroup = this.formBuilder.group({
       title: ["", Validators.required],
       city_id: ["", Validators.required],
-      destinations: this.formBuilder.array([]),
+      // TODO: Delete the extra destination
+      destinations: this.formBuilder.array(["", ""]),
       description: ["", Validators.required],
-      price_range: ["", Validators.required],
-      duration: ["", Validators.required]
+      price_range: [3, Validators.required],
+      duration: [3, Validators.required]
     })
 
-    // Add initial destination to form group
-    this.addDestination()
-    this.addDestination()
   }
 
   get destinations() {

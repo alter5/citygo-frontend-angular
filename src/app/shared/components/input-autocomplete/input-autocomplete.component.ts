@@ -26,10 +26,11 @@ export class InputAutocompleteComponent implements OnInit {
   @Input() hint = ""
   @Input() inputFormControl!: FormControl;
   @Input() dropdownOptions: DropdownOption[] | null | undefined
-  @Input() id = ""
+  @Input() inputId = ""
+  @Input() inputLabel = ""
 
-  @Output() selectedDropdownOption: EventEmitter<DropdownOption> = new EventEmitter<DropdownOption>()
-  @Output() clickInputField: EventEmitter<void> = new EventEmitter<void>()
+  @Output() selectedDropdownOption = new EventEmitter<DropdownOption>()
+  @Output() clickInputField = new EventEmitter<void>()
 
   ngOnInit() {
     ;

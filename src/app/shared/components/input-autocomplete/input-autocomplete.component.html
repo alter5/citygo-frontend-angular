@@ -1,27 +1,30 @@
-<input
-class="w-full"
-  [id]="id"
-  type="text"
-  [placeholder]="hint"
-  [formControl]="inputFormControl"
-  [matAutocomplete]="dropdownAutocomplete"
-  (click)="(onClickInputField)"
-/>
-<mat-autocomplete
-  class="!mt-1"
-  #dropdownAutocomplete="matAutocomplete"
-  (optionSelected)="onOptionSelected($event)"
-  [displayWith]="convertOptionToStringForDisplayWith"
->
-  <ng-container
-    *ngIf="
-      dropdownOptions !== undefined &&
-      dropdownOptions !== null &&
-      dropdownOptions.length > 0
-    "
+<div class="flex flex-col w-full">
+  <label *ngIf="inputId && inputLabel" [for]="inputId">{{ inputLabel }}</label>
+  <input
+    class="w-full"
+    [id]="inputId"
+    type="text"
+    [placeholder]="hint"
+    [formControl]="inputFormControl"
+    [matAutocomplete]="dropdownAutocomplete"
+    (click)="(onClickInputField)"
+  />
+  <mat-autocomplete
+    class="!mt-1"
+    #dropdownAutocomplete="matAutocomplete"
+    (optionSelected)="onOptionSelected($event)"
+    [displayWith]="convertOptionToStringForDisplayWith"
   >
-    <mat-option *ngFor="let option of dropdownOptions" [value]="option">
-      {{ option.textToDisplay }}
-    </mat-option>
-  </ng-container>
-</mat-autocomplete>
+    <ng-container
+      *ngIf="
+        dropdownOptions !== undefined &&
+        dropdownOptions !== null &&
+        dropdownOptions.length > 0
+      "
+    >
+      <mat-option *ngFor="let option of dropdownOptions" [value]="option">
+        {{ option.textToDisplay }}
+      </mat-option>
+    </ng-container>
+  </mat-autocomplete>
+</div>

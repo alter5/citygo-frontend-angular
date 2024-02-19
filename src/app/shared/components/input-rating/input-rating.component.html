@@ -1,0 +1,16 @@
+<div class="flex flex-col">
+  <label *ngIf="id && labelText" [for]="id">{{ labelText }}</label>
+  <div>
+    <button
+      mat-icon-button
+      *ngFor="let ratingValue of ratingValues; index as i"
+      (click)="onClick(i + 1)"
+      [color]="color"
+      class="flex justify-between gap-1"
+    >
+      <mat-icon class="scale-[2]">
+        {{ this.getIcon(i) }}
+      </mat-icon>
+    </button>
+  </div>
+</div>

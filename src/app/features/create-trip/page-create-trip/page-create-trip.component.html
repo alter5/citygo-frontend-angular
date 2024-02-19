@@ -5,9 +5,10 @@
   <p class="text-lg text-text-secondary">
     Enter the following details below to create a trip
   </p>
-  <div class="mt-4">
+  <div class="mt-4 w-full">
     <app-form-create-trip
       [tripFormGroup]="this.tripFormGroup"
+      (clickedAddDestination)="addDestination()"
     ></app-form-create-trip>
   </div>
   <button

@@ -1,43 +1,64 @@
 <form
-  class="flex h-fit w-full flex-col"
+  class="flex h-fit w-full flex-col gap-4"
   [formGroup]="this.tripFormGroup"
   (ngSubmit)="onSubmit()"
 >
-  <div>
-    <label for="title">Title</label>
-    <app-input-autocomplete
-      [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
-      id="title"
-    ></app-input-autocomplete>
+  <div class="flex w-full justify-between gap-4">
+    <div class="flex w-full flex-col">
+      <app-input-autocomplete
+        [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
+        inputId="title"
+        inputLabel="Title"
+      ></app-input-autocomplete>
+    </div>
+    <div class="flex w-full flex-col">
+      <app-input-autocomplete
+        [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl"
+        inputId="city_id"
+        inputLabel="City"
+      ></app-input-autocomplete>
+    </div>
   </div>
-  <div>
-    <label for="city_id">City</label>
-    <app-input-autocomplete
-      [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl"
-      id="city_id"
-    ></app-input-autocomplete>
+  <app-input-large
+    [inputFormControl]="this.tripFormGroup.get('description')! | formControl"
+    inputLabel="Description"
+    inputId="description"
+  ></app-input-large>
+  <div class="flex w-full gap-8">
+    <app-input-rating
+      [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
+      id="duration"
+      labelText="Duration"
+      [maxRating]="5"
+      selectedIconName="timer"
+      unselectedIconName="radio_button_unchecked"
+    ></app-input-rating>
+    <app-input-rating
+      [inputFormControl]="this.tripFormGroup.get('price_range')! | formControl"
+      id="price_range"
+      labelText="Price"
+      [maxRating]="5"
+      selectedIconName="paid"
+      unselectedIconName="radio_button_unchecked"
+    ></app-input-rating>
   </div>
   <fieldset formArrayName="destinations">
     <legend>Enter the destinations</legend>
-    <div *ngFor="let destination of this.destinations.controls; let i = index">
-      <label [for]="'destination-' + i">{{i + 1}}.</label>
+    <ng-container
+      *ngFor="let destination of this.destinations.controls; let i = index"
+    >
       <app-input-autocomplete
         [inputFormControl]="destination | formControl"
-        [id]="'destination-' + i"
+        [inputId]="'destination-' + i"
+        inputLabel="{{ i + 1 }}."
       ></app-input-autocomplete>
-    </div>
+    </ng-container>
+    <button
+      class="mt-2 h-12 w-32 rounded-md bg-bg-action-primary text-text-action-primary"
+      (click)="onClickAddDestination()"
+    >
+      Add Another
+    </button>
   </fieldset>
-  <label>
-    Description
-    <input type="text" formControlName="description" />
-  </label>
-  <label>
-    Price Range
-    <input type="number" formControlName="price_range" />
-  </label>
-  <label>
-    Duration
-    <input type="number" formControlName="duration" />
-  </label>
+  <p>Form value: {{ this.tripFormGroup.value | json }}</p>
 </form>
-<p>Form value: {{ this.tripFormGroup.value | json }}</p>
