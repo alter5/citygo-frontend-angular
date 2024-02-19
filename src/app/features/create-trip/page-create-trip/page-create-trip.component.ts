@@ -40,7 +40,6 @@ export class PageCreateTripComponent implements OnInit {
       price_range: [3, Validators.required],
       duration: [3, Validators.required]
     })
-
   }
 
   get destinations() {
