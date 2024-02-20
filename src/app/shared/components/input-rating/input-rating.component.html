@@ -1,15 +1,13 @@
 <div class="flex flex-col">
   <label *ngIf="id && labelText" [for]="id">{{ labelText }}</label>
-  <div class="flex justify-between">
+  <div class="inline-block">
     <button
-      mat-icon-button
       *ngFor="let ratingValue of ratingValues; index as i"
       (click)="onClick(i + 1)"
-      [color]="color"
     >
-      <mat-icon>
+      <span class="material-icons text-3xl text-bg-action-primary">
         {{ this.getIcon(i) }}
-      </mat-icon>
+      </span>
     </button>
   </div>
 </div>
