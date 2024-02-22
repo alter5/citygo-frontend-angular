@@ -3,15 +3,16 @@
   <div class="flex w-fit justify-between gap-1">
     <div class="flex w-fit items-center" role="radiogroup">
       <button
-        class="flex items-center"
-        *ngFor="let ratingValue of ratingValues; index as i"
-        (click)="onClick(i + 1)"
         role="radio"
-        tabindex="0"
+        class="flex items-center"
+        *ngFor="let ratingValue of ratingValues"
+        (click)="onClick(ratingValue)"
+        (keydown)="onKeyDown($event)"
+        [attr.tabindex]="ratingValue === currentRating"
         [attr.aria-checked]="ratingValue === currentRating"
       >
         <span class="material-icons text-3xl text-bg-action-primary">
-          {{ this.getIcon(i) }}
+          {{ this.getIcon(ratingValue) }}
         </span>
       </button>
     </div>

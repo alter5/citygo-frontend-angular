@@ -48,8 +48,24 @@ export class InputRatingComponent implements OnInit {
     console.log(rating)
   }
 
+  onKeyDown(event: KeyboardEvent): void {
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      event.preventDefault()
+      const newIndex = this.currentRating - 1 // Decrement current rating
+      if (newIndex > 0) {
+        this.onClick(newIndex)
+      }
+    } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      event.preventDefault()
+      const newIndex = this.currentRating // Increment current rating
+      if (newIndex < this.maxRating) {
+        this.onClick(newIndex + 1)
+      }
+    }
+  }
+
   getIcon(index: number): string {
-    if (this.currentRating! >= index + 1) {
+    if (index <= this.currentRating) {
       return this.selectedIconName
     } else {
       return this.unselectedIconName
