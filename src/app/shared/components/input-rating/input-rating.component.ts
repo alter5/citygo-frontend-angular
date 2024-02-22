@@ -57,9 +57,9 @@ export class InputRatingComponent implements OnInit {
         this.onClick(newIndex)
 
         // Focus on next element
-        // const currentElement = event.target as HTMLElement
-        // const prevElement = currentElement.previousElementSibling as HTMLElement
-        // prevElement.focus()
+        const currentElement = event.target as HTMLElement
+        const prevElement = currentElement.previousElementSibling as HTMLElement
+        prevElement.focus()
       }
     } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
       // Increment current rating
@@ -68,9 +68,9 @@ export class InputRatingComponent implements OnInit {
       if (newIndex < this.maxRating) {
         this.onClick(newIndex + 1)
 
-        // const currentElement = event.target as HTMLElement
-        // const nextElement = currentElement.nextElementSibling as HTMLElement
-        // nextElement.focus()
+        const currentElement = event.target as HTMLElement
+        const nextElement = currentElement.nextElementSibling as HTMLElement
+        nextElement.focus()
       }
     }
   }
