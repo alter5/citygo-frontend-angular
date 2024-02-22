@@ -24,24 +24,22 @@
     inputLabel="Description"
     inputId="description"
   ></app-input-large>
-  <div class="flex w-full justify-around">
-    <app-input-rating
-      [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
-      id="duration"
-      labelText="Duration"
-      [maxRating]="5"
-      selectedIconName="circle"
-      unselectedIconName="radio_button_unchecked"
-    ></app-input-rating>
-    <app-input-rating
-      [inputFormControl]="this.tripFormGroup.get('price_range')! | formControl"
-      id="price_range"
-      labelText="Price"
-      [maxRating]="5"
-      selectedIconName="circle"
-      unselectedIconName="radio_button_unchecked"
-    ></app-input-rating>
-  </div>
+  <app-input-rating
+    [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
+    id="duration"
+    labelText="Duration"
+    [maxRating]="5"
+    selectedIconName="circle"
+    unselectedIconName="radio_button_unchecked"
+  ></app-input-rating>
+  <app-input-rating
+    [inputFormControl]="this.tripFormGroup.get('price_range')! | formControl"
+    id="price_range"
+    labelText="Price"
+    [maxRating]="5"
+    selectedIconName="circle"
+    unselectedIconName="radio_button_unchecked"
+  ></app-input-rating>
   <fieldset formArrayName="destinations">
     <legend>Enter the destinations</legend>
     <ng-container

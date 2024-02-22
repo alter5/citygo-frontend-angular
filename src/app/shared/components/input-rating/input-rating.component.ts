@@ -39,7 +39,7 @@ export class InputRatingComponent implements OnInit {
   }
 
   get currentRating() {
-    return this.inputFormControl.value
+    return this.inputFormControl.value ?? 1
   }
 
   onClick(rating: number) {
@@ -48,12 +48,16 @@ export class InputRatingComponent implements OnInit {
     console.log(rating)
   }
 
-  getIcon(index: number) {
+  getIcon(index: number): string {
     if (this.currentRating! >= index + 1) {
       return this.selectedIconName
     } else {
       return this.unselectedIconName
     }
+  }
+
+  isRatingSelected(index: number): boolean {
+    return index <= this.currentRating
   }
 }
 
