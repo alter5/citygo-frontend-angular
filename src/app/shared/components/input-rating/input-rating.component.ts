@@ -50,14 +50,16 @@ export class InputRatingComponent implements OnInit {
 
   onKeyDown(event: KeyboardEvent): void {
     if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      // Decrement current rating
       event.preventDefault()
-      const newIndex = this.currentRating - 1 // Decrement current rating
+      const newIndex = this.currentRating - 1
       if (newIndex > 0) {
         this.onClick(newIndex)
       }
     } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      // Increment current rating
       event.preventDefault()
-      const newIndex = this.currentRating // Increment current rating
+      const newIndex = this.currentRating
       if (newIndex < this.maxRating) {
         this.onClick(newIndex + 1)
       }
