@@ -24,7 +24,7 @@
     inputLabel="Description"
     inputId="description"
   ></app-input-large>
-  <div class="flex w-full gap-8">
+  <div class="flex w-full justify-around">
     <app-input-rating
       [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
       id="duration"
@@ -60,5 +60,6 @@
       Add Another
     </button>
   </fieldset>
+  <!-- TODO: Create a second page merely confirming the details. Add a back arrow button -->
   <p>Form value: {{ this.tripFormGroup.value | json }}</p>
 </form>

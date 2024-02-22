@@ -1,13 +1,18 @@
 <div class="flex flex-col">
   <label *ngIf="id && labelText" [for]="id">{{ labelText }}</label>
-  <div class="inline-block">
-    <button
-      *ngFor="let ratingValue of ratingValues; index as i"
-      (click)="onClick(i + 1)"
-    >
-      <span class="material-icons text-3xl text-bg-action-primary">
-        {{ this.getIcon(i) }}
-      </span>
-    </button>
+  <div class="flex w-fit justify-between gap-1">
+    <div>
+      <button
+        *ngFor="let ratingValue of ratingValues; index as i"
+        (click)="onClick(i + 1)"
+      >
+        <span class="material-icons text-3xl text-bg-action-primary">
+          {{ this.getIcon(i) }}
+        </span>
+      </button>
+    </div>
+    <div class="flex items-center text-xl text-text-primary">
+      <p>{{ currentRating }}/{{ maxRating }}</p>
+    </div>
   </div>
 </div>
