@@ -8,7 +8,7 @@
         *ngFor="let ratingValue of ratingValues"
         (click)="onClick(ratingValue)"
         (keydown)="onKeyDown($event)"
-        [attr.tabindex]="ratingValue === currentRating"
+        [attr.tabindex]="0"
         [attr.aria-checked]="ratingValue === currentRating"
       >
         <span class="material-icons text-3xl text-bg-action-primary">
