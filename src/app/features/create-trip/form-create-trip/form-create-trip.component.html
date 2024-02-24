@@ -5,18 +5,18 @@
 >
   <div class="flex w-full justify-between gap-4">
     <div class="flex w-full flex-col">
-      <app-input-autocomplete
+      <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
         inputId="title"
         inputLabel="Title"
-      ></app-input-autocomplete>
+      ></app-input-basic>
     </div>
     <div class="flex w-full flex-col">
-      <app-input-autocomplete
+      <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl"
         inputId="city_id"
         inputLabel="City"
-      ></app-input-autocomplete>
+      ></app-input-basic>
     </div>
   </div>
   <app-input-large
@@ -42,15 +42,18 @@
   ></app-input-rating>
   <fieldset formArrayName="destinations">
     <legend>Enter the destinations</legend>
-    <ng-container
+    <!-- <ng-container
       *ngFor="let destination of this.destinations.controls; let i = index"
     >
-      <app-input-autocomplete
+      <app-input-basic
         [inputFormControl]="destination | formControl"
         [inputId]="'destination-' + i"
         inputLabel="{{ i + 1 }}."
-      ></app-input-autocomplete>
-    </ng-container>
+      ></app-input-basic>
+    </ng-container> -->
+    <app-input-draggable-options
+      [inputFormArray]="this.tripFormGroup.get('destinations')! | formArray"
+    ></app-input-draggable-options>
     <button
       class="mt-2 h-12 w-32 rounded-md bg-bg-action-primary text-text-action-primary"
       (click)="onClickAddDestination()"

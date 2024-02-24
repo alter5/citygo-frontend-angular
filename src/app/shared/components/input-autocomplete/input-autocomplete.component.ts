@@ -1,10 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from "@angular/core"
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges
+} from "@angular/core"
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { Observable } from "rxjs"
 import { startWith, map } from "rxjs/operators"
 import { MatOptionModule } from "@angular/material/core"
 import { NgFor, NgIf, AsyncPipe } from "@angular/common"
-import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from "@angular/material/autocomplete"
+import {
+  MatAutocompleteModule,
+  MatAutocompleteSelectedEvent
+} from "@angular/material/autocomplete"
 import { DropdownOption } from "./dropdown-option.model"
 
 @Component({
@@ -24,29 +35,31 @@ import { DropdownOption } from "./dropdown-option.model"
 })
 export class InputAutocompleteComponent implements OnInit {
   @Input() hint = ""
-  @Input() inputFormControl!: FormControl;
-  @Input() dropdownOptions: DropdownOption[] | null | undefined
-  @Input() inputId = ""
-  @Input() inputLabel = ""
+  @Input() inputFormControl = new FormControl("")
+  @Input() dropdownOptions: DropdownOption[] | null = []
 
   @Output() selectedDropdownOption = new EventEmitter<DropdownOption>()
   @Output() clickInputField = new EventEmitter<void>()
 
-  ngOnInit() {
-    ;
-  }
+  ngOnInit() {;}
 
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const selectedOptionText: DropdownOption = event.option.value
     this.selectedDropdownOption.emit(selectedOptionText)
   }
 
-  convertOptionToStringForDisplayWith(option: DropdownOption) {
-    return option.textToDisplay
+  convertOptionToString(option: DropdownOption | string): string {
+    if (typeof option === "string") {
+      // If option is a string
+      return option
+    } else {
+      // If option is a DropdownOption
+      option = option as DropdownOption
+      return option.textToDisplay
+    }
   }
 
   onClickInputField() {
     this.clickInputField.emit()
   }
-
 }

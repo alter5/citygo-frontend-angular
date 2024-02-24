@@ -6,11 +6,24 @@ import { FormControlPipe } from "src/app/shared/pipes/form-control.pipe"
 import { EventEmitter } from "@angular/core"
 import { InputLargeComponent } from "src/app/shared/components/input-large/input-large.component"
 import { InputRatingComponent } from "src/app/shared/components/input-rating/input-rating.component"
+import { InputDraggableOptionsComponent } from "src/app/shared/components/input-draggable-options/input-draggable-options.component"
+import { FormArrayPipe } from "src/app/shared/pipes/form-array.pipe"
+import { InputBasicComponent } from "src/app/shared/components/input-basic/input-basic.component"
 
 @Component({
   selector: "app-form-create-trip",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, InputAutocompleteComponent, FormControlPipe, InputLargeComponent, InputRatingComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    InputAutocompleteComponent,
+    FormControlPipe,
+    FormArrayPipe,
+    InputLargeComponent,
+    InputRatingComponent,
+    InputDraggableOptionsComponent,
+    InputBasicComponent
+  ],
   templateUrl: "./form-create-trip.component.html",
   styleUrls: ["./form-create-trip.component.scss"]
 })

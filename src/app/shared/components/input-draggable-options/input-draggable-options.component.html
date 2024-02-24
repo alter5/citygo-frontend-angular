@@ -1,1 +1,11 @@
-<p>input-draggable-options works!</p>,
+<p>input-draggable-options works!</p>
+<div
+  cdkDropList
+  class="flex w-full flex-col bg-bg-primary"
+  (cdkDropListDropped)="drop($event)"
+>
+  <div *ngFor="let control of inputFormArray.controls" class="w-full bg-bg-tertiary px-4 py-2" cdkDrag>
+    <app-input-autocomplete [inputFormControl]="control | formControl"></app-input-autocomplete>
+    <!-- {{control.value}} -->
+  </div>
+</div>

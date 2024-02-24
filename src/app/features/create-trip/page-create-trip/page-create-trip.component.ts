@@ -13,7 +13,6 @@ import { Trip } from "src/app/shared/models/trip.model"
 import { CitiesService } from "src/app/shared/services/cities.service"
 import { TripCreationPayload } from "../models/tripCreationPaylod.model"
 
-
 @Component({
   selector: "app-page-create-trip",
   standalone: true,
@@ -32,10 +31,10 @@ export class PageCreateTripComponent implements OnInit {
 
   ngOnInit(): void {
     this.tripFormGroup = this.formBuilder.group({
-      title: ["", Validators.required],
+      title: ["hi", Validators.required],
       city_id: ["", Validators.required],
       // TODO: Delete the extra destination
-      destinations: this.formBuilder.array(["", ""]),
+      destinations: this.formBuilder.array(["hello", "man"]),
       description: ["", Validators.required],
       price_range: [3, Validators.required],
       duration: [3, Validators.required]

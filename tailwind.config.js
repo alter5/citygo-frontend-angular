@@ -8,6 +8,9 @@ export default {
     extend: {
       spacing: {
         "max-container-width": "64rem"
+      },
+      boxShadow: {
+        primary: "0 0 5px hsl(var(--twc-bg-action-primary))"
       }
     }
   },
