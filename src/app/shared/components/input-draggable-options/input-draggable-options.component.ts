@@ -13,7 +13,7 @@ import {
   moveItemInArray
 } from "@angular/cdk/drag-drop"
 import { FormControlPipe } from "../../pipes/form-control.pipe"
-import { InputAutocompleteComponent } from "../input-autocomplete/input-autocomplete.component"
+import { InputBasicComponent } from "../input-basic/input-basic.component"
 
 @Component({
   selector: "app-input-draggable-options",
@@ -24,46 +24,32 @@ import { InputAutocompleteComponent } from "../input-autocomplete/input-autocomp
     CdkDrag,
     ReactiveFormsModule,
     FormControlPipe,
-    InputAutocompleteComponent
+    InputBasicComponent
   ],
   templateUrl: "./input-draggable-options.component.html",
   styleUrls: ["./input-draggable-options.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InputDraggableOptionsComponent implements OnInit {
+export class InputDraggableOptionsComponent {
   @Input() inputFormArray: FormArray = new FormArray([new FormControl("")])
 
-  ngOnInit(): void {;}
-
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(
-      this.inputFormArray.controls,
-      event.previousIndex,
-      event.currentIndex
-    )
-    // moveItemInArray(this.myForm.get('items').value, event.previousIndex, event.currentIndex);
+    const fromIndex = event.previousIndex
+    const toIndex = event.currentIndex
+
+    const temp = this.inputFormArray.at(fromIndex)
+    this.inputFormArray.at(fromIndex).setValue(this.inputFormArray.at(toIndex))
+    this.inputFormArray.at(toIndex).setValue(temp)
+
+    // moveItemInArray(
+    //   this.inputFormArray.controls,
+    //   event.previousIndex,
+    //   event.currentIndex
+    // )
+    // moveItemInArray(
+    //   this.inputFormArray.value,
+    //   event.previousIndex,
+    //   event.currentIndex
+    // )
   }
-
-  // moveItemInFormArray(
-  //   formArray: FormArray,
-  //   fromIndex: number,
-  //   toIndex: number
-  // ): void {
-  //   const direction = toIndex > fromIndex ? 1 : -1
-
-  //   const item = formArray.at(fromIndex)
-  //   for (
-  //     let i = fromIndex;
-  //     i * direction < toIndex * direction;
-  //     i = i + direction
-  //   ) {
-  //     const current = formArray.at(i + direction)
-  //     formArray.setControl(i, current)
-  //   }
-  //   formArray.setControl(toIndex, item)
-  // }
-
-  // drop(event: CdkDragDrop<string[]>) {
-  //   this.moveItemInFormArray(this.fa, event.previousIndex, event.currentIndex)
-  // }
 }
