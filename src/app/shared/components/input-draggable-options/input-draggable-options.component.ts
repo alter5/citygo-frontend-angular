@@ -34,22 +34,10 @@ export class InputDraggableOptionsComponent {
   @Input() inputFormArray: FormArray = new FormArray([new FormControl("")])
 
   drop(event: CdkDragDrop<string[]>) {
-    const fromIndex = event.previousIndex
-    const toIndex = event.currentIndex
-
-    const temp = this.inputFormArray.at(fromIndex)
-    this.inputFormArray.at(fromIndex).setValue(this.inputFormArray.at(toIndex))
-    this.inputFormArray.at(toIndex).setValue(temp)
-
-    // moveItemInArray(
-    //   this.inputFormArray.controls,
-    //   event.previousIndex,
-    //   event.currentIndex
-    // )
-    // moveItemInArray(
-    //   this.inputFormArray.value,
-    //   event.previousIndex,
-    //   event.currentIndex
-    // )
+    moveItemInArray(
+      this.inputFormArray.controls,
+      event.previousIndex,
+      event.currentIndex
+    )
   }
 }
