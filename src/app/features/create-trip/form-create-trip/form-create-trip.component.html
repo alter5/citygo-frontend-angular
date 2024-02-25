@@ -3,15 +3,15 @@
   [formGroup]="this.tripFormGroup"
   (ngSubmit)="onSubmit()"
 >
-  <div class="flex w-full justify-between gap-4">
-    <div class="flex w-full flex-col">
+  <div class="flex w-full flex-col justify-between gap-4 md:flex-row">
+    <div class="flex w-full">
       <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
         inputId="title"
         inputLabel="Title"
       ></app-input-basic>
     </div>
-    <div class="flex w-full flex-col">
+    <div class="flex w-full">
       <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl"
         inputId="city_id"
