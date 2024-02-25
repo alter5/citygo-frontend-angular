@@ -40,8 +40,11 @@
     selectedIconName="circle"
     unselectedIconName="radio_button_unchecked"
   ></app-input-rating>
-  <fieldset formArrayName="destinations">
-    <legend>Enter the destinations</legend>
+  <fieldset class="mt-2">
+    <legend class="text-lg">Destinations</legend>
+    <p class="mb-2 text-base text-text-secondary">
+      Enter the destinations for your trip
+    </p>
     <!-- <ng-container
       *ngFor="let destination of this.destinations.controls; let i = index"
     >
@@ -53,13 +56,8 @@
     </ng-container> -->
     <app-input-draggable-options
       [inputFormArray]="this.tripFormGroup.get('destinations')! | formArray"
+      (addOption)="this.onClickAddDestination()"
     ></app-input-draggable-options>
-    <button
-      class="mt-2 h-12 w-32 rounded-md bg-bg-action-primary text-text-action-primary"
-      (click)="onClickAddDestination()"
-    >
-      Add Another
-    </button>
   </fieldset>
   <!-- TODO: Create a second page merely confirming the details. Add a back arrow button -->
   <p>Form value: {{ this.tripFormGroup.value | json }}</p>

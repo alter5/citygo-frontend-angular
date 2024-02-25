@@ -12,6 +12,7 @@ import { Trip } from "src/app/shared/models/trip.model"
 
 import { CitiesService } from "src/app/shared/services/cities.service"
 import { TripCreationPayload } from "../models/tripCreationPaylod.model"
+import { ChangeDetectorRef } from "@angular/core"
 
 @Component({
   selector: "app-page-create-trip",
@@ -26,7 +27,8 @@ export class PageCreateTripComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private citiesService: CitiesService
+    private citiesService: CitiesService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class PageCreateTripComponent implements OnInit {
       title: ["hi", Validators.required],
       city_id: ["", Validators.required],
       // TODO: Delete the extra destination
-      destinations: this.formBuilder.array(["hello", "man"]),
+      destinations: this.formBuilder.array(["", "", ""]),
       description: ["", Validators.required],
       price_range: [3, Validators.required],
       duration: [3, Validators.required]

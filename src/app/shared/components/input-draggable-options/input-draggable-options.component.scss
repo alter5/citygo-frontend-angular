@@ -5,3 +5,7 @@
 .cdk-drag-placeholder {
   opacity: 0;
 }
+
+.cdk-drag-preview {
+  @apply z-10 cursor-pointer bg-bg-hovered shadow-md
+}

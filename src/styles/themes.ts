@@ -73,7 +73,13 @@ const redPalette = {
   }
 }
 
-const colors = {
+const generalPurposeColors = {
+  "bg-caution-primary": redPalette[900],
+  "bg-caution-hovered": redPalette[500],
+  "text-caution-primary": redPalette["contrast"][900]
+}
+
+const themeSpecificColors = {
   light: {
     "bg-primary": "#f1f0f0",
     "bg-secondary": "white",
@@ -106,7 +112,7 @@ const colors = {
   }
 }
 
-export default { colors, bluePalette, purplePalette, redPalette }
+export default { generalPurposeColors, themeSpecificColors, bluePalette, purplePalette, redPalette }
 
 // TODO: Implement the following variables as well
 // Source: stash.com

@@ -1,4 +1,4 @@
-const themes = require("./src/styles/themes")
+const colorsModule = require("./src/styles/themes")
 const { createThemes } = require("tw-colors")
 
 /** @type {import('tailwindcss').Config} */
@@ -6,6 +6,7 @@ export default {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      colors: colorsModule.generalPurposeColors,
       spacing: {
         "max-container-width": "64rem"
       },
@@ -16,8 +17,8 @@ export default {
   },
   plugins: [
     createThemes({
-      light: themes.colors.light,
-      dark: themes.colors.dark
+      light: colorsModule.themeSpecificColors.light,
+      dark: colorsModule.themeSpecificColors.dark
     })
   ]
 }
