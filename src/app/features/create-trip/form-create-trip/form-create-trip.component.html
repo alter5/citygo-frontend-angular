@@ -7,16 +7,16 @@
     <div class="flex w-full">
       <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
-        inputId="title"
         inputLabel="Title"
       ></app-input-basic>
     </div>
     <div class="flex w-full">
-      <app-input-basic
+      <!-- <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl"
         inputId="city_id"
         inputLabel="City"
-      ></app-input-basic>
+      ></app-input-basic> -->
+      <app-input-autocomplete [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl" inputLabel="City"></app-input-autocomplete>
     </div>
   </div>
   <div class="flex h-48 w-full">

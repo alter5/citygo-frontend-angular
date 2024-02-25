@@ -17,7 +17,8 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms"
 })
 export class InputBasicComponent {
   @Input() inputFormControl = new FormControl("")
-  @Input() inputId = ""
   @Input() inputLabel = ""
   @Input() hint = ""
+
+  idForLabel = "input-basic-" + crypto.randomUUID()
 }

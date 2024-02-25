@@ -17,8 +17,9 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms"
 })
 export class InputLargeComponent implements OnInit {
   @Input() inputFormControl = new FormControl("")
-  @Input() inputId = ""
   @Input() inputLabel = ""
+
+  idForLabel = "input-large-" + crypto.randomUUID()
 
   ngOnInit(): void {;}
 }

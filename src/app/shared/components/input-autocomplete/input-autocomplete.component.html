@@ -1,6 +1,13 @@
 <div class="flex w-full flex-col">
+  <label
+    *ngIf="inputLabel"
+    [for]="idForLabel"
+    class="text-md text-text-primary mb-1"
+    >{{ inputLabel }}</label
+  >
   <input
-    class="w-full"
+    [id]="idForLabel"
+    class="w-full rounded-md bg-bg-primary p-4 text-text-primary outline-none focus:shadow-primary"
     type="text"
     [placeholder]="hint"
     [formControl]="inputFormControl"

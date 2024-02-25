@@ -36,10 +36,13 @@ import { DropdownOption } from "./dropdown-option.model"
 export class InputAutocompleteComponent implements OnInit {
   @Input() hint = ""
   @Input() inputFormControl = new FormControl("")
+  @Input() inputLabel = ""
   @Input() dropdownOptions: DropdownOption[] | null = []
 
   @Output() selectedDropdownOption = new EventEmitter<DropdownOption>()
   @Output() clickInputField = new EventEmitter<void>()
+
+  idForLabel = "input-autocomplete-" + crypto.randomUUID()
 
   ngOnInit() {;}
 
