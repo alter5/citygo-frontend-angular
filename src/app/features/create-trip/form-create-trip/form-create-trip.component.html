@@ -24,22 +24,30 @@
     inputLabel="Description"
     inputId="description"
   ></app-input-large>
-  <app-input-rating
-    [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
-    id="duration"
-    labelText="Duration"
-    [maxRating]="5"
-    selectedIconName="circle"
-    unselectedIconName="radio_button_unchecked"
-  ></app-input-rating>
-  <app-input-rating
-    [inputFormControl]="this.tripFormGroup.get('price_range')! | formControl"
-    id="price_range"
-    labelText="Price"
-    [maxRating]="5"
-    selectedIconName="circle"
-    unselectedIconName="radio_button_unchecked"
-  ></app-input-rating>
+  <div class="mt-2 flex w-full justify-between gap-4">
+    <div class="flex w-full">
+        <app-input-rating
+          [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
+          id="duration"
+          labelText="Duration"
+          [maxRating]="5"
+          selectedIconName="circle"
+          unselectedIconName="radio_button_unchecked"
+        ></app-input-rating>
+    </div>
+    <div class="flex w-full">
+        <app-input-rating
+          [inputFormControl]="
+            this.tripFormGroup.get('price_range')! | formControl
+          "
+          id="price_range"
+          labelText="Price"
+          [maxRating]="5"
+          selectedIconName="circle"
+          unselectedIconName="radio_button_unchecked"
+        ></app-input-rating>
+    </div>
+  </div>
   <fieldset class="mt-2">
     <legend class="text-lg">Destinations</legend>
     <p class="mb-2 text-base text-text-secondary">

@@ -1,4 +1,4 @@
-<div class="flex max-w-sm items-center justify-between">
+<div class="flex w-full max-w-72 items-center justify-between">
   <label *ngIf="id && labelText" [for]="id">{{ labelText }}</label>
   <div class="flex items-center justify-between gap-1">
     <div class="flex w-fit items-center" role="radiogroup">
@@ -17,8 +17,8 @@
       </button>
     </div>
     <!-- TODO: Confirm that the line height is correct -->
-    <p class="text-xl leading-none text-text-primary">
-      {{ currentRating }}/{{ maxRating }}
-    </p>
+    <!-- <p class="text-lg leading-none text-text-primary">
+      ({{ currentRating }}/{{ maxRating }})
+    </p> -->
   </div>
 </div>
