@@ -33,13 +33,13 @@ export class PageCreateTripComponent implements OnInit {
 
   ngOnInit(): void {
     this.tripFormGroup = this.formBuilder.group({
-      title: ["hi", Validators.required],
-      city_id: ["", Validators.required],
+      title: ["NYC in 1 day", Validators.required],
+      city_id: ["New York City", Validators.required],
       // TODO: Delete the extra destination
-      destinations: this.formBuilder.array(["", "", ""]),
-      description: ["", Validators.required],
-      price_range: [3, Validators.required],
-      duration: [3, Validators.required]
+      destinations: this.formBuilder.array(["Times Square", "Empire State Bulding", "Statue of Liberty"]),
+      description: ["This is a fun trip!", Validators.required],
+      price_range: [4, Validators.required],
+      duration: [2, Validators.required]
     })
   }
 
