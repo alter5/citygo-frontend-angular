@@ -1,9 +1,8 @@
 <div class="flex w-full flex-col">
-  <label *ngIf="inputLabel && inputId" [for]="inputId">{{ inputLabel }}</label>
+  <label class="mb-1" *ngIf="inputLabel && inputId" [for]="inputId">{{ inputLabel }}</label>
   <textarea
     [id]="inputId"
     [formControl]="inputFormControl"
-    class="w-full rounded-md bg-bg-primary text-text-primary focus:outline-bg-action-primary"
-    rows="4"
+    class="w-full h-full rounded-md bg-bg-primary text-text-primary focus:outline-bg-action-primary p-4"
   ></textarea>
 </div>

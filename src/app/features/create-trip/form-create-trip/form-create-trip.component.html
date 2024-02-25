@@ -19,36 +19,40 @@
       ></app-input-basic>
     </div>
   </div>
-  <app-input-large
-    [inputFormControl]="this.tripFormGroup.get('description')! | formControl"
-    inputLabel="Description"
-    inputId="description"
-  ></app-input-large>
+  <div class="flex h-48 w-full">
+    <app-input-large
+      [inputFormControl]="this.tripFormGroup.get('description')! | formControl"
+      inputLabel="Description"
+      inputId="description"
+      class="flex-grow"
+    ></app-input-large>
+  </div>
   <div class="mt-2 flex w-full justify-between gap-4">
     <div class="flex w-full">
-        <app-input-rating
-          [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
-          id="duration"
-          labelText="Duration"
-          [maxRating]="5"
-          selectedIconName="circle"
-          unselectedIconName="radio_button_unchecked"
-        ></app-input-rating>
+      <app-input-rating
+        [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
+        id="duration"
+        labelText="Duration"
+        [maxRating]="5"
+        selectedIconName="circle"
+        unselectedIconName="radio_button_unchecked"
+      ></app-input-rating>
     </div>
     <div class="flex w-full">
-        <app-input-rating
-          [inputFormControl]="
-            this.tripFormGroup.get('price_range')! | formControl
-          "
-          id="price_range"
-          labelText="Price"
-          [maxRating]="5"
-          selectedIconName="circle"
-          unselectedIconName="radio_button_unchecked"
-        ></app-input-rating>
+      <app-input-rating
+        [inputFormControl]="
+          this.tripFormGroup.get('price_range')! | formControl
+        "
+        id="price_range"
+        labelText="Price"
+        [maxRating]="5"
+        selectedIconName="circle"
+        unselectedIconName="radio_button_unchecked"
+      ></app-input-rating>
     </div>
   </div>
-  <fieldset class="mt-2">
+  <hr class="mt-8 border-text-secondary" />
+  <fieldset>
     <legend class="text-lg">Destinations</legend>
     <p class="mb-2 text-base text-text-secondary">
       Enter the destinations for your trip
