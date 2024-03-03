@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit } from "@angular/core"
+import { AfterContentInit, Component, Input, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
 import { CitiesService } from "src/app/shared/services/cities.service"
@@ -25,14 +25,17 @@ import { Router } from "@angular/router"
   styleUrls: ["./city-search-bar.component.scss"]
 })
 export class CitySearchBarComponent implements OnInit {
-  fc: FormControl = new FormControl("")
+  @Input() inputFormControl!: FormControl
   dropdownOptions$: Observable<DropdownOption[]> | undefined
 
   constructor(private router: Router, private citiesService: CitiesService) {}
 
   ngOnInit(): void {
-    this.dropdownOptions$ = this.fc.valueChanges.pipe(
-      startWith(""),
+    if (this.inputFormControl === undefined) {
+      this.inputFormControl = new FormControl("")
+    }
+    this.dropdownOptions$ = this.inputFormControl.valueChanges.pipe(
+      startWith(this.inputFormControl ? this.inputFormControl.value : ""),
       debounceTime(300),
       distinctUntilChanged(),
       map((val: string | DropdownOption) => {

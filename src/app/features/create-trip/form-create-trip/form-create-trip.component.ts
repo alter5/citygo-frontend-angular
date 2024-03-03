@@ -9,6 +9,7 @@ import { InputRatingComponent } from "src/app/shared/components/input-rating/inp
 import { InputDraggableOptionsComponent } from "src/app/shared/components/input-draggable-options/input-draggable-options.component"
 import { FormArrayPipe } from "src/app/shared/pipes/form-array.pipe"
 import { InputBasicComponent } from "src/app/shared/components/input-basic/input-basic.component"
+import { CitySearchBarComponent } from "src/app/core/components/city-search-bar/city-search-bar.component"
 
 @Component({
   selector: "app-form-create-trip",
@@ -22,7 +23,8 @@ import { InputBasicComponent } from "src/app/shared/components/input-basic/input
     InputLargeComponent,
     InputRatingComponent,
     InputDraggableOptionsComponent,
-    InputBasicComponent
+    InputBasicComponent,
+    CitySearchBarComponent
   ],
   templateUrl: "./form-create-trip.component.html",
   styleUrls: ["./form-create-trip.component.scss"]

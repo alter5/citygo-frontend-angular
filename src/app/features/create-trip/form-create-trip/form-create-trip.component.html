@@ -3,7 +3,7 @@
   [formGroup]="this.tripFormGroup"
   (ngSubmit)="onSubmit()"
 >
-  <div class="flex w-full flex-col justify-between gap-4 md:flex-row">
+  <div class="flex w-full flex-col justify-between gap-4 md:flex-row items-end">
     <div class="flex w-full">
       <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
@@ -16,7 +16,7 @@
         inputId="city_id"
         inputLabel="City"
       ></app-input-basic> -->
-      <app-input-autocomplete [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl" inputLabel="City"></app-input-autocomplete>
+      <app-city-search-bar [inputFormControl]="this.tripFormGroup.get('city_id')! | formControl" inputLabel="City"></app-city-search-bar>
     </div>
   </div>
   <div class="flex h-48 w-full">

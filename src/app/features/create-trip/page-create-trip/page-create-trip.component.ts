@@ -13,6 +13,8 @@ import { Trip } from "src/app/shared/models/trip.model"
 import { CitiesService } from "src/app/shared/services/cities.service"
 import { TripCreationPayload } from "../models/tripCreationPaylod.model"
 import { ChangeDetectorRef } from "@angular/core"
+import { Observable } from "rxjs"
+import { City } from "src/app/shared/models/city.model"
 
 @Component({
   selector: "app-page-create-trip",
