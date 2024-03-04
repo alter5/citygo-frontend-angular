@@ -11,7 +11,7 @@ import {
 import { Trip } from "src/app/shared/models/trip.model"
 
 import { CitiesService } from "src/app/shared/services/cities.service"
-import { TripCreationPayload } from "../models/tripCreationPaylod.model"
+import { TripCreationDto } from "../models/tripCreationPaylod.model"
 import { ChangeDetectorRef } from "@angular/core"
 import { Observable } from "rxjs"
 import { City } from "src/app/shared/models/city.model"
@@ -60,7 +60,7 @@ export class PageCreateTripComponent implements OnInit {
 
     const formData = this.tripFormGroup.value
 
-    const payload: TripCreationPayload = {
+    const payload: TripCreationDto = {
       title: formData.title,
       city_id: formData.city_id,
       destinations: formData.destinations,

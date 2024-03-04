@@ -1,4 +1,4 @@
-export interface TripCreationPayload {
+export interface TripCreationDto {
   title: string,
   city_id: number,
   destinations: string[],

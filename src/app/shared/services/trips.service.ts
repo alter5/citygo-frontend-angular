@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http"
 import { Observable, catchError, map, of } from "rxjs"
 import { Trip } from "../models/trip.model"
-import { TripCreationPayload } from "src/app/features/create-trip/models/tripCreationPaylod.model"
+import { TripCreationDto } from "src/app/features/create-trip/models/tripCreationPaylod.model"
 
 @Injectable({
   providedIn: "root"
@@ -24,7 +24,7 @@ export class TripsService {
     )
   }
 
-  createTrip(payload: TripCreationPayload): void {
+  createTrip(dto: TripCreationDto): void {
     ;
   }
 }
