@@ -43,7 +43,7 @@ describe("Service Cities", () => {
     })
 
     const req = httpTestingController.expectOne((req) => {
-      return req.url.includes(requestUrl)
+      return req.url.includes(requestUrl + "X")
     })
 
     expect(req.request.method).toBe("GET")
@@ -54,8 +54,12 @@ describe("Service Cities", () => {
   it("should return an empty array on error", () => {
     const requestUrl = service.baseUrl + "/mostPopulous"
 
-    // Supresses the console.error output from the expected error
-    const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation() // The mock does nothing when no callback is specified
+    // Suppress the expected error output
+    const consoleErrorSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {
+        // Do nothing
+      })
 
     service
       .getMostPopulousCities()
