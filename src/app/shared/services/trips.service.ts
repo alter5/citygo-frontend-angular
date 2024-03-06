@@ -34,6 +34,8 @@ export class TripsService {
       .post<ApiResponse>(this.baseUrl + "/createTrip", { tripDto: payload })
       .pipe(
         map((response) => {
+          console.log("🚀 ~ TripsService ~ map ~ response:", response.success)
+
           if (response.success) {
             return true
           } else {
