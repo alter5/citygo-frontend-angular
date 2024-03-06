@@ -92,7 +92,6 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -100,11 +99,6 @@
             "styles": [
               "src/styles/styles.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles/"
-              ]
-            },
             "scripts": []
           }
         },
