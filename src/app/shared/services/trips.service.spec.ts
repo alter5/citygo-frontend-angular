@@ -34,13 +34,15 @@ describe("Service Trips", () => {
       price_range: 0,
       duration: 0
     }
+
     service.createTrip(tripDto).subscribe((response) => {
       expect(response).toBe(true)
     })
 
     const req = httpTestingController.expectOne(service.baseUrl + "/createTrip")
-    expect(req.request.method).toBe("POST")
 
+    expect(req.request.method).toBe("POST")
+    
     req.flush({ success: true } as ApiResponse)
   })
 
