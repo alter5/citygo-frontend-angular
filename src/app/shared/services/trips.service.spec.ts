@@ -42,8 +42,29 @@ describe("Service Trips", () => {
     const req = httpTestingController.expectOne(service.baseUrl + "/createTrip")
 
     expect(req.request.method).toBe("POST")
-    
+
     req.flush({ success: true } as ApiResponse)
+  })
+
+  it("should return false when creating a trip is unsuccessful", () => {
+    const tripDto: TripCreationDto = {
+      title: "Las Vegas in one day",
+      city_id: 0,
+      destinations: [],
+      description: "",
+      price_range: 0,
+      duration: 0
+    }
+
+    service.createTrip(tripDto).subscribe((response) => {
+      expect(response).toBe(false)
+    })
+
+    const req = httpTestingController.expectOne(service.baseUrl + "/createTrip")
+
+    expect(req.request.method).toBe("POST")
+
+    req.flush(null, {status: 404, statusText: "Internet error"})
   })
 
   it("should get popular trips", () => {
@@ -57,11 +78,4 @@ describe("Service Trips", () => {
     )
     expect(req.request.method).toBe("GET")
   })
-
-  // it("should get trips", () => {
-  //   const expectedResponse = "New York"
-  //   tripsService.getAllTrips().subscribe((trips) => {
-  //     expect(trips[0].city.city_name).toEqual("New York")
-  //   })
-  // })
 })

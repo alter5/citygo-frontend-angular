@@ -1,5 +1,10 @@
 import { CommonModule } from "@angular/common"
-import { ChangeDetectionStrategy, Component, type OnInit } from "@angular/core"
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  type OnInit
+} from "@angular/core"
 import { FormCreateTripComponent } from "../form-create-trip/form-create-trip.component"
 import {
   FormGroup,
@@ -11,9 +16,10 @@ import {
 import { Trip } from "src/app/shared/models/trip.model"
 
 import { CitiesService } from "src/app/shared/services/cities.service"
+import { TripsService } from "src/app/shared/services/trips.service"
 import { TripCreationDto } from "../models/tripCreationPayload.model"
 import { ChangeDetectorRef } from "@angular/core"
-import { Observable } from "rxjs"
+import { Observable, Subscription } from "rxjs"
 import { City } from "src/app/shared/models/city.model"
 
 @Component({
@@ -24,13 +30,16 @@ import { City } from "src/app/shared/models/city.model"
   styleUrls: ["./page-create-trip.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PageCreateTripComponent implements OnInit {
+export class PageCreateTripComponent implements OnInit, OnDestroy {
   tripFormGroup: FormGroup = new FormGroup({})
+  createTripResponseSubscription: Subscription | undefined
+  isLoading = false
 
   constructor(
     private formBuilder: FormBuilder,
     private citiesService: CitiesService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private tripsService: TripsService
   ) {}
 
   ngOnInit(): void {
@@ -38,11 +47,21 @@ export class PageCreateTripComponent implements OnInit {
       title: ["NYC in 1 day", Validators.required],
       city_id: ["New York City", Validators.required],
       // TODO: Delete the extra destination
-      destinations: this.formBuilder.array(["Times Square", "Empire State Bulding", "Statue of Liberty"]),
+      destinations: this.formBuilder.array([
+        "Times Square",
+        "Empire State Bulding",
+        "Statue of Liberty"
+      ]),
       description: ["This is a fun trip!", Validators.required],
       price_range: [4, Validators.required],
       duration: [2, Validators.required]
     })
+  }
+
+  ngOnDestroy(): void {
+    if (this.createTripResponseSubscription) {
+      this.createTripResponseSubscription.unsubscribe()
+    }
   }
 
   get destinations() {
@@ -60,7 +79,7 @@ export class PageCreateTripComponent implements OnInit {
 
     const formData = this.tripFormGroup.value
 
-    const payload: TripCreationDto = {
+    const tripCreationDto: TripCreationDto = {
       title: formData.title,
       city_id: formData.city_id,
       destinations: formData.destinations,
@@ -68,5 +87,16 @@ export class PageCreateTripComponent implements OnInit {
       price_range: formData.price_range,
       duration: formData.duration
     }
+
+    this.isLoading = true
+    const createTripResponseSubscription = this.tripsService
+      .createTrip(tripCreationDto)
+      .subscribe((success) => {
+        if (success) {
+          // Do something
+        } else {
+          // Do something
+        }
+      })
   }
 }

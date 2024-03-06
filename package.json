@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "dev": "concurrently --kill-others \"npm start\" \"npm run jsonserver\"",
-    "test": "concurrently --kill-others \"npm run jsonserver\" \"ng test\"",
+    "test": "concurrently --kill-others \"npm run jsonserver\" \"ng test --browsers=ChromeHeadless\"",
     "jsonserver": "json-server -p 3002 --watch db.json",
     "format": "prettier --write \"src/\"",
     "build": "ng build",
@@ -60,6 +60,7 @@
     "postcss": "^8.4.23",
     "prettier": "^2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.7",
+    "puppeteer": "^22.4.0",
     "tailwindcss": "^3.3.2",
     "typescript": "~4.9.4"
   }
