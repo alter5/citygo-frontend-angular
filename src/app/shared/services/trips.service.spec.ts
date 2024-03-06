@@ -41,7 +41,7 @@ describe("Service Trips", () => {
     const req = httpTestingController.expectOne(service.baseUrl + "/createTrip")
     expect(req.request.method).toBe("POST")
 
-    req.flush({ success: true })
+    req.flush({ success: true } as ApiResponse)
   })
 
   it("should get popular trips", () => {
