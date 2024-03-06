@@ -9,7 +9,7 @@ import { ApiResponse } from "../models/apiResponse.model"
   providedIn: "root"
 })
 export class TripsService {
-  baseUrl = "http://localhost:3002/api/trips"
+  baseUrl = "http://localhost:3010/api/trips"
 
   constructor(private http: HttpClient) {}
 

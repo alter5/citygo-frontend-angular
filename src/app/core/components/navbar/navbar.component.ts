@@ -11,6 +11,8 @@ import {
 } from "@angular/material/slide-toggle"
 import { CitySearchBarComponent } from "../city-search-bar/city-search-bar.component"
 import { Observable, map } from "rxjs"
+import { Router } from "@angular/router"
+import { DropdownOption } from "src/app/shared/components/input-autocomplete/dropdown-option.model"
 
 @Component({
   selector: "app-navbar",
@@ -36,7 +38,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -86,5 +89,9 @@ export class NavbarComponent implements OnInit {
       "isDarkModeEnabled",
       JSON.stringify(this.isDarkModeEnabled)
     )
+  }
+
+  onCitySelected(selectedDropdownOption: DropdownOption): void {
+    this.router.navigate(["/search", selectedDropdownOption.id])
   }
 }

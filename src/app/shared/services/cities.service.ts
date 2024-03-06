@@ -8,7 +8,7 @@ import { ApiResponse } from "../models/apiResponse.model"
   providedIn: "root"
 })
 export class CitiesService {
-  baseUrl = "http://localhost:3002/api/cities"
+  baseUrl = "http://localhost:3010/api/cities"
 
   constructor(private http: HttpClient) {}
 

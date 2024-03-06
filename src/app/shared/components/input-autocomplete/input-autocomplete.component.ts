@@ -53,10 +53,8 @@ export class InputAutocompleteComponent implements OnInit {
 
   convertOptionToString(option: DropdownOption | string): string {
     if (typeof option === "string") {
-      // If option is a string
       return option
     } else {
-      // If option is a DropdownOption
       option = option as DropdownOption
       return option.textToDisplay
     }

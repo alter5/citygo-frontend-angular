@@ -11,11 +11,18 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <app-city-search-bar class="w-full" />
+      <app-city-search-bar
+        class="w-full"
+        (citySelected)="onCitySelected($event)"
+      />
     </div>
   </nav>
   <!-- TODO: Implement full mobile menu -->
-  <div *ngIf="isMenuOpen" id="dropdown" class="h-screen overflow-hidden bg-black">
+  <div
+    *ngIf="isMenuOpen"
+    id="dropdown"
+    class="h-screen overflow-hidden bg-black"
+  >
     <div class="mt-24">
       <p>This feature is not yet available</p>
     </div>
@@ -25,7 +32,7 @@
 <ng-template #desktopNavbar>
   <nav class="desktop">
     <div class="wrapper max-w-[1160px]">
-      <ul class="container navbar-left">
+      <ul class="navbar-left container">
         <li class="relative mr-4 flex h-16 w-40 items-center">
           <a [routerLink]="['/']">
             <!-- Logo was generated using www.logo.com -->
@@ -38,10 +45,13 @@
           </a>
         </li>
       </ul>
-      <div class="container navbar-middle">
-        <app-city-search-bar class="desktop" />
+      <div class="navbar-middle container">
+        <app-city-search-bar
+          class="desktop"
+          (citySelected)="onCitySelected($event)"
+        />
       </div>
-      <div class="container navbar-right">
+      <div class="navbar-right container">
         <div class="container">
           <label for="darkModeToggle">Dark Mode</label>
           <mat-slide-toggle
@@ -50,7 +60,7 @@
             (change)="handleDarkModeToggle($event)"
           ></mat-slide-toggle>
         </div>
-        <div class="container navbar-login-section">
+        <div class="navbar-login-section container">
           <!-- TODO: Conditionally render links depending on if user is logged in already -->
           <a href="#">Create Trip</a>
           <a href="#">Login</a>

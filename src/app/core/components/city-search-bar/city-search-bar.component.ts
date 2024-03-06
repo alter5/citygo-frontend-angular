@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input, OnInit } from "@angular/core"
+import { AfterContentInit, Component, Input, OnInit, Output } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
 import { CitiesService } from "src/app/shared/services/cities.service"
@@ -15,7 +15,7 @@ import {
 import { City } from "src/app/shared/models/city.model"
 import { DropdownOption } from "src/app/shared/components/input-autocomplete/dropdown-option.model"
 import { FormControl } from "@angular/forms"
-import { Router } from "@angular/router"
+import { EventEmitter } from "@angular/core"
 
 @Component({
   selector: "app-city-search-bar",
@@ -27,8 +27,9 @@ import { Router } from "@angular/router"
 export class CitySearchBarComponent implements OnInit {
   @Input() inputFormControl!: FormControl
   dropdownOptions$: Observable<DropdownOption[]> | undefined
+  @Output() citySelected = new EventEmitter<DropdownOption>()
 
-  constructor(private router: Router, private citiesService: CitiesService) {}
+  constructor(private citiesService: CitiesService) {}
 
   ngOnInit(): void {
     if (this.inputFormControl === undefined) {
@@ -83,6 +84,6 @@ export class CitySearchBarComponent implements OnInit {
   }
 
   onSelectedCity(selectedDropdownOption: DropdownOption) {
-    this.router.navigate(["/search", selectedDropdownOption.id])
+    this.citySelected.emit(selectedDropdownOption)
   }
 }
