@@ -49,7 +49,6 @@ export class NavbarComponent implements OnInit {
       .observe([Breakpoints.XSmall, Breakpoints.Small])
       .pipe(
         map((result) => {
-          console.log("Result: ", result)
           return result.matches
         })
       )

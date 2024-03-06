@@ -68,7 +68,5 @@ export class PageCreateTripComponent implements OnInit {
       price_range: formData.price_range,
       duration: formData.duration
     }
-
-    console.log("🚀 ~ PageCreateTripComponent ~ onSubmit ~ payload:", payload)
   }
 }

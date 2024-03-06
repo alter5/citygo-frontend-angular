@@ -30,7 +30,7 @@ export class PageHomeComponent implements OnInit {
   constructor(private tripsService: TripsService) {}
 
   ngOnInit(): void {
-    this.trips$ = this.tripsService.getAllTrips()
+    this.trips$ = this.tripsService.getPopularTrips()
     this.trips$.subscribe((trips) => console.log("Trips:", trips))
   }
 }

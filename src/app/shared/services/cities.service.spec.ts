@@ -56,7 +56,7 @@ describe("Service Cities", () => {
       latitude: 0,
       longitude: 0
     }
-    
+
     const expectedResponse: ApiResponse = {
       success: true,
       data: [expectedCity1, expectedCity2]
@@ -70,7 +70,7 @@ describe("Service Cities", () => {
     })
 
     const req = httpTestingController.expectOne((req) => {
-      return req.url.startsWith(requestUrl) && req.url.includes(searchString)
+      return req.url.startsWith(requestUrl) && req.urlWithParams.includes(searchString)
     })
 
     expect(req.request.method).toBe("GET")
@@ -81,31 +81,24 @@ describe("Service Cities", () => {
   it("should return an empty array on error", () => {
     const requestUrl = service.baseUrl + "/mostPopulous"
 
-    // Suppress the expected error output
-    // const consoleErrorSpy = jest
-    //   .spyOn(console, "error")
-    //   .mockImplementation(() => {
-    //     // Do nothing
-    //   })
-
     service
       .getMostPopulousCities()
       .pipe(
         catchError((error) => {
-          fail("The cities service should not throw any errors")
+          fail(
+            "The cities service should not throw any errors for this test case"
+          )
           return of([])
         })
       )
       .subscribe((cities) => {
-        expect(cities).toBe([])
+        expect(cities.length).toBe(0)
       })
 
     const req = httpTestingController.expectOne((req) => {
-      return req.url.includes(requestUrl)
+      return req.url.startsWith(requestUrl)
     })
 
-    req.flush("Test error message", { status: 404, statusText: "Not Found" })
-
-    // consoleErrorSpy.mockRestore()
+    req.flush(null, { status: 404, statusText: "Not Found" })
   })
 })
