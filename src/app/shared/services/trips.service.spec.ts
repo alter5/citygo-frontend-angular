@@ -7,6 +7,7 @@ import {
 } from "@angular/common/http/testing"
 import { ApiResponse } from "../models/apiResponse.model"
 import { TripCreationDto } from "src/app/features/create-trip/models/tripCreationPayload.model"
+import { Trip } from "../models/trip.model"
 
 describe("Service Trips", () => {
   let service: TripsService
@@ -64,18 +65,37 @@ describe("Service Trips", () => {
 
     expect(req.request.method).toBe("POST")
 
-    req.flush(null, {status: 404, statusText: "Internet error"})
+    req.flush(null, { status: 404, statusText: "Internet error" })
   })
 
   it("should get popular trips", () => {
+    const expectedResponse: Trip = {
+      title: "Las Vegas in one day",
+      city: {
+        id: 0,
+        city_name: "",
+        state: "",
+        state_abbreviation: "",
+        population: 0,
+        latitude: 0,
+        longitude: 0
+      },
+      priceRange: 0,
+      rating: 0,
+      description: "",
+      destinations: []
+    }
+
     service.getPopularTrips().subscribe((response) => {
-      expect(response.length).toBeGreaterThan(0)
-      expect(response[0].title)
+      expect(response.length).toBe(1)
+      expect(response[0].title).toBe(expectedResponse.title)
     })
 
     const req = httpTestingController.expectOne(
       service.baseUrl + "/popularTrips"
     )
     expect(req.request.method).toBe("GET")
+
+    req.flush({ success: true, data: [expectedResponse] } as ApiResponse)
   })
 })
