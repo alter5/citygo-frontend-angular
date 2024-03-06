@@ -17,4 +17,7 @@
   >
     Create trip
   </button>
+  <div *ngIf="isLoading">
+    <app-overlay-loading />
+  </div>
 </div>

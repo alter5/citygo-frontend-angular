@@ -22,10 +22,12 @@ import { ChangeDetectorRef } from "@angular/core"
 import { Observable, Subscription } from "rxjs"
 import { City } from "src/app/shared/models/city.model"
 
+import { OverlayLoadingComponent } from "src/app/shared/components/overlay-loading/overlay-loading.component"
+
 @Component({
   selector: "app-page-create-trip",
   standalone: true,
-  imports: [CommonModule, FormCreateTripComponent],
+  imports: [CommonModule, FormCreateTripComponent, OverlayLoadingComponent],
   templateUrl: "./page-create-trip.component.html",
   styleUrls: ["./page-create-trip.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -92,6 +94,7 @@ export class PageCreateTripComponent implements OnInit, OnDestroy {
     const createTripResponseSubscription = this.tripsService
       .createTrip(tripCreationDto)
       .subscribe((success) => {
+        this.isLoading = false
         if (success) {
           // Do something
         } else {

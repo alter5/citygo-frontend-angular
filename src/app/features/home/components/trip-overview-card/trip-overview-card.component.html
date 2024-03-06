@@ -8,8 +8,8 @@
   <!-- Images -->
   <div class="flex h-56 w-full items-center justify-center">
     <ng-container *ngIf="trip !== undefined">
-      <div class="relative h-full w-full" *ngFor="let stop of trip.stops">
-        <img class="object-cover" [ngSrc]="stop.image" [alt]="stop.name" fill />
+      <div class="relative h-full w-full" *ngFor="let destination of trip.destinations">
+        <img class="object-cover" [ngSrc]="destination.image" [alt]="destination.name" fill />
       </div>
     </ng-container>
   </div>
