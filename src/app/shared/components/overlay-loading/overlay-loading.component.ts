@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common"
 import { ChangeDetectionStrategy, Component, type OnInit } from "@angular/core"
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
+import { Input } from "@angular/core"
 
 @Component({
   selector: "app-overlay-loading",
@@ -10,4 +11,5 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
   styleUrls: ["./overlay-loading.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OverlayLoadingComponent {}
+export class OverlayLoadingComponent {
+}

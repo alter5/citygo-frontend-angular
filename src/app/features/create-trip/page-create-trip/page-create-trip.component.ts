@@ -19,7 +19,7 @@ import { CitiesService } from "src/app/shared/services/cities.service"
 import { TripsService } from "src/app/shared/services/trips.service"
 import { TripCreationDto } from "../models/tripCreationPayload.model"
 import { ChangeDetectorRef } from "@angular/core"
-import { Observable, Subscription } from "rxjs"
+import { Observable, Subject, Subscription, tap } from "rxjs"
 import { City } from "src/app/shared/models/city.model"
 
 import { OverlayLoadingComponent } from "src/app/shared/components/overlay-loading/overlay-loading.component"
@@ -35,7 +35,7 @@ import { OverlayLoadingComponent } from "src/app/shared/components/overlay-loadi
 export class PageCreateTripComponent implements OnInit, OnDestroy {
   tripFormGroup: FormGroup = new FormGroup({})
   createTripResponseSubscription: Subscription | undefined
-  isLoading = false
+  isLoading = new Subject<boolean>()
 
   constructor(
     private formBuilder: FormBuilder,
@@ -90,12 +90,16 @@ export class PageCreateTripComponent implements OnInit, OnDestroy {
       duration: formData.duration
     }
 
-    this.isLoading = true
+    this.isLoading.next(true)
     const createTripResponseSubscription = this.tripsService
       .createTrip(tripCreationDto)
       .subscribe((success) => {
-        this.isLoading = false
+        this.isLoading.next(false)
         if (success) {
+          console.log(
+            "🚀 ~ PageCreateTripComponent ~ .subscribe ~ success:",
+            success
+          )
           // Do something
         } else {
           // Do something
