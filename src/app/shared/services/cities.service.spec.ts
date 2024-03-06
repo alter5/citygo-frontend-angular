@@ -36,8 +36,8 @@ describe("Service Cities", () => {
 
   it("should return an array of cities that match the query string", () => {
     const requestUrl = service.baseUrl + "/search"
+    const searchString = "Athe"
 
-    const queryString = "Athe"
     const expectedCity1: City = {
       id: 0,
       city_name: "Athens",
@@ -56,12 +56,13 @@ describe("Service Cities", () => {
       latitude: 0,
       longitude: 0
     }
+    
     const expectedResponse: ApiResponse = {
       success: true,
       data: [expectedCity1, expectedCity2]
     }
 
-    service.getCitiesContainingString(queryString).subscribe((result) => {
+    service.getCitiesContainingString(searchString).subscribe((result) => {
       expect(result.length).toBeGreaterThan(0)
 
       expect(result[0]).toEqual(expectedCity1)
@@ -69,7 +70,7 @@ describe("Service Cities", () => {
     })
 
     const req = httpTestingController.expectOne((req) => {
-      return req.url.includes(requestUrl + "X")
+      return req.url.startsWith(requestUrl) && req.url.includes(searchString)
     })
 
     expect(req.request.method).toBe("GET")
