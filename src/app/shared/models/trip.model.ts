@@ -8,7 +8,7 @@ export interface Trip {
   description: string
   destinations: {
     name: string
-    image: string
+    imageUrl: string
   }[]
 }
 

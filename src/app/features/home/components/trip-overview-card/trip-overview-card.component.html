@@ -3,13 +3,13 @@
 >
   <!-- Title -->
   <div class="pl-2 pb-2">
-    <h1 class="text-lg font-medium">{{trip?.city?.city_name}}, {{trip?.city?.state_abbreviation}}</h1>
+    <h1 *ngIf="trip !== undefined" class="text-lg font-medium">{{trip.city.city_name}}, {{trip.city.state_abbreviation}}</h1>
   </div>
   <!-- Images -->
   <div class="flex h-56 w-full items-center justify-center">
     <ng-container *ngIf="trip !== undefined">
       <div class="relative h-full w-full" *ngFor="let destination of trip.destinations">
-        <img class="object-cover" [ngSrc]="destination.image" [alt]="destination.name" fill />
+        <img class="object-cover" [ngSrc]="destination.imageUrl" [alt]="destination.name" fill />
       </div>
     </ng-container>
   </div>
