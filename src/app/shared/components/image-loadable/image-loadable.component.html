@@ -2,7 +2,7 @@
   <img
     class="object-cover"
     [class.loading]="!imageLoaded"
-    [src]="imageUrl"
+    [ngSrc]="imageUrl"
     [alt]="inputImageAlt"
     (load)="onImageLoad()"
     fill
