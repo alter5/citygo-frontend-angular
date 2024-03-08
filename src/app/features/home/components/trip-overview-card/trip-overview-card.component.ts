@@ -1,7 +1,8 @@
 import { CommonModule } from "@angular/common"
-import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core"
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, Output } from "@angular/core"
 import { NgFor, NgOptimizedImage, NgIf } from "@angular/common"
 import { Trip } from "src/app/shared/models/trip.model"
+import { EventEmitter } from "@angular/core"
 // import img
 
 @Component({
@@ -11,10 +12,15 @@ import { Trip } from "src/app/shared/models/trip.model"
   standalone: true,
   imports: [CommonModule, NgFor, NgOptimizedImage],
 })
-export class TripOverviewCardComponent implements OnInit {
-  @Input() trip: Trip | undefined
+export class TripOverviewCardComponent {
+  @Input() trip: Trip | null = null
+  @Output() cardClick = new EventEmitter<number>()
 
-  ngOnInit(): void {
-    ;
+  constructor(private cd: ChangeDetectorRef){}
+
+  emitCardClick() {
+    if (this.trip !== null) {
+      this.cardClick.emit(this.trip.id)
+    }
   }
 }

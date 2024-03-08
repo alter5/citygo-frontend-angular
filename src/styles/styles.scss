@@ -77,3 +77,7 @@ body {
 body#index-body {
   background-color: hsl(var(--twc-bg-primary));
 }
+
+.loading {
+  @apply animate-pulse bg-gray-300
+}

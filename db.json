@@ -16,15 +16,15 @@
       "stops": [
         {
           "name": "Times Square",
-          "image": "assets/images/city-card-images/ny-times-square.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-times-square.jpg"
         },
         {
           "name": "Empire State Building",
-          "image": "assets/images/city-card-images/ny-skyscraper.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-skyscraper.jpg"
         },
         {
           "name": "Central Park",
-          "image": "assets/images/city-card-images/ny-centralpark.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
     },
@@ -44,15 +44,15 @@
       "stops": [
         {
           "name": "The Strip",
-          "image": "assets/images/city-card-images/ny-times-square.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-times-square.jpg"
         },
         {
           "name": "Fremont Street Experience",
-          "image": "assets/images/city-card-images/ny-skyscraper.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-skyscraper.jpg"
         },
         {
           "name": "Sphere",
-          "image": "assets/images/city-card-images/ny-centralpark.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
     },
@@ -72,15 +72,15 @@
       "stops": [
         {
           "name": "Times Square",
-          "image": "assets/images/city-card-images/ny-times-square.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-times-square.jpg"
         },
         {
           "name": "Empire State Building",
-          "image": "assets/images/city-card-images/ny-skyscraper.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-skyscraper.jpg"
         },
         {
           "name": "Central Park",
-          "image": "assets/images/city-card-images/ny-centralpark.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
     },
@@ -100,15 +100,15 @@
       "stops": [
         {
           "name": "Times Square",
-          "image": "assets/images/city-card-images/ny-times-square.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-times-square.jpg"
         },
         {
           "name": "Empire State Building",
-          "image": "assets/images/city-card-images/ny-skyscraper.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-skyscraper.jpg"
         },
         {
           "name": "Central Park",
-          "image": "assets/images/city-card-images/ny-centralpark.jpg"
+          "imageUrl": "assets/images/city-card-images/ny-centralpark.jpg"
         }
       ]
     }

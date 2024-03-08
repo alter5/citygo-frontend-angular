@@ -3,7 +3,7 @@ import { NgFor, AsyncPipe } from "@angular/common"
 import { TestThemeComponent } from "../../components/test-theme/test-theme.component"
 import { TripOverviewCardComponent } from "../../components/trip-overview-card/trip-overview-card.component"
 import { TripsService } from "src/app/shared/services/trips.service"
-import { Observable } from "rxjs"
+import { Observable, startWith } from "rxjs"
 import { Trip } from "src/app/shared/models/trip.model"
 import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
 import { NgClass } from "@angular/common"
@@ -25,12 +25,11 @@ import { ButtonNewTripComponent } from "../../components/button-new-trip/button-
   ]
 })
 export class PageHomeComponent implements OnInit {
-  trips$: Observable<Trip[]> | undefined
+  trips$: Observable<Trip[]> = this.tripsService.getPopularTrips()
 
   constructor(private tripsService: TripsService) {}
 
   ngOnInit(): void {
-    this.trips$ = this.tripsService.getPopularTrips()
-    this.trips$.subscribe((trips) => console.log("Trips:", trips))
+    this.trips$ = this.trips$.pipe(startWith(Array(5).fill(null)))
   }
 }
