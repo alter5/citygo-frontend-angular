@@ -2,7 +2,7 @@
   class="flex w-full cursor-pointer flex-col overflow-hidden rounded-md bg-bg-secondary py-4 shadow-md transition duration-75 hover:bg-bg-hovered"
 >
   <div
-    class="flex h-5 w-full items-center justify-start pb-2 pl-2"
+    class="mb-2 ml-2 flex h-8 w-64 items-center justify-start rounded-sm"
     [class.loading]="trip === null"
   >
     <h1 *ngIf="trip !== null" class="text-lg font-medium">
@@ -10,18 +10,16 @@
     </h1>
   </div>
   <!-- Images -->
-  <div class="flex h-56 w-full items-center justify-center">
+  <div
+    class="flex h-56 w-full items-center justify-center"
+    [class.loading]="trip === null"
+  >
     <ng-container *ngIf="trip !== null">
-      <div
-        class="relative h-full w-full"
-        *ngFor="let destination of trip.destinations"
-      >
-        <img
-          class="object-cover"
-          [ngSrc]="destination.imageUrl"
-          [alt]="destination.name"
-          fill
-        />
+      <div class="flex h-full w-full" *ngFor="let destination of trip.destinations">
+        <app-image-loadable
+          [imageUrl]="destination.imageUrl"
+          [inputImageAlt]="destination.name"
+        ></app-image-loadable>
       </div>
     </ng-container>
   </div>

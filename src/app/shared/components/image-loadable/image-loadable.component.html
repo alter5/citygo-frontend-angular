@@ -1,0 +1,10 @@
+<div class="relative h-full w-full">
+  <img
+    class="object-cover"
+    [class.loading]="!imageLoaded"
+    [src]="imageUrl"
+    [alt]="inputImageAlt"
+    (load)="onImageLoad()"
+    fill
+  />
+</div>
