@@ -25,11 +25,13 @@ import { ButtonNewTripComponent } from "../../components/button-new-trip/button-
   ]
 })
 export class PageHomeComponent implements OnInit {
-  trips$: Observable<Trip[]> = this.tripsService.getPopularTrips()
+  trips$!: Observable<Trip[]>
 
   constructor(private tripsService: TripsService) {}
 
   ngOnInit(): void {
-    this.trips$ = this.trips$.pipe(startWith(Array(5).fill(null)))
+    this.trips$ = this.tripsService
+      .getPopularTrips()
+      .pipe(startWith(Array(5).fill(null)))
   }
 }

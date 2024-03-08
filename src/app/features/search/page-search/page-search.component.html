@@ -1,6 +1,6 @@
 <div class="flex w-full max-w-5xl">
   <div class="w-full" *ngIf="city$ | async as city; else loading">
-    <h1>{{ city.city_name }}</h1>
+    <h1 [class.loading]="city === null">{{ city.city_name }}</h1>
     <p>{{ city.state }}</p>
     <app-image-gallery [imageUrls]="this.images" class="w-full flex xl:rounded-lg overflow-hidden" />
     <p>Destinations</p>

@@ -1,5 +1,5 @@
 <div class="flex w-full">
-  <ng-container *ngIf="imageUrls !== undefined" ; else loading>
+  <ng-container *ngIf="imageUrls !== null" ; else loading>
     <div class="image-gallery-container">
       <div class="left-half" *ngIf="imageUrls.length > 0">
         <!-- First image -->
@@ -8,15 +8,13 @@
       <div class="right-half">
         <!-- Remaining images -->
         <div
-          class="relative h-full w-full"
+          class="flex h-full w-full"
           *ngFor="let imageUrl of imageUrls.slice(1); let i = index"
         >
-          <img
-            class="object-cover"
-            [ngSrc]="imageUrl"
-            alt="Image {{ i + 2 }}"
-            fill
-          />
+          <app-image-loadable
+            [imageUrl]="imageUrl"
+            [inputImageAlt]="'Image ' + (i + 2)"
+          ></app-image-loadable>
         </div>
       </div>
     </div>

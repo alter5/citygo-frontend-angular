@@ -7,7 +7,16 @@ import {
   type OnInit
 } from "@angular/core"
 import { ActivatedRoute } from "@angular/router"
-import { Observable, Subscription, firstValueFrom, switchMap } from "rxjs"
+import {
+  BehaviorSubject,
+  Observable,
+  Subject,
+  Subscription,
+  firstValueFrom,
+  startWith,
+  switchMap,
+  tap
+} from "rxjs"
 import { City } from "src/app/shared/models/city.model"
 import { CitiesService } from "src/app/shared/services/cities.service"
 import { ImageGalleryComponent } from "src/app/shared/components/image-gallery/image-gallery/image-gallery.component"
@@ -22,7 +31,7 @@ import { NgOptimizedImage } from "@angular/common"
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageSearchComponent implements OnInit {
-  city$: Observable<City | null> | undefined
+  city$!: Observable<City | null>
 
   images = [
     "assets/images/city-card-images/ny-skyscraper.jpg",
@@ -30,20 +39,18 @@ export class PageSearchComponent implements OnInit {
     "assets/images/city-card-images/ny-centralpark.jpg"
   ]
 
-
-  // Use this to add maps: https://github.com/angular/components?tab=readme-ov-file
+  // TODO: Use this to add maps: https://github.com/angular/components?tab=readme-ov-file
 
   constructor(
     private route: ActivatedRoute,
-    private citiesService: CitiesService,
-    private cd: ChangeDetectorRef
+    private citiesService: CitiesService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.city$ = this.route.params.pipe(
       switchMap((params) => {
         const id = Number(params["cityId"])
-        return this.citiesService.getCityById(id)
+        return this.citiesService.getCityById(id).pipe(startWith(null))
       })
     )
   }
