@@ -45,21 +45,16 @@ body.dark {
   @include mat.all-component-themes($ang-mat-dark-theme);
 }
 
-// // Apply the light theme by default
-// @include mat.core-theme($ang-mat-light-theme);
-// @include mat.button-theme($ang-mat-light-theme);
-
-// // Apply the dark theme only when the user prefers dark themes.
-// .dark {
-//   // Use the `-color` mixins to only apply color styles without reapplying the same
-//   // typography and density styles.
-//   @include mat.core-color($ang-mat-dark-theme);
-//   @include mat.button-color($ang-mat-dark-theme);
-// }
+.dm-sans-base {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+}
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  @extend .dm-sans-base;
 }
 
 // TODO: fix me using the "save" commit
@@ -79,5 +74,5 @@ body#index-body {
 }
 
 .loading {
-  @apply animate-pulse bg-gray-400
+  @apply animate-pulse bg-gray-400;
 }
