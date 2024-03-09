@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router"
 import { PageHomeComponent } from "./features/home/pages/home/page-home.component"
-import { PageSearchComponent } from "./features/search/page-search/page-search.component"
 import { PageCreateTripComponent } from "./features/create-trip/page-create-trip/page-create-trip.component"
+import { PageTripDetailsComponent } from "./features/trip-details/pages/page-trip-details/page-trip-details.component"
 
 const routeConfig: Routes = [
   {
@@ -10,12 +10,12 @@ const routeConfig: Routes = [
     title: "Home page"
   },
   {
-    path: "search/:cityId",
-    component: PageSearchComponent,
+    path: "tripDetails/:tripId",
+    component: PageTripDetailsComponent,
     title: "Trip details"
   },
   {
-    path: "create-trip",
+    path: "createTrip",
     component: PageCreateTripComponent,
     title: "Create Trip"
   }

@@ -1,25 +1,23 @@
-<div class="flex w-full">
-  <ng-container *ngIf="imageUrls !== null" ; else loading>
-    <div class="image-gallery-container">
-      <div class="left-half" *ngIf="imageUrls.length > 0">
-        <!-- First image -->
-        <img [src]="imageUrls[0]" alt="Image 1" />
-      </div>
-      <div class="right-half">
-        <!-- Remaining images -->
-        <div
-          class="flex h-full w-full"
-          *ngFor="let imageUrl of imageUrls.slice(1); let i = index"
-        >
-          <app-image-loadable
-            [imageUrl]="imageUrl"
-            [inputImageAlt]="'Image ' + (i + 2)"
-          ></app-image-loadable>
-        </div>
+<div
+  class="flex h-full w-full overflow-hidden"
+  [class.loading]="imageUrls === null"
+>
+  <ng-container *ngIf="imageUrls !== null">
+    <!-- First image -->
+    <div class="h-full w-full flex-[3]">
+      <app-image-loadable [imageUrl]="imageUrls[0]" />
+    </div>
+    <!-- Remaining images -->
+    <div
+      class="flex h-full w-full flex-[2] flex-col"
+      *ngIf="imageUrls.length > 1"
+    >
+      <div
+        class="h-full w-full"
+        *ngFor="let imageUrl of imageUrls.slice(1); let i = index"
+      >
+        <app-image-loadable [imageUrl]="imageUrl"></app-image-loadable>
       </div>
     </div>
   </ng-container>
-  <ng-template #loading>
-    <p>Loading...</p>
-  </ng-template>
 </div>

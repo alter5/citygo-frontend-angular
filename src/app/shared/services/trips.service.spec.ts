@@ -70,6 +70,7 @@ describe("Service Trips", () => {
 
   it("should get popular trips", () => {
     const expectedResponse: Trip = {
+      id: 0,
       title: "Las Vegas in one day",
       city: {
         id: 0,
@@ -98,4 +99,40 @@ describe("Service Trips", () => {
 
     req.flush({ success: true, data: [expectedResponse] } as ApiResponse)
   })
+
+  it("should get trip by id", async () => {
+    const mockTrip = getMockTrip()
+    const mockResponse: ApiResponse = { success: true, data: mockTrip }
+    const idToSearch = 1
+
+    service.getTripById(idToSearch).subscribe((trip) => {
+      expect(trip?.title).toBe(mockTrip.title)
+    })
+
+    const req = httpTestingController.expectOne(service.baseUrl + "/getTripById/" + idToSearch)
+    expect(req.request.method).toBe("GET")
+
+    req.flush(mockResponse)
+  })
+
+  const getMockTrip = (): Trip => {
+    const mockTrip: Trip = {
+      id: 0,
+      title: "Las Vegas in one day",
+      city: {
+        id: 0,
+        city_name: "",
+        state: "",
+        state_abbreviation: "",
+        population: 0,
+        latitude: 0,
+        longitude: 0
+      },
+      priceRange: 0,
+      rating: 0,
+      description: "",
+      destinations: []
+    }
+    return mockTrip
+  }
 })

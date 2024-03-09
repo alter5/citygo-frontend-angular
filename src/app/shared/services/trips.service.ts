@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { HttpClient } from "@angular/common/http"
+import { HttpClient, HttpParams } from "@angular/common/http"
 import { Observable, catchError, map, of } from "rxjs"
 import { Trip } from "../models/trip.model"
 import { TripCreationDto } from "src/app/features/create-trip/models/tripCreationPayload.model"
@@ -13,13 +13,29 @@ export class TripsService {
 
   constructor(private http: HttpClient) {}
 
+  getTripById(tripId: number): Observable<Trip | null> {
+    return this.http.get<ApiResponse>(this.baseUrl + "/getTripById/" + tripId).pipe(
+      map((response) => {
+        if (response.success) {
+          return response.data as Trip
+        } else {
+          throw new Error("Error getting trip by id:\n" + response.error)
+        }
+      }),
+      catchError((error) => {
+        console.error(error)
+        return of(null)
+      })
+    )
+  }
+
   getPopularTrips(): Observable<Trip[]> {
     return this.http.get<ApiResponse>(this.baseUrl + "/popularTrips").pipe(
       map((response) => {
         if (response.success) {
           return response.data as Trip[]
         } else {
-          throw new Error(response.error)
+          throw new Error("Error getting popular trips:\n" + response.error)
         }
       }),
       catchError((error) => {
@@ -37,7 +53,7 @@ export class TripsService {
           if (response.success) {
             return true
           } else {
-            throw new Error(response.error)
+            throw new Error("Error creating trip:\n" + response.error)
           }
         }),
         catchError((error) => {

@@ -1,0 +1,28 @@
+<div class="mt-12 flex w-full max-w-5xl flex-col items-start justify-start">
+  <div class="h-6 w-64 rounded-md" [class.loading]="trip === null">
+    <h1 *ngIf="trip !== null">{{ trip.city.city_name }}</h1>
+  </div>
+  <p *ngIf="trip !== null" [class.loading]="trip === null">
+    {{ trip.city.state }}
+  </p>
+  <div class="mt-4 flex h-96 w-full overflow-hidden rounded-md">
+    <app-image-gallery [imageUrls]="this.imageUrls" />
+  </div>
+  <p>Destinations</p>
+  <ul class="w-full">
+    <li
+      class="mt-4 h-6 w-64 rounded-md"
+      *ngFor="let destination of this.destinations"
+      [class.loading]="destination === null"
+    >
+      <p *ngIf="trip !== null" class="text-base">{{ destination.name }}</p>
+    </li>
+  </ul>
+  <div class="flex h-80 w-full overflow-hidden xl:rounded-lg">
+    <app-image-loadable
+      [imageUrl]="
+        'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
+      "
+    ></app-image-loadable>
+  </div>
+</div>

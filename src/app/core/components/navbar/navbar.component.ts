@@ -92,6 +92,6 @@ export class NavbarComponent implements OnInit {
   }
 
   onCitySelected(selectedDropdownOption: DropdownOption): void {
-    this.router.navigate(["/search", selectedDropdownOption.id])
+    this.router.navigate(["tripDetails/", selectedDropdownOption.id])
   }
 }

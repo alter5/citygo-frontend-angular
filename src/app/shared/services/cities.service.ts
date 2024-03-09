@@ -51,7 +51,7 @@ export class CitiesService {
   }
 
   getCityById(cityId: number): Observable<City | null> {
-    return this.http.get<ApiResponse>(this.baseUrl + "/" + cityId).pipe(
+    return this.http.get<ApiResponse>(this.baseUrl + "/getCityById/" + cityId).pipe(
       map((response) => {
         if (response.success) {
           if (response.data === null) {

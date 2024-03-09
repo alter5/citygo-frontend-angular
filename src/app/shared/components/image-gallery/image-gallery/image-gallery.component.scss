@@ -1,28 +1,3 @@
-/* image-gallery.component.css */
-.image-gallery-container {
-  display: flex;
-  height: 24rem;
-  width: 100%;
-  overflow: hidden;
-}
-
-.left-half {
-  flex: 2;
-  width: 100%;
-  height: 100%;
-}
-
-.right-half {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-
-img {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 100%;
+:host {
+  @apply flex w-full h-full justify-center items-center
 }
