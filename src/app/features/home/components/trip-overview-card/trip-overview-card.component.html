@@ -18,7 +18,6 @@
       <div class="flex h-full w-full" *ngFor="let destination of trip.destinations">
         <app-image-loadable
           [imageUrl]="destination.imageUrl"
-          [inputImageAlt]="destination.name"
         ></app-image-loadable>
       </div>
     </ng-container>
