@@ -1,11 +1,11 @@
 <div
-  class="flex w-full cursor-pointer flex-col overflow-hidden rounded-lg bg-bg-secondary py-4 shadow-md transition duration-75 hover:bg-bg-hovered"
+  class="flex w-full cursor-pointer flex-col overflow-hidden rounded-lg bg-bg-secondary pt-4 shadow-md transition duration-75 hover:bg-bg-hovered"
 >
   <div
     class="mb-2 ml-2 flex h-8 w-64 items-center justify-start rounded-md"
     [class.loading]="trip === null"
   >
-    <h1 *ngIf="trip !== null" class="text-lg font-medium">
+    <h1 *ngIf="trip !== null" class="text-lg font-bold">
       {{ trip.city.city_name }}, {{ trip.city.state_abbreviation }}
     </h1>
   </div>

@@ -8,7 +8,7 @@ import { Trip } from "src/app/shared/models/trip.model"
 import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
 import { NgClass } from "@angular/common"
 import { ButtonNewTripComponent } from "../../components/button-new-trip/button-new-trip.component"
-import { Router } from "@angular/router"
+import { RouterModule } from "@angular/router"
 
 @Component({
   selector: "app-home",
@@ -22,21 +22,18 @@ import { Router } from "@angular/router"
     AsyncPipe,
     InputAutocompleteComponent,
     NgClass,
-    ButtonNewTripComponent
+    ButtonNewTripComponent,
+    RouterModule
   ]
 })
 export class PageHomeComponent implements OnInit {
   trips$!: Observable<Trip[]>
 
-  constructor(private tripsService: TripsService, private router: Router) {}
+  constructor(private tripsService: TripsService) {}
 
   ngOnInit(): void {
     this.trips$ = this.tripsService
       .getPopularTrips()
       .pipe(startWith(Array(5).fill(null)))
-  }
-
-  onClickTrip(tripId: number): void {
-    this.router.navigate(["/tripDetails/", tripId])
   }
 }
