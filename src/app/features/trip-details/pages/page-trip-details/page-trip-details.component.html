@@ -1,13 +1,20 @@
 <div class="mt-8 flex w-full max-w-4xl flex-col items-start justify-start">
-  <div class="flex h-12 w-64 items-center rounded-md">
-    <h1 class="text-4xl font-bold leading-none" [class.loading]="isLoading">
+  <div
+    class="flex h-12 w-72 items-center rounded-md"
+    [class.loading]="isLoading"
+  >
+    <h1 class="text-[42px] font-bold leading-none">
       {{ (trip$ | async)!.title }}
     </h1>
   </div>
   <div class="mt-4 flex h-96 w-full overflow-hidden rounded-md shadow-md">
     <app-image-gallery [imageUrls]="this.imageUrls" />
   </div>
-  <p class="mt-8">{{(trip$ | async)!.description}}</p>
+  <div class="flex mt-8 min-h-24 w-full rounded-md" [class.loading]="isLoading">
+    <p>
+      {{ (trip$ | async)!.description }}
+    </p>
+  </div>
   <h2 class="mt-8 text-2xl font-bold">Destinations</h2>
   <ul class="w-full">
     <li
@@ -29,11 +36,18 @@
       </div>
     </li>
   </ul>
-  <div class="mt-8 flex h-80 w-full overflow-hidden xl:rounded-lg">
-    <app-image-loadable
-      [imageUrl]="
-        'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
-      "
-    ></app-image-loadable>
+  <div
+    class="my-8 w-full flex-col overflow-hidden bg-bg-secondary shadow-md xl:rounded-lg"
+  >
+    <div class="h-80 w-full">
+      <app-image-loadable
+        [imageUrl]="
+          'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
+        "
+      ></app-image-loadable>
+    </div>
+    <div class="px-4 py-8">
+      <a class=""> Open in Google Maps </a>
+    </div>
   </div>
 </div>
