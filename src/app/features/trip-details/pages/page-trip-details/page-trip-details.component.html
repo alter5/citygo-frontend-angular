@@ -1,7 +1,7 @@
 <div class="mt-8 flex w-full max-w-4xl flex-col items-start justify-start">
-  <div class="flex w-full flex-col justify-between px-1 p-2">
+  <div class="flex w-full flex-col justify-between gap-1 p-2 px-1">
     <div
-      class="flex h-5 w-64 items-center rounded-md leading-none"
+      class="flex h-10 w-64 items-center rounded-md"
       [class.loading]="isLoading === true"
     >
       <h1 *ngIf="!isLoading" class="text-[42px] font-bold leading-none">
@@ -9,17 +9,17 @@
       </h1>
     </div>
     <div
-      class="h-6 w-64 items-center rounded-md leading-none"
+      class="flex h-4 w-64 items-center rounded-md"
       [class.loading]="isLoading"
     >
-      <p *ngIf="!isLoading" class="text-base text-text-secondary">
-        {{ (trip$ | async)!.city.city_name }} ,
+      <p *ngIf="!isLoading" class="text-xl leading-none text-text-secondary">
+        {{ (trip$ | async)!.city.city_name }},
         {{ (trip$ | async)!.city.state_abbreviation }}
       </p>
     </div>
   </div>
-  <div class="mt-4 flex h-96 w-full overflow-hidden rounded-md shadow-md">
-    <app-image-gallery [imageUrls]="this.imageUrls" />
+  <div class="flex h-96 w-full overflow-hidden rounded-md shadow-md">
+    <app-image-gallery [imageUrls]="(this.imageUrls$ | async)!" />
   </div>
   <div class="mt-8 flex min-h-24 w-full rounded-md" [class.loading]="isLoading">
     <p>

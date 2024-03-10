@@ -1,9 +1,9 @@
 <div
   class="flex w-full cursor-pointer flex-col overflow-hidden rounded-lg bg-bg-secondary shadow-md transition duration-75 hover:bg-bg-hovered"
 >
-  <div class="flex w-full flex-col justify-between py-3 px-3">
+  <div class="flex w-full flex-col justify-between py-3 px-3 gap-1">
     <div class="flex items-center h-5 w-64 rounded-md leading-none" [class.loading]="trip === null">
-      <p *ngIf="trip !== null" class="text-lg font-bold text-text-primary">
+      <p *ngIf="trip !== null" class="text-xl font-bold text-text-primary">
         {{ trip.title }}
       </p>
     </div>

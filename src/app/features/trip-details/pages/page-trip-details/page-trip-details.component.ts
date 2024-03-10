@@ -36,7 +36,7 @@ import { TripsService } from "src/app/shared/services/trips.service"
 })
 export class PageTripDetailsComponent implements OnInit {
   trip$!: Observable<Trip>
-  imageUrls!: string[]
+  imageUrls$!: Observable<string[]>
   // trip!: Trip
 
   isLoading = true
@@ -65,8 +65,8 @@ export class PageTripDetailsComponent implements OnInit {
             return this.parseTrip(trip)
           }),
           tap((trip) => {
-            this.imageUrls = trip.destinations.map(
-              (destination) => destination.imageUrl
+            this.imageUrls$ = of(
+              trip.destinations.map((destination) => destination.imageUrl)
             )
           })
         )
