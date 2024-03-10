@@ -12,8 +12,9 @@ import { NgOptimizedImage } from "@angular/common"
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImageLoadableComponent {
-  @Input() imageUrl!: string
+  @Input() imageUrl: string | null = null
   @Input() inputImageAlt = ""
+  @Input() fit = "object-cover"
   imageLoaded = false
 
   onImageLoad() {

@@ -14,6 +14,7 @@ import {
   Subscription,
   delay,
   firstValueFrom,
+  map,
   of,
   startWith,
   switchMap,
@@ -33,9 +34,12 @@ import { TripsService } from "src/app/shared/services/trips.service"
   styleUrls: ["./page-trip-details.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PageTripDetailsComponent implements OnInit, OnDestroy {
-  tripSubscription!: Subscription
-  trip: Trip | null = null
+export class PageTripDetailsComponent implements OnInit {
+  trip$!: Observable<Trip>
+  imageUrls!: string[]
+  // trip!: Trip
+
+  isLoading = true
 
   images = [
     "assets/images/city-card-images/ny-skyscraper.jpg",
@@ -52,39 +56,58 @@ export class PageTripDetailsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.tripSubscription = this.route.params
-      .pipe(
-        switchMap((params) => {
-          const tripId = Number(params["tripId"])
-          return this.tripsService.getTripById(tripId).pipe(
-            startWith(null),
-            tap((trip) => {
-              this.trip = trip
-              this.cdr.detectChanges()
-            })
-          )
-        }),
-      )
-      .subscribe()
+    this.trip$ = this.route.params.pipe(
+      switchMap((params) => {
+        const tripId = Number(params["tripId"])
+        return this.tripsService.getTripById(tripId).pipe(
+          startWith(null),
+          map((trip) => {
+            return this.parseTrip(trip)
+          }),
+          tap((trip) => {
+            this.imageUrls = trip.destinations.map(
+              (destination) => destination.imageUrl
+            )
+          })
+        )
+      })
+    )
   }
 
-  ngOnDestroy(): void {
-    if (this.tripSubscription) {
-      this.tripSubscription.unsubscribe()
+  parseTrip(trip: Trip | null): Trip {
+    if (trip === null) {
+      this.isLoading = true
+      return this.getMockTrip()
     }
+    this.isLoading = false
+    return trip
   }
 
-  get destinations(): Trip["destinations"] {
-    if (this.trip === null) {
-      return new Array(3).fill(null)
-    }
-    return this.trip.destinations
-  }
+  getMockTrip(): Trip {
+    this.isLoading = true
 
-  get imageUrls(): string[] | null {
-    if (this.trip === null) {
-      return null
+    const mockTrip: Trip = {
+      id: 0,
+      title: "",
+      city: {
+        id: 0,
+        city_name: "",
+        state: "",
+        state_abbreviation: "",
+        population: 0,
+        latitude: 0,
+        longitude: 0
+      },
+      priceRange: 0,
+      rating: 0,
+      description: "",
+      destinations: [
+        { name: "", imageUrl: "" },
+        { name: "", imageUrl: "" },
+        { name: "", imageUrl: "" }
+      ]
     }
-    return this.destinations.map((destination) => destination?.imageUrl ?? "")
+
+    return mockTrip
   }
 }

@@ -76,3 +76,7 @@ body#index-body {
 .loading {
   @apply animate-pulse bg-gray-400;
 }
+
+.mdc-form-field {
+  display: block !important;
+}

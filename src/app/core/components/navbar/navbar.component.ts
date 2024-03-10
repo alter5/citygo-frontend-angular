@@ -13,6 +13,8 @@ import { CitySearchBarComponent } from "../city-search-bar/city-search-bar.compo
 import { Observable, map } from "rxjs"
 import { Router } from "@angular/router"
 import { DropdownOption } from "src/app/shared/components/input-autocomplete/dropdown-option.model"
+import { ImageLoadableComponent } from "src/app/shared/components/image-loadable/image-loadable.component"
+import { ThemePalette } from "@angular/material/core"
 
 @Component({
   selector: "app-navbar",
@@ -27,13 +29,16 @@ import { DropdownOption } from "src/app/shared/components/input-autocomplete/dro
     AsyncPipe,
     NgOptimizedImage,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ImageLoadableComponent
   ]
 })
 export class NavbarComponent implements OnInit {
   isDarkModeEnabled = false
   isScreenSmall$: Observable<boolean> | null = null
   isMenuOpen = false
+
+  toggleColor: ThemePalette = "primary"
 
   constructor(
     @Inject(DOCUMENT) private document: Document,

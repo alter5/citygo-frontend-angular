@@ -1,6 +1,7 @@
 <div class="relative h-full w-full" [class.loading]="!imageLoaded">
   <img
-    class="object-cover"
+    *ngIf="imageUrl"
+    [style.object-fit]="fit"
     [ngSrc]="imageUrl"
     [alt]="inputImageAlt"
     (load)="onImageLoad()"

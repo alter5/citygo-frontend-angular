@@ -1,4 +1,4 @@
-<!-- Mobile navbar for smaller devices -->
+<!-- Mobile navbar -->
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
   <nav class="light-gray fixed z-50 h-20 w-full p-4">
     <div class="flex h-full w-full items-center justify-between gap-4">
@@ -30,43 +30,53 @@
 </ng-container>
 <!-- Desktop navbar -->
 <ng-template #desktopNavbar>
-  <nav class="desktop">
-    <div class="wrapper max-w-[1160px]">
-      <ul class="navbar-left container">
-        <li class="relative mr-4 flex h-16 w-40 items-center">
-          <a [routerLink]="['/']">
-            <!-- Logo was generated using www.logo.com -->
-            <img
-              class="object-contain"
-              ngSrc="assets\images\logo\png\logo-no-background.png"
-              alt="Logo"
-              fill
-            />
-          </a>
-        </li>
-      </ul>
-      <div class="navbar-middle container">
+  <div
+    class="fixed z-50 flex h-20 w-full items-center justify-center bg-bg-secondary drop-shadow-md"
+  >
+    <nav
+      class="flex h-full w-full max-w-[1160px] items-center justify-between gap-8 px-2"
+    >
+      <div class="flex h-full flex-[2] justify-center">
+        <a class="flex h-full w-40" [routerLink]="['/']">
+          <!-- Logo was generated using www.logo.com -->
+          <app-image-loadable
+            [imageUrl]="'assets/images/logo/png/logo-no-background.png'"
+            [fit]="'contain'"
+          ></app-image-loadable>
+        </a>
+      </div>
+      <div class="flex h-full flex-[3] items-center">
         <app-city-search-bar
           class="desktop"
           (citySelected)="onCitySelected($event)"
         />
       </div>
-      <div class="navbar-right container">
-        <div class="container">
-          <label for="darkModeToggle">Dark Mode</label>
-          <mat-slide-toggle
-            id="darkModeToggle"
-            [checked]="isDarkModeEnabled"
-            (change)="handleDarkModeToggle($event)"
-          ></mat-slide-toggle>
+      <div class="flex h-full flex-[3] items-center justify-end gap-6">
+        <div class="flex h-full w-fit flex-nowrap items-center gap-3">
+          <label class="leading-none text-text-secondary" for="darkModeToggle"
+            >Dark Mode</label
+          >
+          <div class="mt-[0.2rem] flex h-full items-center">
+            <mat-slide-toggle
+              id="darkModeToggle"
+              [checked]="isDarkModeEnabled"
+              (change)="handleDarkModeToggle($event)"
+              [color]="toggleColor"
+            ></mat-slide-toggle>
+          </div>
         </div>
-        <div class="navbar-login-section container">
+        <div
+          class="flex w-fit flex-nowrap items-center justify-center gap-3 border-l-2 border-border pl-6"
+        >
           <!-- TODO: Conditionally render links depending on if user is logged in already -->
-          <a href="#">Create Trip</a>
-          <a href="#">Login</a>
-          <a href="#">Sign Up</a>
+          <a class="whitespace-nowrap" href="#">Create Trip</a>
+          <a
+            class="rounded-3xl bg-bg-action-primary px-8 py-2 text-text-action-primary"
+            href="#"
+            >Login</a
+          >
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </ng-template>
