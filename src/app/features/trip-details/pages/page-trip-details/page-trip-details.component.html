@@ -7,6 +7,7 @@
   <div class="mt-4 flex h-96 w-full overflow-hidden rounded-md shadow-md">
     <app-image-gallery [imageUrls]="this.imageUrls" />
   </div>
+  <p class="mt-8">{{(trip$ | async)!.description}}</p>
   <h2 class="mt-8 text-2xl font-bold">Destinations</h2>
   <ul class="w-full">
     <li

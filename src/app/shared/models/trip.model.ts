@@ -12,20 +12,3 @@ export interface Trip {
     imageUrl: string
   }[]
 }
-
-// TODO: delete the old trip interface
-// export interface Trip {
-//   city: City
-//   stats: {
-//     price_range: number
-//     rating: number
-//   }
-//   description: string,
-//   stops: {
-//     name: string
-//     image: string
-//   }[]
-// }
-
-// TODO: add destinations table to backend
-
