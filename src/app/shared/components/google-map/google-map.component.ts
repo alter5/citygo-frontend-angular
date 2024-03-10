@@ -19,4 +19,7 @@ export class GoogleMapComponent {
   @Input() center: google.maps.LatLngLiteral = { lat: 24, lng: 12 }
 
   zoom = 4
+
+  // Source for Angular Google Maps: https://github.com/angular/components/tree/main/src
+  // Note: the package will be updated soon with new documentation at: https://github.com/angular/components/tree/17.0.x/src/google-maps
 }

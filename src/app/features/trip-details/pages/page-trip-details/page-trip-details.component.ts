@@ -51,7 +51,7 @@ export class PageTripDetailsComponent implements OnInit {
     "assets/images/city-card-images/ny-centralpark.jpg"
   ]
 
-  // TODO: Use this to add maps: https://github.com/angular/components/tree/17.0.x/src/google-maps
+  // TODO: Redo the image gallery to use one with buttons, and a preview bar on the right
 
   constructor(
     private route: ActivatedRoute,
