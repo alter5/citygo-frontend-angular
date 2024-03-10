@@ -1,5 +1,10 @@
 import { CommonModule } from "@angular/common"
-import { ChangeDetectionStrategy, Component, Input, type OnInit } from "@angular/core"
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  type OnInit
+} from "@angular/core"
 import { GoogleMapsModule } from "@angular/google-maps"
 
 @Component({
@@ -10,10 +15,8 @@ import { GoogleMapsModule } from "@angular/google-maps"
   styleUrls: ["./google-map.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GoogleMapComponent implements OnInit {
-  @Input() center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  zoom = 4;
+export class GoogleMapComponent {
+  @Input() center: google.maps.LatLngLiteral = { lat: 24, lng: 12 }
 
-  ngOnInit(): void {
-;  }
+  zoom = 4
 }
