@@ -1,5 +1,9 @@
 <ng-container
-  *ngIf="{ trip: trip$ | async, isLoading: isLoading$ | async, imageUrls: imageUrls$ | async } as data"
+  *ngIf="{
+    trip: trip$ | async,
+    isLoading: isLoading$ | async,
+    imageUrls: imageUrls$ | async
+  } as data"
 >
   <div class="mt-8 flex w-full max-w-4xl flex-col items-start justify-start">
     <div class="flex w-full flex-col justify-between gap-1 p-2 px-1">
@@ -60,11 +64,12 @@
       class="my-8 w-full flex-col overflow-hidden bg-bg-secondary shadow-md xl:rounded-lg"
     >
       <div class="h-80 w-full">
-        <app-image-loadable
+        <!-- <app-image-loadable
           [imageUrl]="
             'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
           "
-        ></app-image-loadable>
+        ></app-image-loadable> -->
+        <app-google-map></app-google-map>
       </div>
       <div class="px-4 py-8">
         <a class=""> Open in Google Maps </a>

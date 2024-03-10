@@ -25,11 +25,17 @@ import { ImageGalleryComponent } from "src/app/shared/components/image-gallery/i
 import { ImageLoadableComponent } from "src/app/shared/components/image-loadable/image-loadable.component"
 import { Trip } from "src/app/shared/models/trip.model"
 import { TripsService } from "src/app/shared/services/trips.service"
+import { GoogleMapComponent } from "src/app/shared/components/google-map/google-map.component"
 
 @Component({
   selector: "app-page-trip-details",
   standalone: true,
-  imports: [CommonModule, ImageLoadableComponent, ImageGalleryComponent],
+  imports: [
+    CommonModule,
+    ImageLoadableComponent,
+    ImageGalleryComponent,
+    GoogleMapComponent
+  ],
   templateUrl: "./page-trip-details.component.html",
   styleUrls: ["./page-trip-details.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -45,7 +51,7 @@ export class PageTripDetailsComponent implements OnInit {
     "assets/images/city-card-images/ny-centralpark.jpg"
   ]
 
-  // TODO: Use this to add maps: https://github.com/angular/components?tab=readme-ov-file
+  // TODO: Use this to add maps: https://github.com/angular/components/tree/17.0.x/src/google-maps
 
   constructor(
     private route: ActivatedRoute,
