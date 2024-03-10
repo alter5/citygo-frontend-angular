@@ -1,13 +1,17 @@
 <div
-  class="flex w-full cursor-pointer flex-col overflow-hidden rounded-lg bg-bg-secondary pt-4 shadow-md transition duration-75 hover:bg-bg-hovered"
+  class="flex w-full cursor-pointer flex-col overflow-hidden rounded-lg bg-bg-secondary shadow-md transition duration-75 hover:bg-bg-hovered"
 >
-  <div
-    class="mb-2 ml-2 flex h-8 w-64 items-center justify-start rounded-md"
-    [class.loading]="trip === null"
-  >
-    <h1 *ngIf="trip !== null" class="text-lg font-bold">
-      {{ trip.city.city_name }}, {{ trip.city.state_abbreviation }}
-    </h1>
+  <div class="flex w-full flex-col justify-between py-3 px-3">
+    <div class="flex items-center h-5 w-64 rounded-md leading-none" [class.loading]="trip === null">
+      <p *ngIf="trip !== null" class="text-lg font-bold text-text-primary">
+        {{ trip.title }}
+      </p>
+    </div>
+    <div class="h-4 w-64 rounded-md items-center leading-none" [class.loading]="trip === null">
+      <p *ngIf="trip !== null" class="text-base text-text-secondary">
+        {{ trip.city.city_name }}, {{ trip.city.state_abbreviation }}
+      </p>
+    </div>
   </div>
   <!-- Images -->
   <div
@@ -15,7 +19,10 @@
     [class.loading]="trip === null"
   >
     <ng-container *ngIf="trip !== null">
-      <div class="flex h-full w-full" *ngFor="let destination of trip.destinations">
+      <div
+        class="flex h-full w-full"
+        *ngFor="let destination of trip.destinations"
+      >
         <app-image-loadable
           [imageUrl]="destination.imageUrl"
         ></app-image-loadable>

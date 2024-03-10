@@ -1,5 +1,5 @@
 :host {
-  display: block;
+  @apply flex w-full h-full flex-col
 }
 
 .cdk-drag-placeholder {

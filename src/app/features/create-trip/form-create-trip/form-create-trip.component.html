@@ -57,10 +57,12 @@
     <p class="mb-2 text-base text-text-secondary">
       Enter the destinations for your trip
     </p>
-    <app-input-draggable-options
+    <div class="flex w-full">
+      <app-input-draggable-options
       [inputFormArray]="this.tripFormGroup.get('destinations')! | formArray"
       (addOption)="this.onClickAddDestination()"
     ></app-input-draggable-options>
+    </div>
   </fieldset>
   <!-- TODO: Create a second page merely confirming the details. Add a back arrow button. OR split the destinations section to a second page -->
   <p>Form value: {{ this.tripFormGroup.value | json }}</p>
