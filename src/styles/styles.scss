@@ -45,6 +45,7 @@ body.dark {
   @include mat.all-component-themes($ang-mat-dark-theme);
 }
 
+// Google font, DM Sans
 .dm-sans-base {
   font-style: normal;
   font-weight: 500;
@@ -62,11 +63,6 @@ a,
 label,
 input {
   font-size: 1rem;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 body#index-body {
