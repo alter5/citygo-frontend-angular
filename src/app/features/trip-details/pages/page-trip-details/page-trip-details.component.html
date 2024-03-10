@@ -1,11 +1,22 @@
 <div class="mt-8 flex w-full max-w-4xl flex-col items-start justify-start">
-  <div
-    class="flex h-12 w-72 items-center rounded-md"
-    [class.loading]="isLoading"
-  >
-    <h1 class="text-[42px] font-bold leading-none">
-      {{ (trip$ | async)!.title }}
-    </h1>
+  <div class="flex w-full flex-col justify-between px-1 p-2">
+    <div
+      class="flex h-5 w-64 items-center rounded-md leading-none"
+      [class.loading]="isLoading === true"
+    >
+      <h1 *ngIf="!isLoading" class="text-[42px] font-bold leading-none">
+        {{ (trip$ | async)!.title }}
+      </h1>
+    </div>
+    <div
+      class="h-6 w-64 items-center rounded-md leading-none"
+      [class.loading]="isLoading"
+    >
+      <p *ngIf="!isLoading" class="text-base text-text-secondary">
+        {{ (trip$ | async)!.city.city_name }} ,
+        {{ (trip$ | async)!.city.state_abbreviation }}
+      </p>
+    </div>
   </div>
   <div class="mt-4 flex h-96 w-full overflow-hidden rounded-md shadow-md">
     <app-image-gallery [imageUrls]="this.imageUrls" />
