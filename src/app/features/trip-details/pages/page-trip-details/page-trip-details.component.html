@@ -1,64 +1,74 @@
-<div class="mt-8 flex w-full max-w-4xl flex-col items-start justify-start">
-  <div class="flex w-full flex-col justify-between gap-1 p-2 px-1">
-    <div
-      class="flex h-10 w-64 items-center rounded-md"
-      [class.loading]="isLoading === true"
-    >
-      <h1 *ngIf="!isLoading" class="text-[42px] font-bold leading-none">
-        {{ (trip$ | async)!.title }}
-      </h1>
-    </div>
-    <div
-      class="flex h-4 w-64 items-center rounded-md"
-      [class.loading]="isLoading"
-    >
-      <p *ngIf="!isLoading" class="text-xl leading-none text-text-secondary">
-        {{ (trip$ | async)!.city.city_name }},
-        {{ (trip$ | async)!.city.state_abbreviation }}
-      </p>
-    </div>
-  </div>
-  <div class="flex h-96 w-full overflow-hidden rounded-md shadow-md">
-    <app-image-gallery [imageUrls]="(this.imageUrls$ | async)!" />
-  </div>
-  <div class="mt-8 flex min-h-24 w-full rounded-md" [class.loading]="isLoading">
-    <p>
-      {{ (trip$ | async)!.description }}
-    </p>
-  </div>
-  <h2 class="mt-8 text-2xl font-bold">Destinations</h2>
-  <ul class="w-full">
-    <li
-      class="mt-4 flex h-16 w-full items-center justify-start overflow-hidden rounded-md bg-bg-secondary shadow-md"
-      *ngFor="let destination of (trip$ | async)!.destinations; let i = index"
-      [class.loading]="isLoading"
-    >
-      <div class="h-full w-24">
-        <app-image-loadable
-          [imageUrl]="destination.imageUrl"
-        ></app-image-loadable>
+<ng-container
+  *ngIf="{ trip: trip$ | async, isLoading: isLoading$ | async, imageUrls: imageUrls$ | async } as data"
+>
+  <div class="mt-8 flex w-full max-w-4xl flex-col items-start justify-start">
+    <div class="flex w-full flex-col justify-between gap-1 p-2 px-1">
+      <div
+        class="flex h-10 w-64 items-center rounded-md"
+        [class.loading]="data.isLoading === true"
+      >
+        <h1 *ngIf="!data.isLoading" class="text-[42px] font-bold leading-none">
+          {{ data.trip!.title }}
+        </h1>
       </div>
       <div
-        class="flex h-full w-full items-center justify-start overflow-hidden pl-2"
+        class="flex h-4 w-64 items-center rounded-md"
+        [class.loading]="data.isLoading"
       >
-        <p *ngIf="!isLoading" class="text-base font-semibold">
-          {{ i + 1 }}. {{ destination.name }}
+        <p
+          *ngIf="!data.isLoading"
+          class="text-xl leading-none text-text-secondary"
+        >
+          {{ data.trip!.city.city_name }},
+          {{ data.trip!.city.state_abbreviation }}
         </p>
       </div>
-    </li>
-  </ul>
-  <div
-    class="my-8 w-full flex-col overflow-hidden bg-bg-secondary shadow-md xl:rounded-lg"
-  >
-    <div class="h-80 w-full">
-      <app-image-loadable
-        [imageUrl]="
-          'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
-        "
-      ></app-image-loadable>
     </div>
-    <div class="px-4 py-8">
-      <a class=""> Open in Google Maps </a>
+    <div class="flex h-96 w-full overflow-hidden rounded-md shadow-md">
+      <app-image-gallery [imageUrls]="data.imageUrls!" />
+    </div>
+    <div
+      class="mt-8 flex min-h-24 w-full rounded-md"
+      [class.loading]="data.isLoading"
+    >
+      <p>
+        {{ data.trip!.description }}
+      </p>
+    </div>
+    <h2 class="mt-8 text-2xl font-bold">Destinations</h2>
+    <ul class="w-full">
+      <li
+        class="mt-4 flex h-16 w-full items-center justify-start overflow-hidden rounded-md bg-bg-secondary shadow-md"
+        *ngFor="let destination of data.trip!.destinations; let i = index"
+        [class.loading]="data.isLoading"
+      >
+        <div class="h-full w-24">
+          <app-image-loadable
+            [imageUrl]="destination.imageUrl"
+          ></app-image-loadable>
+        </div>
+        <div
+          class="flex h-full w-full items-center justify-start overflow-hidden pl-2"
+        >
+          <p *ngIf="!data.isLoading" class="text-base font-semibold">
+            {{ i + 1 }}. {{ destination.name }}
+          </p>
+        </div>
+      </li>
+    </ul>
+    <div
+      class="my-8 w-full flex-col overflow-hidden bg-bg-secondary shadow-md xl:rounded-lg"
+    >
+      <div class="h-80 w-full">
+        <app-image-loadable
+          [imageUrl]="
+            'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
+          "
+        ></app-image-loadable>
+      </div>
+      <div class="px-4 py-8">
+        <a class=""> Open in Google Maps </a>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

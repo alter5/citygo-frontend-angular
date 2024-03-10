@@ -37,9 +37,7 @@ import { TripsService } from "src/app/shared/services/trips.service"
 export class PageTripDetailsComponent implements OnInit {
   trip$!: Observable<Trip>
   imageUrls$!: Observable<string[]>
-  // trip!: Trip
-
-  isLoading = true
+  isLoading$ = new BehaviorSubject(true)
 
   images = [
     "assets/images/city-card-images/ny-skyscraper.jpg",
@@ -76,16 +74,14 @@ export class PageTripDetailsComponent implements OnInit {
 
   parseTrip(trip: Trip | null): Trip {
     if (trip === null) {
-      this.isLoading = true
+      this.isLoading$.next(true)
       return this.getMockTrip()
     }
-    this.isLoading = false
+    this.isLoading$.next(false)
     return trip
   }
 
   getMockTrip(): Trip {
-    this.isLoading = true
-
     const mockTrip: Trip = {
       id: 0,
       title: "",
