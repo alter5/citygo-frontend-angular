@@ -52,6 +52,7 @@ export class PageTripDetailsComponent implements OnInit {
   ]
 
   // TODO: Redo the image gallery to use one with buttons, and a preview bar on the right
+  // TODO: merge destinations list into the map wrapper div
 
   constructor(
     private route: ActivatedRoute,
