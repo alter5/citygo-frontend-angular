@@ -53,6 +53,7 @@ export class PageTripDetailsComponent implements OnInit {
 
   // TODO: Redo the image gallery to use one with buttons, and a preview bar on the right
   // TODO: merge destinations list into the map wrapper div
+  // TODO: Create deep link for google maps using waypoints (scroll to "More examples, example 2"): https://developers.google.com/maps/documentation/urls/get-started
 
   constructor(
     private route: ActivatedRoute,

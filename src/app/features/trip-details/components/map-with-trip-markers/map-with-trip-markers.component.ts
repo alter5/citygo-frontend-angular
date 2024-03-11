@@ -1,37 +1,28 @@
+import { Component, Input, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  type OnInit
-} from "@angular/core"
-import { GoogleMapsModule } from "@angular/google-maps"
-import { BehaviorSubject, Observable, catchError, forkJoin } from "rxjs"
-
-import { Marker } from "./marker.model"
+import { GoogleMapComponent } from "src/app/shared/components/google-map/google-map.component"
+import { Marker } from "src/app/shared/components/google-map/marker.model"
+import { BehaviorSubject } from "rxjs"
+import { Trip } from "src/app/shared/models/trip.model"
 
 @Component({
-  selector: "app-google-map",
+  selector: "app-map-with-trip-markers",
   standalone: true,
-  imports: [CommonModule, GoogleMapsModule],
-  templateUrl: "./google-map.component.html",
-  styleUrls: ["./google-map.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [CommonModule, GoogleMapComponent],
+  templateUrl: "./map-with-trip-markers.component.html",
+  styleUrls: ["./map-with-trip-markers.component.scss"]
 })
-export class GoogleMapComponent implements OnInit {
-  // Source for Angular Google Maps: https://github.com/angular/components/tree/main/src/google-maps
-  // Note: the package will be updated soon with new documentation at: https://github.com/angular/components/tree/17.0.x/src/google-maps
-  // Website for Google Cloud Console: https://console.cloud.google.com/
+export class MapWithTripMarkersComponent implements OnInit {
+  @Input() destinations: string[] = []
+  @Input() city: string = ""
 
-  @Input() destinations!: string[]
-  @Input() city = "New York City"
+  center = new BehaviorSubject<google.maps.LatLngLiteral>({
+    lat: 24,
+    lng: 12
+  })
 
-  mapComponentId = "google-map-" + crypto.randomUUID()
+  markers = new BehaviorSubject<Marker[]>([])
 
-  zoom = 4
-  center = new BehaviorSubject<google.maps.LatLngLiteral>(({ lat: 24, lng: 12 }))
-  markerPositions: google.maps.LatLngLiteral[] | null = null
-  markers: Marker[] = []
 
   // Google Maps library modules
   Place: typeof google.maps.places.Place | null = null
@@ -41,34 +32,29 @@ export class GoogleMapComponent implements OnInit {
   LatLngBounds: typeof google.maps.LatLngBounds | null = null
 
   ngOnInit(): void {
-    if (this.destinations !== undefined) {
-      // this.parseDestinations(this.destinations)
-    } else {
-      this.destinations = [
-        "Empire State Building",
-        "Times Square",
-        "Statue of Liberty"
-      ]
-    }
-
     this.initializeMap()
   }
 
   async initializeMap() {
     await this.getGoogleMapsLibaries()
 
-    this.markers = await this.getMarkers(this.destinations)
+    this.markers.next(await this.getMarkers(this.destinations))
+
+    const markers = this.markers.value
 
     // Extend map boundary
     let bounds = new this.LatLngBounds!()
-    for (let marker of this.markers) {
+    for (let marker of markers) {
       const latLngLiteral = this.convertMarkerToLatLngLiteral(marker)
       bounds = bounds!.extend(latLngLiteral)
     }
 
     // Get center of boundaries
     const centerMarker = this.getCenterOfBoundaries(bounds)
-    this.center.next(this.convertMarkerToLatLngLiteral(centerMarker))
+    this.center.next({
+      lat: centerMarker.location.latitude,
+      lng: centerMarker.location.longitude
+    })
   }
 
   async getMarkers(destinations: string[]) {
@@ -151,23 +137,3 @@ export class GoogleMapComponent implements OnInit {
     this.LatLngBounds = LatLngBounds
   }
 }
-
-/*
-Example response from Place.searchByText(request):
-
-{
-  "id": "ChIJaXQRs6lZwokRY6EFpJnhNNE",
-  "requestedLanguage": "en-US",
-  "requestedRegion": "us",
-  "Fg": {
-    "id": "ChIJaXQRs6lZwokRY6EFpJnhNNE",
-    "displayName": "Empire State Building",
-    "location": {
-      "lat": 40.7484405,
-      "lng": -73.98566439999999
-    }
-  },
-  "Ng": {},
-  "Gg": {}
-}
-*/
