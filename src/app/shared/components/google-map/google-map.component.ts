@@ -23,15 +23,17 @@ export class GoogleMapComponent implements OnInit {
   // Note: the package will be updated soon with new documentation at: https://github.com/angular/components/tree/17.0.x/src/google-maps
   // Website for Google Cloud Console: https://console.cloud.google.com/
 
-  @Input() destinations!: string[]
+  @Input() markers: Marker[] = []
+  @Input() destinations: string[] = []
   @Input() city = "New York City"
+
+  markers$ = new BehaviorSubject<Marker[]>([])
 
   mapComponentId = "google-map-" + crypto.randomUUID()
 
   zoom = 4
   center = new BehaviorSubject<google.maps.LatLngLiteral>(({ lat: 24, lng: 12 }))
   markerPositions: google.maps.LatLngLiteral[] | null = null
-  markers: Marker[] = []
 
   // Google Maps library modules
   Place: typeof google.maps.places.Place | null = null
@@ -41,9 +43,17 @@ export class GoogleMapComponent implements OnInit {
   LatLngBounds: typeof google.maps.LatLngBounds | null = null
 
   ngOnInit(): void {
-    if (this.destinations !== undefined) {
-      // this.parseDestinations(this.destinations)
-    } else {
+    this.initializeMap()
+  }
+
+  async initializeMap() {
+    if (this.markers !== undefined) {
+      this.markers$.next(this.markers)
+    } else if (this.destinations !== undefined && this.city !== undefined) {
+      // map destinations to markers
+    }
+
+    {
       this.destinations = [
         "Empire State Building",
         "Times Square",
@@ -51,10 +61,7 @@ export class GoogleMapComponent implements OnInit {
       ]
     }
 
-    this.initializeMap()
-  }
 
-  async initializeMap() {
     await this.getGoogleMapsLibaries()
 
     this.markers = await this.getMarkers(this.destinations)
