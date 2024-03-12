@@ -75,9 +75,7 @@ export class PageTripDetailsComponent implements OnInit {
   ngOnInit() {
     this.trip$ = this.route.params.pipe(
       first(),
-      tap((params) => console.log("paramssss:", params)),
       switchMap((params) => {
-        console.log("paramssss inside map:", params)
         const tripId = Number(params["tripId"])
         return this.tripsService.getTripById(tripId).pipe(
           map((trip) => {
