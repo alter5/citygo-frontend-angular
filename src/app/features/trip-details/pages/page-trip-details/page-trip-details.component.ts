@@ -14,6 +14,7 @@ import {
   Subscription,
   concatMap,
   delay,
+  first,
   firstValueFrom,
   from,
   interval,
@@ -48,9 +49,10 @@ import { Marker } from "src/app/shared/components/google-map/marker.model"
 })
 export class PageTripDetailsComponent implements OnInit {
   trip$!: Observable<Trip>
-  imageUrls$ = new BehaviorSubject<string[]>([])
+  imageUrls$ = new BehaviorSubject<string[] | null>(null)
   isLoading$ = new BehaviorSubject(true)
-  destinations$ = new BehaviorSubject<string[]>([])
+  destinationNames$ = new BehaviorSubject<string[] | null>(null)
+  center$ = new BehaviorSubject<Marker | null>(null)
 
   markers$ = new BehaviorSubject<Marker[]>([])
 
@@ -72,75 +74,43 @@ export class PageTripDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.trip$ = this.route.params.pipe(
+      first(),
+      tap((params) => console.log("paramssss:", params)),
       switchMap((params) => {
+        console.log("paramssss inside map:", params)
         const tripId = Number(params["tripId"])
         return this.tripsService.getTripById(tripId).pipe(
-          startWith(this.getMockTrip()),
           map((trip) => {
-            return this.parseTrip(trip)
-          }),
-          tap((trip) => {
-            this.imageUrls$.next(
-              trip.destinations.map((destination) => destination.imageUrl)
-            )
-          }),
-          tap((trip) => {
-            this.destinations$.next(
-              trip.destinations.map((destination) => destination.name)
-            )
-          }),
-          tap((trip) => {
-            if (this.isLoading$.value !== true) {
+            if (trip === null) {
+              trip = this.tripsService.getMockTrip()
+            } else {
+              this.isLoading$.next(false)
               this.getMarkers(trip)
             }
-          })
+            this.imageUrls$.next(trip.destinations.map(destination => destination.imageUrl))
+            this.destinationNames$.next(trip.destinations.map(destination => destination.name))
+            return trip
+          }),
+          startWith(this.tripsService.getMockTrip())
         )
       })
     )
   }
 
-  parseTrip(trip: Trip | null): Trip {
-    if (trip === null) {
-      this.isLoading$.next(true)
-      return this.getMockTrip()
-    }
-    this.isLoading$.next(false)
-    return trip
-  }
-
-  async getMarkers(trip: Trip) {
-    console.log("🚀 ~ PageTripDetailsComponent ~ getMarkers ~ trip:", trip)
+  getMarkers(trip: Trip) {
     const destinationNames = trip.destinations.map((destination) => destination.name)
-    const markers = await this.googleMapsService.convertDestinationsToMarkers(
-      destinationNames,
-      trip.city.city_name
+    from(
+      this.googleMapsService.convertDestinationsToMarkers(
+        destinationNames,
+        "New York City"
+      )
     )
-    this.markers$.next(markers)
-  }
-
-  getMockTrip(): Trip {
-    const mockTrip: Trip = {
-      id: 0,
-      title: "",
-      city: {
-        id: 0,
-        city_name: "",
-        state: "",
-        state_abbreviation: "",
-        population: 0,
-        latitude: 0,
-        longitude: 0
-      },
-      priceRange: 0,
-      rating: 0,
-      description: "",
-      destinations: [
-        { name: "", imageUrl: "" },
-        { name: "", imageUrl: "" },
-        { name: "", imageUrl: "" }
-      ]
-    }
-
-    return mockTrip
+      .pipe(
+        tap((markers) => {
+          this.markers$.next(markers)
+          this.center$.next(this.googleMapsService.getCenterOfMarkers(markers))
+        })
+      )
+      .subscribe()
   }
 }

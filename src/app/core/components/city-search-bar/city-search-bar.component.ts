@@ -32,6 +32,7 @@ export class CitySearchBarComponent implements OnInit {
   constructor(private citiesService: CitiesService) {}
 
   ngOnInit(): void {
+    // TODO: Add input property for returning only city id in formcontrol. If no city selected, add red border to input field
     if (this.inputFormControl === undefined) {
       this.inputFormControl = new FormControl("")
     }

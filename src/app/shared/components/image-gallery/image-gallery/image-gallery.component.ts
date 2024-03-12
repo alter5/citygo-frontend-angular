@@ -15,6 +15,7 @@ export class ImageGalleryComponent implements OnInit {
   @Input() imageUrls: string[] | null = null
 
   ngOnInit(): void {
+    // TODO: Rewrite to check if current imageUrl is "" or null in template
     ;
   }
 }

@@ -61,12 +61,12 @@ export class GoogleMapsService {
     const { places } = await this.Place!.searchByText(request)
 
     if (places.length) {
-      console.log("🚀 ~ GoogleMapComponent ~ getLocation ~ places:", places)
-
       console.log(
-        "🚀 ~ GoogleMapsService ~ getMarker ~ destination: searchString:",
+        "🚀 ~ 65 GoogleMapsService ~ getMarker ~ destination: searchString:",
         searchString
       )
+      console.log("🚀 ~ 66 GoogleMapComponent ~ getLocation ~ places:", places)
+
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore

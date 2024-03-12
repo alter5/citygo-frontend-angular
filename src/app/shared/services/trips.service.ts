@@ -62,4 +62,30 @@ export class TripsService {
         })
       )
   }
+
+  getMockTrip(): Trip {
+    const mockTrip: Trip = {
+      id: 0,
+      title: "",
+      city: {
+        id: 0,
+        city_name: "",
+        state: "",
+        state_abbreviation: "",
+        population: 0,
+        latitude: 0,
+        longitude: 0
+      },
+      priceRange: 0,
+      rating: 0,
+      description: "",
+      destinations: [
+        { name: "", imageUrl: "" },
+        { name: "", imageUrl: "" },
+        { name: "", imageUrl: "" }
+      ]
+    }
+
+    return mockTrip
+  }
 }
