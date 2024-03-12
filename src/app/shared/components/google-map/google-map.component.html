@@ -2,17 +2,14 @@
   <!-- <app-google-map [center]="center" [zoom]="zoom" width="100%" height="100%"></app-google-map> -->
   <google-map
     class="h-full w-full"
-    [center]="(center | async)"
+    [center]="(center$ | async)!.location"
     [zoom]="zoom"
     width="100%"
     height="100%"
   >
     <map-marker
-      *ngFor="let marker of markers"
-      [position]="{
-        lat: marker.location.latitude,
-        lng: marker.location.longitude
-      }"
+      *ngFor="let marker of markers$ | async"
+      [position]="marker.location"
     ></map-marker>
   </google-map>
 </div>

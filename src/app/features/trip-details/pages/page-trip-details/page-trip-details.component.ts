@@ -42,8 +42,9 @@ import { GoogleMapComponent } from "src/app/shared/components/google-map/google-
 })
 export class PageTripDetailsComponent implements OnInit {
   trip$!: Observable<Trip>
-  imageUrls$!: Observable<string[]>
+  imageUrls$!: BehaviorSubject<string[]>
   isLoading$ = new BehaviorSubject(true)
+  destinations$ = new BehaviorSubject<string[]>([])
 
   images = [
     "assets/images/city-card-images/ny-skyscraper.jpg",
@@ -71,8 +72,13 @@ export class PageTripDetailsComponent implements OnInit {
             return this.parseTrip(trip)
           }),
           tap((trip) => {
-            this.imageUrls$ = of(
+            this.imageUrls$.next(
               trip.destinations.map((destination) => destination.imageUrl)
+            )
+          }),
+          tap((trip) => {
+            this.destinations$.next(
+              trip.destinations.map((destination) => destination.name)
             )
           })
         )
