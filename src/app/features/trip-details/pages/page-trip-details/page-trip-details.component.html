@@ -11,7 +11,7 @@
         class="flex h-10 w-64 items-center rounded-md"
         [class.loading]="data.isLoading === true"
       >
-        <h1 *ngIf="!data.isLoading" class="text-[42px] font-bold leading-none">
+        <h1 class="text-[42px] font-bold leading-none">
           {{ data.trip!.title }}
         </h1>
       </div>
@@ -19,10 +19,7 @@
         class="flex h-4 w-64 items-center rounded-md"
         [class.loading]="data.isLoading"
       >
-        <p
-          *ngIf="!data.isLoading"
-          class="text-xl leading-none text-text-secondary"
-        >
+        <p class="text-xl leading-none text-text-secondary">
           {{ data.trip!.city.city_name }},
           {{ data.trip!.city.state_abbreviation }}
         </p>
@@ -54,7 +51,7 @@
         <div
           class="flex h-full w-full items-center justify-start overflow-hidden pl-2"
         >
-          <p *ngIf="!data.isLoading" class="text-base font-semibold">
+          <p class="text-base font-semibold">
             {{ i + 1 }}. {{ destination.name }}
           </p>
         </div>
@@ -69,7 +66,9 @@
             'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
           "
         ></app-image-loadable> -->
-        <app-google-map [destinations]="destinations$ | async"></app-google-map>
+        <app-google-map
+          [markers]="(markers$ | async)!"
+        ></app-google-map>
       </div>
       <div class="px-4 py-8">
         <a class=""> Open in Google Maps </a>

@@ -12,12 +12,16 @@ import {
   Observable,
   Subject,
   Subscription,
+  concatMap,
   delay,
   firstValueFrom,
+  from,
+  interval,
   map,
   of,
   startWith,
   switchMap,
+  take,
   tap
 } from "rxjs"
 import { CitiesService } from "src/app/shared/services/cities.service"
@@ -26,6 +30,8 @@ import { ImageLoadableComponent } from "src/app/shared/components/image-loadable
 import { Trip } from "src/app/shared/models/trip.model"
 import { TripsService } from "src/app/shared/services/trips.service"
 import { GoogleMapComponent } from "src/app/shared/components/google-map/google-map.component"
+import { GoogleMapsService } from "src/app/shared/services/google-maps.service"
+import { Marker } from "src/app/shared/components/google-map/marker.model"
 
 @Component({
   selector: "app-page-trip-details",
@@ -42,9 +48,11 @@ import { GoogleMapComponent } from "src/app/shared/components/google-map/google-
 })
 export class PageTripDetailsComponent implements OnInit {
   trip$!: Observable<Trip>
-  imageUrls$!: BehaviorSubject<string[]>
+  imageUrls$ = new BehaviorSubject<string[]>([])
   isLoading$ = new BehaviorSubject(true)
   destinations$ = new BehaviorSubject<string[]>([])
+
+  markers$ = new BehaviorSubject<Marker[]>([])
 
   images = [
     "assets/images/city-card-images/ny-skyscraper.jpg",
@@ -59,7 +67,7 @@ export class PageTripDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private tripsService: TripsService,
-    private cdr: ChangeDetectorRef
+    private googleMapsService: GoogleMapsService
   ) {}
 
   ngOnInit() {
@@ -67,7 +75,7 @@ export class PageTripDetailsComponent implements OnInit {
       switchMap((params) => {
         const tripId = Number(params["tripId"])
         return this.tripsService.getTripById(tripId).pipe(
-          startWith(null),
+          startWith(this.getMockTrip()),
           map((trip) => {
             return this.parseTrip(trip)
           }),
@@ -80,6 +88,11 @@ export class PageTripDetailsComponent implements OnInit {
             this.destinations$.next(
               trip.destinations.map((destination) => destination.name)
             )
+          }),
+          tap((trip) => {
+            if (this.isLoading$.value !== true) {
+              this.getMarkers(trip)
+            }
           })
         )
       })
@@ -93,6 +106,16 @@ export class PageTripDetailsComponent implements OnInit {
     }
     this.isLoading$.next(false)
     return trip
+  }
+
+  async getMarkers(trip: Trip) {
+    console.log("🚀 ~ PageTripDetailsComponent ~ getMarkers ~ trip:", trip)
+    const destinationNames = trip.destinations.map((destination) => destination.name)
+    const markers = await this.googleMapsService.convertDestinationsToMarkers(
+      destinationNames,
+      trip.city.city_name
+    )
+    this.markers$.next(markers)
   }
 
   getMockTrip(): Trip {

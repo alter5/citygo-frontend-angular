@@ -1,20 +1,7 @@
 import { CommonModule } from "@angular/common"
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  type OnInit
-} from "@angular/core"
+import { ChangeDetectionStrategy, Component, Input, type OnInit } from "@angular/core"
 import { GoogleMapsModule } from "@angular/google-maps"
-import {
-  BehaviorSubject,
-  Observable,
-  catchError,
-  forkJoin,
-  from,
-  map,
-  tap
-} from "rxjs"
+import { BehaviorSubject, Observable, catchError, forkJoin, from, map, tap } from "rxjs"
 import { GoogleMapsService } from "../../services/google-maps.service"
 
 import { Marker } from "./marker.model"
@@ -33,44 +20,17 @@ export class GoogleMapComponent implements OnInit {
   // Website for Google Cloud Console: https://console.cloud.google.com/
 
   @Input() markers: Marker[] = []
-  @Input() destinations: string[] = []
-  @Input() city = ""
-
-  markers$ = new BehaviorSubject<Marker[]>([])
-  center$ = new BehaviorSubject<Marker>({
-    location: { lng: 24, lat: 12 }
-  } as Marker)
+  @Input() center!: Marker
 
   zoom = 4
 
   constructor(private googleMapsService: GoogleMapsService) {}
 
   ngOnInit(): void {
-    if (this.markers) {
-      this.markers$.next(this.markers)
-    } else if (this.destinations) {
-      if (this.city === "") {
-        throw new Error(
-          "A city must be specified if passing an array of destinations"
-        )
+    if (!this.center) {
+      this.center = {
+        location: { lng: 24, lat: 12 }
       }
-      const _markers$ = from(
-        this.googleMapsService.convertDestinationsToMarkers(
-          this.destinations,
-          this.city
-        )
-      ).pipe(
-        tap((markers) => {
-          this.markers$.next(markers)
-          this.center$.next(
-            this.googleMapsService.getCenterOfMarkers(this.markers$.value)
-          )
-        })
-      )
-
-      _markers$.subscribe()
-    } else {
-      // Use default BehaviorSubject value
     }
   }
 }
