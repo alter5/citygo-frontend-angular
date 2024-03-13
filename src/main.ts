@@ -1,3 +1,5 @@
+/// <reference types="@angular/localize" />
+
 import {
   bootstrapApplication,
   provideProtractorTestingSupport
