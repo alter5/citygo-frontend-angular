@@ -12,6 +12,9 @@ export default {
       },
       boxShadow: {
         primary: "0 0 5px hsl(var(--twc-bg-action-primary))"
+      },
+      borderWidth: {
+        "razor-thin": "1.1px"
       }
     }
   },
