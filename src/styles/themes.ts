@@ -93,7 +93,7 @@ const themeSpecificColors = {
     "text-secondary": "#65676B",
     "text-inverted": "white",
     "text-action-primary": "white",
-    border: "#d9e2e8"
+    border: "#e0e0e0"
   },
   dark: {
     "bg-primary": "#303030",
@@ -108,11 +108,17 @@ const themeSpecificColors = {
     "text-secondary": "#B0B3B8",
     "text-inverted": "rgba(0, 0, 0, 0.87)",
     "text-action-primary": "white",
-    border: "#d9e2e8"
+    border: "#e0e0e0"
   }
 }
 
-export default { generalPurposeColors, themeSpecificColors, bluePalette, purplePalette, redPalette }
+export default {
+  generalPurposeColors,
+  themeSpecificColors,
+  bluePalette,
+  purplePalette,
+  redPalette
+}
 
 // TODO: Implement the following variables as well
 // Source: stash.com

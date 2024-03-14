@@ -6,7 +6,6 @@
   >
     <img class="h-full w-full object-cover" [src]="image" alt="Image {{ i + 1 }}" />
   </div>
-
   <div class="absolute bottom-0 mb-4 flex h-6 w-full justify-center gap-2">
     <div
       class="h-2 w-2 rounded-full"
@@ -14,17 +13,16 @@
       [ngClass]="i === currentImageIndex ? ' bg-gray-400' : 'bg-gray-500'"
     ></div>
   </div>
-
   <button
     class="absolute left-0 top-1/2 ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-bg-action-primary transition hover:bg-bg-action-primary-hovered"
     (click)="changeImage(false)"
   >
-    <span class="transform mr-[2px] leading-none"> &#10094; </span>
+    <span class="material-icons mr-[2px] text-text-action-primary"> arrow_back </span>
   </button>
   <button
     class="absolute right-0 top-1/2 mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-bg-action-primary transition hover:bg-bg-action-primary-hovered"
     (click)="changeImage(true)"
   >
-    <span class="leading-none"> &#10095;</span>
+    <span class="material-icons text-text-action-primary"> arrow_forward </span>
   </button>
 </div>

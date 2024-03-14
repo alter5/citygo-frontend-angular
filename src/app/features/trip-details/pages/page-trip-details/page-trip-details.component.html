@@ -6,13 +6,13 @@
     destinationNames: destinationNames$ | async
   } as data"
 >
-  <div class="mt-8 flex w-full max-w-4xl flex-col items-start justify-start">
-    <div class="flex w-full flex-col justify-between gap-1 p-2 px-1">
+  <div class="mt-4 flex w-full max-w-4xl flex-col items-start justify-start">
+    <div class="mt-4 flex w-full flex-col justify-between gap-1 p-2 px-1">
       <div
         class="flex h-10 w-64 items-center rounded-md"
         [class.loading]="data.isLoading === true"
       >
-        <h1 class="text-[42px] font-bold leading-none">
+        <h1 class="text-4xl font-bold leading-none">
           {{ data.trip!.title }}
         </h1>
       </div>
@@ -23,14 +23,23 @@
         </p>
       </div>
     </div>
-    <div class="flex h-96 w-full overflow-hidden rounded-md shadow-md shadow-inner">
+
+    <div class="flex h-96 w-full overflow-hidden rounded-2xl shadow-inner shadow-md">
       <!-- <app-image-gallery [imageUrls]="data.imageUrls" /> -->
       <app-image-carousel></app-image-carousel>
     </div>
-    <div class="mt-8 flex min-h-24 w-full rounded-md" [class.loading]="data.isLoading">
-      <p>
-        {{ data.trip!.description }}
-      </p>
+    <div
+      class="mt-8 flex min-h-48 w-full flex-col rounded-2xl bg-bg-secondary p-2"
+      [class.loading]="data.isLoading"
+    >
+      <div class="flex h-12 w-full items-center border-b border-border">
+        <h2 class="text-2xl font-bold leading-none">About</h2>
+      </div>
+      <div class="flex mt-2 min-h-3 min-w-40" [class.loading]="data.isLoading">
+        <p class="text-md">
+          {{ data.trip!.description }}
+        </p>
+      </div>
     </div>
     <h2 class="mt-8 text-2xl font-bold">Destinations</h2>
     <ul class="w-full">
