@@ -1,0 +1,7 @@
+<div class="flex gap-1">
+  <div
+    *ngFor="let i of numbers"
+    class="h-4 w-4 rounded-full border-2 border-bg-action-primary"
+    [ngClass]="i <= currentRating ? 'bg-bg-action-primary' : ''"
+  ></div>
+</div>

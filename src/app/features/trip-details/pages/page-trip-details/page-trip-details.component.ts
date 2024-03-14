@@ -34,6 +34,7 @@ import { GoogleMapComponent } from "src/app/shared/components/google-map/google-
 import { GoogleMapsService } from "src/app/shared/services/google-maps.service"
 import { Marker } from "src/app/shared/components/google-map/marker.model"
 import { ImageCarouselComponent } from "src/app/shared/components/image-carousel/image-carousel.component"
+import { RatingComponent } from "src/app/shared/components/rating/rating.component"
 
 @Component({
   selector: "app-page-trip-details",
@@ -43,7 +44,8 @@ import { ImageCarouselComponent } from "src/app/shared/components/image-carousel
     ImageLoadableComponent,
     ImageGalleryComponent,
     GoogleMapComponent,
-    ImageCarouselComponent
+    ImageCarouselComponent,
+    RatingComponent
   ],
   templateUrl: "./page-trip-details.component.html",
   styleUrls: ["./page-trip-details.component.scss"],
@@ -87,8 +89,12 @@ export class PageTripDetailsComponent implements OnInit {
               this.isLoading$.next(false)
               this.getMarkers(trip)
             }
-            this.imageUrls$.next(trip.destinations.map(destination => destination.imageUrl))
-            this.destinationNames$.next(trip.destinations.map(destination => destination.name))
+            this.imageUrls$.next(
+              trip.destinations.map((destination) => destination.imageUrl)
+            )
+            this.destinationNames$.next(
+              trip.destinations.map((destination) => destination.name)
+            )
             return trip
           }),
           startWith(this.tripsService.getMockTrip())
