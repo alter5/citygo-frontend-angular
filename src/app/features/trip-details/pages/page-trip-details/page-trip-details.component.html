@@ -24,7 +24,8 @@
       </div>
     </div>
     <div class="flex h-96 w-full overflow-hidden rounded-md shadow-md">
-      <app-image-gallery [imageUrls]="data.imageUrls" />
+      <!-- <app-image-gallery [imageUrls]="data.imageUrls" /> -->
+      <app-image-carousel></app-image-carousel>
     </div>
     <div class="mt-8 flex min-h-24 w-full rounded-md" [class.loading]="data.isLoading">
       <p>
@@ -55,10 +56,10 @@
             'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
           "
         ></app-image-loadable> -->
-        <app-google-map
+        <!-- <app-google-map
           [markers]="markers$ | async"
           [center]="center$ | async"
-        ></app-google-map>
+        ></app-google-map> -->
       </div>
       <div class="px-4 py-8">
         <a class=""> Open in Google Maps </a>

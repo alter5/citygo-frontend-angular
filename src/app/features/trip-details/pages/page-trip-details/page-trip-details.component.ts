@@ -33,6 +33,7 @@ import { TripsService } from "src/app/shared/services/trips.service"
 import { GoogleMapComponent } from "src/app/shared/components/google-map/google-map.component"
 import { GoogleMapsService } from "src/app/shared/services/google-maps.service"
 import { Marker } from "src/app/shared/components/google-map/marker.model"
+import { ImageCarouselComponent } from "src/app/shared/components/image-carousel/image-carousel.component"
 
 @Component({
   selector: "app-page-trip-details",
@@ -41,7 +42,8 @@ import { Marker } from "src/app/shared/components/google-map/marker.model"
     CommonModule,
     ImageLoadableComponent,
     ImageGalleryComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    ImageCarouselComponent
   ],
   templateUrl: "./page-trip-details.component.html",
   styleUrls: ["./page-trip-details.component.scss"],
@@ -96,19 +98,19 @@ export class PageTripDetailsComponent implements OnInit {
   }
 
   getMarkers(trip: Trip) {
-    const destinationNames = trip.destinations.map((destination) => destination.name)
-    from(
-      this.googleMapsService.convertDestinationsToMarkers(
-        destinationNames,
-        "New York City"
-      )
-    )
-      .pipe(
-        tap((markers) => {
-          this.markers$.next(markers)
-          this.center$.next(this.googleMapsService.getCenterOfMarkers(markers))
-        })
-      )
-      .subscribe()
+    // const destinationNames = trip.destinations.map((destination) => destination.name)
+    // from(
+    //   this.googleMapsService.convertDestinationsToMarkers(
+    //     destinationNames,
+    //     "New York City"
+    //   )
+    // )
+    //   .pipe(
+    //     tap((markers) => {
+    //       this.markers$.next(markers)
+    //       this.center$.next(this.googleMapsService.getCenterOfMarkers(markers))
+    //     })
+    //   )
+    //   .subscribe()
   }
 }

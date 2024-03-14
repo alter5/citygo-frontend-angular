@@ -1,0 +1,21 @@
+<div class="relative flex h-full w-full">
+  <div
+    *ngFor="let image of images; let i = index"
+    class="absolute flex h-full w-full opacity-0"
+    [style.opacity]="i === currentImageIndex ? '1' : '0'"
+  >
+    <img class="h-full w-full" [src]="image" alt="Image {{ i + 1 }}" />
+  </div>
+
+  <div class="absolute bottom-0 mb-4 flex h-6 w-full justify-center gap-2">
+    <button
+      class="h-2 w-2 rounded-full bg-border"
+      *ngFor="let image of images; let i = index"
+      (click)="currentImageIndex = i"
+      [class.active]="i === currentImageIndex"
+    ></button>
+  </div>
+
+  <button class="absolute top-1/2 left-0" (click)="changeImage(false)">&#10094;</button>
+  <button class="carousel-button right" (click)="changeImage(true)">&#10095;</button>
+</div>
