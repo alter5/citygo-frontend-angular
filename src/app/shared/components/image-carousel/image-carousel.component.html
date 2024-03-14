@@ -1,21 +1,30 @@
 <div class="relative flex h-full w-full">
   <div
     *ngFor="let image of images; let i = index"
-    class="absolute flex h-full w-full opacity-0"
+    class="absolute flex h-full w-full transition-opacity"
     [style.opacity]="i === currentImageIndex ? '1' : '0'"
   >
-    <img class="h-full w-full" [src]="image" alt="Image {{ i + 1 }}" />
+    <img class="h-full w-full object-cover" [src]="image" alt="Image {{ i + 1 }}" />
   </div>
 
   <div class="absolute bottom-0 mb-4 flex h-6 w-full justify-center gap-2">
-    <button
-      class="h-2 w-2 rounded-full bg-border"
+    <div
+      class="h-2 w-2 rounded-full"
       *ngFor="let image of images; let i = index"
-      (click)="currentImageIndex = i"
-      [class.active]="i === currentImageIndex"
-    ></button>
+      [ngClass]="i === currentImageIndex ? ' bg-gray-400' : 'bg-gray-500'"
+    ></div>
   </div>
 
-  <button class="absolute top-1/2 left-0" (click)="changeImage(false)">&#10094;</button>
-  <button class="carousel-button right" (click)="changeImage(true)">&#10095;</button>
+  <button
+    class="absolute left-0 top-1/2 ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-bg-action-primary transition hover:bg-bg-action-primary-hovered"
+    (click)="changeImage(false)"
+  >
+    <span class="transform mr-[2px] leading-none"> &#10094; </span>
+  </button>
+  <button
+    class="absolute right-0 top-1/2 mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-bg-action-primary transition hover:bg-bg-action-primary-hovered"
+    (click)="changeImage(true)"
+  >
+    <span class="leading-none"> &#10095;</span>
+  </button>
 </div>
