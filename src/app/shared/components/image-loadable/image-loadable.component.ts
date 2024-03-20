@@ -14,7 +14,7 @@ import { NgOptimizedImage } from "@angular/common"
 export class ImageLoadableComponent {
   @Input() imageUrl: string | null = null
   @Input() inputImageAlt = ""
-  @Input() fit = "object-cover"
+  @Input() fit = "cover"
   imageLoaded = false
 
   onImageLoad() {
