@@ -1,5 +1,5 @@
 <div
-  class="mt-8 flex h-fit w-full max-w-5xl flex-col items-start justify-start rounded-xl bg-bg-secondary p-16"
+  class="mt-8 flex h-fit w-full max-w-4xl flex-col items-start justify-start rounded-xl bg-bg-secondary p-16"
 >
   <h1 class="text-xl">Create a new trip</h1>
   <p class="text-lg text-text-secondary">
@@ -11,8 +11,9 @@
       (clickedAddDestination)="addDestination()"
     ></app-form-create-trip>
   </div>
+  <hr class="mt-8 border-border w-full" />
   <button
-    class="mt-4 w-full max-w-2xl self-center rounded-lg bg-bg-action-primary px-4 py-2 text-text-action-primary hover:bg-bg-action-primary-hovered"
+    class="mt-8 flex items-center justify-center w-64 h-12 self-center rounded-3xl bg-bg-action-primary px-4 text-text-action-primary hover:bg-bg-action-primary-hovered"
     (click)="onSubmit()"
   >
     Create trip

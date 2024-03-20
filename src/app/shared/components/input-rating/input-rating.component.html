@@ -1,5 +1,5 @@
 <div class="flex w-full max-w-72 items-center justify-between">
-  <label class="text-text-primary text-lg" *ngIf="id && labelText" [for]="id">{{ labelText }}</label>
+  <label class="text-text-primary text-base" *ngIf="id && labelText" [for]="id">{{ labelText }}</label>
   <div class="flex items-center justify-between gap-1">
     <div class="flex w-fit items-center" role="radiogroup">
       <button
@@ -11,7 +11,7 @@
         [attr.tabindex]="ratingValue === currentRating ? 0 : -1"
         [attr.aria-checked]="ratingValue === currentRating"
       >
-        <span class="material-icons text-3xl text-bg-action-primary">
+        <span class="material-icons text-2xl text-bg-action-primary">
           {{ this.getIcon(ratingValue) }}
         </span>
       </button>

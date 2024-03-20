@@ -5,7 +5,7 @@
 >
   <div
     *ngFor="let control of inputFormArray.controls; let i = index"
-    class="mb-1 flex w-full items-center justify-start rounded-md border-text-secondary bg-bg-tertiary px-4 py-4 transition-colors duration-75 hover:cursor-pointer hover:bg-bg-hovered"
+    class="mb-1 flex w-full items-center justify-start rounded-md border-text-secondary bg-bg-tertiary px-2 py-2 transition-colors duration-75 hover:cursor-pointer hover:bg-bg-hovered"
     cdkDrag
   >
     <span class="material-icons mr-4 text-4xl leading-none text-text-secondary"
@@ -15,19 +15,20 @@
       [inputFormControl]="control | formControl"
       hint="Enter a destination"
     ></app-input-basic>
-    <button
+    <!-- Button for deleting a trip -->
+    <!-- <button
       class="mx-2 ml-5 flex min-h-12 min-w-12 items-center justify-center rounded-md"
     >
       <span
         class="material-icons text-3xl leading-none text-text-secondary"
         >highlight_off</span
       >
-    </button>
+    </button> -->
     <!-- {{control.value}} -->
   </div>
 </div>
 <button
-  class="mt-2 h-12 w-32 rounded-md bg-bg-action-primary text-text-action-primary"
+  class="mt-2 h-12 w-32 rounded-md bg-bg-action-secondary text-text-action-primary"
   (click)="onClickAddOption()"
 >
   Add Another

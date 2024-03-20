@@ -1,26 +1,13 @@
 import { CommonModule } from "@angular/common"
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  type OnInit
-} from "@angular/core"
+import { ChangeDetectionStrategy, Component, OnDestroy, type OnInit } from "@angular/core"
 import { FormCreateTripComponent } from "../form-create-trip/form-create-trip.component"
-import {
-  FormGroup,
-  FormBuilder,
-  FormArray,
-  Validators,
-  AbstractControl
-} from "@angular/forms"
-import { Trip } from "src/app/shared/models/trip.model"
+import { FormGroup, FormBuilder, FormArray, Validators } from "@angular/forms"
 
 import { CitiesService } from "src/app/shared/services/cities.service"
 import { TripsService } from "src/app/shared/services/trips.service"
 import { TripCreationDto } from "../models/tripCreationPayload.model"
 import { ChangeDetectorRef } from "@angular/core"
-import { BehaviorSubject, Observable, Subject, Subscription, tap } from "rxjs"
-import { City } from "src/app/shared/models/city.model"
+import { BehaviorSubject, Subscription } from "rxjs"
 
 import { OverlayLoadingComponent } from "src/app/shared/components/overlay-loading/overlay-loading.component"
 import { Router } from "@angular/router"
@@ -93,7 +80,7 @@ export class PageCreateTripComponent implements OnInit, OnDestroy {
     }
 
     this.isLoading.next(true)
-    const createTripResponseSubscription = this.tripsService
+    this.createTripResponseSubscription = this.tripsService
       .createTrip(tripCreationDto)
       .subscribe((success) => {
         this.isLoading.next(false)

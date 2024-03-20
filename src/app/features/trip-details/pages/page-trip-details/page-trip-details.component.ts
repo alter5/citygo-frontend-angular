@@ -35,6 +35,7 @@ import { GoogleMapsService } from "src/app/shared/services/google-maps.service"
 import { Marker } from "src/app/shared/components/google-map/marker.model"
 import { ImageCarouselComponent } from "src/app/shared/components/image-carousel/image-carousel.component"
 import { RatingComponent } from "src/app/shared/components/rating/rating.component"
+import { ImageCarouselSlide } from "src/app/shared/components/image-carousel/image-carousel-slide.model"
 
 @Component({
   selector: "app-page-trip-details",
@@ -53,18 +54,12 @@ import { RatingComponent } from "src/app/shared/components/rating/rating.compone
 })
 export class PageTripDetailsComponent implements OnInit {
   trip$!: Observable<Trip>
-  imageUrls$ = new BehaviorSubject<string[] | null>(null)
+  imageCarouselSlides$ = new BehaviorSubject<ImageCarouselSlide[] | null>(null)
   isLoading$ = new BehaviorSubject(true)
   destinationNames$ = new BehaviorSubject<string[] | null>(null)
   center$ = new BehaviorSubject<Marker | null>(null)
 
   markers$ = new BehaviorSubject<Marker[]>([])
-
-  images = [
-    "assets/images/city-card-images/ny-skyscraper.jpg",
-    "assets/images/city-card-images/ny-times-square.jpg",
-    "assets/images/city-card-images/ny-centralpark.jpg"
-  ]
 
   // TODO: Redo the image gallery to use one with buttons, and a preview bar on the right
   // TODO: merge destinations list into the map wrapper div
@@ -89,8 +84,10 @@ export class PageTripDetailsComponent implements OnInit {
               this.isLoading$.next(false)
               this.getMarkers(trip)
             }
-            this.imageUrls$.next(
-              trip.destinations.map((destination) => destination.imageUrl)
+            this.imageCarouselSlides$.next(
+              trip.destinations.map((destination) => {
+                return { imageUrl: destination.imageUrl, description: destination.name }
+              })
             )
             this.destinationNames$.next(
               trip.destinations.map((destination) => destination.name)

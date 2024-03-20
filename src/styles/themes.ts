@@ -93,7 +93,7 @@ const themeSpecificColors = {
     "text-secondary": "#65676B",
     "text-inverted": "white",
     "text-action-primary": "white",
-    border: "#e0e0e0"
+    border: "#B0B3B8"
   },
   dark: {
     "bg-primary": "#303030",
@@ -108,7 +108,7 @@ const themeSpecificColors = {
     "text-secondary": "#B0B3B8",
     "text-inverted": "rgba(0, 0, 0, 0.87)",
     "text-action-primary": "white",
-    border: "#e0e0e0"
+    border: "#B0B3B8"
   }
 }
 
