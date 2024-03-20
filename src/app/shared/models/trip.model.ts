@@ -10,5 +10,7 @@ export interface Trip {
   destinations: {
     name: string
     imageUrl: string
+    address: string
+    purpose: string
   }[]
 }

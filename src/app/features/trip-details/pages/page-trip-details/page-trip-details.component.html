@@ -69,7 +69,11 @@
           <app-image-loadable [imageUrl]="destination.imageUrl"></app-image-loadable>
         </div>
         <div class="flex h-full w-full items-center justify-start overflow-hidden pl-2">
-          <p class="text-base font-semibold">{{ i + 1 }}. {{ destination.name }}</p>
+          <p class="text-base font-semibold">{{ i + 1 }}.</p>
+          <div class="flex h-full w-full flex-col justify-center ml-2">
+            <p class="text-base font-semibold">{{ destination.name }}</p>
+            <p class="text-sm font-medium text-text-secondary">{{ destination.purpose}} | {{destination.address}}</p>
+          </div>
         </div>
       </li>
     </ul>
