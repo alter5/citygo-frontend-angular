@@ -4,11 +4,11 @@
   (cdkDropListDropped)="drop($event)"
 >
   <div
-    *ngFor="let control of inputFormArray.controls; let i = index"
-    class="mb-1 flex w-full items-center justify-start rounded-md border-text-secondary bg-bg-tertiary px-2 py-2 transition-colors duration-75 hover:cursor-pointer hover:bg-bg-hovered"
+    *ngFor="let control of inputFormArray.controls; let i = index;"
+    class="mb-1 flex w-full items-center justify-start rounded-md border-text-secondary bg-bg-tertiary pr-2 py-2 transition-colors duration-75 hover:cursor-pointer hover:bg-bg-hovered"
     cdkDrag
   >
-    <span class="material-icons mr-4 text-4xl leading-none text-text-secondary"
+    <span class="material-icons mx-3 text-4xl leading-none text-text-secondary"
       >drag_indicator</span
     >
     <app-input-basic
