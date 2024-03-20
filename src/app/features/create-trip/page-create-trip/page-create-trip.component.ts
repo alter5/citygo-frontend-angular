@@ -48,8 +48,8 @@ export class PageCreateTripComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.tripFormGroup = this.formBuilder.group({
-      title: ["NYC in 1 day", Validators.required],
-      city_id: ["New York City", Validators.required],
+      title: ["New York in One Day", Validators.required],
+      city_id: ["891", Validators.required],
       // TODO: Delete the extra destination
       destinations: this.formBuilder.array([
         "Times Square",
