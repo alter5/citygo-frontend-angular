@@ -1,7 +1,7 @@
 <div
   class="flex w-full cursor-pointer flex-col overflow-hidden rounded-lg bg-bg-secondary shadow-md transition duration-75 hover:bg-bg-hovered"
 >
-  <div class="flex w-full flex-col justify-between gap-1 px-3 pb-2 pt-3">
+  <div class="flex w-full flex-col justify-between gap-1 px-3 pb-2 pt-4">
     <div
       class="flex h-5 w-64 items-center rounded-md leading-none"
       [class.loading]="trip === null"
@@ -34,7 +34,7 @@
     </ng-container>
     <div class="absolute left-0 top-0 h-10 w-44 rounded-br-md bg-black bg-opacity-50 pl-3 pr-2">
       <div class="flex h-full w-full items-center justify-between">
-        <p class="leading-none text-base text-text-primary">Price:</p>
+        <p class="leading-none text-base text-text-action-primary">Price:</p>
         <div>
           <app-rating
             [currentRating]="trip?.priceRange || 3"
