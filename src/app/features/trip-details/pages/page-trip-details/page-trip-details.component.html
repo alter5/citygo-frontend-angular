@@ -8,8 +8,8 @@
     center: center$ | async
   } as data"
 >
-  <div class="mt-2 flex w-full max-w-4xl flex-col items-start justify-start">
-    <div class="mt-4 flex w-full flex-col justify-between gap-1 p-2 px-1">
+  <div class="mt-2 flex w-full max-w-3xl flex-col items-start justify-start">
+    <div class="mt-4 flex w-full flex-col justify-between gap-1">
       <div
         class="flex h-10 w-96 items-center rounded-md"
         [class.loading]="data.isLoading === true"
@@ -30,13 +30,13 @@
       <app-image-carousel [slides]="data.imageCarouselSlides!"></app-image-carousel>
     </div>
     <div
-      class="min-h-26 mt-8 flex w-full flex-col gap-2 rounded-2xl bg-bg-secondary p-4"
+      class="min-h-26 mt-2 flex w-full flex-col gap-2 rounded-2xl py-4"
       [class.loading]="data.isLoading"
     >
-      <!-- <div class="flex h-16 w-full items-center">
-        <h2 class="text-2xl font-semibold leading-none">About</h2>
+      <div class="flex h-8 w-full items-center">
+        <h2 class="text-lg font-bold leading-none">Details</h2>
       </div>
-      <hr class="border-border" /> -->
+      <!-- <hr class="border-border" /> -->
       <!-- <div class="mt-2 flex h-4 w-44 items-center justify-between">
         <p class="mr-2 leading-none">Duration</p>
         <app-rating [currentRating]="4" [maxRating]="5"></app-rating>
@@ -46,8 +46,8 @@
         <app-rating [currentRating]="2" [maxRating]="5"></app-rating>
       </div> -->
       <!-- <hr class="mt-2 border-razor-thin border-border" /> -->
-      <div class="mt-2 flex min-h-3 min-w-40" [class.loading]="data.isLoading">
-        <p class="text-md">
+      <div class="flex min-h-3 min-w-40" [class.loading]="data.isLoading">
+        <p class="text-base leading-[22px]">
           {{ data.trip!.description }}
           <!-- Non consequat incididunt reprehenderit aliquip sint deserunt ex cillum
           exercitation minim incididunt quis ex. Veniam dolore nostrud laboris et.
@@ -60,7 +60,7 @@
         </p>
       </div>
     </div>
-    <h2 class="mt-8 text-2xl font-semibold">Destinations</h2>
+    <h2 class="mt-4 text-lg font-bold">Destinations</h2>
     <ul class="w-full">
       <li
         class="mt-2 flex h-16 w-full items-center justify-start overflow-hidden rounded-md bg-bg-secondary shadow-md"
@@ -71,7 +71,7 @@
           <app-image-loadable [imageUrl]="destination.imageUrl"></app-image-loadable>
         </div>
         <div class="flex h-full w-full items-center justify-start overflow-hidden pl-2">
-          <p class="text-base font-semibold">{{ i + 1 }}.</p>
+          <!-- <p class="text-base font-semibold">{{ i + 1 }}.</p> -->
           <div class="ml-2 flex h-full w-full flex-col justify-center">
             <p class="text-base font-semibold">{{ destination.name }}</p>
             <p class="text-sm font-medium text-text-secondary">
