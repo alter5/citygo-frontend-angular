@@ -2,27 +2,14 @@
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
   <nav class="light-gray fixed z-50 h-20 w-full p-4">
     <div class="flex h-full w-full items-center justify-between gap-4">
-      <button
-        class="flex h-full w-16 justify-center"
-        mat-icon-button
-        color="accent"
-        aria-label="Example icon button with a menu icon"
-        (click)="toggleMenu()"
-      >
-        <mat-icon>menu</mat-icon>
+      <button class="flex h-full w-16 justify-center items-center" (click)="toggleMenu()">
+        <span class="material-icons text-4xl text-bg-action-primary leading-none"> menu </span>
       </button>
-      <app-city-search-bar
-        class="w-full"
-        (citySelected)="onCitySelected($event)"
-      />
+      <app-city-search-bar class="w-full" (citySelected)="onCitySelected($event)" />
     </div>
   </nav>
   <!-- TODO: Implement full mobile menu -->
-  <div
-    *ngIf="isMenuOpen"
-    id="dropdown"
-    class="h-screen overflow-hidden bg-black"
-  >
+  <div *ngIf="isMenuOpen" id="dropdown" class="h-screen overflow-hidden bg-black">
     <div class="mt-24">
       <p>This feature is not yet available</p>
     </div>
@@ -46,14 +33,13 @@
         </a>
       </div>
       <div class="flex h-full flex-[3] items-center">
-        <app-city-search-bar
-          class="desktop"
-          (citySelected)="onCitySelected($event)"
-        />
+        <app-city-search-bar class="desktop" (citySelected)="onCitySelected($event)" />
       </div>
       <div class="flex h-full flex-[3] items-center justify-end gap-6">
         <div class="flex h-full w-fit items-center gap-3">
-          <label class="leading-none whitespace-nowrap text-text-secondary" for="darkModeToggle"
+          <label
+            class="whitespace-nowrap leading-none text-text-secondary"
+            for="darkModeToggle"
             >Dark Mode</label
           >
           <div class="mt-[0.2rem] flex h-full items-center">
