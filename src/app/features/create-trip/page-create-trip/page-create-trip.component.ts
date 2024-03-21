@@ -43,7 +43,10 @@ export class PageCreateTripComponent implements OnInit, OnDestroy {
         "Empire State Bulding",
         "Statue of Liberty"
       ]),
-      description: ["This is a fun trip!", Validators.required],
+      description: [
+        "Embark on a whirlwind adventure through the bustling streets of New York City, where iconic landmarks such as the Statue of Liberty and Times Square await exploration. Immerse yourself in the city's vibrant culture, diverse cuisine, and endless entertainment options, making every moment an unforgettable experience. ",
+        Validators.required
+      ],
       price_range: [4, Validators.required],
       duration: [2, Validators.required]
     })

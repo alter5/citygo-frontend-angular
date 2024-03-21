@@ -97,9 +97,10 @@ export class PageTripDetailsComponent implements OnInit {
             })
             this.markers$.next(markers)
 
-            this.googleMapsService
-              .getCenterOfMarkers(markers)
-              .then((center) => this.center$.next(center))
+            // TODO: Reenable for google maps
+            // this.googleMapsService
+            //   .getCenterOfMarkers(markers)
+            //   .then((center) => this.center$.next(center))
 
             return trip
           }),

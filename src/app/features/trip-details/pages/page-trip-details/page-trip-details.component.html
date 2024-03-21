@@ -30,13 +30,13 @@
       <app-image-carousel [slides]="data.imageCarouselSlides!"></app-image-carousel>
     </div>
     <div
-      class="mt-8 flex min-h-48 w-full flex-col gap-2 rounded-2xl bg-bg-secondary p-4"
+      class="mt-8 flex min-h-26 w-full flex-col gap-2 rounded-2xl bg-bg-secondary p-4"
       [class.loading]="data.isLoading"
     >
-      <div class="flex h-16 w-full items-center">
+      <!-- <div class="flex h-16 w-full items-center">
         <h2 class="text-2xl font-semibold leading-none">About</h2>
       </div>
-      <hr class="border-border" />
+      <hr class="border-border" /> -->
       <!-- <div class="mt-2 flex h-4 w-44 items-center justify-between">
         <p class="mr-2 leading-none">Duration</p>
         <app-rating [currentRating]="4" [maxRating]="5"></app-rating>
@@ -83,15 +83,15 @@
       class="mt-2 mb-8 w-full flex-col overflow-hidden bg-bg-secondary shadow-md md:rounded-lg"
     >
       <div class="h-80 w-full">
-        <!-- <app-image-loadable
+        <app-image-loadable
           [imageUrl]="
             'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
           "
-        ></app-image-loadable> -->
-        <app-google-map
+        ></app-image-loadable>
+        <!-- <app-google-map
           [markers]="data.markers"
           [center]="data.center"
-        ></app-google-map>
+        ></app-google-map> -->
       </div>
       <div class="px-4 py-8">
         <a class=""> Open in Google Maps </a>
