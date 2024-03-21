@@ -60,6 +60,7 @@ export class PageTripDetailsComponent implements OnInit {
   center$ = new BehaviorSubject<Marker | null>(null)
   markers$ = new BehaviorSubject<Marker[]>([])
 
+  // TODO: Add shadow effect to bottom of image gallery. Make sure it doesnt overlap indicator dots
   // TODO: Add trip like button. For example: thumbs_up icon, and a counter next to it
   // TODO: Create deep link for google maps using waypoints (scroll to "More examples, example 2"): https://developers.google.com/maps/documentation/urls/get-started
 
