@@ -101,7 +101,9 @@ export class GoogleMapsService {
     this.LatLngBounds = LatLngBounds
   }
 
-  getCenterOfMarkers(markers: Marker[]) {
+  async getCenterOfMarkers(markers: Marker[]) {
+    await this.isServiceLoaded()
+
     // Extend map boundary
     let bounds = new this.LatLngBounds!()
     for (const marker of markers) {

@@ -1,7 +1,7 @@
 import { City } from "./city.model"
 
 export interface Trip {
-  id: number,
+  id: number
   title: string
   city: City
   priceRange: number
@@ -12,5 +12,9 @@ export interface Trip {
     imageUrl: string
     address: string
     purpose: string
+    location: {
+      lng: number
+      lat: number
+    }
   }[]
 }

@@ -3,7 +3,9 @@
     trip: trip$ | async,
     isLoading: isLoading$ | async,
     imageCarouselSlides: imageCarouselSlides$ | async,
-    destinationNames: destinationNames$ | async
+    destinationNames: destinationNames$ | async,
+    markers: markers$ | async,
+    center: center$ | async
   } as data"
 >
   <div class="mt-2 flex w-full max-w-4xl flex-col items-start justify-start">
@@ -46,15 +48,15 @@
       <!-- <hr class="mt-2 border-razor-thin border-border" /> -->
       <div class="mt-2 flex min-h-3 min-w-40" [class.loading]="data.isLoading">
         <p class="text-md">
-          <!-- {{ data.trip!.description }} -->
-          Non consequat incididunt reprehenderit aliquip sint deserunt ex cillum
+          {{ data.trip!.description }}
+          <!-- Non consequat incididunt reprehenderit aliquip sint deserunt ex cillum
           exercitation minim incididunt quis ex. Veniam dolore nostrud laboris et.
           Adipisicing cupidatat minim occaecat amet minim qui consequat eu dolore sunt est
           pariatur do in. <br /><br />
           Incididunt id incididunt minim irure pariatur reprehenderit voluptate
           adipisicing do pariatur aliquip. Consequat culpa eiusmod nostrud minim laboris
           mollit cillum officia aute aute aute ex ad. Pariatur quis laborum officia
-          nostrud labore reprehenderit mollit adipisicing irure tempor aliqua.
+          nostrud labore reprehenderit mollit adipisicing irure tempor aliqua. -->
         </p>
       </div>
     </div>
@@ -72,7 +74,7 @@
           <p class="text-base font-semibold">{{ i + 1 }}.</p>
           <div class="flex h-full w-full flex-col justify-center ml-2">
             <p class="text-base font-semibold">{{ destination.name }}</p>
-            <p class="text-sm font-medium text-text-secondary">{{ destination.purpose}} | {{destination.address}}</p>
+            <p class="text-sm font-medium text-text-secondary">{{ destination.purpose}}  |  {{destination.address}}</p>
           </div>
         </div>
       </li>
@@ -86,10 +88,10 @@
             'assets/images/placeholders/google-maps-w-buttons-placeholder.png'
           "
         ></app-image-loadable> -->
-        <!-- <app-google-map
-          [markers]="markers$ | async"
-          [center]="center$ | async"
-        ></app-google-map> -->
+        <app-google-map
+          [markers]="data.markers"
+          [center]="data.center"
+        ></app-google-map>
       </div>
       <div class="px-4 py-8">
         <a class=""> Open in Google Maps </a>

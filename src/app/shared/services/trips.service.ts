@@ -80,9 +80,21 @@ export class TripsService {
       rating: 0,
       description: "",
       destinations: [
-        { name: "", imageUrl: "", address: "", purpose: "" },
-        { name: "", imageUrl: "", address: "", purpose: "" },
-        { name: "", imageUrl: "", address: "", purpose: "" }
+        {
+          name: "",
+          imageUrl: "",
+          address: "",
+          purpose: "",
+          location: { lng: 1, lat: 1 }
+        },
+        {
+          name: "",
+          imageUrl: "",
+          address: "",
+          purpose: "",
+          location: { lng: 1, lat: 1 }
+        },
+        { name: "", imageUrl: "", address: "", purpose: "", location: { lng: 1, lat: 1 } }
       ]
     }
 

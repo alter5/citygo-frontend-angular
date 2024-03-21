@@ -58,11 +58,9 @@ export class PageTripDetailsComponent implements OnInit {
   isLoading$ = new BehaviorSubject(true)
   destinationNames$ = new BehaviorSubject<string[] | null>(null)
   center$ = new BehaviorSubject<Marker | null>(null)
-
   markers$ = new BehaviorSubject<Marker[]>([])
 
-  // TODO: Redo the image gallery to use one with buttons, and a preview bar on the right
-  // TODO: merge destinations list into the map wrapper div
+  // TODO: Add trip like button. For example: thumbs_up icon, and a counter next to it
   // TODO: Create deep link for google maps using waypoints (scroll to "More examples, example 2"): https://developers.google.com/maps/documentation/urls/get-started
 
   constructor(
@@ -82,38 +80,32 @@ export class PageTripDetailsComponent implements OnInit {
               trip = this.tripsService.getMockTrip()
             } else {
               this.isLoading$.next(false)
-              this.getMarkers(trip)
             }
+
             this.imageCarouselSlides$.next(
               trip.destinations.map((destination) => {
                 return { imageUrl: destination.imageUrl, description: destination.name }
               })
             )
+
             this.destinationNames$.next(
               trip.destinations.map((destination) => destination.name)
             )
+
+            const markers: Marker[] = trip.destinations.map((destination) => {
+              return { title: destination.name, location: destination.location }
+            })
+            this.markers$.next(markers)
+
+            this.googleMapsService
+              .getCenterOfMarkers(markers)
+              .then((center) => this.center$.next(center))
+
             return trip
           }),
           startWith(this.tripsService.getMockTrip())
         )
       })
     )
-  }
-
-  getMarkers(trip: Trip) {
-    // const destinationNames = trip.destinations.map((destination) => destination.name)
-    // from(
-    //   this.googleMapsService.convertDestinationsToMarkers(
-    //     destinationNames,
-    //     "New York City"
-    //   )
-    // )
-    //   .pipe(
-    //     tap((markers) => {
-    //       this.markers$.next(markers)
-    //       this.center$.next(this.googleMapsService.getCenterOfMarkers(markers))
-    //     })
-    //   )
-    //   .subscribe()
   }
 }
