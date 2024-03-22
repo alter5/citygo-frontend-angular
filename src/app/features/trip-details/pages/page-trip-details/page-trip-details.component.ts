@@ -59,6 +59,7 @@ export class PageTripDetailsComponent implements OnInit {
   destinationNames$ = new BehaviorSubject<string[] | null>(null)
   center$ = new BehaviorSubject<Marker | null>(null)
   markers$ = new BehaviorSubject<Marker[]>([])
+  tripUrl$ = new BehaviorSubject<string>("")
 
   // TODO: Add shadow effect to bottom of image gallery. Make sure it doesnt overlap indicator dots
   // TODO: Add trip like button. For example: thumbs_up icon, and a counter next to it
@@ -93,6 +94,8 @@ export class PageTripDetailsComponent implements OnInit {
               trip.destinations.map((destination) => destination.name)
             )
 
+            this.tripUrl$.next(this.createTripUrl(trip))
+
             const markers: Marker[] = trip.destinations.map((destination) => {
               return { title: destination.name, location: destination.location }
             })
@@ -109,5 +112,17 @@ export class PageTripDetailsComponent implements OnInit {
         )
       })
     )
+  }
+
+  createTripUrl(trip: Trip) {
+    const baseUrl = "https://www.google.com/maps/dir/?api=1&travelmode=driving&waypoints="
+
+    const waypoints = trip.destinations.map((destination) => {
+      return destination.name + ", " + trip.city.city_name
+    })
+
+    const waypointsString = waypoints.join("|")
+
+    return baseUrl + waypointsString
   }
 }
