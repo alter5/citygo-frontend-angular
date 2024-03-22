@@ -14,7 +14,7 @@ There is a search bar for filtering trips by city
 
 ![image](https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa)
 
-The website is responsive, and able to be viewed in mobile browsers. The navbar links are collapsed into a hamburger menu
+The website uses a responsive mobile-first design, and can be viewed in mobile browsers. The navbar links are collapsed into a hamburger menu
 
 ![image](https://github.com/alter5/city-go/assets/36527069/b3218f5d-ca7d-4738-a441-2767fa8df602)
 
