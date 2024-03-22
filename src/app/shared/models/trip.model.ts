@@ -4,7 +4,7 @@ export interface Trip {
   id: number
   title: string
   city: City
-  priceRange: number
+  price_range: number
   rating: number
   description: string
   destinations: {

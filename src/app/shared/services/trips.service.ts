@@ -76,7 +76,7 @@ export class TripsService {
         latitude: 0,
         longitude: 0
       },
-      priceRange: 0,
+      price_range: 0,
       rating: 0,
       description: "",
       destinations: [
