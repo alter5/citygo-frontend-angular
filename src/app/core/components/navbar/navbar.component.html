@@ -1,18 +1,45 @@
 <!-- Mobile navbar -->
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
-  <nav class="light-gray fixed z-50 h-20 w-full p-4">
-    <div class="flex h-full w-full items-center justify-between gap-4">
-      <button class="flex h-full w-16 justify-center items-center" (click)="toggleMenu()">
-        <span class="material-icons text-4xl text-bg-action-primary leading-none"> menu </span>
-      </button>
+  <nav class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 p-4 bg-bg-secondary drop-shadow-md">
+    <a class="flex h-full w-40" [routerLink]="['/']">
+      <!-- Logo was generated using www.logo.com -->
+      <app-image-loadable
+        [imageUrl]="'assets/images/logo/png/logo-no-background.png'"
+        [fit]="'contain'"
+      ></app-image-loadable>
+    </a>
+    <div class="flex h-full w-full items-center px-2">
       <app-city-search-bar class="w-full" (citySelected)="onCitySelected($event)" />
     </div>
+    <a class="flex items-center" href="#">
+      <span class="material-icons text-[28px] leading-none text-text-primary">
+        person_outline
+      </span>
+    </a>
+    <button class="flex h-full w-16 items-center justify-center" (click)="toggleMenu()">
+      <span class="material-icons text-4xl leading-none text-text-primary"> menu </span>
+    </button>
   </nav>
   <!-- TODO: Implement full mobile menu -->
-  <div *ngIf="isMenuOpen" id="dropdown" class="h-screen overflow-hidden bg-black">
-    <div class="mt-24">
+  <div
+    *ngIf="isMenuOpen"
+    id="dropdown"
+    class="flex h-screen w-full flex-col overflow-hidden bg-bg-secondary pt-24 px-4"
+  >
+    <ul>
+      <li>
+        <a class="text-xl font-extrabold" [routerLink]="['/']">Home</a>
+      </li>
+      <li>
+        <a [routerLink]="['/createTrip']">Create Trip</a>
+      </li>
+      <li>
+        <a href="#"></a>
+      </li>
+    </ul>
+    <!-- <div class="mt-24">
       <p>This feature is not yet available</p>
-    </div>
+    </div> -->
   </div>
 </ng-container>
 <!-- Desktop navbar -->
@@ -38,7 +65,7 @@
       <div class="flex h-full flex-[3] items-center justify-end gap-6">
         <div class="flex h-full w-fit items-center gap-3">
           <label
-            class="whitespace-nowrap leading-none text-text-secondary"
+            class="whitespace-nowrap leading-none text-text-primary"
             for="darkModeToggle"
             >Dark Mode</label
           >

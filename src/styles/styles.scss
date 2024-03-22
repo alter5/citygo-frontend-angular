@@ -65,6 +65,10 @@ input {
   font-size: 1rem;
 }
 
+span {
+  @apply leading-none
+}
+
 body#index-body {
   background-color: hsl(var(--twc-bg-primary));
 }
