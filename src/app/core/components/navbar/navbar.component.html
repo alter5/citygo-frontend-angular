@@ -1,6 +1,8 @@
 <!-- Mobile navbar -->
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
-  <nav class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 p-4 bg-bg-secondary drop-shadow-md">
+  <nav
+    class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 bg-bg-secondary p-4 drop-shadow-md"
+  >
     <a class="flex h-full w-40" [routerLink]="['/']">
       <!-- Logo was generated using www.logo.com -->
       <app-image-loadable
@@ -17,24 +19,26 @@
       </span>
     </a>
     <button class="flex h-full w-16 items-center justify-center" (click)="toggleMenu()">
-      <span class="material-icons text-4xl leading-none text-text-primary"> menu </span>
+      <span class="material-icons text-4xl leading-none text-text-primary">
+        {{ isMenuOpen ? "close" : "menu" }}
+      </span>
     </button>
   </nav>
   <!-- TODO: Implement full mobile menu -->
   <div
     *ngIf="isMenuOpen"
     id="dropdown"
-    class="flex h-screen w-full flex-col overflow-hidden bg-bg-secondary pt-24 px-4"
+    class="h-screen w-full overflow-hidden bg-bg-secondary px-4 pt-24"
   >
-    <ul>
+    <ul class="flex h-full w-full flex-col gap-4">
       <li>
-        <a class="text-xl font-extrabold" [routerLink]="['/']">Home</a>
+        <a class="text-3xl font-bold" [routerLink]="['/']">Home</a>
       </li>
       <li>
-        <a [routerLink]="['/createTrip']">Create Trip</a>
+        <a class="text-3xl font-bold" href="#">Login</a>
       </li>
       <li>
-        <a href="#"></a>
+        <a class="text-3xl font-bold" [routerLink]="['/createTrip']">Create Trip</a>
       </li>
     </ul>
     <!-- <div class="mt-24">
