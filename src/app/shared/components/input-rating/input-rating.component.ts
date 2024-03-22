@@ -56,7 +56,7 @@ export class InputRatingComponent implements OnInit {
       if (newIndex > 0) {
         this.onClick(newIndex)
 
-        // Focus on next element
+        // Focus on next rating button
         const currentElement = event.target as HTMLElement
         const prevElement = currentElement.previousElementSibling as HTMLElement
         prevElement.focus()
@@ -68,6 +68,7 @@ export class InputRatingComponent implements OnInit {
       if (newIndex < this.maxRating) {
         this.onClick(newIndex + 1)
 
+        // Focus on previous rating button
         const currentElement = event.target as HTMLElement
         const nextElement = currentElement.nextElementSibling as HTMLElement
         nextElement.focus()
