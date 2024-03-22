@@ -1,7 +1,6 @@
 import { CommonModule } from "@angular/common"
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges, type OnInit } from "@angular/core"
 import { GoogleMapsModule } from "@angular/google-maps"
-import { BehaviorSubject, Observable, catchError, forkJoin, from, map, tap } from "rxjs"
 import { GoogleMapsService } from "../../services/google-maps.service"
 
 import { Marker } from "./marker.model"

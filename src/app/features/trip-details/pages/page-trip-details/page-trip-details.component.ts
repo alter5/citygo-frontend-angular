@@ -1,31 +1,17 @@
 import { CommonModule } from "@angular/common"
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
-  OnDestroy,
   type OnInit
 } from "@angular/core"
 import { ActivatedRoute } from "@angular/router"
 import {
   BehaviorSubject,
   Observable,
-  Subject,
-  Subscription,
-  concatMap,
-  delay,
   first,
-  firstValueFrom,
-  from,
-  interval,
   map,
-  of,
   startWith,
-  switchMap,
-  take,
-  tap
-} from "rxjs"
-import { CitiesService } from "src/app/shared/services/cities.service"
+  switchMap} from "rxjs"
 import { ImageGalleryComponent } from "src/app/shared/components/image-gallery/image-gallery/image-gallery.component"
 import { ImageLoadableComponent } from "src/app/shared/components/image-loadable/image-loadable.component"
 import { Trip } from "src/app/shared/models/trip.model"

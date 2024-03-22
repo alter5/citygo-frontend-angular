@@ -70,6 +70,7 @@ export class GoogleMapsService {
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const place: any = places[0].Fg
 
       const marker: Marker = {
