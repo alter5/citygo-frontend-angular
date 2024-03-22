@@ -17,6 +17,18 @@ import {
 
 import { AppComponent } from "./app/app.component"
 
+import { environment } from "./environments/environment"
+
+const applyEnvVariables = () => {
+  if (environment.googleMapsKey) {
+    // Set the Google Maps key to a global variable accessible in index.html
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).googleMapsKey = environment.googleMapsKey
+  }
+}
+
+applyEnvVariables()
+
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom([BrowserAnimationsModule, GoogleMapsModule]),
