@@ -4,6 +4,7 @@ CityGo is a web application which allows users to publish vacation routes for a 
 The backend uses Node.js and PostgreSQL for storing the trips. To view the backend implementation, see the following repo:
 
 
+
 ## Home Page
 The home page allows users to view the most popular trips
 
