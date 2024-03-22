@@ -1,9 +1,9 @@
-<div class="mt-2 flex w-full justify-center">
+<div class="mt-6 flex w-full justify-center">
   <div class="flex w-full max-w-4xl flex-col items-center justify-center">
     <app-button-new-trip></app-button-new-trip>
     <ng-container *ngFor="let trip of trips$ | async">
       <a
-        class="mt-2 flex h-full w-full items-center justify-center"
+        class="mt-6 flex h-full w-full items-center justify-center"
         [routerLink]="trip !== null ? '/tripDetails/' + trip.id : null"
       >
         <app-trip-overview-card [trip]="trip"></app-trip-overview-card>
