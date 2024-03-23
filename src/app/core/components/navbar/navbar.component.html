@@ -1,7 +1,7 @@
 <!-- Mobile navbar -->
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
   <nav
-    class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 bg-bg-secondary p-4 drop-shadow-md"
+    class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 bg-bg-secondary pr-4 drop-shadow-md"
   >
     <a class="flex h-full w-40" [routerLink]="['/']">
       <!-- Logo was generated using www.logo.com -->
@@ -52,7 +52,7 @@
     class="fixed z-50 flex h-20 w-full items-center justify-center bg-bg-secondary drop-shadow-md"
   >
     <nav
-      class="flex h-full w-full max-w-[1160px] items-center justify-between gap-8 px-2"
+      class="flex h-full w-full max-w-[1160px] items-center justify-between gap-8 px-4"
     >
       <div class="flex h-full flex-[2] justify-center">
         <a class="flex h-full w-40" [routerLink]="['/']">
@@ -66,11 +66,9 @@
       <div class="flex h-full flex-[3] items-center">
         <app-city-search-bar class="desktop" (citySelected)="onCitySelected($event)" />
       </div>
-      <div class="flex h-full flex-[3] items-center justify-end gap-6">
+      <div class="flex h-full flex-[3] items-center justify-end gap-6 whitespace-nowrap">
         <div class="flex h-full w-fit items-center gap-3">
-          <label
-            class="whitespace-nowrap leading-none text-text-primary"
-            for="darkModeToggle"
+          <label class="leading-none text-text-primary" for="darkModeToggle"
             >Dark Mode</label
           >
           <div class="mt-[0.2rem] flex h-full items-center">
