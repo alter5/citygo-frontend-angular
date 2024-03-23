@@ -2,7 +2,7 @@
   <img src="https://github.com/alter5/city-go/assets/36527069/6a3e2d75-04c8-4f7e-8be5-f78724bb53d6" alt="CityGo Logo" width="250">
 </p>
 
-# CityGo - Trips for Any City
+# Introduction
 CityGo allows users to find vacation routes for any city. It is integrated with Google Maps to allow users to navigate the trip on their device.
 
 ### Tech Stack:
