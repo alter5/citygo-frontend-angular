@@ -20,9 +20,8 @@ The home page allows users to view the most popular trips
 It comes with a shimmer effect while loading
 * This is done by using an array of dummy trip objects, and checking if the isLoading boolean is true
 <p align="center">
-  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/7c310efe-39f0-49e3-a470-945a8dc8ce28" alt="Home Page" width="738">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/f6a076f1-2920-46c4-b7d5-3cb5d9e9c526" alt="Home Page" width="738">
 </p>
-
 
 The website comes with a dark mode toggle
 * This is done by using the Tailwind -- plugin, which lets you create one class for multiple theme palettes. (show code snippet)
