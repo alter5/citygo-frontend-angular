@@ -35,7 +35,7 @@ Use the search bar to filter trips by city
   <img src="https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa" alt="Search bar" width="738">
 </p>
 
-The website uses a responsive mobile-first design, and can be viewed in mobile browsers.
+The website is also responsive, and uses a mobile-first design.
 * The navbar links are collapsed into a hamburger menu
 
 <p align="center">
