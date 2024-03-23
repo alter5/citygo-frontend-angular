@@ -1,5 +1,5 @@
 # CityGo - Trips for Any City
-CityGo is a web application which allows users to find vacation routes for a city. It is integrated with Google Maps to give an overview of the trip, as well as navigate it.
+CityGo allows users to find vacation routes for any city. It is integrated with Google Maps to give an overview of the trip, as well as navigate it.
 
 The backend uses Node.js and PostgreSQL for storing the trips. To view the backend implementation, see the following repo:
 
