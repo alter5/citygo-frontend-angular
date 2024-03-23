@@ -112,5 +112,5 @@ Code:
 The trip itinerary is typed into an list of input fields, which can be reordered by dragging and dropping.
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="400">
+  <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="700">
 </p>
