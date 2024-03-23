@@ -66,7 +66,7 @@ View the details of a trip in the overview page.
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Site responsiveness" width="600">
 </p>
 
-Towards the bottom, you can view trip itinerary in Google Maps.
+Towards the bottom, you can view the trip itinerary in Google Maps.
 
 <p align="center">
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/c00e7d6e-892d-41f5-b5b8-f3e35f64d97f" alt="Site responsiveness" width="600">
