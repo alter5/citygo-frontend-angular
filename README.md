@@ -1,5 +1,5 @@
 # CityGo - Trips for Any City
-CityGo allows users to find vacation routes for any city. It is integrated with Google Maps to give an overview of the trip, as well as navigate it.
+CityGo allows users to find vacation routes for any city. It is integrated with Google Maps to allow users to navigate the trip on their device.
 
 The frontend of this application uses Angular and Tailwind.
 
