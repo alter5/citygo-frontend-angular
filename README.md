@@ -76,7 +76,7 @@ Finally, by clicking "Start Trip" you can begin navigating the itinerary on your
 
 
 ## Creating a Trip
-Users can create a trip can be created by filling out a form. 
+Users can create a trip by filling out a form. 
 * When submitted, the form sends a tripCreationDto to the backend 
 * This DTO is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
 
