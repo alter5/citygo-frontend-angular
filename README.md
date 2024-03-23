@@ -50,16 +50,14 @@ View the details of a trip in the overview page.
 A preview of the destinations can be viewed in the image carousel at the top.
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/853313c0-6755-4c60-a147-4f902bed472b" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Site responsiveness" width="738">
 </p>
-
 
 Towards the bottom, you can view trip itinerary in Google Maps.
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/a71fefd0-5be3-41bc-9d4a-b2de996c1daa" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/c00e7d6e-892d-41f5-b5b8-f3e35f64d97f" alt="Site responsiveness" width="738">
 </p>
-
 
 Finally, click "Start Trip" to begin navigating the itinerary on your mobile device. 
 * The button uses a Google Maps "deep link" containing the trip itinerary. When clicked on, it opens the Google Maps app on your device.
