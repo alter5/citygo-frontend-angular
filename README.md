@@ -53,14 +53,15 @@ This is done by creating a Google Maps Deep Link for the trip which when clicked
 
 
 ## Creating a Trip
-A trip can be created by filling out a form. When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
+Users can create a trip can be created by filling out a form. 
+When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/084ced26-612b-43b2-9825-b39e3e0e9c7f" alt="Site responsiveness" width="738">
 </p>
 
-For the duration and price, I created a rating input component
-It is accessible, and allows for selecting values using the arrow keys on your keyboard
+A custom rating input component is used for the duration and price fields.
+It is accessible, allowing you to change the value by using the arrow keys on a keyboard.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155" alt="Site responsiveness" width="738">
@@ -105,7 +106,7 @@ Code:
 
 ```
 
-For the trip itinerary, destinations are typed into input fields, which are draggable to be reordered.
+The trip itinerary is typed into an list of input fields, which can be reordered by dragging and dropping.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="738">
