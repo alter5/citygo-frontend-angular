@@ -20,13 +20,13 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 
 ## Home Page
 The home page displays the most popular trips.
-<div align="left" style="display: flex; flex-direction: column;">
+<div align="center" style="display: flex; flex-direction: column;">
   <img style="width: 600px" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Image 2">
 </div>
 
 &nbsp;<br>
 Use the search bar to filter trips by city
-<div align="left" style="display: flex; flex-direction: column;">
+<div align="center" style="display: flex; flex-direction: column;">
   <img style="width: 600px" src="https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa" alt="Image 2">
 </div>
 
@@ -46,7 +46,7 @@ It also comes with a dark mode toggle
 &nbsp;<br>
 The website is responsive, and uses a mobile-first design.
 * The navbar links are placed in a hamburger-style menu
-<p align="left">
+<p align="center">
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/3be40a86-7cac-4778-a631-51faf3952602" alt="Site responsiveness" width="400">
 </p>
 
@@ -54,17 +54,16 @@ The website is responsive, and uses a mobile-first design.
 
 ## Trip Overview Page
 View the details of a trip in the overview page.
-
-A preview of the destinations can be viewed in the image carousel at the top.
+* A preview of the destinations can be viewed in the image carousel at the top.
 
 <p align="center">
-  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Site responsiveness" width="600">
 </p>
 
 Towards the bottom, you can view trip itinerary in Google Maps.
 
 <p align="center">
-  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/c00e7d6e-892d-41f5-b5b8-f3e35f64d97f" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/c00e7d6e-892d-41f5-b5b8-f3e35f64d97f" alt="Site responsiveness" width="600">
 </p>
 
 Finally, by clicking "Start Trip" you can begin navigating the itinerary on your mobile device. 
