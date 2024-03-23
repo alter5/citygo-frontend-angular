@@ -1,7 +1,7 @@
 <!-- Mobile navbar -->
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
   <nav
-    class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 bg-bg-secondary pr-4 drop-shadow-md"
+    class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 bg-bg-secondary px-4 drop-shadow-md"
   >
     <a class="flex h-full w-40" [routerLink]="['/']">
       <!-- Logo was generated using www.logo.com -->
@@ -28,7 +28,7 @@
   <div
     *ngIf="isMenuOpen"
     id="dropdown"
-    class="h-screen w-full overflow-hidden bg-bg-secondary px-4 pt-24"
+    class="h-screen w-full overflow-hidden bg-bg-secondary pr-4 pt-24"
   >
     <ul class="flex h-full w-full flex-col gap-4">
       <li>

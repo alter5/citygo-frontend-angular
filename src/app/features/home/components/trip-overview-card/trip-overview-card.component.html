@@ -35,6 +35,7 @@
     </ng-container>
     <div
       class="absolute left-0 top-0 h-10 w-44 rounded-br-md bg-black bg-opacity-50 pl-3 pr-2"
+      *ngIf="trip?.price_range !== null"
     >
       <div class="flex h-full w-full items-center justify-between">
         <p class="text-base leading-none text-text-action-primary">Price:</p>
