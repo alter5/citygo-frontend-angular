@@ -30,7 +30,7 @@ The website displays a shimmer effect when loading data
 </p>
 
 The website comes with a dark mode toggle
-* This is done by using the Tailwind [tw-colors](https://github.com/L-Blondy/tw-colors "tw-colors repo") plugin, which lets you create one class for multiple theme palettes. (show code snippet)
+* This is done by using the Tailwind [tw-colors](https://github.com/L-Blondy/tw-colors "tw-colors repo") plugin, which lets you create shared classes for multiple theme palettes. (show code snippet)
 <p align="center">
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/5d971b68-28e2-4f10-9d25-e993d15d11b0" alt="Home Page" width="738">
 </p>
