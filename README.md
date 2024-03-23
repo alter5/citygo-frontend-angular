@@ -17,7 +17,7 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 </div>
 
 ## Home Page
-The home page allows users to view the most popular trips.
+The home page displays the most popular trips.
 * Use the search bar to filter trips by city
 
 <div>
