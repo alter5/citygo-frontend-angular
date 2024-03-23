@@ -3,6 +3,7 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 
 ### Tech Stack:
 The frontend of this application uses Angular and Tailwind.
+
 The backend uses Node.js and PostgreSQL for storing the trips. To view the backend implementation, see the following repo:
 
 
