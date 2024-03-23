@@ -6,7 +6,7 @@
 CityGo allows users to find vacation routes for any city. It is integrated with Google Maps to allow users to navigate the trip on their device.
 
 ### Tech Stack:
-* The frontend of this application uses Angular and Tailwind.
+* The frontend of this application uses Angular, Angular Material, and Tailwind.
 * The backend uses Node.js and PostgreSQL for storing the trips. To view the backend implementation, see this [repo](https://github.com/alter5/citygo-backend-node "CityGo backend repo"). 
 
 
