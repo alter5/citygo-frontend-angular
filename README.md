@@ -36,7 +36,7 @@ Use the search bar to filter trips by city
 </p>
 
 The website is also responsive, and uses a mobile-first design.
-* The navbar links are collapsed into a hamburger menu
+* The navbar links are placed in a hamburger-style menu
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/b3218f5d-ca7d-4738-a441-2767fa8df602" alt="Site responsiveness" width="400">
