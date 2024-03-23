@@ -11,7 +11,7 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 * APIs used:
   * Google Maps: Gets destination info, and allows for navigating trips
   * Unsplashed: Gets images for trip destinations
-  * Data.gov: The backends parses a .csv file containing every US city. This prevents excessive calls to the Google Maps API when using city data.
+  * Data.gov: The back-end parses a .csv file containing every US city. This prevents excessive calls to the Google Maps API when using city data.
 
 &nbsp;<br>
 <div align="center">
