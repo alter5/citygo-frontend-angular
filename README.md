@@ -64,11 +64,11 @@ A custom rating input component is used for the duration and price fields.
 It is accessible, allowing you to change the value by using the arrow keys on a keyboard.
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155" alt="Site responsiveness" width="100">
 </p>
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32" alt="Site responsiveness" width="100">
 </p>
 
 
@@ -109,5 +109,5 @@ Code:
 The trip itinerary is typed into an list of input fields, which can be reordered by dragging and dropping.
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="400">
 </p>
