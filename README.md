@@ -17,7 +17,7 @@ The home page allows users to view the most popular trips
   <img src="https://github.com/alter5/city-go/assets/36527069/0ae7fe12-a423-49d1-b728-f9aedadb4a9d" alt="Home Page" width="738">
 </p>
 
-The search bar filters trips by city
+Use the search bar filters trips by city
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa" alt="Search bar" width="738">
@@ -32,8 +32,8 @@ The website uses a responsive mobile-first design, and can be viewed in mobile b
 
 
 ## Trip Overview Page
-On this page, you can see an overview of the trip.
-A preview of the destinations can be easily viewed in the image carousel.
+View the details of a trip in the trip overview page.
+A preview of the destinations can be viewed in the image carousel at the top.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/853313c0-6755-4c60-a147-4f902bed472b" alt="Site responsiveness" width="738">
