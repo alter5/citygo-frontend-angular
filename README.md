@@ -49,7 +49,7 @@ Towards the bottom, you can view trip itinerary in Google Maps.
 
 
 Finally, click "Start Trip" to begin navigating the itinerary on your mobile device. 
-The button uses a Google Maps "deep link" containing the trip itinary. When clicked on, it opens the Google Maps app on your device.
+* The button uses a Google Maps "deep link" containing the trip itinary. When clicked on, it opens the Google Maps app on your device.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48" alt="Site responsiveness" width="250">
@@ -58,13 +58,14 @@ The button uses a Google Maps "deep link" containing the trip itinary. When clic
 
 ## Creating a Trip
 Users can create a trip can be created by filling out a form. 
-When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
+* When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/084ced26-612b-43b2-9825-b39e3e0e9c7f" alt="Site responsiveness" width="738">
 </p>
 
 A custom rating input component is used for the duration and price fields.
+
 It is accessible, allowing you to change the value by using the arrow keys on a keyboard.
 
 <p align="center">
