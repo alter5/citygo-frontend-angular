@@ -10,7 +10,7 @@ The home page allows users to view the most popular trips
 
 ![image](https://github.com/alter5/city-go/assets/36527069/0ae7fe12-a423-49d1-b728-f9aedadb4a9d)
 
-There is a search bar for filtering trips by city
+The search bar filters trips by city
 
 ![image](https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa)
 
