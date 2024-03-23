@@ -18,6 +18,7 @@ The home page allows users to view the most popular trips
 </p>
 
 The website comes with a dark mode toggle
+* This is done by using the Tailwind -- plugin, which lets you create one class for multiple theme palettes. (show code snippet)
 <p align="center">
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/5d971b68-28e2-4f10-9d25-e993d15d11b0" alt="Home Page" width="738">
 </p>
