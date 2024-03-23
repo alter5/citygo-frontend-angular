@@ -75,6 +75,12 @@ Users can create a trip can be created by filling out a form.
   <img src="https://github.com/alter5/city-go/assets/36527069/084ced26-612b-43b2-9825-b39e3e0e9c7f" alt="Site responsiveness" width="738">
 </p>
 
+The trip itinerary is typed into an list of input fields, which can be reordered by dragging and dropping.
+
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="700">
+</p>
+
 A custom rating input component is used for the duration and price fields.
 * It is accessible, allowing you to change the value by using the arrow keys on a keyboard.
 
@@ -84,45 +90,4 @@ A custom rating input component is used for the duration and price fields.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32" alt="Site responsiveness" width="300">
-</p>
-
-
-Code:
-```javascript
-
-  onKeyDown(event: KeyboardEvent): void {
-    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-      // Decrement current rating
-      event.preventDefault()
-      const newIndex = this.currentRating - 1
-      if (newIndex > 0) {
-        this.onClick(newIndex)
-
-        // Focus on next rating button
-        const currentElement = event.target as HTMLElement
-        const prevElement = currentElement.previousElementSibling as HTMLElement
-        prevElement.focus()
-      }
-    } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-      // Increment current rating
-      event.preventDefault()
-      const newIndex = this.currentRating
-      if (newIndex < this.maxRating) {
-        this.onClick(newIndex + 1)
-
-        // Focus on previous rating button
-        const currentElement = event.target as HTMLElement
-        const nextElement = currentElement.nextElementSibling as HTMLElement
-        nextElement.focus()
-      }
-    }
-  }
-
-
-```
-
-The trip itinerary is typed into an list of input fields, which can be reordered by dragging and dropping.
-
-<p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="700">
 </p>
