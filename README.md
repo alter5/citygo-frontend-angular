@@ -20,28 +20,27 @@ The website uses a responsive mobile-first design, and can be viewed in mobile b
 
 
 
-## Trip Overview
-The trips details can be viewed by clicking on a trip on the homepage.
-The destinations can be easily viewed in the image carousel.
+## Trip Overview Page
+On this page, you can see an overview of the trip.
+A preview of the destinations can be easily viewed in the image carousel.
 
 ![image](https://github.com/alter5/city-go/assets/36527069/853313c0-6755-4c60-a147-4f902bed472b)
 
-Towards the bottom, you can view the details for the trip itinerary.
-In Google Maps, markers are placed for the itinerary.
+Towards the bottom, you can view trip itinerary in Google Maps.
 
 ![image](https://github.com/alter5/city-go/assets/36527069/a71fefd0-5be3-41bc-9d4a-b2de996c1daa)
 
-Finally, by clicking Start Trip, a user is able to begin navigating the itinerary on their mobile device. This is done using a Google Maps Deep Link generated, which when clicked on, opens the Maps app on your device.
+Finally, upon clicking "Start Trip," the user is able to begin navigating the itinerary on their mobile device. This is done by generating a Google Maps Deep Link containing each destination, which when clicked on, opens the Maps app on their device.
 
 ![image](https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48)
 
 
 
 ## Creating a Trip
-To create a trip, the following details need to be filled out in the form below. The form submits a tripCreationDTO to the backend, which is then parsed to add addresses and images to the locations using the Google Maps and Unsplashed APIs
+A trip can be created by filling out a form. When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
 ![image](https://github.com/alter5/city-go/assets/36527069/084ced26-612b-43b2-9825-b39e3e0e9c7f)
 
-For the duration and price, I've created a rating input component
+For the duration and price, I created a rating input component
 It is accessible, and allows for selecting values using the arrow keys on your keyboard
 
 ![image](https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155)
@@ -82,6 +81,7 @@ Code:
 
 ```
 
-For the trip itinerary, destinations are typed into the below input fields, and can be reordered by dragging and dropping them
+For the trip itinerary, destinations are typed into input fields, which are draggable to be reordered.
+
 ![image](https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38)
 
