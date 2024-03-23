@@ -9,7 +9,7 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 * The frontend of this application uses Angular, Angular Material, and Tailwind.
 * The backend uses Node.js and PostgreSQL for storing the trips. To view the backend implementation, see this [repo](https://github.com/alter5/citygo-backend-node "CityGo backend repo"). 
 
-<div style="display:flex; justify-content: space-between; align-items: center;">
+<div align="center">
     <img style="width: 26%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Image 1"">
     <img style="width: 26%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Image 2"">
     <img style="width: 24%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/4c0b2e9a-063d-4333-9794-6e636aa46864" alt="Image 3">
@@ -20,7 +20,7 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 The home page allows users to view the most popular trips.
 * Use the search bar to filter trips by city
 
-<div style="display:flex; justify-content: space-between; align-items: center;">
+<div>
     <img style="width: 49%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Image 1"">
     <img style="width: 49%" src="https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa" alt="Image 2"">
 </div>
@@ -33,7 +33,7 @@ The website displays a shimmer effect when loading data
 It also comes with a dark mode toggle
 * This is done by using the Tailwind [tw-colors](https://github.com/L-Blondy/tw-colors "tw-colors repo") plugin, which lets you create shared classes for multiple theme palettes. (show code snippet)
 
-<div style="display:flex; justify-content: space-between; align-items: center;">
+<div align="center">
     <img style="width: 49%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/f6a076f1-2920-46c4-b7d5-3cb5d9e9c526" alt="Image 1"">
     <img style="width: 49%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/5d971b68-28e2-4f10-9d25-e993d15d11b0" alt="Image 2"">
 </div>
