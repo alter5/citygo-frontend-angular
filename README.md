@@ -6,10 +6,10 @@
 CityGo allows users to find vacation routes for any city. It is integrated with Google Maps to allow users to navigate the trip on their device.
 
 <div style="display:flex; justify-content: space-between; gap: 2rem;">
-    <img style="flex: 1;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Image 1"">
-    <img style="flex: 1;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Image 2"">
-    <img style="flex: 1;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/1cd4cd05-b692-4799-9432-acdf0417757a" alt="Image 3">
-    <img style="flex: 1;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/c00e7d6e-892d-41f5-b5b8-f3e35f64d97f" alt="Image 3">
+    <img style="width: 100px;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Image 1"">
+    <img style="width: 100px;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Image 2"">
+    <img style="width: 100px;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/1cd4cd05-b692-4799-9432-acdf0417757a" alt="Image 3">
+    <img style="width: 100px;" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/c00e7d6e-892d-41f5-b5b8-f3e35f64d97f" alt="Image 3">
 </div>
 
 ### Tech Stack:
