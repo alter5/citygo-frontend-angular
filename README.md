@@ -64,11 +64,11 @@ A custom rating input component is used for the duration and price fields.
 It is accessible, allowing you to change the value by using the arrow keys on a keyboard.
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155" alt="Site responsiveness" width="100">
+  <img src="https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155" alt="Site responsiveness" width="200">
 </p>
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32" alt="Site responsiveness" width="100">
+  <img src="https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32" alt="Site responsiveness" width="200">
 </p>
 
 
