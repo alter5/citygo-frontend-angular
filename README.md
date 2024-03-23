@@ -10,11 +10,15 @@ The backend uses Node.js and PostgreSQL for storing the trips. To view the backe
 ## Home Page
 The home page allows users to view the most popular trips
 
-![image](https://github.com/alter5/city-go/assets/36527069/0ae7fe12-a423-49d1-b728-f9aedadb4a9d)
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/0ae7fe12-a423-49d1-b728-f9aedadb4a9d" alt="Home Page" width="738">
+</p>
 
 The search bar filters trips by city
 
-![image](https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa)
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa" alt="Search bar" width="738">
+</p>
 
 The website uses a responsive mobile-first design, and can be viewed in mobile browsers. The navbar links are collapsed into a hamburger menu
 
