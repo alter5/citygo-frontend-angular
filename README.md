@@ -22,7 +22,9 @@ The search bar filters trips by city
 
 The website uses a responsive mobile-first design, and can be viewed in mobile browsers. The navbar links are collapsed into a hamburger menu
 
-![image](https://github.com/alter5/city-go/assets/36527069/b3218f5d-ca7d-4738-a441-2767fa8df602)
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/b3218f5d-ca7d-4738-a441-2767fa8df602" alt="Site responsiveness" width="738">
+</p>
 
 
 
@@ -30,28 +32,43 @@ The website uses a responsive mobile-first design, and can be viewed in mobile b
 On this page, you can see an overview of the trip.
 A preview of the destinations can be easily viewed in the image carousel.
 
-![image](https://github.com/alter5/city-go/assets/36527069/853313c0-6755-4c60-a147-4f902bed472b)
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/853313c0-6755-4c60-a147-4f902bed472b" alt="Site responsiveness" width="738">
+</p>
+
 
 Towards the bottom, you can view trip itinerary in Google Maps.
 
-![image](https://github.com/alter5/city-go/assets/36527069/a71fefd0-5be3-41bc-9d4a-b2de996c1daa)
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/a71fefd0-5be3-41bc-9d4a-b2de996c1daa" alt="Site responsiveness" width="738">
+</p>
+
 
 Finally, upon clicking "Start Trip," the user is able to begin navigating the itinerary on their mobile device. This is done by generating a Google Maps Deep Link containing each destination, which when clicked on, opens the Maps app on their device.
 
-![image](https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48)
-
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48" alt="Site responsiveness" width="738">
+</p>
 
 
 ## Creating a Trip
 A trip can be created by filling out a form. When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
-![image](https://github.com/alter5/city-go/assets/36527069/084ced26-612b-43b2-9825-b39e3e0e9c7f)
+
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/084ced26-612b-43b2-9825-b39e3e0e9c7f" alt="Site responsiveness" width="738">
+</p>
 
 For the duration and price, I created a rating input component
 It is accessible, and allows for selecting values using the arrow keys on your keyboard
 
-![image](https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155)
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155" alt="Site responsiveness" width="738">
+</p>
 
-![image](https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32)
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32" alt="Site responsiveness" width="738">
+</p>
+
 
 Code:
 ```javascript
@@ -89,5 +106,6 @@ Code:
 
 For the trip itinerary, destinations are typed into input fields, which are draggable to be reordered.
 
-![image](https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38)
-
+<p align="center">
+  <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="738">
+</p>
