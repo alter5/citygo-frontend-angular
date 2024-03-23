@@ -39,7 +39,7 @@ The website is also responsive, and uses a mobile-first design.
 * The navbar links are placed in a hamburger-style menu
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/b3218f5d-ca7d-4738-a441-2767fa8df602" alt="Site responsiveness" width="400">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/3be40a86-7cac-4778-a631-51faf3952602" alt="Site responsiveness" width="400">
 </p>
 
 
