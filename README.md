@@ -75,7 +75,7 @@ Finally, by clicking "Start Trip" you can begin navigating the itinerary on your
 
 ## Creating a Trip
 Users can create a trip can be created by filling out a form. 
-* When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
+* When submitted, the form sends a tripCreationDto to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
 
 <p align="center">
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/4c0b2e9a-063d-4333-9794-6e636aa46864" alt="Site responsiveness" width="738">
