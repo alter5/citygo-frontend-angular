@@ -67,7 +67,8 @@ Towards the bottom, you can view trip itinerary in Google Maps.
 </p>
 
 Finally, by clicking "Start Trip" you can begin navigating the itinerary on your mobile device. 
-* The button uses a Google Maps "deep link" containing the trip itinerary. When clicked on, it opens the Google Maps app on your device.
+* The button uses a Google Maps "deep link" containing the trip itinerary. 
+* When clicked on, it opens the Google Maps app on your device.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48" alt="Site responsiveness" width="250">
