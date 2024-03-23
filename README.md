@@ -72,7 +72,7 @@ Users can create a trip can be created by filling out a form.
 * When submitted, the form sends a tripCreationDTO to the backend which is parsed to add addresses and images to the trip using the Google Maps and Unsplashed APIs.
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/084ced26-612b-43b2-9825-b39e3e0e9c7f" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/1cd4cd05-b692-4799-9432-acdf0417757a" alt="Site responsiveness" width="738">
 </p>
 
 The trip itinerary is typed into an list of input fields, which can be reordered by dragging and dropping.
