@@ -25,6 +25,7 @@ The home page allows users to view the most popular trips.
     <img style="width: 49%" src="https://github.com/alter5/city-go/assets/36527069/32543e74-189a-4cbf-a3a5-0dc8a7adfdaa" alt="Image 2"">
 </div>
 
+&nbsp;<br>
 
 The website displays a shimmer effect when loading data
 * This is done by using an array of dummy objects, and checking if certain properties are null
