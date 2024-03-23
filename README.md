@@ -65,8 +65,7 @@ Users can create a trip can be created by filling out a form.
 </p>
 
 A custom rating input component is used for the duration and price fields.
-
-It is accessible, allowing you to change the value by using the arrow keys on a keyboard.
+* It is accessible, allowing you to change the value by using the arrow keys on a keyboard.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155" alt="Site responsiveness" width="300">
