@@ -14,7 +14,12 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 The home page allows users to view the most popular trips
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/0ae7fe12-a423-49d1-b728-f9aedadb4a9d" alt="Home Page" width="738">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Home Page" width="738">
+</p>
+
+The website comes with a dark mode toggle
+<p align="center">
+  <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/5d971b68-28e2-4f10-9d25-e993d15d11b0" alt="Home Page" width="738">
 </p>
 
 Use the search bar to filter trips by city
