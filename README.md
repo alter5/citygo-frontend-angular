@@ -12,7 +12,7 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 <div style="display:flex; justify-content: space-between; align-items: center;">
     <img style="width: 26%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Image 1"">
     <img style="width: 26%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Image 2"">
-    <img style="width: 24%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/4c0b2e9a-063d-4333-9794-6e636aa46864" alt="Image 3">
+    <img style="width: 23%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/4c0b2e9a-063d-4333-9794-6e636aa46864" alt="Image 3">
     <img style="width: 12%"" src="https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48" alt="Image 3">
 </div>
 
