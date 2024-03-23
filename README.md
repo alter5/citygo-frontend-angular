@@ -43,10 +43,13 @@ To create a trip, the following details need to be filled out in the form below.
 
 For the duration and price, I've created a rating input component
 It is accessible, and allows for selecting values using the arrow keys on your keyboard
+
 ![image](https://github.com/alter5/city-go/assets/36527069/07c0604a-ef25-4624-b015-c32f63431155)
+
 ![image](https://github.com/alter5/city-go/assets/36527069/2a85c8df-a18b-4171-a4c8-8f0d80dcfe32)
+
 Code:
-```
+```javascript
 
   onKeyDown(event: KeyboardEvent): void {
     if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
