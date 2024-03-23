@@ -44,7 +44,8 @@ Towards the bottom, you can view trip itinerary in Google Maps.
 </p>
 
 
-Finally, upon clicking "Start Trip," the user is able to begin navigating the itinerary on their mobile device. This is done by generating a Google Maps Deep Link containing each destination, which when clicked on, opens the Maps app on their device.
+Finally, after clicking "Start Trip," the user can begin navigating the itinerary on their mobile device. 
+This is done by creating a Google Maps Deep Link for the trip which when clicked on, opens the Google Maps app on their device.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48" alt="Site responsiveness" width="250">
