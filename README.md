@@ -84,7 +84,7 @@ Users can create a trip by filling out a form.
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/4c0b2e9a-063d-4333-9794-6e636aa46864" alt="Site responsiveness" width="738">
 </p>
 
-The trip itinerary is typed into an list of input fields, which can be reordered by dragging and dropping.
+The destinations can be reordered by dragging and dropping.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/04ecf94e-4fa0-4335-a6e3-75bc9b1a2a38" alt="Site responsiveness" width="600">
