@@ -32,7 +32,8 @@ The website uses a responsive mobile-first design, and can be viewed in mobile b
 
 
 ## Trip Overview Page
-View the details of a trip in the trip overview page.
+View the details of a trip in the overview page.
+
 A preview of the destinations can be viewed in the image carousel at the top.
 
 <p align="center">
@@ -47,8 +48,8 @@ Towards the bottom, you can view trip itinerary in Google Maps.
 </p>
 
 
-Finally, after clicking "Start Trip," the user can begin navigating the itinerary on their mobile device. 
-This is done by creating a Google Maps Deep Link for the trip which when clicked on, opens the Google Maps app on their device.
+Finally, click "Start Trip" to begin navigating the itinerary on your mobile device. 
+The button uses a Google Maps "deep link" containing the trip itinary. When clicked on, it opens the Google Maps app on your device.
 
 <p align="center">
   <img src="https://github.com/alter5/city-go/assets/36527069/3dca32fe-c4dc-43b9-aa4a-049a94c7cf48" alt="Site responsiveness" width="250">
