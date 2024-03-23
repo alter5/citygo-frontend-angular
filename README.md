@@ -23,7 +23,7 @@ The home page allows users to view the most popular trips
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Home Page" width="738">
 </p>
 
-The website displays a shimmer effect when loading any data
+The website displays a shimmer effect when loading data
 * This is done by using an array of dummy objects, and checking if certain properties are null
 <p align="center">
   <img src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/f6a076f1-2920-46c4-b7d5-3cb5d9e9c526" alt="Home Page" width="738">
