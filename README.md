@@ -36,7 +36,7 @@ The website displays a shimmer effect when loading data
 * This is done by using an array of dummy objects, and checking if certain properties are null
 
 It also comes with a dark mode toggle
-* This is done by using the Tailwind [tw-colors](https://github.com/L-Blondy/tw-colors "tw-colors repo") plugin, which lets you create shared classes for multiple theme palettes. (show code snippet)
+* This is done by using the Tailwind [tw-colors](https://github.com/L-Blondy/tw-colors "tw-colors repo") plugin, which lets you create shared classes for multiple theme palettes.
 
 <div align="center">
     <img style="width: 49%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/f6a076f1-2920-46c4-b7d5-3cb5d9e9c526" alt="Image 1"">
