@@ -23,7 +23,7 @@ The search bar filters trips by city
 The website uses a responsive mobile-first design, and can be viewed in mobile browsers. The navbar links are collapsed into a hamburger menu
 
 <p align="center">
-  <img src="https://github.com/alter5/city-go/assets/36527069/b3218f5d-ca7d-4738-a441-2767fa8df602" alt="Site responsiveness" width="738">
+  <img src="https://github.com/alter5/city-go/assets/36527069/b3218f5d-ca7d-4738-a441-2767fa8df602" alt="Site responsiveness" width="400">
 </p>
 
 
