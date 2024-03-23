@@ -9,11 +9,12 @@ CityGo allows users to find vacation routes for any city. It is integrated with 
 * The front-end of this application uses Angular, Angular Material, and Tailwind.
 * The back-end uses Node.js and PostgreSQL for storing the trips. To view the back-end implementation, see this [repo](https://github.com/alter5/citygo-backend-node "CityGo backend repo"). 
 * APIs used:
-  * Google Maps: Gets destination info, and allows for navigating trips
-  * Unsplashed: Gets images for trip destinations
-  * Data.gov: The back-end parses a .csv file containing every US city. This prevents excessive calls to the Google Maps API when using city data.
+  * Google Maps: For place info and navigating trips
+  * Unsplashed: For images of trip places
+  * Data.gov: The back-end parses a .csv file containing every US city, and stores it in the database.
+    * This prevents excessive calls to the Google Maps API when using city data.
 
-&nbsp;<br>
+
 <div align="center">
     <img style="width: 26%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/58de0cf0-ef43-4c6e-b6b5-3d100d170fc6" alt="Image 1"">
     <img style="width: 26%" src="https://github.com/alter5/citygo-frontend-angular/assets/36527069/971bd6ab-9cd0-47f1-ac9e-bed1c221500a" alt="Image 2"">
