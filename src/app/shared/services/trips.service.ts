@@ -63,6 +63,10 @@ export class TripsService {
       )
   }
 
+  getMockTrips(): Trip[] {
+    return new Array(4).fill(this.getMockTrip())
+  }
+
   getMockTrip(): Trip {
     const mockTrip: Trip = {
       id: 0,
