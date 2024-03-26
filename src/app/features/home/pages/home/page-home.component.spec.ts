@@ -13,7 +13,7 @@ describe("PageHomeComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, PageHomeComponent],
-      providers: [TripsService]
+      providers: [ {provide: TripsService, useValue: jasmine.createSpyObj("TripsService", ["getPopularTrips"])}]
     }).compileComponents()
 
     fixture = TestBed.createComponent(PageHomeComponent)
@@ -23,6 +23,7 @@ describe("PageHomeComponent", () => {
   })
 
   it("should start with 4 mock trips before tripsService returns data", (done) => {
+    const compiled = fixture.nativeElement
     expect(component.trips$).toBeDefined()
     component.trips$.subscribe((trips) => {
       expect(trips.length).toEqual(4)
@@ -30,7 +31,7 @@ describe("PageHomeComponent", () => {
     })
 
     // check if 4 trips are rendered
-    const tripCardElements = fixture.nativeElement.querySelectorAll("app-trip-overview-card")
+    const tripCardElements = compiled.querySelectorAll("app-trip-overview-card")
     expect(tripCardElements.length).toEqual(4)
   })
 
