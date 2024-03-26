@@ -34,6 +34,6 @@ export class PageHomeComponent implements OnInit {
   ngOnInit(): void {
     this.trips$ = this.tripsService
       .getPopularTrips()
-      .pipe(startWith(Array(5).fill(null)))
+      .pipe(startWith(this.tripsService.getMockTrips()))
   }
 }
