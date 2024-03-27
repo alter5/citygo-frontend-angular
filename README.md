@@ -39,7 +39,7 @@ Use the search bar to filter trips by city
 
 &nbsp;<br>
 The website displays a shimmer effect when loading data
-* This is done by using an array of dummy objects, and checking if certain properties are falsy
+* This is done by checking if an input property is null
 
 It also comes with a dark mode toggle
 * This is done by using the Tailwind [tw-colors](https://github.com/L-Blondy/tw-colors "tw-colors repo") plugin, which lets you create shared classes for multiple theme palettes.
