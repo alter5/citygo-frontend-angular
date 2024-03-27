@@ -3,47 +3,49 @@ import { RouterTestingModule } from "@angular/router/testing"
 import { HttpClientTestingModule } from "@angular/common/http/testing"
 import { PageHomeComponent } from "./page-home.component"
 import { TripsService } from "src/app/shared/services/trips.service"
-import { of } from "rxjs"
+import { of, take } from "rxjs"
+import { Trip } from "src/app/shared/models/trip.model"
+import { getMockTrip } from "src/app/shared/models/tripMock"
 
 describe("PageHomeComponent", () => {
   let component: PageHomeComponent
   let fixture: ComponentFixture<PageHomeComponent>
-  let tripsService: TripsService
+  let tripsServiceSpy: jasmine.SpyObj<TripsService>
 
   beforeEach(async () => {
+    tripsServiceSpy = jasmine.createSpyObj("TripsService", ["getPopularTrips"])
+    tripsServiceSpy.getPopularTrips.and.returnValue(of(new Array(3).fill(getMockTrip())))
+
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, PageHomeComponent],
-      providers: [ {provide: TripsService, useValue: jasmine.createSpyObj("TripsService", ["getPopularTrips"])}]
+      providers: [
+        {
+          provide: TripsService,
+          useValue: tripsServiceSpy
+        }
+      ]
     }).compileComponents()
 
     fixture = TestBed.createComponent(PageHomeComponent)
     component = fixture.componentInstance
-    tripsService = TestBed.inject(TripsService)
+
     fixture.detectChanges()
   })
 
-  it("should start with 4 mock trips before tripsService returns data", (done) => {
+  it("should start with 4 mock trips before tripsService returns data", () => {
     const compiled = fixture.nativeElement
-    expect(component.trips$).toBeDefined()
-    component.trips$.subscribe((trips) => {
-      expect(trips.length).toEqual(4)
-      done()
-    })
 
-    // check if 4 trips are rendered
-    const tripCardElements = compiled.querySelectorAll("app-trip-overview-card")
-    expect(tripCardElements.length).toEqual(4)
+    component.trips$.pipe(take(1)).subscribe((trips) => {
+      expect(trips.length).toEqual(4)
+
+      const tripCardElements = compiled.querySelectorAll("app-trip-overview-card")
+      expect(tripCardElements.length).toEqual(4)
+    })
   })
 
-
   it("should render trips", () => {
-    const mockTrip = tripsService.getMockTrip()
+    const mockTrip: Partial<Trip> = { title: "Mock Trip" }
     const mockTrips = new Array(6).fill(mockTrip)
-
-    spyOn(tripsService, "getPopularTrips").and.returnValue(of(mockTrips))
-
-    // skip the component's startWith operator
-    component.ngOnInit()
 
     fixture.detectChanges()
 

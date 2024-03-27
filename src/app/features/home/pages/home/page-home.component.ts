@@ -9,6 +9,7 @@ import { InputAutocompleteComponent } from "src/app/shared/components/input-auto
 import { NgClass } from "@angular/common"
 import { ButtonNewTripComponent } from "../../components/button-new-trip/button-new-trip.component"
 import { RouterModule } from "@angular/router"
+import { getMockTrip } from "src/app/shared/models/tripMock"
 
 @Component({
   selector: "app-home",
@@ -34,6 +35,6 @@ export class PageHomeComponent implements OnInit {
   ngOnInit(): void {
     this.trips$ = this.tripsService
       .getPopularTrips()
-      .pipe(startWith(this.tripsService.getMockTrips()))
+      .pipe(startWith(new Array(4).fill(getMockTrip())))
   }
 }
