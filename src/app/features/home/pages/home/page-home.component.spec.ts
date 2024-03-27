@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing"
+import { ComponentFixture, TestBed, fakeAsync, tick } from "@angular/core/testing"
 import { RouterTestingModule } from "@angular/router/testing"
 import { HttpClientTestingModule } from "@angular/common/http/testing"
 import { PageHomeComponent } from "./page-home.component"
@@ -28,12 +28,13 @@ describe("PageHomeComponent", () => {
 
     fixture = TestBed.createComponent(PageHomeComponent)
     component = fixture.componentInstance
-
-    fixture.detectChanges()
   })
 
-  it("should start with 4 mock trips before tripsService returns data", () => {
+  it("should start with 4 mock trips before tripsService returns data", fakeAsync(() => {
+    // continue research: GOOGLE: angular testing with observables ngoninit
     const compiled = fixture.nativeElement
+
+    fixture.detectChanges()
 
     component.trips$.pipe(take(1)).subscribe((trips) => {
       expect(trips.length).toEqual(4)
@@ -41,7 +42,9 @@ describe("PageHomeComponent", () => {
       const tripCardElements = compiled.querySelectorAll("app-trip-overview-card")
       expect(tripCardElements.length).toEqual(4)
     })
-  })
+
+    tick()
+  }))
 
   it("should render trips", () => {
     const mockTrip: Partial<Trip> = { title: "Mock Trip" }
