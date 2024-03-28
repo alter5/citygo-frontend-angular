@@ -72,10 +72,4 @@ describe("InputRatingComponent", () => {
       }
     }
   })
-
-  // Add more test cases here
-
-  afterEach(() => {
-    fixture.destroy()
-  })
 })
