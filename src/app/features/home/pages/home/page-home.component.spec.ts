@@ -39,7 +39,7 @@ describe("PageHomeComponent", () => {
 
   it("should render trips", () => {
     const testTitleString = "Test title"
-    const mockTrip = getMockTrip()
+    const mockTrip: Trip = getMockTrip()
     mockTrip.title = testTitleString
     const mockTrips = new Array(6).fill(mockTrip)
 
