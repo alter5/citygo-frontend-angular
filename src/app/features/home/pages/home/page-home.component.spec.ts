@@ -6,6 +6,7 @@ import { TripsService } from "src/app/shared/services/trips.service"
 import { delay, first, of, take } from "rxjs"
 import { Trip } from "src/app/shared/models/trip.model"
 import { getMockTrip } from "src/app/shared/models/tripMock"
+import { By } from "@angular/platform-browser"
 
 describe("PageHomeComponent", () => {
   let component: PageHomeComponent
@@ -13,6 +14,7 @@ describe("PageHomeComponent", () => {
   let tripsServiceSpy: jasmine.SpyObj<TripsService>
 
   beforeEach(async () => {
+    // Resource for learning Angular testing: https://testing-angular.com/testing-components/#testing-components
     tripsServiceSpy = jasmine.createSpyObj("TripsService", ["getPopularTrips"])
 
     // Delay is used to simulate the time it takes for the service to return data
@@ -31,19 +33,25 @@ describe("PageHomeComponent", () => {
     component = fixture.componentInstance
   })
 
+  it("should create", () => {
+    expect(component).toBeTruthy()
+  })
+
   it("should render trips", () => {
+    const testTitleString = "Test title"
     const mockTrip = getMockTrip()
-    mockTrip.title = "Test title"
+    mockTrip.title = testTitleString
     const mockTrips = new Array(6).fill(mockTrip)
 
     tripsServiceSpy.getPopularTrips.and.returnValue(of(mockTrips))
 
     fixture.detectChanges()
 
-    // check how many app-trip-overview-card components are rendered
-    const tripElements = fixture.nativeElement.querySelectorAll("app-trip-overview-card")
+    // Check how many trip-overview-card components are rendered
+    const tripCardElements = fixture.debugElement.queryAll(By.css("app-trip-overview-card"))
+    const title = tripCardElements[0].query(By.css("[data-testid='card-title']")).nativeElement.textContent
 
-    expect(tripElements.length).toEqual(6)
+    expect(title).toContain(testTitleString)
   })
 
   it("should render dummy trips while loading data from service", async () => {

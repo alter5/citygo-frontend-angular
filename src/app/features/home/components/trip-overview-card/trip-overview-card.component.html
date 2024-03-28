@@ -6,7 +6,7 @@
       class="flex h-5 w-72 items-center rounded-md leading-none"
       [class.loading]="trip === null"
     >
-      <p *ngIf="trip !== null" class="text-xl font-bold text-text-primary">
+      <p *ngIf="trip !== null" class="text-xl font-bold text-text-primary" data-testid="card-title">
         {{ trip.title }}
       </p>
     </div>
