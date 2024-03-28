@@ -3,7 +3,7 @@ import { NgFor, AsyncPipe } from "@angular/common"
 import { TestThemeComponent } from "../../components/test-theme/test-theme.component"
 import { TripOverviewCardComponent } from "../../components/trip-overview-card/trip-overview-card.component"
 import { TripsService } from "src/app/shared/services/trips.service"
-import { Observable, startWith } from "rxjs"
+import { Observable, startWith, tap } from "rxjs"
 import { Trip } from "src/app/shared/models/trip.model"
 import { InputAutocompleteComponent } from "src/app/shared/components/input-autocomplete/input-autocomplete.component"
 import { NgClass } from "@angular/common"
@@ -33,8 +33,11 @@ export class PageHomeComponent implements OnInit {
   constructor(private tripsService: TripsService) {}
 
   ngOnInit(): void {
-    this.trips$ = this.tripsService
-      .getPopularTrips()
-      .pipe(startWith(new Array(4).fill(getMockTrip())))
+    this.trips$ = this.tripsService.getPopularTrips().pipe(
+      startWith(new Array(4).fill(getMockTrip())),
+      tap((trips) => {
+        console.log("🚀 ~ PageHomeComponent ~ ngOnInit ~ trips:", trips.length)
+      })
+    )
   }
 }
