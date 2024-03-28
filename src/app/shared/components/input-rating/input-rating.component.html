@@ -10,8 +10,9 @@
         (keydown)="onKeyDown($event)"
         [attr.tabindex]="ratingValue === currentRating ? 0 : -1"
         [attr.aria-checked]="ratingValue === currentRating"
+        data-testid="input-rating-button"
       >
-        <span class="material-icons text-2xl text-bg-action-primary">
+        <span class="material-icons text-2xl text-bg-action-primary" data-testid="input-rating-span">
           {{ this.getIcon(ratingValue) }}
         </span>
       </button>

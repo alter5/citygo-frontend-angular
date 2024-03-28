@@ -33,11 +33,8 @@ export class PageHomeComponent implements OnInit {
   constructor(private tripsService: TripsService) {}
 
   ngOnInit(): void {
-    this.trips$ = this.tripsService.getPopularTrips().pipe(
-      startWith(new Array(4).fill(getMockTrip())),
-      tap((trips) => {
-        console.log("🚀 ~ PageHomeComponent ~ ngOnInit ~ trips:", trips.length)
-      })
-    )
+    this.trips$ = this.tripsService
+      .getPopularTrips()
+      .pipe(startWith(new Array(4).fill(getMockTrip())))
   }
 }
