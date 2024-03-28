@@ -57,6 +57,7 @@ describe("InputRatingComponent", () => {
 
     fixture.detectChanges()
 
+    // Check if the correct icons are used for each button
     for (let i = 0; i < buttons.length; i++) {
       const currentButton = buttons[i]
       const span = currentButton.query(By.css("[data-testid='input-rating-span']"))
