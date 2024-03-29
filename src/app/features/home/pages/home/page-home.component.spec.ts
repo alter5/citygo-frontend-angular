@@ -48,13 +48,16 @@ describe("PageHomeComponent", () => {
     fixture.detectChanges()
 
     // Check how many trip-overview-card components are rendered
-    const tripCardElements = fixture.debugElement.queryAll(By.css("app-trip-overview-card"))
-    const title = tripCardElements[0].query(By.css("[data-testid='card-title']")).nativeElement.textContent
+    const tripCardElements = fixture.debugElement.queryAll(
+      By.css("app-trip-overview-card")
+    )
+    const title = tripCardElements[0].query(By.css("[data-testid='card-title']"))
+      .nativeElement.textContent
 
     expect(title).toContain(testTitleString)
   })
 
-  it("should render dummy trips while loading data from service", async () => {
+  it("should render dummy trips while loading data from service", () => {
     // Delay is used to simulate the time it takes for the service to return data
     tripsServiceSpy.getPopularTrips.and.returnValue(
       of(new Array(3).fill(getMockTrip())).pipe(delay(1))
@@ -64,15 +67,20 @@ describe("PageHomeComponent", () => {
 
     const compiled = fixture.nativeElement
 
+    let actualTrips: Trip[] | undefined
     component.trips$.pipe(first()).subscribe((trips) => {
-      // The component should not render the actual trips until the service returns data
-      expect(trips.length).not.toEqual(3)
-
-      // The number of dummy trips created in ngOnInit
-      expect(trips.length).toEqual(4)
-
-      const tripCardElements = compiled.querySelectorAll("app-trip-overview-card")
-      expect(tripCardElements.length).toEqual(4)
+      actualTrips = trips
     })
+
+    // The observable's startWith operator makes the first emission immediately, allowing the following code to run synchronoously
+    
+    // The component should not render the actual trips until the service returns data
+    expect(actualTrips!.length).not.toEqual(3)
+
+    // The number of dummy trips created in ngOnInit
+    expect(actualTrips!.length).toEqual(4)
+
+    const tripCardElements = compiled.querySelectorAll("app-trip-overview-card")
+    expect(tripCardElements.length).toEqual(4)
   })
 })
