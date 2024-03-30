@@ -15,6 +15,7 @@ describe("PageHomeComponent", () => {
 
   beforeEach(async () => {
     // Resource for learning Angular testing: https://testing-angular.com/testing-components/#testing-components
+    // TODO: Create unit test for form, and create E2E test case for creating trip, and viewing one
     tripsServiceSpy = jasmine.createSpyObj("TripsService", ["getPopularTrips"])
 
     // Delay is used to simulate the time it takes for the service to return data
@@ -73,7 +74,7 @@ describe("PageHomeComponent", () => {
     })
 
     // The observable's startWith operator makes the first emission immediately, allowing the following code to run synchronoously
-    
+
     // The component should not render the actual trips until the service returns data
     expect(actualTrips!.length).not.toEqual(3)
 
