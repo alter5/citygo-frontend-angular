@@ -22,6 +22,7 @@ import { Marker } from "src/app/shared/components/google-map/marker.model"
 import { ImageCarouselComponent } from "src/app/shared/components/image-carousel/image-carousel.component"
 import { RatingComponent } from "src/app/shared/components/rating/rating.component"
 import { ImageCarouselSlide } from "src/app/shared/components/image-carousel/image-carousel-slide.model"
+import { getMockTrip } from "src/app/shared/models/tripMock"
 
 @Component({
   selector: "app-page-trip-details",
@@ -65,7 +66,7 @@ export class PageTripDetailsComponent implements OnInit {
         return this.tripsService.getTripById(tripId).pipe(
           map((trip) => {
             if (trip === null) {
-              trip = this.tripsService.getMockTrip()
+              trip = getMockTrip()
             } else {
               this.isLoading$.next(false)
             }
@@ -94,7 +95,7 @@ export class PageTripDetailsComponent implements OnInit {
 
             return trip
           }),
-          startWith(this.tripsService.getMockTrip())
+          startWith(getMockTrip())
         )
       })
     )

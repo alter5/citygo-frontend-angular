@@ -6,6 +6,7 @@
     "start": "ng serve",
     "dev": "concurrently --kill-others \"npm start\" \"npm run jsonserver\"",
     "test": "ng test --browsers=ChromeHeadless",
+    "test_cypress": "concurrently --kill-others \"npm run dev\" \"npx cypress run\"",
     "jsonserver_test": "concurrently --kill-others \"npm run jsonserver\" \"ng test --browsers=ChromeHeadless\"",
     "jsonserver": "json-server -p 3002 --watch db.json",
     "format": "prettier --write \"src/\"",
