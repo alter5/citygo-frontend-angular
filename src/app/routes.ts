@@ -7,12 +7,12 @@ const routeConfig: Routes = [
   {
     path: "",
     component: PageHomeComponent,
-    title: "Home page"
+    title: "Home Page"
   },
   {
     path: "tripDetails/:tripId",
     component: PageTripDetailsComponent,
-    title: "Trip details"
+    title: "Trip Details"
   },
   {
     path: "createTrip",
