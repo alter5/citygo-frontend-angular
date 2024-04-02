@@ -46,3 +46,6 @@ Thumbs.db
 
 # Resources file
 resources.txt
+
+# Cypress screenshots
+cypress/screenshots
