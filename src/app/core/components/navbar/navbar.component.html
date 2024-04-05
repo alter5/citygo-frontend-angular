@@ -2,6 +2,7 @@
 <ng-container *ngIf="isScreenSmall$ | async; else desktopNavbar">
   <nav
     class="light-gray fixed z-50 flex h-20 w-full items-center gap-4 bg-bg-secondary px-4 drop-shadow-md"
+    data-testid="navbar-mobile"
   >
     <a class="flex h-full w-40" [routerLink]="['/']">
       <!-- Logo was generated using www.logo.com -->
@@ -68,12 +69,12 @@
       </div>
       <div class="flex h-full flex-[3] items-center justify-end gap-6 whitespace-nowrap">
         <div class="flex h-full w-fit items-center gap-3">
-          <label class="leading-none text-text-primary" for="darkModeToggle"
+          <label class="leading-none text-text-primary" for="dark-mode-toggle"
             >Dark Mode</label
           >
           <div class="mt-[0.2rem] flex h-full items-center">
             <mat-slide-toggle
-              id="darkModeToggle"
+              id="dark-mode-toggle"
               [checked]="isDarkModeEnabled"
               (change)="handleDarkModeToggle($event)"
               [color]="toggleColor"
