@@ -7,6 +7,7 @@
     <div class="flex w-full">
       <app-input-basic
         [inputFormControl]="this.tripFormGroup.get('title')! | formControl"
+        id="field-create-trip-title"
         inputLabel="Title"
       ></app-input-basic>
     </div>
@@ -16,7 +17,7 @@
         inputId="city_id"
         inputLabel="City"
       ></app-input-basic> -->
-      <label class="mb-1 text-base text-text-primary" for="form-city-search-bar"
+      <label class="mb-1 text-base text-text-primary" for="field-city-search-bar"
         >City</label
       >
       <app-city-search-bar
@@ -28,7 +29,7 @@
     <app-input-large
       [inputFormControl]="this.tripFormGroup.get('description')! | formControl"
       inputLabel="Description"
-      inputId="description"
+      inputId="field-create-trip-description"
       class="flex-grow"
     ></app-input-large>
   </div>
@@ -36,7 +37,7 @@
     <div class="flex w-full">
       <app-input-rating
         [inputFormControl]="this.tripFormGroup.get('duration')! | formControl"
-        id="duration"
+        id="field-create-trip-duration"
         labelText="Duration"
         [maxRating]="5"
         selectedIconName="circle"
@@ -46,7 +47,7 @@
     <div class="flex w-full">
       <app-input-rating
         [inputFormControl]="this.tripFormGroup.get('price_range')! | formControl"
-        id="price_range"
+        id="field-create-trip-price-range"
         labelText="Price"
         [maxRating]="5"
         selectedIconName="circle"
@@ -58,7 +59,7 @@
   <fieldset class="mt-2">
     <legend class="text-lg">Destinations</legend>
     <p class="mb-2 text-base text-text-secondary">Enter the destinations for your trip. Reorder by dragging and dropping the fields.</p>
-    <div class="flex w-full">
+    <div class="flex w-full" id="field-create-trip-destinations">
       <app-input-draggable-options
         [inputFormArray]="this.tripFormGroup.get('destinations')! | formArray"
         (addOption)="this.onClickAddDestination()"
